@@ -1,0 +1,9 @@
+{%- liquid
+  assign menu_key = 'header.menu.' | append: menu_handle
+  assign menu_title = menu_key | t
+  if menu_title != menu_key
+    echo menu_title | escape
+  else
+    echo menu_fallback | escape
+  endif
+-%}

@@ -1,0 +1,90 @@
+.contact-page__heading {
+  margin-bottom: 3rem;
+}
+
+.contact-page__company {
+  margin-bottom: 2.5rem;
+}
+
+.contact-page__company-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1.2rem;
+  color: rgb(var(--color-foreground));
+}
+
+.contact-page__item {
+  margin-bottom: 0.6rem;
+}
+
+.contact-page__value {
+  font-size: 1.5rem;
+  color: rgba(var(--color-foreground), 0.75);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-page__link {
+  font-size: 1.5rem;
+  color: rgba(var(--color-foreground), 0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-page__link:hover {
+  color: rgb(var(--color-foreground));
+  text-decoration: underline;
+}
+
+.contact-page__intro {
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.85);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.contact-page .field {
+  margin-bottom: 1.5rem;
+}
+
+.contact-page .field__input {
+  padding-right: 0;
+}
+
+.contact-page select.field__input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23737373' d='M1.41.59 6 5.17 10.59.59 12 2l-6 6-6-6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+}
+
+.contact-page__button {
+  margin-top: 3rem;
+}
+
+.contact-page__required-note {
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.55);
+  margin-top: 1rem;
+}
+
+.contact-page__captcha-notice {
+  font-size: 1.1rem;
+  color: rgba(var(--color-foreground), 0.45);
+  margin-top: 2rem;
+  line-height: 1.6;
+}
+
+.contact-page__captcha-notice a {
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+@media screen and (min-width: 750px) {
+  .contact-page .field {
+    margin-bottom: 2rem;
+  }
+
+  .contact-page__button {
+    margin-top: 4rem;
+  }
+}

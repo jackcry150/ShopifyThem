@@ -1,0 +1,398 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pocket Art Figures & Doll Outfits",
+            "heading_size": "h0"
+          }
+        },
+        "text_j4Ah97": {
+          "type": "text",
+          "settings": {
+            "text": "A curated collection of figures, outfits, and accessories for doll lovers and collectors.",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Best Sellers",
+            "button_link_1": "shopify://collections",
+            "button_style_secondary_1": true,
+            "button_label_2": "Shop All",
+            "button_link_2": "shopify://collections",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text_j4Ah97",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/20260325163459_15_90.jpg",
+        "image_overlay_opacity": 40,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "multicolumn_PDAmmw": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_C4nR7L": {
+          "type": "column",
+          "settings": {
+            "title": "Limited Drops",
+            "text": "<p><br/>Rare and collectible figures released in limited quantities to ensure exclusivity.<br/><br/></p>",
+            "link_label": "",
+            "link": "shopify://collections/best-sellers"
+          }
+        },
+        "column_DnX9PD": {
+          "type": "column",
+          "settings": {
+            "title": "Fast Shipping",
+            "text": "<p><br/>Quick and reliable worldwide shipping, so you can enjoy your collectibles sooner.<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BadKNF": {
+          "type": "column",
+          "settings": {
+            "title": "Detailed Craftsmanship",
+            "text": "<p><br/>Each figure and outfit is crafted with precision and attention to detail for collectors.<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_C4nR7L",
+        "column_DnX9PD",
+        "column_BadKNF"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collection_list_mbEE8K": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_mVmQhd": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "figures"
+          }
+        },
+        "featured_collection_Awkm38": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dolls"
+          }
+        },
+        "featured_collection_6TC7Xy": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "clothes"
+          }
+        },
+        "featured_collection_3WcTi7": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "featured_collection_H7E4wX": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "new-doll"
+          }
+        },
+        "featured_collection_HFLN4r": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_mVmQhd",
+        "featured_collection_Awkm38",
+        "featured_collection_6TC7Xy",
+        "featured_collection_3WcTi7",
+        "featured_collection_H7E4wX",
+        "featured_collection_HFLN4r"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 6,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "new-doll",
+        "products_to_show": 8,
+        "title": "New Arrivals",
+        "heading_size": "h2",
+        "description": "<p><br/>Fresh drops for your next collection<br/><br/></p>",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 44
+      }
+    },
+    "multicolumn_RrLKcz": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_wyDL9j": {
+          "type": "column",
+          "settings": {
+            "title": "Curated for Collectors",
+            "text": "<p><br/>Carefully selected figures and outfits for true collectors.<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_GxH7AW": {
+          "type": "column",
+          "settings": {
+            "title": "Playful Details That Stand Out",
+            "text": "<p><br/>Each figure and outfit is designed with creative and eye-catching details.<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_JzD3mG": {
+          "type": "column",
+          "settings": {
+            "title": "Easy to Mix and Match",
+            "text": "<p><br/>Designed to combine seamlessly with other figures and outfits.<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NtcL4U": {
+          "type": "column",
+          "settings": {
+            "title": "Made for Gifting and Display",
+            "text": "<p><br/>Perfect for gifting or display in your collection.<br/><br/></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_wyDL9j",
+        "column_GxH7AW",
+        "column_JzD3mG",
+        "column_NtcL4U"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Why Choose Us",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_K8GVQ9": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_8jixVb": {
+          "type": "heading",
+          "settings": {
+            "heading": "About GooMooPlay",
+            "heading_size": "h1"
+          }
+        },
+        "text_H97AwQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>GooMooPlay curates pocket-sized art figures and doll outfits for collectors and enthusiasts. We focus on quality, creativity, and collectible value.<br/><br/></p>",
+            "text_style": "body"
+          }
+        },
+        "button_cKcN3e": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8jixVb",
+        "text_H97AwQ",
+        "button_cKcN3e"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/default_avatar.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_n8rg8N": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_AMtYxm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What payment methods are accepted?",
+            "icon": "check_mark",
+            "row_content": "<p>We accept all major credit cards, PayPal, and Shopify Payments.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_97Ncrd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I return an item?",
+            "icon": "check_mark",
+            "row_content": "<p>You can return any item within 30 days of purchase in its original condition.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_trV6Vr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Which shipping carriers do you use?",
+            "icon": "check_mark",
+            "row_content": "<p>We ship worldwide via reliable carriers, including DHL, FedEx, and USPS.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yz9RNP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I track my order?",
+            "icon": "check_mark",
+            "row_content": "<p><br/>After your order is shipped, you will receive a tracking number via email to track your package.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bUR6N8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When are new arrivals added?",
+            "icon": "check_mark",
+            "row_content": "<p>New arrivals are updated weekly. Follow us to stay up to date.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_AMtYxm",
+        "collapsible_row_97Ncrd",
+        "collapsible_row_trV6Vr",
+        "collapsible_row_yz9RNP",
+        "collapsible_row_bUR6N8"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "FAQ",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "multicolumn_PDAmmw",
+    "collection_list_mbEE8K",
+    "featured_collection",
+    "multicolumn_RrLKcz",
+    "image_with_text_K8GVQ9",
+    "collapsible_content_n8rg8N"
+  ]
+}
