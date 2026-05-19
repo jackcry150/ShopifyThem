@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "lookbook": {
+      "type": "lookbook",
+      "settings": {
+        "heading": "Lookbook",
+        "heading_size": "h1",
+        "description": "Explore our latest styles and outfit inspirations for your collection."
+      }
+    }
+  },
+  "order": [
+    "lookbook"
+  ]
+}

@@ -1,0 +1,200 @@
+{{ 'section-brand-story.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="brand-story page-width page-width--narrow section-{{ section.id }}-padding">
+    <h1 class="brand-story__heading {{ section.settings.heading_size }}">
+      {{ section.settings.heading }}
+    </h1>
+
+    {%- if section.settings.hero_image != blank -%}
+      <div class="brand-story__hero">
+        {{ section.settings.hero_image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+      </div>
+    {%- endif -%}
+
+    <div class="brand-story__content rte">
+      {{ section.settings.content }}
+    </div>
+
+    <div class="brand-story__values">
+      {%- for i in (1..4) -%}
+        {%- assign value_title = 'value_title_' | append: i -%}
+        {%- assign value_text = 'value_text_' | append: i -%}
+        {%- if section.settings[value_title] != blank -%}
+          <div class="brand-story__value">
+            <h3 class="brand-story__value-title">{{ section.settings[value_title] }}</h3>
+            <p class="brand-story__value-text">{{ section.settings[value_text] }}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_cta -%}
+      <div class="brand-story__cta">
+        <a href="{{ section.settings.cta_link }}" class="button button--primary">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Brand Story",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Story"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>GooMooPlay was born from a passion for pocket art figures, doll fashion, and the joy of collecting. We believe every figure tells a story, and every outfit is a chance to express creativity.</p><p>We curate unique collectibles from talented designers and studios around the world, bringing you pieces that are not just products, but tiny works of art.</p><p>Our mission is simple: to connect collectors with the figures and fashion they love, and to make every unboxing a moment of delight.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Brand Values"
+    },
+    {
+      "type": "text",
+      "id": "value_title_1",
+      "label": "Value 1 title",
+      "default": "Quality First"
+    },
+    {
+      "type": "textarea",
+      "id": "value_text_1",
+      "label": "Value 1 text",
+      "default": "Every piece we sell is carefully inspected before shipping to ensure the highest quality."
+    },
+    {
+      "type": "text",
+      "id": "value_title_2",
+      "label": "Value 2 title",
+      "default": "Global Community"
+    },
+    {
+      "type": "textarea",
+      "id": "value_text_2",
+      "label": "Value 2 text",
+      "default": "We ship worldwide and bring collectors together through our shared love of art figures."
+    },
+    {
+      "type": "text",
+      "id": "value_title_3",
+      "label": "Value 3 title",
+      "default": "Authentic Only"
+    },
+    {
+      "type": "textarea",
+      "id": "value_text_3",
+      "label": "Value 3 text",
+      "default": "100% authentic products sourced directly from authorized manufacturers and artists."
+    },
+    {
+      "type": "text",
+      "id": "value_title_4",
+      "label": "Value 4 title",
+      "default": "Collector Focus"
+    },
+    {
+      "type": "textarea",
+      "id": "value_text_4",
+      "label": "Value 4 text",
+      "default": "We're collectors ourselves. We understand what matters to you in every purchase."
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show CTA button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "Explore Our Collection"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link",
+      "default": "/collections/shop-all"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Story"
+    }
+  ]
+}
+{% endschema %}

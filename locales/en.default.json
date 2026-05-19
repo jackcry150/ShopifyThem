@@ -57,7 +57,8 @@
       "close": "Close share",
       "copy_to_clipboard": "Copy link",
       "share_url": "Link",
-      "success_message": "Link copied to clipboard"
+      "success_message": "Link copied to clipboard",
+      "share_on": "Share on"
     },
     "slider": {
       "of": "of",

@@ -1,0 +1,310 @@
+{{ 'section-product-feature.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="product-feature page-width page-width--narrow section-{{ section.id }}-padding">
+    <h2 class="product-feature__heading {{ section.settings.heading_size }}">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="product-feature__intro rte">
+      {{ section.settings.intro_text }}
+    </div>
+
+    {%- if section.settings.show_contents -%}
+      <div class="product-feature__section">
+        <h3 class="product-feature__subheading">{{ section.settings.contents_title }}</h3>
+        <div class="product-feature__contents">
+          {%- for i in (1..6) -%}
+            {%- assign item_label = 'contents_item_' | append: i -%}
+            {%- assign item_img = 'contents_image_' | append: i -%}
+            {%- if section.settings[item_label] != blank -%}
+              <div class="product-feature__content-item">
+                {%- if section.settings[item_img] != blank -%}
+                  <div class="product-feature__content-image">
+                    {{ section.settings[item_img] | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                  </div>
+                {%- endif -%}
+                <span class="product-feature__content-label">{{ section.settings[item_label] }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_details -%}
+      <div class="product-feature__section">
+        <h3 class="product-feature__subheading">{{ section.settings.details_title }}</h3>
+        <div class="product-feature__details rte">
+          {{ section.settings.details_text }}
+        </div>
+        <div class="product-feature__gallery">
+          {%- for i in (1..6) -%}
+            {%- assign img_id = 'detail_image_' | append: i -%}
+            {%- if section.settings[img_id] != blank -%}
+              <div class="product-feature__gallery-item">
+                {{ section.settings[img_id] | image_url: width: 800 | image_tag: loading: 'lazy' }}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_size_chart -%}
+      <div class="product-feature__section">
+        <h3 class="product-feature__subheading">{{ section.settings.size_chart_title }}</h3>
+        <div class="product-feature__size-chart rte">
+          {{ section.settings.size_chart_text }}
+        </div>
+        {%- if section.settings.size_chart_image != blank -%}
+          <div class="product-feature__size-image">
+            {{ section.settings.size_chart_image | image_url: width: 800 | image_tag: loading: 'lazy' }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Feature",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Product Features"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Introduction text",
+      "default": "<p>Discover the detailed features and craftsmanship behind this product.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Product Contents"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contents",
+      "label": "Show product contents",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "contents_title",
+      "label": "Contents section title",
+      "default": "What's Included"
+    },
+    {
+      "type": "text",
+      "id": "contents_item_1",
+      "label": "Content item 1",
+      "default": "Figure ×1"
+    },
+    {
+      "type": "image_picker",
+      "id": "contents_image_1",
+      "label": "Content image 1"
+    },
+    {
+      "type": "text",
+      "id": "contents_item_2",
+      "label": "Content item 2",
+      "default": "Outfit ×1"
+    },
+    {
+      "type": "image_picker",
+      "id": "contents_image_2",
+      "label": "Content image 2"
+    },
+    {
+      "type": "text",
+      "id": "contents_item_3",
+      "label": "Content item 3",
+      "default": "Accessories"
+    },
+    {
+      "type": "image_picker",
+      "id": "contents_image_3",
+      "label": "Content image 3"
+    },
+    {
+      "type": "text",
+      "id": "contents_item_4",
+      "label": "Content item 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "contents_image_4",
+      "label": "Content image 4"
+    },
+    {
+      "type": "text",
+      "id": "contents_item_5",
+      "label": "Content item 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "contents_image_5",
+      "label": "Content image 5"
+    },
+    {
+      "type": "text",
+      "id": "contents_item_6",
+      "label": "Content item 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "contents_image_6",
+      "label": "Content image 6"
+    },
+    {
+      "type": "header",
+      "content": "Product Details"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_details",
+      "label": "Show product details",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "details_title",
+      "label": "Details section title",
+      "default": "Craftsmanship & Details"
+    },
+    {
+      "type": "richtext",
+      "id": "details_text",
+      "label": "Details text",
+      "default": "<p>Each figure is crafted with precision and attention to detail, using high-quality materials for a premium finish.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "detail_image_1",
+      "label": "Detail image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "detail_image_2",
+      "label": "Detail image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "detail_image_3",
+      "label": "Detail image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "detail_image_4",
+      "label": "Detail image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "detail_image_5",
+      "label": "Detail image 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "detail_image_6",
+      "label": "Detail image 6"
+    },
+    {
+      "type": "header",
+      "content": "Size Chart"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_size_chart",
+      "label": "Show size chart",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "size_chart_title",
+      "label": "Size chart title",
+      "default": "Size Guide"
+    },
+    {
+      "type": "richtext",
+      "id": "size_chart_text",
+      "label": "Size chart text",
+      "default": "<p>Refer to the measurements below to ensure the best fit for your collection.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "size_chart_image",
+      "label": "Size chart image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Feature"
+    }
+  ]
+}
+{% endschema %}

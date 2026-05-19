@@ -57,7 +57,8 @@
       "copy_to_clipboard": "リンクをコピー",
       "share_url": "リンク",
       "success_message": "リンクがクリップボードにコピーされました",
-      "close": "共有を閉じる"
+      "close": "共有を閉じる",
+      "share_on": "共有する"
     },
     "slider": {
       "of": "の",
@@ -70,6 +71,19 @@
     "label": "メール",
     "success": "ご登録ありがとうございます",
     "button_label": "登録"
+  },
+  "header": {
+    "menu": {
+      "home": "ホーム",
+      "shop-all": "すべての商品",
+      "new-arrivals": "新着",
+      "dolls": "ドール",
+      "clothes": "服",
+      "information": "情報",
+      "blog": "ブログ",
+      "influencer-marketing": "インフルエンサーマーケティング",
+      "wholesale-partnership": "卸売パートナーシップ"
+    }
   },
   "accessibility": {
     "skip_to_text": "コンテンツに進む",

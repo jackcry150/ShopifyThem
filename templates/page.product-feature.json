@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "product-feature": {
+      "type": "product-feature",
+      "settings": {
+        "heading": "Product Features",
+        "heading_size": "h1",
+        "show_contents": true,
+        "show_details": true,
+        "show_size_chart": true
+      }
+    }
+  },
+  "order": [
+    "product-feature"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "shipping-policy": {
+      "type": "shipping-policy",
+      "settings": {
+        "heading": "Shipping & Return Policy",
+        "heading_size": "h1"
+      }
+    }
+  },
+  "order": [
+    "shipping-policy"
+  ]
+}

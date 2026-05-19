@@ -1451,5 +1451,17 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Analytics",
+    "settings": [
+      {
+        "type": "text",
+        "id": "ga4_measurement_id",
+        "label": "Google Analytics 4 Measurement ID",
+        "info": "Enter your GA4 measurement ID (e.g., G-XXXXXXXXXX)",
+        "default": ""
+      }
+    ]
   }
 ]

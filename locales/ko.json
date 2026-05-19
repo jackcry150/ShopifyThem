@@ -57,7 +57,8 @@
       "copy_to_clipboard": "링크 복사",
       "share_url": "링크",
       "success_message": "링크가 클립보드에 복사됨",
-      "close": "공유 닫기"
+      "close": "공유 닫기",
+      "share_on": "공유하기"
     },
     "slider": {
       "of": "의",
@@ -70,6 +71,19 @@
     "label": "이메일",
     "success": "가입해주셔서 감사합니다.",
     "button_label": "가입하기"
+  },
+  "header": {
+    "menu": {
+      "home": "홈",
+      "shop-all": "전체 상품",
+      "new-arrivals": "신상품",
+      "dolls": "인형",
+      "clothes": "의류",
+      "information": "정보",
+      "blog": "블로그",
+      "influencer-marketing": "인플루언서 마케팅",
+      "wholesale-partnership": "도매 파트너십"
+    }
   },
   "accessibility": {
     "skip_to_text": "콘텐츠로 건너뛰기",

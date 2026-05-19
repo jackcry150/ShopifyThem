@@ -1,0 +1,16 @@
+.shipping-policy__heading {
+  margin-bottom: 24px;
+}
+.shipping-policy__content h3 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+.shipping-policy__contact {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid rgb(var(--color-foreground), 0.08);
+  text-align: center;
+}
+.shipping-policy__contact p {
+  margin-bottom: 16px;
+}
