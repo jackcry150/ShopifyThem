@@ -215,6 +215,7 @@ function loadLocalConfig(): array
 {
     $paths = [
         '/root/deploy/php/config/ai-chat-config.php',
+        dirname(__DIR__) . '/config/ai-chat-config.php',
         __DIR__ . '/ai-chat-config.php'
     ];
 
