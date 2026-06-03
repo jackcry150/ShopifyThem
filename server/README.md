@@ -21,7 +21,35 @@ AI_CHAT_MODEL=gpt-5.4-mini
 AI_CHAT_ALLOWED_ORIGIN=https://your-shopify-domain.com
 ```
 
-If your AI provider uses OpenAI-compatible Chat Completions, use:
+For OpenAI-compatible providers, `AI_CHAT_PROVIDER_URL` can be either a base URL like `https://api.example.com/v1` or the full chat endpoint. The proxy automatically appends `/chat/completions` when needed.
+
+If setting PHP-FPM environment variables is inconvenient in Baota, create this private config file on the server instead:
+
+```text
+/root/deploy/php/config/ai-chat-config.php
+```
+
+Example:
+
+```php
+<?php
+return [
+    'AI_CHAT_API_KEY' => 'your_ai_provider_api_key',
+    'AI_CHAT_PROVIDER_URL' => 'https://api.openai.com/v1/responses',
+    'AI_CHAT_MODEL' => 'gpt-5.4-mini',
+    'AI_CHAT_ALLOWED_ORIGIN' => 'https://your-shopify-domain.com',
+];
+```
+
+The PHP proxy checks environment variables first, then this config file.
+
+If your AI provider uses OpenAI-compatible Chat Completions, use either:
+
+```text
+AI_CHAT_PROVIDER_URL=https://your-provider.example.com/v1
+```
+
+or:
 
 ```text
 AI_CHAT_PROVIDER_URL=https://your-provider.example.com/v1/chat/completions

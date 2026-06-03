@@ -17,7 +17,8 @@ declare(strict_types=1);
  *   https://your-provider.example.com/v1/chat/completions
  */
 
-$allowedOrigin = getenv('AI_CHAT_ALLOWED_ORIGIN') ?: '*';
+$localConfig = loadLocalConfig();
+$allowedOrigin = getConfigValue($localConfig, 'AI_CHAT_ALLOWED_ORIGIN', '*');
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: ' . $allowedOrigin);
 header('Access-Control-Allow-Headers: Content-Type');
@@ -32,9 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(405, ['error' => 'Only POST requests are supported.']);
 }
 
-$apiKey = getenv('AI_CHAT_API_KEY') ?: '';
-$providerUrl = getenv('AI_CHAT_PROVIDER_URL') ?: 'https://api.openai.com/v1/responses';
-$model = getenv('AI_CHAT_MODEL') ?: 'gpt-5.4-mini';
+$apiKey = getConfigValue($localConfig, 'AI_CHAT_API_KEY', '');
+$providerUrl = getConfigValue($localConfig, 'AI_CHAT_PROVIDER_URL', 'https://api.openai.com/v1/responses');
+$providerUrl = normalizeProviderUrl($providerUrl);
+$model = getConfigValue($localConfig, 'AI_CHAT_MODEL', 'gpt-5.4-mini');
 
 if ($apiKey === '') {
     respond(500, ['error' => 'AI_CHAT_API_KEY is not configured on the server.']);
@@ -125,6 +127,16 @@ function buildProviderPayload(string $providerUrl, string $model, array $message
     ];
 }
 
+function normalizeProviderUrl(string $providerUrl): string
+{
+    $trimmedUrl = rtrim($providerUrl, '/');
+    if (contains($trimmedUrl, '/responses') || contains($trimmedUrl, '/chat/completions')) {
+        return $trimmedUrl;
+    }
+
+    return $trimmedUrl . '/chat/completions';
+}
+
 function callProvider(string $providerUrl, string $apiKey, array $providerPayload): array
 {
     $ch = curl_init($providerUrl);
@@ -197,6 +209,38 @@ function respond(int $statusCode, array $data): void
     http_response_code($statusCode);
     echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     exit;
+}
+
+function loadLocalConfig(): array
+{
+    $paths = [
+        '/root/deploy/php/config/ai-chat-config.php',
+        __DIR__ . '/ai-chat-config.php'
+    ];
+
+    foreach ($paths as $path) {
+        if (is_file($path)) {
+            $config = require $path;
+            return is_array($config) ? $config : [];
+        }
+    }
+
+    return [];
+}
+
+function getConfigValue(array $config, string $key, string $default): string
+{
+    $value = getenv($key);
+    if (is_string($value) && $value !== '') {
+        return $value;
+    }
+
+    $configuredValue = $config[$key] ?? null;
+    if (is_string($configuredValue) && $configuredValue !== '') {
+        return $configuredValue;
+    }
+
+    return $default;
 }
 
 function contains(string $haystack, string $needle): bool
