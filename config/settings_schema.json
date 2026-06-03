@@ -1505,8 +1505,7 @@
         "type": "text",
         "id": "ai_chat_api_endpoint",
         "label": "AI API endpoint",
-        "info": "Use your Aliyun/Baota PHP proxy URL, for example: https://api.example.com/ai-chat.php. Do not put AI provider API keys in theme settings.",
-        "default": ""
+        "info": "Use your Aliyun/Baota PHP proxy URL, for example: https://api.example.com/ai-chat.php. Do not put AI provider API keys in theme settings."
       },
       {
         "type": "header",
@@ -1516,8 +1515,7 @@
         "type": "textarea",
         "id": "ai_chat_knowledge_faq",
         "label": "Product FAQ",
-        "info": "Questions and answers the AI should use before inventing anything.",
-        "default": ""
+        "info": "Questions and answers the AI should use before inventing anything."
       },
       {
         "type": "textarea",
