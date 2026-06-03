@@ -1,0 +1,80 @@
+{% comment %}
+  Renders quick reply FAQ entries from Metaobject.
+  Usage: {%- render 'quick-reply' -%}
+{% endcomment %}
+
+{%- liquid
+  assign quick_replies = shop.metaobjects.quick_reply.values
+-%}
+
+{%- if quick_replies.size > 0 -%}
+  <div class="product-quick-reply" {{ block.shopify_attributes }}>
+    <h4 class="product-quick-reply__title">Quick Questions</h4>
+    <div class="product-quick-reply__list">
+      {%- for reply in quick_replies -%}
+        <details class="product-quick-reply__item">
+          <summary class="product-quick-reply__question">
+            {{- reply.question.value -}}
+          </summary>
+          <div class="product-quick-reply__answer rte">
+            {{- reply.answer | metafield_tag -}}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+
+<style>
+  .product-quick-reply {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid rgb(var(--color-foreground), 0.08);
+    border-radius: 8px;
+  }
+  .product-quick-reply__title {
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    color: rgb(var(--color-foreground));
+  }
+  .product-quick-reply__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .product-quick-reply__item {
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .product-quick-reply__question {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    list-style: none;
+    background: rgb(var(--color-foreground), 0.03);
+    border-radius: 6px;
+    transition: background 0.15s;
+    color: rgb(var(--color-foreground));
+  }
+  .product-quick-reply__question:hover {
+    background: rgb(var(--color-foreground), 0.06);
+  }
+  .product-quick-reply__question::-webkit-details-marker {
+    display: none;
+  }
+  .product-quick-reply__answer {
+    padding: 8px 12px 12px;
+    font-size: 13px;
+    color: rgb(var(--color-foreground), 0.75);
+  }
+  .product-quick-reply__answer p {
+    margin: 0 0 4px 0;
+  }
+  .product-quick-reply__answer p:last-child {
+    margin-bottom: 0;
+  }
+</style>

@@ -74,14 +74,32 @@
   },
   "header": {
     "menu": {
-      "home": "Home",
-      "shop-all": "Shop All",
-      "new-arrivals": "New Arrivals",
-      "dolls": "Dolls",
-      "clothes": "Clothes",
-      "information": "Information",
       "blog": "Blog",
+      "bottoms": "Bottoms",
+      "clothes": "Clothes",
+      "cute": "Cute",
+      "doll": "Doll",
+      "doll-accesorries": "Doll Accessories",
+      "doll-accessories": "Doll Accessories",
+      "doll-clothes": "Doll Clothes",
+      "dolls": "Dolls",
+      "fashion-accessories": "Fashion Accessories",
+      "hardcore": "Hardcore",
+      "home": "Home",
+      "in-stock": "In Stock",
       "influencer-marketing": "Influencer Marketing",
+      "information": "Information",
+      "new-arrivals": "New Arrivals",
+      "now-available": "Now Available",
+      "on-sale": "On Sale",
+      "outfit": "Outfit",
+      "pocket-art": "Pocket Art",
+      "pre-order": "Pre-order",
+      "shop-all": "Shop All",
+      "shop-by-doll": "Shop by Doll",
+      "shop-by-style": "Shop by Style",
+      "tops": "Tops",
+      "weapon-accessories": "Weapon Accessories",
       "wholesale-partnership": "Wholesale Partnership"
     }
   },
@@ -341,7 +359,6 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
@@ -480,11 +497,21 @@
     "wholesale-contact": {
       "name": "Wholesale Contact",
       "settings": {
-        "heading": { "label": "Heading" },
-        "tagline": { "label": "Tagline" },
-        "body_text": { "label": "Body text" },
-        "contact_email": { "label": "Contact email" },
-        "form_heading": { "label": "Form heading" }
+        "heading": {
+          "label": "Heading"
+        },
+        "tagline": {
+          "label": "Tagline"
+        },
+        "body_text": {
+          "label": "Body text"
+        },
+        "contact_email": {
+          "label": "Contact email"
+        },
+        "form_heading": {
+          "label": "Form heading"
+        }
       },
       "presets": {
         "name": "Wholesale Contact"
@@ -493,10 +520,18 @@
     "influencer-cooperation": {
       "name": "Influencer Cooperation",
       "settings": {
-        "heading": { "label": "Heading" },
-        "intro_text": { "label": "Introduction text" },
-        "body_text": { "label": "Body text" },
-        "form_heading": { "label": "Form heading" }
+        "heading": {
+          "label": "Heading"
+        },
+        "intro_text": {
+          "label": "Introduction text"
+        },
+        "body_text": {
+          "label": "Body text"
+        },
+        "form_heading": {
+          "label": "Form heading"
+        }
       },
       "presets": {
         "name": "Influencer Cooperation"

@@ -57,13 +57,45 @@
       "copy_to_clipboard": "คัดลอกลิงก์",
       "share_url": "ลิงก์",
       "success_message": "คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว",
-      "close": "ปิดแชร์"
+      "close": "ปิดแชร์",
+      "share_on": "แชร์ที่"
     },
     "slider": {
       "of": "จาก",
       "next_slide": "ไปสไลด์ขวา",
       "previous_slide": "ไปสไลด์ซ้าย",
       "name": "แถบเลื่อน"
+    }
+  },
+  "header": {
+    "menu": {
+      "blog": "บล็อก",
+      "bottoms": "กางเกง",
+      "clothes": "เสื้อผ้า",
+      "cute": "น่ารัก",
+      "doll": "ตุ๊กตา",
+      "doll-accesorries": "อุปกรณ์เสริมตุ๊กตา",
+      "doll-accessories": "อุปกรณ์เสริมตุ๊กตา",
+      "doll-clothes": "เสื้อผ้าตุ๊กตา",
+      "dolls": "ตุ๊กตา",
+      "fashion-accessories": "เครื่องประดับแฟชั่น",
+      "hardcore": "ฮาร์ดคอร์",
+      "home": "หน้าแรก",
+      "in-stock": "มีสินค้า",
+      "influencer-marketing": "การตลาดอินฟลูเอนเซอร์",
+      "information": "ข้อมูล",
+      "new-arrivals": "สินค้าใหม่",
+      "now-available": "พร้อมจำหน่าย",
+      "on-sale": "ลดราคา",
+      "outfit": "ชุดเซ็ต",
+      "pocket-art": "พ็อกเก็ตอาร์ต",
+      "pre-order": "สั่งจองล่วงหน้า",
+      "shop-all": "สินค้าทั้งหมด",
+      "shop-by-doll": "เลือกซื้อตามตุ๊กตา",
+      "shop-by-style": "เลือกซื้อตามสไตล์",
+      "tops": "เสื้อ",
+      "weapon-accessories": "อุปกรณ์อาวุธ",
+      "wholesale-partnership": "ความร่วมมือค้าส่ง"
     }
   },
   "newsletter": {
@@ -265,6 +297,7 @@
         "phone": "หมายเลขโทรศัพท์",
         "comment": "ความคิดเห็น",
         "send": "ส่ง",
+        "category": "หมวดหมู่",
         "post_success": "ขอขอบคุณที่ติดต่อเรา เราจะติดต่อกลับไปหาคุณโดยเร็วที่สุด",
         "error_heading": "โปรดแก้ไขข้อมูลดังต่อไปนี้:",
         "title": "แบบฟอร์มการติดต่อ"

@@ -1,0 +1,164 @@
+{{ 'section-product-feature.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- assign feature_intro = product.metafields.custom.features_intro -%}
+{%- assign feature_contents = product.metafields.custom.features_contents -%}
+{%- assign feature_details = product.metafields.custom.features_details -%}
+{%- assign feature_size_chart = product.metafields.custom.features_size_chart -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="product-feature page-width page-width--narrow section-{{ section.id }}-padding">
+    <a href="{{ product.url }}" class="product-feature__back">
+      ← {{ 'products.product.back_to_product' | t: title: product.title }}
+    </a>
+
+    <h1 class="product-feature__heading">{{ product.title | escape }}</h1>
+
+    {%- if feature_intro != blank -%}
+      <div class="product-feature__intro rte">
+        {{ feature_intro | metafield_tag }}
+      </div>
+    {%- endif -%}
+
+    {%- if feature_contents != blank -%}
+      <div class="product-feature__section">
+        <h3 class="product-feature__subheading">{{ section.settings.contents_title }}</h3>
+        <div class="product-feature__contents rte">
+          {{ feature_contents | metafield_tag }}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if feature_details != blank -%}
+      <div class="product-feature__section">
+        <h3 class="product-feature__subheading">{{ section.settings.details_title }}</h3>
+        <div class="product-feature__details rte">
+          {{ feature_details | metafield_tag }}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if feature_size_chart != blank -%}
+      <div class="product-feature__section">
+        <h3 class="product-feature__subheading">{{ section.settings.size_chart_title }}</h3>
+        <div class="product-feature__size-chart rte">
+          {{ feature_size_chart | metafield_tag }}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if feature_intro == blank and feature_contents == blank and feature_details == blank and feature_size_chart == blank -%}
+      <div class="product-feature__empty">
+        <p>No feature details have been added for this product yet.</p>
+      </div>
+    {%- endif -%}
+
+    <a href="{{ product.url }}" class="button button--primary" style="margin-top: 32px;">
+      ← Back to product
+    </a>
+  </div>
+</div>
+
+<style>
+  .product-feature__back {
+    display: inline-block;
+    font-size: 14px;
+    color: rgb(var(--color-foreground), 0.6);
+    text-decoration: none;
+    margin-bottom: 16px;
+  }
+  .product-feature__back:hover {
+    color: rgb(var(--color-foreground));
+    text-decoration: underline;
+  }
+  .product-feature__heading {
+    margin: 0 0 24px;
+    font-size: 28px;
+  }
+  .product-feature__subheading {
+    font-size: 20px;
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(var(--color-foreground), 0.1);
+  }
+  .product-feature__empty {
+    padding: 40px 0;
+    text-align: center;
+    color: rgb(var(--color-foreground), 0.5);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Feature Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "contents_title",
+      "label": "Contents section title",
+      "default": "Product Contents"
+    },
+    {
+      "type": "text",
+      "id": "details_title",
+      "label": "Details section title",
+      "default": "Product Details & Craftsmanship"
+    },
+    {
+      "type": "text",
+      "id": "size_chart_title",
+      "label": "Size chart section title",
+      "default": "Size Chart"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Feature Page"
+    }
+  ]
+}
+{% endschema %}

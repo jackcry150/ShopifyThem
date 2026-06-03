@@ -1,0 +1,392 @@
+{%- if settings.ai_chat_enabled -%}
+  {%- liquid
+    assign widget_id = 'AiChatWidget'
+    assign chat_title = settings.ai_chat_title | default: 'GooMooPlay Assistant'
+    assign chat_intro = settings.ai_chat_intro | default: 'Hi! Ask me about sizing, shipping, returns, or doll outfit recommendations.'
+    assign input_placeholder = settings.ai_chat_placeholder | default: 'Type your question...'
+    assign fallback_reply = settings.ai_chat_fallback_reply | default: 'Thanks for your question. Please leave your email or contact us and our team will help you shortly.'
+    assign handoff_label = settings.ai_chat_handoff_label | default: 'Contact support'
+    assign handoff_link = settings.ai_chat_handoff_link | default: routes.root_url
+    assign raw_rules = settings.ai_chat_reply_rules | default: ''
+  -%}
+
+  <div
+    id="{{ widget_id }}"
+    class="ai-chat-widget"
+    data-fallback-reply="{{ fallback_reply | escape }}"
+    data-shop-name="{{ shop.name | escape }}"
+  >
+    <button class="ai-chat-widget__launcher" type="button" aria-expanded="false" aria-controls="{{ widget_id }}-panel">
+      <span class="ai-chat-widget__launcher-icon" aria-hidden="true">
+        {{- 'icon-chat-bubble.svg' | inline_asset_content -}}
+      </span>
+      <span class="ai-chat-widget__launcher-text">{{ settings.ai_chat_button_label | default: 'AI Help' }}</span>
+    </button>
+
+    <section id="{{ widget_id }}-panel" class="ai-chat-widget__panel" aria-label="{{ chat_title | escape }}" hidden>
+      <header class="ai-chat-widget__header">
+        <div>
+          <p class="ai-chat-widget__eyebrow">{{ settings.ai_chat_status | default: 'Auto reply online' }}</p>
+          <h2 class="ai-chat-widget__title">{{ chat_title }}</h2>
+        </div>
+        <button class="ai-chat-widget__close" type="button" aria-label="Close chat">
+          {{- 'icon-close.svg' | inline_asset_content -}}
+        </button>
+      </header>
+
+      <div class="ai-chat-widget__messages" aria-live="polite">
+        <div class="ai-chat-widget__message ai-chat-widget__message--bot">
+          {{ chat_intro }}
+        </div>
+      </div>
+
+      <div class="ai-chat-widget__quick-actions" aria-label="Quick questions">
+        <button type="button" data-ai-chat-question="What size should I choose?">Sizing</button>
+        <button type="button" data-ai-chat-question="How long does shipping take?">Shipping</button>
+        <button type="button" data-ai-chat-question="Can I return my order?">Returns</button>
+      </div>
+
+      <form class="ai-chat-widget__form">
+        <label class="visually-hidden" for="{{ widget_id }}-input">{{ input_placeholder }}</label>
+        <input id="{{ widget_id }}-input" type="text" autocomplete="off" placeholder="{{ input_placeholder | escape }}">
+        <button type="submit" aria-label="Send message">
+          {{- 'icon-arrow.svg' | inline_asset_content -}}
+        </button>
+      </form>
+
+      {%- if handoff_link != blank -%}
+        <a class="ai-chat-widget__handoff" href="{{ handoff_link }}">
+          {{ handoff_label }}
+        </a>
+      {%- endif -%}
+
+      <script type="application/json" data-ai-chat-rules>
+        [
+          {%- assign lines = raw_rules | newline_to_br | split: '<br />' -%}
+          {%- assign rendered_rule = false -%}
+          {%- for line in lines -%}
+            {%- assign rule = line | strip -%}
+            {%- if rule contains '=>' -%}
+              {%- assign parts = rule | split: '=>' -%}
+              {%- assign keywords = parts[0] | strip -%}
+              {%- assign reply = parts[1] | strip -%}
+              {%- if keywords != blank and reply != blank -%}
+                {%- if rendered_rule -%},{%- endif -%}
+                {
+                  "keywords": {{ keywords | split: ',' | json }},
+                  "reply": {{ reply | json }}
+                }
+                {%- assign rendered_rule = true -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        ]
+      </script>
+    </section>
+  </div>
+
+  <style>
+    .ai-chat-widget {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 80;
+      color: #191816;
+      font-family: var(--font-body-family);
+    }
+
+    .ai-chat-widget__launcher,
+    .ai-chat-widget__panel,
+    .ai-chat-widget__quick-actions button,
+    .ai-chat-widget__form,
+    .ai-chat-widget__handoff {
+      box-shadow: 0 18px 48px rgba(19, 22, 27, 0.18);
+    }
+
+    .ai-chat-widget__launcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: #121212;
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .ai-chat-widget__launcher:hover {
+      transform: translateY(-2px);
+      background: #2f2a22;
+    }
+
+    .ai-chat-widget__launcher-icon {
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+    }
+
+    .ai-chat-widget__launcher-icon svg,
+    .ai-chat-widget__close svg,
+    .ai-chat-widget__form button svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .ai-chat-widget__panel {
+      position: absolute;
+      left: 0;
+      bottom: 72px;
+      width: min(360px, calc(100vw - 32px));
+      overflow: hidden;
+      border: 1px solid rgba(18, 18, 18, 0.08);
+      border-radius: 8px;
+      background: #fffefa;
+      transform-origin: bottom left;
+    }
+
+    .ai-chat-widget__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 18px 14px;
+      background: #f4efe4;
+      border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+    }
+
+    .ai-chat-widget__eyebrow {
+      margin: 0 0 4px;
+      color: #6d6558;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .ai-chat-widget__title {
+      margin: 0;
+      color: #171411;
+      font-size: 18px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .ai-chat-widget__close {
+      width: 34px;
+      height: 34px;
+      padding: 9px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(18, 18, 18, 0.08);
+      color: #171411;
+      cursor: pointer;
+    }
+
+    .ai-chat-widget__messages {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 280px;
+      padding: 16px;
+      overflow-y: auto;
+      background: linear-gradient(180deg, #fffefa 0%, #faf7ee 100%);
+    }
+
+    .ai-chat-widget__message {
+      max-width: 88%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    .ai-chat-widget__message--bot {
+      align-self: flex-start;
+      background: #ece4d5;
+      color: #27221b;
+    }
+
+    .ai-chat-widget__message--user {
+      align-self: flex-end;
+      background: #171411;
+      color: #fff;
+    }
+
+    .ai-chat-widget__quick-actions {
+      display: flex;
+      gap: 8px;
+      padding: 0 16px 12px;
+      background: #faf7ee;
+      overflow-x: auto;
+    }
+
+    .ai-chat-widget__quick-actions button {
+      flex: 0 0 auto;
+      padding: 8px 10px;
+      border: 1px solid rgba(18, 18, 18, 0.1);
+      border-radius: 999px;
+      background: #fff;
+      color: #27221b;
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .ai-chat-widget__form {
+      display: grid;
+      grid-template-columns: 1fr 42px;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid rgba(18, 18, 18, 0.08);
+      background: #fffefa;
+    }
+
+    .ai-chat-widget__form input {
+      min-width: 0;
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid rgba(18, 18, 18, 0.14);
+      border-radius: 8px;
+      background: #fff;
+      color: #171411;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .ai-chat-widget__form button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 12px;
+      border: 0;
+      border-radius: 8px;
+      background: #121212;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .ai-chat-widget__handoff {
+      display: block;
+      padding: 11px 16px 14px;
+      background: #fffefa;
+      color: #4e4437;
+      font-size: 13px;
+      text-align: center;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media screen and (max-width: 749px) {
+      .ai-chat-widget {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .ai-chat-widget__launcher {
+        min-height: 50px;
+        padding: 0 16px;
+      }
+
+      .ai-chat-widget__panel {
+        left: 0;
+        bottom: 66px;
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const widget = document.getElementById({{ widget_id | json }});
+      if (!widget) return;
+
+      const launcher = widget.querySelector('.ai-chat-widget__launcher');
+      const panel = widget.querySelector('.ai-chat-widget__panel');
+      const closeButton = widget.querySelector('.ai-chat-widget__close');
+      const form = widget.querySelector('.ai-chat-widget__form');
+      const input = form.querySelector('input');
+      const messages = widget.querySelector('.ai-chat-widget__messages');
+      const quickActions = widget.querySelectorAll('[data-ai-chat-question]');
+      const fallbackReply = widget.dataset.fallbackReply;
+      const rulesElement = widget.querySelector('[data-ai-chat-rules]');
+      let rules = [];
+
+      try {
+        rules = JSON.parse(rulesElement.textContent || '[]');
+      } catch (error) {
+        rules = [];
+      }
+
+      const normalize = (value) => value.toLowerCase().trim();
+
+      const addMessage = (text, type) => {
+        const message = document.createElement('div');
+        message.className = `ai-chat-widget__message ai-chat-widget__message--${type}`;
+        message.textContent = text;
+        messages.appendChild(message);
+        messages.scrollTop = messages.scrollHeight;
+      };
+
+      const findReply = (question) => {
+        const normalizedQuestion = normalize(question);
+        const match = rules.find((rule) =>
+          Array.isArray(rule.keywords) &&
+          rule.keywords.some((keyword) => normalizedQuestion.includes(normalize(keyword)))
+        );
+
+        return match ? match.reply : fallbackReply;
+      };
+
+      const askQuestion = (question) => {
+        const trimmedQuestion = question.trim();
+        if (!trimmedQuestion) return;
+
+        addMessage(trimmedQuestion, 'user');
+        input.value = '';
+
+        window.setTimeout(() => {
+          addMessage(findReply(trimmedQuestion), 'bot');
+        }, 300);
+      };
+
+      const openPanel = () => {
+        panel.hidden = false;
+        launcher.setAttribute('aria-expanded', 'true');
+        window.setTimeout(() => input.focus(), 80);
+      };
+
+      const closePanel = () => {
+        panel.hidden = true;
+        launcher.setAttribute('aria-expanded', 'false');
+        launcher.focus();
+      };
+
+      launcher.addEventListener('click', () => {
+        panel.hidden ? openPanel() : closePanel();
+      });
+
+      closeButton.addEventListener('click', closePanel);
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        askQuestion(input.value);
+      });
+
+      quickActions.forEach((button) => {
+        button.addEventListener('click', () => askQuestion(button.dataset.aiChatQuestion || button.textContent));
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !panel.hidden) closePanel();
+      });
+    })();
+  </script>
+{%- endif -%}

@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "feature-main": {
+      "type": "product-feature-page",
+      "settings": {
+        "color_scheme": "scheme-1"
+      }
+    }
+  },
+  "order": [
+    "feature-main"
+  ]
+}

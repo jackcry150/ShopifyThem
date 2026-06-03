@@ -1,9 +1,9 @@
 {%- liquid
   assign menu_key = 'header.menu.' | append: menu_handle
   assign menu_title = menu_key | t
-  if menu_title != menu_key
-    echo menu_title | escape
-  else
+  if menu_title contains 'Translation missing' or menu_title == menu_key
     echo menu_fallback | escape
+  else
+    echo menu_title | escape
   endif
 -%}

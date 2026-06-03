@@ -1451,5 +1451,70 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "AI chat auto reply",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "ai_chat_enabled",
+        "label": "Enable AI chat button",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ai_chat_button_label",
+        "label": "Button label",
+        "default": "AI Help"
+      },
+      {
+        "type": "text",
+        "id": "ai_chat_status",
+        "label": "Status text",
+        "default": "Auto reply online"
+      },
+      {
+        "type": "text",
+        "id": "ai_chat_title",
+        "label": "Chat title",
+        "default": "GooMooPlay Assistant"
+      },
+      {
+        "type": "textarea",
+        "id": "ai_chat_intro",
+        "label": "Welcome message",
+        "default": "Hi! Ask me about sizing, shipping, returns, or doll outfit recommendations."
+      },
+      {
+        "type": "text",
+        "id": "ai_chat_placeholder",
+        "label": "Input placeholder",
+        "default": "Type your question..."
+      },
+      {
+        "type": "textarea",
+        "id": "ai_chat_reply_rules",
+        "label": "Auto reply rules",
+        "info": "One rule per line. Format: keyword, keyword => reply",
+        "default": "size,sizing,fit,measurements => Most outfits include size notes on the product page. If you tell us your doll body type and height, we can help confirm the best fit.\nshipping,delivery,ship => We ship worldwide. Delivery time depends on your country and shipping method; you can see available options at checkout.\nreturn,refund,exchange => If there is an issue with your order, please contact us with your order number and photos so our team can help.\nstock,restock,sold out => Some designs are limited. If an item is sold out, contact us and we can check whether a restock or similar style is available.\nrecommend,suggest,style,outfit => Tell us your doll size and the style you like, and we will suggest matching outfits or accessories."
+      },
+      {
+        "type": "textarea",
+        "id": "ai_chat_fallback_reply",
+        "label": "Fallback reply",
+        "default": "Thanks for your question. Please leave your email or contact us and our team will help you shortly."
+      },
+      {
+        "type": "text",
+        "id": "ai_chat_handoff_label",
+        "label": "Contact link label",
+        "default": "Contact support"
+      },
+      {
+        "type": "url",
+        "id": "ai_chat_handoff_link",
+        "label": "Contact link"
+      }
+    ]
   }
 ]
