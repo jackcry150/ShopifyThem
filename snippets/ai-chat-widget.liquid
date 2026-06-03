@@ -8,13 +8,17 @@
     assign handoff_label = settings.ai_chat_handoff_label | default: 'Contact support'
     assign handoff_link = settings.ai_chat_handoff_link | default: routes.root_url
     assign raw_rules = settings.ai_chat_reply_rules | default: ''
+    assign api_endpoint = settings.ai_chat_api_endpoint | default: ''
   -%}
 
   <div
     id="{{ widget_id }}"
     class="ai-chat-widget"
+    data-api-endpoint="{{ api_endpoint | escape }}"
+    data-remote-enabled="{{ settings.ai_chat_remote_enabled }}"
     data-fallback-reply="{{ fallback_reply | escape }}"
     data-shop-name="{{ shop.name | escape }}"
+    data-shop-domain="{{ shop.permanent_domain | escape }}"
   >
     <button class="ai-chat-widget__launcher" type="button" aria-expanded="false" aria-controls="{{ widget_id }}-panel">
       <span class="ai-chat-widget__launcher-icon" aria-hidden="true">
@@ -82,6 +86,53 @@
           {%- endfor -%}
         ]
       </script>
+
+      <script type="application/json" data-ai-chat-context>
+        {
+          "shop": {
+            "name": {{ shop.name | json }},
+            "domain": {{ shop.permanent_domain | json }},
+            "url": {{ shop.url | json }}
+          },
+          "page": {
+            "title": {{ page_title | json }},
+            "url": {{ canonical_url | json }},
+            "type": {{ request.page_type | json }}
+          },
+          "product": {%- if product -%}
+            {
+              "id": {{ product.id | json }},
+              "title": {{ product.title | json }},
+              "vendor": {{ product.vendor | json }},
+              "type": {{ product.type | json }},
+              "url": {{ product.url | within: collection | prepend: shop.url | json }},
+              "price": {{ product.price | money_with_currency | json }},
+              "compare_at_price": {{ product.compare_at_price | money_with_currency | json }},
+              "available": {{ product.available | json }},
+              "description": {{ product.description | strip_html | strip_newlines | truncate: 1800 | json }},
+              "variants": [
+                {%- for variant in product.variants limit: 20 -%}
+                  {%- unless forloop.first -%},{%- endunless -%}
+                  {
+                    "title": {{ variant.title | json }},
+                    "sku": {{ variant.sku | json }},
+                    "available": {{ variant.available | json }},
+                    "price": {{ variant.price | money_with_currency | json }}
+                  }
+                {%- endfor -%}
+              ]
+            }
+          {%- else -%}
+            null
+          {%- endif -%},
+          "knowledge": {
+            "faq": {{ settings.ai_chat_knowledge_faq | default: '' | json }},
+            "shipping_policy": {{ settings.ai_chat_shipping_policy | default: '' | json }},
+            "return_policy": {{ settings.ai_chat_return_policy | default: '' | json }},
+            "extra": {{ settings.ai_chat_extra_knowledge | default: '' | json }}
+          }
+        }
+      </script>
     </section>
   </div>
 
@@ -122,6 +173,12 @@
     .ai-chat-widget__launcher:hover {
       transform: translateY(-2px);
       background: #2f2a22;
+    }
+
+    .ai-chat-widget__launcher:disabled,
+    .ai-chat-widget__form button:disabled {
+      cursor: wait;
+      opacity: 0.7;
     }
 
     .ai-chat-widget__launcher-icon {
@@ -202,6 +259,7 @@
       font-size: 14px;
       line-height: 1.45;
       word-break: break-word;
+      white-space: pre-line;
     }
 
     .ai-chat-widget__message--bot {
@@ -313,11 +371,17 @@
       const closeButton = widget.querySelector('.ai-chat-widget__close');
       const form = widget.querySelector('.ai-chat-widget__form');
       const input = form.querySelector('input');
+      const submitButton = form.querySelector('button');
       const messages = widget.querySelector('.ai-chat-widget__messages');
       const quickActions = widget.querySelectorAll('[data-ai-chat-question]');
       const fallbackReply = widget.dataset.fallbackReply;
+      const apiEndpoint = widget.dataset.apiEndpoint;
+      const remoteEnabled = widget.dataset.remoteEnabled === 'true';
       const rulesElement = widget.querySelector('[data-ai-chat-rules]');
+      const contextElement = widget.querySelector('[data-ai-chat-context]');
+      const history = [];
       let rules = [];
+      let context = {};
 
       try {
         rules = JSON.parse(rulesElement.textContent || '[]');
@@ -325,7 +389,18 @@
         rules = [];
       }
 
-      const normalize = (value) => value.toLowerCase().trim();
+      try {
+        context = JSON.parse(contextElement.textContent || '{}');
+      } catch (error) {
+        context = {};
+      }
+
+      const normalize = (value) => String(value || '').toLowerCase().trim();
+
+      const setLoading = (isLoading) => {
+        submitButton.disabled = isLoading;
+        input.disabled = isLoading;
+      };
 
       const addMessage = (text, type) => {
         const message = document.createElement('div');
@@ -335,7 +410,7 @@
         messages.scrollTop = messages.scrollHeight;
       };
 
-      const findReply = (question) => {
+      const findLocalReply = (question) => {
         const normalizedQuestion = normalize(question);
         const match = rules.find((rule) =>
           Array.isArray(rule.keywords) &&
@@ -345,16 +420,55 @@
         return match ? match.reply : fallbackReply;
       };
 
-      const askQuestion = (question) => {
+      const askRemote = async (question) => {
+        const response = await fetch(apiEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            question,
+            history: history.slice(-8),
+            context
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`AI endpoint returned ${response.status}`);
+        }
+
+        const data = await response.json();
+        const reply = data.reply || data.answer || data.message;
+
+        if (!reply || typeof reply !== 'string') {
+          throw new Error('AI endpoint response did not include a reply');
+        }
+
+        return reply;
+      };
+
+      const askQuestion = async (question) => {
         const trimmedQuestion = question.trim();
         if (!trimmedQuestion) return;
 
         addMessage(trimmedQuestion, 'user');
         input.value = '';
+        setLoading(true);
 
-        window.setTimeout(() => {
-          addMessage(findReply(trimmedQuestion), 'bot');
-        }, 300);
+        try {
+          const reply = remoteEnabled && apiEndpoint
+            ? await askRemote(trimmedQuestion)
+            : findLocalReply(trimmedQuestion);
+
+          history.push({ role: 'user', content: trimmedQuestion });
+          history.push({ role: 'assistant', content: reply });
+          addMessage(reply, 'bot');
+        } catch (error) {
+          addMessage(findLocalReply(trimmedQuestion), 'bot');
+        } finally {
+          setLoading(false);
+          input.focus();
+        }
       };
 
       const openPanel = () => {

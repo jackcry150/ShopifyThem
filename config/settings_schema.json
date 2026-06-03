@@ -1492,6 +1492,57 @@
         "default": "Type your question..."
       },
       {
+        "type": "header",
+        "content": "AI API proxy"
+      },
+      {
+        "type": "checkbox",
+        "id": "ai_chat_remote_enabled",
+        "label": "Use remote AI proxy",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "ai_chat_api_endpoint",
+        "label": "AI API endpoint",
+        "info": "Use your Aliyun/Baota PHP proxy URL, for example: https://api.example.com/ai-chat.php. Do not put AI provider API keys in theme settings.",
+        "default": ""
+      },
+      {
+        "type": "header",
+        "content": "AI knowledge"
+      },
+      {
+        "type": "textarea",
+        "id": "ai_chat_knowledge_faq",
+        "label": "Product FAQ",
+        "info": "Questions and answers the AI should use before inventing anything.",
+        "default": ""
+      },
+      {
+        "type": "textarea",
+        "id": "ai_chat_shipping_policy",
+        "label": "Shipping policy",
+        "default": "We ship worldwide. Delivery time depends on destination country, shipping method, customs, and checkout options."
+      },
+      {
+        "type": "textarea",
+        "id": "ai_chat_return_policy",
+        "label": "Return policy",
+        "default": "If there is an issue with an order, customers should contact support with the order number and photos so the team can review it."
+      },
+      {
+        "type": "textarea",
+        "id": "ai_chat_extra_knowledge",
+        "label": "Extra brand or product knowledge",
+        "info": "Add sizing notes, material notes, custom order rules, or any store-specific instructions.",
+        "default": "GooMooPlay sells doll outfits and accessories. For order-specific questions, ask customers to contact support with their order number."
+      },
+      {
+        "type": "header",
+        "content": "Local fallback replies"
+      },
+      {
         "type": "textarea",
         "id": "ai_chat_reply_rules",
         "label": "Auto reply rules",
