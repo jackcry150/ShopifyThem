@@ -22,7 +22,12 @@
   >
     <button class="ai-chat-widget__launcher" type="button" aria-expanded="false" aria-controls="{{ widget_id }}-panel">
       <span class="ai-chat-widget__launcher-icon" aria-hidden="true">
-        {{- 'icon-chat-bubble.svg' | inline_asset_content -}}
+        <svg viewBox="0 0 32 32" focusable="false" aria-hidden="true">
+          <path d="M7 6.5h18c2.2 0 4 1.8 4 4v9.5c0 2.2-1.8 4-4 4h-9.1l-5.8 4.1c-.8.6-1.9 0-1.9-1v-3.1H7c-2.2 0-4-1.8-4-4v-9.5c0-2.2 1.8-4 4-4Z" fill="currentColor"/>
+          <circle cx="11.5" cy="15.2" r="1.8" fill="#000"/>
+          <circle cx="16" cy="15.2" r="1.8" fill="#000"/>
+          <circle cx="20.5" cy="15.2" r="1.8" fill="#000"/>
+        </svg>
       </span>
       <span class="ai-chat-widget__launcher-text">Chat</span>
       <span class="ai-chat-widget__launcher-close" aria-hidden="true">
