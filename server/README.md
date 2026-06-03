@@ -19,6 +19,9 @@ AI_CHAT_API_KEY=your_ai_provider_api_key
 AI_CHAT_PROVIDER_URL=https://api.openai.com/v1/responses
 AI_CHAT_MODEL=gpt-5.4-mini
 AI_CHAT_ALLOWED_ORIGIN=https://your-shopify-domain.com
+AI_CHAT_MAX_AI_QUESTIONS=3
+AI_CHAT_LIMIT_WINDOW_SECONDS=86400
+AI_CHAT_LIMIT_REPLY=Thanks for your question. Our team will help you shortly.
 ```
 
 For OpenAI-compatible providers, `AI_CHAT_PROVIDER_URL` can be either a base URL like `https://api.example.com/v1` or the full chat endpoint. The proxy automatically appends `/chat/completions` when needed.
@@ -38,10 +41,19 @@ return [
     'AI_CHAT_PROVIDER_URL' => 'https://api.openai.com/v1/responses',
     'AI_CHAT_MODEL' => 'gpt-5.4-mini',
     'AI_CHAT_ALLOWED_ORIGIN' => 'https://your-shopify-domain.com',
+    'AI_CHAT_MAX_AI_QUESTIONS' => '3',
+    'AI_CHAT_LIMIT_WINDOW_SECONDS' => '86400',
+    'AI_CHAT_LIMIT_REPLY' => 'Thanks for your question. Our team will help you shortly.',
 ];
 ```
 
 The PHP proxy checks environment variables first, then this config file.
+
+## AI Usage Limit
+
+The proxy limits real AI calls per browser visitor. By default, each visitor gets 3 AI-powered replies per 24 hours. After the limit is reached, the proxy returns `AI_CHAT_LIMIT_REPLY` directly and does not call the AI provider.
+
+Set `AI_CHAT_MAX_AI_QUESTIONS=0` to disable this limit.
 
 If your AI provider uses OpenAI-compatible Chat Completions, use either:
 

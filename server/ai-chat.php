@@ -57,11 +57,24 @@ if ($question === '') {
     respond(400, ['error' => 'Question is required.']);
 }
 
+$maxAiQuestions = (int)getConfigValue($localConfig, 'AI_CHAT_MAX_AI_QUESTIONS', '3');
+$limitWindowSeconds = (int)getConfigValue($localConfig, 'AI_CHAT_LIMIT_WINDOW_SECONDS', '86400');
+$limitReply = getConfigValue(
+    $localConfig,
+    'AI_CHAT_LIMIT_REPLY',
+    'Thanks for your question. Our AI assistant has answered the available free questions for this chat. Please contact support and our team will help you shortly.'
+);
+
+if (isAiLimitReached($payload, $maxAiQuestions, $limitWindowSeconds)) {
+    respond(200, ['reply' => $limitReply, 'limited' => true]);
+}
+
 $context = is_array($payload['context'] ?? null) ? $payload['context'] : [];
 $history = is_array($payload['history'] ?? null) ? array_slice($payload['history'], -8) : [];
 $messages = buildMessages($question, $history, $context);
 $providerPayload = buildProviderPayload($providerUrl, $model, $messages);
-$providerResponse = callProvider($providerUrl, $apiKey, $providerPayload);
+$providerTimeout = (int)getConfigValue($localConfig, 'AI_CHAT_TIMEOUT', '15');
+$providerResponse = callProvider($providerUrl, $apiKey, $providerPayload, $providerTimeout);
 $reply = extractReply($providerUrl, $providerResponse);
 
 if ($reply === '') {
@@ -137,18 +150,20 @@ function normalizeProviderUrl(string $providerUrl): string
     return $trimmedUrl . '/chat/completions';
 }
 
-function callProvider(string $providerUrl, string $apiKey, array $providerPayload): array
+function callProvider(string $providerUrl, string $apiKey, array $providerPayload, int $timeout): array
 {
     $ch = curl_init($providerUrl);
     if ($ch === false) {
         respond(500, ['error' => 'Unable to initialize cURL.']);
     }
 
+    $safeTimeout = max(5, min($timeout, 35));
+
     curl_setopt_array($ch, [
         CURLOPT_POST => true,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CONNECTTIMEOUT => 8,
-        CURLOPT_TIMEOUT => 35,
+        CURLOPT_TIMEOUT => $safeTimeout,
         CURLOPT_HTTPHEADER => [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $apiKey
@@ -209,6 +224,75 @@ function respond(int $statusCode, array $data): void
     http_response_code($statusCode);
     echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     exit;
+}
+
+function isAiLimitReached(array $payload, int $maxQuestions, int $windowSeconds): bool
+{
+    if ($maxQuestions <= 0) {
+        return false;
+    }
+
+    $window = max(60, $windowSeconds);
+    $now = time();
+    $visitorId = getVisitorFingerprint($payload);
+    $limitDir = sys_get_temp_dir() . '/goomooplay-ai-chat-limits';
+
+    if (!is_dir($limitDir) && !mkdir($limitDir, 0755, true) && !is_dir($limitDir)) {
+        return false;
+    }
+
+    $limitFile = $limitDir . '/' . hash('sha256', $visitorId) . '.json';
+    $handle = fopen($limitFile, 'c+');
+    if ($handle === false) {
+        return false;
+    }
+
+    try {
+        flock($handle, LOCK_EX);
+        $raw = stream_get_contents($handle);
+        $data = is_string($raw) && $raw !== '' ? json_decode($raw, true) : [];
+        if (!is_array($data)) {
+            $data = [];
+        }
+
+        $windowStart = (int)($data['window_start'] ?? $now);
+        $count = (int)($data['count'] ?? 0);
+
+        if (($now - $windowStart) >= $window) {
+            $windowStart = $now;
+            $count = 0;
+        }
+
+        if ($count >= $maxQuestions) {
+            return true;
+        }
+
+        $count++;
+        rewind($handle);
+        ftruncate($handle, 0);
+        fwrite($handle, json_encode([
+            'window_start' => $windowStart,
+            'count' => $count
+        ], JSON_UNESCAPED_SLASHES));
+
+        return false;
+    } finally {
+        flock($handle, LOCK_UN);
+        fclose($handle);
+    }
+}
+
+function getVisitorFingerprint(array $payload): string
+{
+    $visitorId = trim((string)($payload['visitor_id'] ?? ''));
+    if ($visitorId !== '') {
+        return 'visitor:' . $visitorId;
+    }
+
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? 'unknown-ip';
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown-agent';
+
+    return 'fallback:' . $ip . '|' . $userAgent;
 }
 
 function loadLocalConfig(): array

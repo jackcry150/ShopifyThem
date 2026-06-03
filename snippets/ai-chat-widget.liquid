@@ -380,6 +380,7 @@
       const rulesElement = widget.querySelector('[data-ai-chat-rules]');
       const contextElement = widget.querySelector('[data-ai-chat-context]');
       const history = [];
+      const visitorStorageKey = 'goomooplay_ai_chat_visitor_id';
       let rules = [];
       let context = {};
 
@@ -396,6 +397,22 @@
       }
 
       const normalize = (value) => String(value || '').toLowerCase().trim();
+
+      const getVisitorId = () => {
+        try {
+          const storedId = window.localStorage.getItem(visitorStorageKey);
+          if (storedId) return storedId;
+
+          const randomId = window.crypto && window.crypto.randomUUID
+            ? window.crypto.randomUUID()
+            : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+          window.localStorage.setItem(visitorStorageKey, randomId);
+          return randomId;
+        } catch (error) {
+          return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+        }
+      };
 
       const setLoading = (isLoading) => {
         submitButton.disabled = isLoading;
@@ -428,6 +445,7 @@
           },
           body: JSON.stringify({
             question,
+            visitor_id: getVisitorId(),
             history: history.slice(-8),
             context
           })
