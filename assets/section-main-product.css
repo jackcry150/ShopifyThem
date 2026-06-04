@@ -1473,7 +1473,7 @@ a.product__text {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.6rem;
 }
 
 .product-question-modal__overlay {
@@ -1484,32 +1484,33 @@ a.product__text {
 
 .product-question-modal__panel {
   position: relative;
-  width: min(74.6rem, 100%);
-  max-height: calc(100vh - 4rem);
+  width: min(52rem, 100%);
+  max-height: calc(100vh - 3.2rem);
   overflow-y: auto;
   background: rgb(var(--color-background));
-  padding: 4.6rem 4.8rem 3.4rem;
-  box-shadow: 0 2.4rem 7rem rgba(0, 0, 0, 0.16);
+  padding: 3rem 3.2rem 2.6rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 1.8rem 5rem rgba(0, 0, 0, 0.16);
 }
 
 .product-question-modal__panel h2 {
-  margin: 0 4rem 3.8rem;
+  margin: 0 3rem 2.4rem;
   text-align: center;
-  font-size: clamp(4rem, 6vw, 5.8rem);
+  font-size: clamp(2.8rem, 4vw, 3.4rem);
   line-height: 1;
   font-weight: 800;
-  letter-spacing: -0.06rem;
+  letter-spacing: -0.03rem;
 }
 
 .product-question-modal__close {
   appearance: none;
   position: absolute;
-  top: 1.8rem;
-  right: 1.8rem;
+  top: 1.2rem;
+  right: 1.4rem;
   border: 0;
   background: transparent;
   color: rgb(var(--color-foreground));
-  font-size: 4rem;
+  font-size: 2.8rem;
   line-height: 1;
   cursor: pointer;
 }
@@ -1517,19 +1518,19 @@ a.product__text {
 .product-question-form {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 1.4rem;
 }
 
 .product-question-form__field {
   width: 100%;
-  min-height: 6.8rem;
+  min-height: 4.4rem;
   border: 0.1rem solid rgba(var(--color-foreground), 0.1);
-  border-radius: 0.7rem;
-  padding: 0 1.8rem;
+  border-radius: 0.6rem;
+  padding: 0 1.2rem;
   background: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
   font: inherit;
-  font-size: 2.4rem;
+  font-size: 1.5rem;
 }
 
 .product-question-form__field::placeholder {
@@ -1538,27 +1539,27 @@ a.product__text {
 }
 
 .product-question-form__message {
-  min-height: 21rem;
-  padding-top: 2rem;
+  min-height: 12rem;
+  padding-top: 1.2rem;
   resize: vertical;
 }
 
 .product-question-form__required {
-  margin: -0.8rem 0 0;
+  margin: -0.2rem 0 0;
   color: rgba(var(--color-foreground), 0.72);
-  font-size: 2.2rem;
+  font-size: 1.4rem;
   font-style: italic;
 }
 
 .product-question-form__submit {
   align-self: center;
-  min-width: 23.4rem;
-  min-height: 6.8rem;
+  min-width: 15rem;
+  min-height: 4.6rem;
   border: 0;
-  border-radius: 0.6rem;
+  border-radius: 0.5rem;
   background: #000;
   color: #fff;
-  font-size: 2.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -1640,26 +1641,26 @@ a.product__text {
   }
 
   .product-question-modal__panel {
-    padding: 4rem 2rem 2.8rem;
+    padding: 3.2rem 1.6rem 2.2rem;
   }
 
   .product-question-modal__panel h2 {
-    margin-bottom: 2.8rem;
-    font-size: 3.8rem;
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
   }
 
   .product-question-form__field {
-    min-height: 5.8rem;
-    font-size: 1.8rem;
+    min-height: 4.2rem;
+    font-size: 1.5rem;
   }
 
   .product-question-form__message {
-    min-height: 16rem;
+    min-height: 11rem;
   }
 
   .product-question-form__required,
   .product-question-form__submit {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 }
 
