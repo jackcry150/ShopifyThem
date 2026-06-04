@@ -1,6 +1,761 @@
+{% doc %}
+  @prompt
+    Create a full-width product information section using horizontal tabs (not accordion/collapsible blocks).
+    
+    Requirements:
+    
+    Layout:
+    
+    * Display tabs horizontally at the top of the section.
+    * The section width should match the product page content width (Page Width).
+    * Tabs should be aligned left.
+    * Show a thin underline below the active tab.
+    * Use a clean, minimal style similar to premium collectible, designer toy, and BJD doll websites.
+    
+    Tabs:
+    
+    1. Product Details
+    2. Product Photos
+    3. Pre-Order Information
+    4. Shipping Information
+    5. Return & Refund Policy
+    6. Reviews
+    7. Join Our Community
+    
+    Interaction:
+    
+    * When a customer clicks a tab, only the corresponding content is displayed.
+    * Hide all other tab content.
+    * No page reload.
+    * Smooth fade transition between tabs.
+    * The first tab (Product Details) should be active by default.
+    
+    Content Area:
+    
+    * Display content directly below the tabs.
+    * Support rich text, images, videos, links, and metafields.
+    * Allow each tab to have independent content.
+    * Support dynamic content from Shopify product metafields.
+    
+    Design:
+    
+    * Full page width container.
+    * Maximum content width: 1200px–1400px.
+    * Mobile responsive.
+    * Tabs become horizontally scrollable on mobile.
+    * Background remains transparent.
+    * Border line under tab navigation.
+    * Typography consistent with premium lifestyle and collectible brands.
+    
+    Admin Settings:
+    
+    * Allow merchants to rename tabs.
+    * Allow merchants to reorder tabs.
+    * Allow merchants to enable/disable tabs.
+    * Allow content editing for each tab directly from Theme Editor.
+    
+    Example User Experience:
+    
+    Click "Product Details" → Show product description.
+    
+    Click "Pre-Order Information" → Show production timeline and preorder policies.
+    
+    Click "Shipping Information" → Show shipping times and delivery details.
+    
+    Click "Return & Refund Policy" → Show refund rules.
+    
+    Click "Reviews" → Show Shopify review app block.
+    
+    Click "Join Our Community" → Show Discord, Facebook and Instagram links.
+    
+    Only one tab content should be visible at a time.
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-tabs-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background: transparent;
+    margin: 40px 0;
+  }
+
+  .ai-product-tabs-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_content_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-product-tabs-nav-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid {{ block.settings.border_color }};
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 32px;
+  }
+
+  .ai-product-tabs-nav-{{ ai_gen_id }}::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ai-product-tabs-button-{{ ai_gen_id }} {
+    background: none;
+    border: none;
+    padding: 16px 24px;
+    font-size: {{ block.settings.tab_font_size }}px;
+    font-weight: {{ block.settings.tab_font_weight }};
+    color: {{ block.settings.tab_text_color }};
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    transition: color 0.3s ease;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    letter-spacing: {{ block.settings.tab_letter_spacing }};
+  }
+
+  .ai-product-tabs-button-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.tab_hover_color }};
+  }
+
+  .ai-product-tabs-button-{{ ai_gen_id }}.active {
+    color: {{ block.settings.tab_active_color }};
+    border-bottom-color: {{ block.settings.tab_active_underline_color }};
+  }
+
+  .ai-product-tabs-content-{{ ai_gen_id }} {
+    position: relative;
+    min-height: 200px;
+  }
+
+  .ai-product-tabs-panel-{{ ai_gen_id }} {
+    display: none;
+    opacity: 0;
+    transition: opacity {{ block.settings.transition_duration }}s ease;
+  }
+
+  .ai-product-tabs-panel-{{ ai_gen_id }}.active {
+    display: block;
+    opacity: 1;
+  }
+
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} {
+    font-size: {{ block.settings.content_font_size }}px;
+    line-height: {{ block.settings.content_line_height }};
+    color: {{ block.settings.content_text_color }};
+  }
+
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} h1,
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} h2,
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} h3,
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} h4,
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} h5,
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} h6 {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} p {
+    margin-bottom: 16px;
+  }
+
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+  }
+
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} ul,
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+  }
+
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} a {
+    color: {{ block.settings.link_color }};
+    text-decoration: underline;
+  }
+
+  .ai-product-tabs-panel-content-{{ ai_gen_id }} a:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-product-tabs-button-{{ ai_gen_id }} {
+      padding: 12px 16px;
+      font-size: {{ block.settings.tab_font_size | times: 0.9 }}px;
+    }
+
+    .ai-product-tabs-container-{{ ai_gen_id }} {
+      padding: 0 16px;
+    }
+
+    .ai-product-tabs-nav-{{ ai_gen_id }} {
+      margin-bottom: 24px;
+    }
+
+    .ai-product-tabs-panel-content-{{ ai_gen_id }} {
+      font-size: {{ block.settings.content_font_size | times: 0.95 }}px;
+    }
+  }
+{% endstyle %}
+
+<product-tabs-{{ ai_gen_id }} class="ai-product-tabs-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-product-tabs-container-{{ ai_gen_id }}">
+    <div class="ai-product-tabs-nav-{{ ai_gen_id }}" role="tablist">
+      {% if block.settings.tab_1_enabled %}
+        <button
+          class="ai-product-tabs-button-{{ ai_gen_id }} active"
+          role="tab"
+          aria-selected="true"
+          aria-controls="ai-product-tabs-panel-1-{{ ai_gen_id }}"
+          data-tab="1"
+        >
+          {{ block.settings.tab_1_title }}
+        </button>
+      {% endif %}
+
+      {% if block.settings.tab_2_enabled %}
+        <button
+          class="ai-product-tabs-button-{{ ai_gen_id }}"
+          role="tab"
+          aria-selected="false"
+          aria-controls="ai-product-tabs-panel-2-{{ ai_gen_id }}"
+          data-tab="2"
+        >
+          {{ block.settings.tab_2_title }}
+        </button>
+      {% endif %}
+
+      {% if block.settings.tab_3_enabled %}
+        <button
+          class="ai-product-tabs-button-{{ ai_gen_id }}"
+          role="tab"
+          aria-selected="false"
+          aria-controls="ai-product-tabs-panel-3-{{ ai_gen_id }}"
+          data-tab="3"
+        >
+          {{ block.settings.tab_3_title }}
+        </button>
+      {% endif %}
+
+      {% if block.settings.tab_4_enabled %}
+        <button
+          class="ai-product-tabs-button-{{ ai_gen_id }}"
+          role="tab"
+          aria-selected="false"
+          aria-controls="ai-product-tabs-panel-4-{{ ai_gen_id }}"
+          data-tab="4"
+        >
+          {{ block.settings.tab_4_title }}
+        </button>
+      {% endif %}
+
+      {% if block.settings.tab_5_enabled %}
+        <button
+          class="ai-product-tabs-button-{{ ai_gen_id }}"
+          role="tab"
+          aria-selected="false"
+          aria-controls="ai-product-tabs-panel-5-{{ ai_gen_id }}"
+          data-tab="5"
+        >
+          {{ block.settings.tab_5_title }}
+        </button>
+      {% endif %}
+
+      {% if block.settings.tab_6_enabled %}
+        <button
+          class="ai-product-tabs-button-{{ ai_gen_id }}"
+          role="tab"
+          aria-selected="false"
+          aria-controls="ai-product-tabs-panel-6-{{ ai_gen_id }}"
+          data-tab="6"
+        >
+          {{ block.settings.tab_6_title }}
+        </button>
+      {% endif %}
+
+      {% if block.settings.tab_7_enabled %}
+        <button
+          class="ai-product-tabs-button-{{ ai_gen_id }}"
+          role="tab"
+          aria-selected="false"
+          aria-controls="ai-product-tabs-panel-7-{{ ai_gen_id }}"
+          data-tab="7"
+        >
+          {{ block.settings.tab_7_title }}
+        </button>
+      {% endif %}
+    </div>
+
+    <div class="ai-product-tabs-content-{{ ai_gen_id }}">
+      {% if block.settings.tab_1_enabled %}
+        <div
+          class="ai-product-tabs-panel-{{ ai_gen_id }} active"
+          role="tabpanel"
+          id="ai-product-tabs-panel-1-{{ ai_gen_id }}"
+          data-panel="1"
+        >
+          <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
+            {{ block.settings.tab_1_content }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.tab_2_enabled %}
+        <div
+          class="ai-product-tabs-panel-{{ ai_gen_id }}"
+          role="tabpanel"
+          id="ai-product-tabs-panel-2-{{ ai_gen_id }}"
+          data-panel="2"
+        >
+          <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
+            {{ block.settings.tab_2_content }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.tab_3_enabled %}
+        <div
+          class="ai-product-tabs-panel-{{ ai_gen_id }}"
+          role="tabpanel"
+          id="ai-product-tabs-panel-3-{{ ai_gen_id }}"
+          data-panel="3"
+        >
+          <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
+            {{ block.settings.tab_3_content }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.tab_4_enabled %}
+        <div
+          class="ai-product-tabs-panel-{{ ai_gen_id }}"
+          role="tabpanel"
+          id="ai-product-tabs-panel-4-{{ ai_gen_id }}"
+          data-panel="4"
+        >
+          <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
+            {{ block.settings.tab_4_content }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.tab_5_enabled %}
+        <div
+          class="ai-product-tabs-panel-{{ ai_gen_id }}"
+          role="tabpanel"
+          id="ai-product-tabs-panel-5-{{ ai_gen_id }}"
+          data-panel="5"
+        >
+          <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
+            {{ block.settings.tab_5_content }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.tab_6_enabled %}
+        <div
+          class="ai-product-tabs-panel-{{ ai_gen_id }}"
+          role="tabpanel"
+          id="ai-product-tabs-panel-6-{{ ai_gen_id }}"
+          data-panel="6"
+        >
+          <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
+            {{ block.settings.tab_6_content }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.tab_7_enabled %}
+        <div
+          class="ai-product-tabs-panel-{{ ai_gen_id }}"
+          role="tabpanel"
+          id="ai-product-tabs-panel-7-{{ ai_gen_id }}"
+          data-panel="7"
+        >
+          <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
+            {{ block.settings.tab_7_content }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</product-tabs-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ProductTabs{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.tabs = this.querySelectorAll('.ai-product-tabs-button-{{ ai_gen_id }}');
+        this.panels = this.querySelectorAll('.ai-product-tabs-panel-{{ ai_gen_id }}');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.tabs.forEach((tab) => {
+          tab.addEventListener('click', () => {
+            const tabId = tab.getAttribute('data-tab');
+            this.switchTab(tabId);
+          });
+        });
+      }
+
+      switchTab(tabId) {
+        this.tabs.forEach((tab) => {
+          const isActive = tab.getAttribute('data-tab') === tabId;
+          tab.classList.toggle('active', isActive);
+          tab.setAttribute('aria-selected', isActive);
+        });
+
+        this.panels.forEach((panel) => {
+          const isActive = panel.getAttribute('data-panel') === tabId;
+          if (isActive) {
+            panel.classList.add('active');
+            setTimeout(() => {
+              panel.style.opacity = '1';
+            }, 10);
+          } else {
+            panel.style.opacity = '0';
+            setTimeout(() => {
+              panel.classList.remove('active');
+            }, {{ block.settings.transition_duration | times: 1000 }});
+          }
+        });
+      }
+    }
+
+    customElements.define('product-tabs-{{ ai_gen_id }}', ProductTabs{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Product tabs",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_content_width",
+      "label": "Maximum content width",
+      "min": 1000,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "transition_duration",
+      "label": "Transition duration",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "unit": "s",
+      "default": 0.3
+    },
+    {
+      "type": "header",
+      "content": "Tab navigation style"
+    },
+    {
+      "type": "range",
+      "id": "tab_font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "tab_font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "select",
+      "id": "tab_letter_spacing",
+      "label": "Letter spacing",
+      "options": [
+        {
+          "value": "0",
+          "label": "Normal"
+        },
+        {
+          "value": "0.5px",
+          "label": "Slight"
+        },
+        {
+          "value": "1px",
+          "label": "Wide"
+        }
+      ],
+      "default": "0.5px"
+    },
+    {
+      "type": "color",
+      "id": "tab_text_color",
+      "label": "Text color",
+      "default": "#999999"
+    },
+    {
+      "type": "color",
+      "id": "tab_hover_color",
+      "label": "Hover color",
+      "default": "#2b2b2b"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_color",
+      "label": "Active color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_underline_color",
+      "label": "Active underline color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "header",
+      "content": "Content style"
+    },
+    {
+      "type": "range",
+      "id": "content_font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "content_line_height",
+      "label": "Line height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "color",
+      "id": "content_text_color",
+      "label": "Text color",
+      "default": "#2b2b2b"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#fa8c3c"
+    },
+    {
+      "type": "header",
+      "content": "Tab 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "tab_1_enabled",
+      "label": "Enable tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tab_1_title",
+      "label": "Tab title",
+      "default": "Product Details"
+    },
+    {
+      "type": "richtext",
+      "id": "tab_1_content",
+      "label": "Tab content",
+      "default": "<p>Add your product details here. You can include descriptions, specifications, materials, and care instructions.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tab 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "tab_2_enabled",
+      "label": "Enable tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tab_2_title",
+      "label": "Tab title",
+      "default": "Product Photos"
+    },
+    {
+      "type": "richtext",
+      "id": "tab_2_content",
+      "label": "Tab content",
+      "default": "<p>Add additional product photos, lifestyle images, or detail shots here.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tab 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "tab_3_enabled",
+      "label": "Enable tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tab_3_title",
+      "label": "Tab title",
+      "default": "Pre-Order Information"
+    },
+    {
+      "type": "richtext",
+      "id": "tab_3_content",
+      "label": "Tab content",
+      "default": "<p>Add pre-order timeline, production schedule, and estimated delivery information here.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tab 4"
+    },
+    {
+      "type": "checkbox",
+      "id": "tab_4_enabled",
+      "label": "Enable tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tab_4_title",
+      "label": "Tab title",
+      "default": "Shipping Information"
+    },
+    {
+      "type": "richtext",
+      "id": "tab_4_content",
+      "label": "Tab content",
+      "default": "<p>Add shipping methods, delivery times, and shipping costs here.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tab 5"
+    },
+    {
+      "type": "checkbox",
+      "id": "tab_5_enabled",
+      "label": "Enable tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tab_5_title",
+      "label": "Tab title",
+      "default": "Return & Refund Policy"
+    },
+    {
+      "type": "richtext",
+      "id": "tab_5_content",
+      "label": "Tab content",
+      "default": "<p>Add your return and refund policy details here.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tab 6"
+    },
+    {
+      "type": "checkbox",
+      "id": "tab_6_enabled",
+      "label": "Enable tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tab_6_title",
+      "label": "Tab title",
+      "default": "Reviews"
+    },
+    {
+      "type": "richtext",
+      "id": "tab_6_content",
+      "label": "Tab content",
+      "default": "<p>Add your review app block or customer testimonials here.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tab 7"
+    },
+    {
+      "type": "checkbox",
+      "id": "tab_7_enabled",
+      "label": "Enable tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tab_7_title",
+      "label": "Tab title",
+      "default": "Join Our Community"
+    },
+    {
+      "type": "richtext",
+      "id": "tab_7_content",
+      "label": "Tab content",
+      "default": "<p>Connect with us on social media and join our community.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product tabs"
+    }
+  ]
+}
 {% endschema %}
