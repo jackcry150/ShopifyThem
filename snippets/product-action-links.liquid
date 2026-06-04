@@ -3,21 +3,24 @@
 {% endcomment %}
 
 {%- liquid
-  assign contact_email = shop.email | default: 'contact@goomooplay.com'
   assign product_share_url = product.selected_variant.url | default: product.url | prepend: request.origin
   assign shipping_url = shop.shipping_policy.url | default: '/policies/shipping-policy'
+  assign question_modal_id = 'ProductQuestionModal-' | append: section.id
 -%}
 
 <div class="product-action-links" data-product-action-links>
-  <a
+  <button
     class="product-action-links__item"
-    href="mailto:{{ contact_email }}?subject={{ 'Question about ' | append: product.title | url_encode }}&body={{ product_share_url | url_encode }}"
+    type="button"
+    aria-haspopup="dialog"
+    aria-controls="{{ question_modal_id }}"
+    data-question-modal-open
   >
     <span class="product-action-links__icon" aria-hidden="true">
       {% render 'icon-accordion', icon: 'question_mark' %}
     </span>
     <span>Ask question</span>
-  </a>
+  </button>
 
   <button
     class="product-action-links__item"
@@ -40,19 +43,110 @@
   </a>
 </div>
 
+<div
+  id="{{ question_modal_id }}"
+  class="product-question-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="{{ question_modal_id }}-Title"
+  hidden
+  data-question-modal
+>
+  <div class="product-question-modal__overlay" data-question-modal-close></div>
+  <div class="product-question-modal__panel">
+    <button class="product-question-modal__close" type="button" aria-label="Close" data-question-modal-close>
+      &times;
+    </button>
+    <h2 id="{{ question_modal_id }}-Title">Ask a Question</h2>
+
+    {%- form 'contact', id: question_modal_id | append: '-Form', class: 'product-question-form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="product-question-form__status" tabindex="-1" autofocus>Your question has been sent.</p>
+      {%- elsif form.errors -%}
+        <div class="product-question-form__status product-question-form__status--error">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+
+      <input type="hidden" name="contact[Product]" value="{{ product.title | escape }}">
+      <input type="hidden" name="contact[Product URL]" value="{{ product_share_url }}">
+
+      <input
+        class="product-question-form__field"
+        autocomplete="name"
+        type="text"
+        name="contact[name]"
+        placeholder="Your Name*"
+        required
+      >
+      <input
+        class="product-question-form__field"
+        autocomplete="tel"
+        type="tel"
+        name="contact[phone]"
+        placeholder="Your Phone Number"
+      >
+      <input
+        class="product-question-form__field"
+        autocomplete="email"
+        type="email"
+        name="contact[email]"
+        placeholder="Your Email*"
+        required
+      >
+      <textarea
+        class="product-question-form__field product-question-form__message"
+        name="contact[body]"
+        placeholder="Your Message*"
+        required
+      ></textarea>
+
+      <p class="product-question-form__required">* Required fields</p>
+      <button class="product-question-form__submit" type="submit">Submit Now</button>
+    {%- endform -%}
+  </div>
+</div>
+
 <script>
   (() => {
     const roots = document.querySelectorAll('[data-product-action-links]');
     roots.forEach((root) => {
-      const button = root.querySelector('[data-product-share-button]');
-      if (!button || button.dataset.bound === 'true') return;
+      if (root.dataset.bound === 'true') return;
+      root.dataset.bound = 'true';
 
-      button.dataset.bound = 'true';
-      button.addEventListener('click', async () => {
-        const title = button.dataset.shareTitle || document.title;
-        const url = button.dataset.shareUrl || window.location.href;
-        const label = button.querySelector('[data-share-label]');
+      const modal = root.nextElementSibling;
+      const openButton = root.querySelector('[data-question-modal-open]');
+      const closeButtons = modal ? modal.querySelectorAll('[data-question-modal-close]') : [];
+      const shareButton = root.querySelector('[data-product-share-button]');
 
+      const openModal = () => {
+        if (!modal) return;
+        modal.hidden = false;
+        document.documentElement.classList.add('product-question-modal-open');
+        const firstField = modal.querySelector('input, textarea, button');
+        if (firstField) firstField.focus();
+      };
+
+      const closeModal = () => {
+        if (!modal) return;
+        modal.hidden = true;
+        document.documentElement.classList.remove('product-question-modal-open');
+        if (openButton) openButton.focus();
+      };
+
+      if (openButton) openButton.addEventListener('click', openModal);
+      closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal && !modal.hidden) closeModal();
+      });
+
+      if (!shareButton) return;
+
+      shareButton.addEventListener('click', async () => {
+        const title = shareButton.dataset.shareTitle || document.title;
+        const url = shareButton.dataset.shareUrl || window.location.href;
+        const label = shareButton.querySelector('[data-share-label]');
         try {
           if (navigator.share) {
             await navigator.share({ title, url });
