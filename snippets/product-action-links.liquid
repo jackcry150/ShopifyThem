@@ -6,6 +6,7 @@
   assign product_share_url = product.selected_variant.url | default: product.url | prepend: request.origin
   assign shipping_url = shop.shipping_policy.url | default: '/policies/shipping-policy'
   assign question_modal_id = 'ProductQuestionModal-' | append: section.id
+  assign question_form_id = question_modal_id | append: '-Form'
 -%}
 
 <div class="product-action-links" data-product-action-links>
@@ -59,7 +60,7 @@
     </button>
     <h2 id="{{ question_modal_id }}-Title">Ask a Question</h2>
 
-    {%- form 'contact', id: question_modal_id | append: '-Form', class: 'product-question-form' -%}
+    {%- form 'contact', id: question_form_id, class: 'product-question-form' -%}
       {%- if form.posted_successfully? -%}
         <p class="product-question-form__status" tabindex="-1" autofocus>Your question has been sent.</p>
       {%- elsif form.errors -%}
