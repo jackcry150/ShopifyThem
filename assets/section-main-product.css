@@ -1287,6 +1287,209 @@ a.product__text {
   content: '#';
 }
 
+/* Product detail layout inspired by the compact reference panel. */
+.product-detail-panel {
+  --product-panel-gap: 2.4rem;
+}
+
+.product-detail-panel > * + * {
+  margin: var(--product-panel-gap) 0;
+}
+
+.product-detail-panel .product__sku {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 2rem;
+  margin: 0 0 3rem;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.product-detail-panel .product__sku-label {
+  font-weight: 700;
+}
+
+.product-detail-panel .product__title {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 6.8rem;
+  gap: 2rem;
+  align-items: start;
+  margin: 0 0 1.2rem;
+}
+
+.product-detail-panel .product__title h1 {
+  font-size: clamp(3.2rem, 4vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.06rem;
+}
+
+.product-detail-panel__favorite {
+  appearance: none;
+  width: 6.8rem;
+  height: 6.8rem;
+  margin-top: 0.2rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  border-radius: 50%;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.product-detail-panel__favorite svg {
+  width: 2.8rem;
+  height: 2.8rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.product-detail-panel .price--large {
+  font-size: 3rem;
+  letter-spacing: -0.03rem;
+}
+
+.product-detail-panel .installment {
+  margin-top: 1.6rem;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+.product-detail-panel .product-trust-badges {
+  margin: 3rem 0 2.6rem;
+  padding: 0 0 0 2rem;
+  border: 0;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.product-detail-panel .product-trust-badge {
+  display: list-item;
+  list-style: disc;
+  margin-left: 1.8rem;
+  font-size: 1.8rem;
+  line-height: 1.35;
+  color: rgba(var(--color-foreground), 0.68);
+}
+
+.product-detail-panel .product-trust-badge svg {
+  display: none;
+}
+
+.product-detail-panel .product-form__quantity .form__label {
+  margin-bottom: 1.2rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.product-detail-panel .quantity {
+  width: 20rem;
+  min-height: 6rem;
+  border-color: rgba(var(--color-foreground), 0.08);
+  border-radius: 0.8rem;
+}
+
+.product-detail-panel .quantity__button,
+.product-detail-panel .quantity__input {
+  font-size: 1.8rem;
+}
+
+.product-detail-panel .product-form__submit {
+  min-height: 6rem;
+  border-color: rgb(var(--color-foreground));
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
+}
+
+.product-detail-panel .shopify-payment-button__button {
+  min-height: 6rem;
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.product-detail-panel .shopify-payment-button__more-options {
+  margin-top: 1.8rem;
+  text-align: center;
+  font-size: 1.7rem;
+}
+
+.product-detail-panel .icon-with-text {
+  margin: 3.4rem 0 0;
+  padding-top: 2.4rem;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  gap: 4rem;
+}
+
+.product-detail-panel .icon-with-text__item {
+  font-size: 1.8rem;
+  color: rgba(var(--color-foreground), 0.86);
+}
+
+.product-detail-panel .share-button {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .product-detail-panel {
+    max-width: 78rem;
+  }
+
+  .product-detail-panel .product-form__quantity {
+    max-width: 20rem;
+    margin: 0;
+  }
+
+  .product-detail-panel .product-form__quantity + div:has(.product-form) {
+    margin-top: -8.4rem;
+    margin-left: 23rem;
+  }
+
+  .product-detail-panel .product-form__quantity + div:has(.product-form) .product-form__buttons {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .product-detail-panel .product__sku {
+    grid-template-columns: 7rem 1fr;
+    margin-bottom: 2rem;
+  }
+
+  .product-detail-panel .product__title {
+    grid-template-columns: minmax(0, 1fr) 5rem;
+  }
+
+  .product-detail-panel .product__title h1 {
+    font-size: 3rem;
+  }
+
+  .product-detail-panel__favorite {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .product-detail-panel .product-form__quantity,
+  .product-detail-panel .quantity {
+    max-width: none;
+    width: 100%;
+  }
+
+  .product-detail-panel .icon-with-text {
+    gap: 1.6rem;
+    justify-content: space-between;
+  }
+}
+
 /* Product-thumbnail snippet */
 
 .product-media-container {

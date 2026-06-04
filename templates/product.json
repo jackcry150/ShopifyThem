@@ -110,19 +110,13 @@
         }
       },
       "block_order": [
-        "vendor",
         "sku",
         "title",
         "price",
-        "review_photo_wall",
+        "trust_badges",
         "variant_picker",
         "quantity_selector",
-        "inventory_XreEjL",
         "buy_buttons",
-        "trust_badges",
-        "quick_reply",
-        "payment_icons",
-        "product_feature_button",
         "icon_with_text_6L8Yej",
         "share"
       ],

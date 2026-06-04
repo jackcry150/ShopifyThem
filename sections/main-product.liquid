@@ -82,7 +82,7 @@
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
-          class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+          class="product__info-container product-detail-panel{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -100,6 +100,11 @@
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
+                  <button class="product-detail-panel__favorite" type="button" aria-label="Add to wishlist">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                      <path d="M20.8 4.6c-2-2-5.2-2-7.2 0L12 6.2l-1.6-1.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2L12 20.6l8.8-8.8c2-2 2-5.2 0-7.2Z" />
+                    </svg>
+                  </button>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -205,7 +210,7 @@
                   role="status"
                   {{ block.shopify_attributes }}
                 >
-                  <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
+                  <span class="product__sku-label">{{ 'products.product.sku' | t }}:</span>
                   {{- product.selected_or_first_available_variant.sku -}}
                 </p>
               {%- when 'custom_liquid' -%}
