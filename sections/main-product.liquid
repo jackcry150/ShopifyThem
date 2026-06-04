@@ -679,7 +679,7 @@
                   {%- endif -%}
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
-                {% render 'icon-with-text', block: block %}
+                {% render 'product-action-links', product: product %}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
