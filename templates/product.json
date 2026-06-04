@@ -94,7 +94,7 @@
           "settings": {
             "layout": "horizontal",
             "icon_1": "question_mark",
-            "heading_1": "Ask a Question(询问) （这里需要插一个邮箱收集）",
+            "heading_1": "Ask question",
             "icon_2": "eye",
             "image_2": "shopify://shop_images/ins.png",
             "heading_2": "分享（share）",
