@@ -232,17 +232,17 @@
   }
 }
 
-.section-multicolumn_aqMqTk-padding .multicolumn-list {
+.multicolumn--homepage-collection .multicolumn-list {
   --grid-mobile-vertical-spacing: 2.4rem;
 }
 
 @media screen and (min-width: 990px) {
-  .section-multicolumn_aqMqTk-padding .multicolumn-list {
+  .multicolumn--homepage-collection .multicolumn-list {
     --grid-desktop-horizontal-spacing: 2.4rem;
     flex-wrap: nowrap;
   }
 
-  .section-multicolumn_aqMqTk-padding .multicolumn-list.grid--3-col-desktop .grid__item {
+  .multicolumn--homepage-collection .multicolumn-list .grid__item {
     flex: 1 1 0;
     width: auto;
     max-width: none;
