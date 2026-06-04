@@ -1,0 +1,570 @@
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign popup_id = 'GoomooNewsletterPopup-' | append: section.id
+  assign footer_form_id = 'GoomooFooterNewsletter-' | append: section.id
+  assign popup_form_id = 'GoomooPopupNewsletter-' | append: section.id
+-%}
+
+<section class="goomoo-home-footer color-{{ section.settings.color_scheme }} gradient">
+  <div class="goomoo-home-footer__inner page-width">
+    <div class="goomoo-home-footer__signup">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+      {%- form 'customer', id: footer_form_id, class: 'goomoo-home-footer__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input
+          type="email"
+          name="contact[email]"
+          value="{{ form.email }}"
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="email"
+          placeholder="{{ section.settings.email_placeholder }}"
+          required
+        >
+        <button type="submit">{{ section.settings.button_label }}</button>
+        {%- if form.errors -%}
+          <small class="goomoo-home-footer__message">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</small>
+        {%- elsif form.posted_successfully? -%}
+          <small class="goomoo-home-footer__message">Thanks for subscribing.</small>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+
+    <div class="goomoo-home-footer__column">
+      <h3>About Us</h3>
+      <p><strong>Email:</strong><br>{{ section.settings.contact_email }}</p>
+      <p><strong>Address:</strong>{{ section.settings.address }}</p>
+    </div>
+
+    <div class="goomoo-home-footer__column">
+      <h3>Company</h3>
+      <a href="/search">Search</a>
+      <a href="/policies/privacy-policy">Privacy Policy</a>
+      <a href="/policies/shipping-policy">Shipping Policy</a>
+      <a href="/policies/refund-policy">Refund Policy</a>
+      <a href="/policies/terms-of-service">Terms of Service</a>
+      <a href="/pages/contact">Contact Information</a>
+    </div>
+
+    <div class="goomoo-home-footer__column">
+      <h3>Our store</h3>
+      <div class="goomoo-home-footer__socials" aria-label="Social links">
+        <a href="{{ settings.social_facebook_link | default: '#' }}" aria-label="Facebook">
+          {{- 'icon-facebook.svg' | inline_asset_content -}}
+        </a>
+        <a href="{{ settings.social_instagram_link | default: '#' }}" aria-label="Instagram">
+          {{- 'icon-instagram.svg' | inline_asset_content -}}
+        </a>
+        <a href="{{ settings.social_youtube_link | default: '#' }}" aria-label="YouTube">
+          {{- 'icon-youtube.svg' | inline_asset_content -}}
+        </a>
+        <a href="{{ settings.social_tiktok_link | default: '#' }}" aria-label="TikTok">
+          {{- 'icon-tiktok.svg' | inline_asset_content -}}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- if section.settings.enable_popup -%}
+  <div
+    id="{{ popup_id }}"
+    class="goomoo-newsletter-popup"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="{{ popup_id }}-Title"
+    hidden
+    data-goomoo-newsletter-popup
+    data-popup-delay="{{ section.settings.popup_delay }}"
+  >
+    <div class="goomoo-newsletter-popup__overlay" data-goomoo-popup-close></div>
+    <div class="goomoo-newsletter-popup__panel">
+      <div class="goomoo-newsletter-popup__image">
+        {%- if section.settings.popup_image != blank -%}
+          {{
+            section.settings.popup_image
+            | image_url: width: 1000
+            | image_tag: loading: 'lazy', widths: '360, 520, 720, 1000', sizes: '(min-width: 990px) 48vw, 100vw'
+          }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+      <div class="goomoo-newsletter-popup__content">
+        <button class="goomoo-newsletter-popup__close" type="button" aria-label="Close" data-goomoo-popup-close>
+          &times;
+        </button>
+        <h2 id="{{ popup_id }}-Title">{{ section.settings.popup_heading }}</h2>
+        <p>{{ section.settings.popup_text }}</p>
+        {%- form 'customer', id: popup_form_id, class: 'goomoo-newsletter-popup__form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter,popup">
+          <input
+            type="email"
+            name="contact[email]"
+            value="{{ form.email }}"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            placeholder="Email"
+            required
+          >
+          <button type="submit">{{ section.settings.popup_button_label }}</button>
+          {%- if form.errors -%}
+            <small>{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</small>
+          {%- elsif form.posted_successfully? -%}
+            <small>Thanks for joining.</small>
+          {%- endif -%}
+        {%- endform -%}
+        <button class="goomoo-newsletter-popup__decline" type="button" data-goomoo-popup-close>
+          {{ section.settings.popup_decline_label }}
+        </button>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+<style>
+  .goomoo-home-footer {
+    background: #f6f6f6;
+    padding: 7.2rem 0 7.8rem;
+  }
+
+  .goomoo-home-footer__inner {
+    display: grid;
+    grid-template-columns: minmax(28rem, 1.65fr) 1fr 1fr 1fr;
+    gap: 6.4rem;
+    align-items: start;
+  }
+
+  .goomoo-home-footer h2,
+  .goomoo-home-footer h3,
+  .goomoo-home-footer p {
+    margin: 0;
+  }
+
+  .goomoo-home-footer h2 {
+    font-size: clamp(3.8rem, 4vw, 5rem);
+    line-height: 1.08;
+    font-weight: 400;
+    letter-spacing: -0.05rem;
+    color: #222;
+  }
+
+  .goomoo-home-footer__signup p {
+    margin-top: 2rem;
+    color: #6b6b6b;
+    font-size: 2rem;
+    line-height: 1.4;
+  }
+
+  .goomoo-home-footer__form {
+    margin-top: 3.2rem;
+    max-width: 72rem;
+  }
+
+  .goomoo-home-footer__form input {
+    width: 100%;
+    height: 6.4rem;
+    border: 0.1rem solid #dedede;
+    border-radius: 0.6rem;
+    padding: 0 1.8rem;
+    background: #fff;
+    font-size: 2rem;
+  }
+
+  .goomoo-home-footer__form button {
+    margin-top: 2.8rem;
+    min-width: 24rem;
+    height: 6rem;
+    border: 0;
+    border-radius: 0.6rem;
+    background: #222;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .goomoo-home-footer__message {
+    display: block;
+    margin-top: 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  .goomoo-home-footer__column h3 {
+    margin-bottom: 2.2rem;
+    color: #1f1f1f;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .goomoo-home-footer__column p,
+  .goomoo-home-footer__column a {
+    color: #6b6b6b;
+    font-size: 2rem;
+    line-height: 1.45;
+  }
+
+  .goomoo-home-footer__column p + p {
+    margin-top: 0.4rem;
+  }
+
+  .goomoo-home-footer__column a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 1.4rem;
+  }
+
+  .goomoo-home-footer__column a:hover {
+    color: #222;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+  }
+
+  .goomoo-home-footer__socials {
+    display: flex;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+  }
+
+  .goomoo-home-footer__socials a {
+    width: 6.6rem;
+    height: 6.6rem;
+    margin: 0;
+    border-radius: 50%;
+    background: #ebebeb;
+    color: #222;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .goomoo-home-footer__socials svg {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .goomoo-newsletter-popup[hidden] {
+    display: none;
+  }
+
+  .goomoo-newsletter-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .goomoo-newsletter-popup__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .goomoo-newsletter-popup__panel {
+    position: relative;
+    width: min(118rem, calc(100vw - 4rem));
+    min-height: 58rem;
+    max-height: calc(100vh - 4rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border-radius: 2.8rem;
+    background: #fff;
+    box-shadow: 0 2.6rem 8rem rgba(0, 0, 0, 0.22);
+  }
+
+  .goomoo-newsletter-popup__image img,
+  .goomoo-newsletter-popup__image svg {
+    width: 100%;
+    height: 100%;
+    min-height: 58rem;
+    object-fit: cover;
+    display: block;
+  }
+
+  .goomoo-newsletter-popup__content {
+    position: relative;
+    padding: 12.5rem 6.4rem 5.6rem;
+    text-align: center;
+    color: #000;
+  }
+
+  .goomoo-newsletter-popup__close {
+    position: absolute;
+    top: 2rem;
+    right: 2.4rem;
+    border: 0;
+    background: transparent;
+    color: #000;
+    font-size: 4.4rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .goomoo-newsletter-popup h2 {
+    margin: 0;
+    font-size: clamp(4rem, 4vw, 5rem);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .goomoo-newsletter-popup p {
+    max-width: 53rem;
+    margin: 3rem auto 3rem;
+    font-size: 2.4rem;
+    line-height: 1.18;
+  }
+
+  .goomoo-newsletter-popup__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+  }
+
+  .goomoo-newsletter-popup__form input {
+    height: 7.2rem;
+    border: 0.1rem solid #777;
+    padding: 0 2.4rem;
+    font-size: 2.4rem;
+    letter-spacing: 0.18em;
+  }
+
+  .goomoo-newsletter-popup__form button {
+    height: 6rem;
+    border: 0;
+    border-radius: 999rem;
+    background: #000;
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    cursor: pointer;
+  }
+
+  .goomoo-newsletter-popup__decline {
+    margin-top: 4.2rem;
+    border: 0;
+    background: transparent;
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+  }
+
+  .goomoo-newsletter-popup-open {
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 989px) {
+    .goomoo-home-footer__inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .goomoo-home-footer__signup {
+      grid-column: 1 / -1;
+    }
+
+    .goomoo-newsletter-popup__panel {
+      grid-template-columns: 1fr;
+      width: min(56rem, calc(100vw - 3rem));
+      min-height: 0;
+      overflow-y: auto;
+    }
+
+    .goomoo-newsletter-popup__image {
+      display: none;
+    }
+
+    .goomoo-newsletter-popup__content {
+      padding: 8rem 2.4rem 3.6rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .goomoo-home-footer {
+      padding: 4.8rem 0;
+    }
+
+    .goomoo-home-footer__inner {
+      grid-template-columns: 1fr;
+      gap: 3.2rem;
+    }
+
+    .goomoo-home-footer h2 {
+      font-size: 3.4rem;
+    }
+
+    .goomoo-home-footer__signup p,
+    .goomoo-home-footer__column p,
+    .goomoo-home-footer__column a {
+      font-size: 1.6rem;
+    }
+
+    .goomoo-home-footer__form input,
+    .goomoo-home-footer__form button {
+      height: 5.4rem;
+      font-size: 1.6rem;
+    }
+
+    .goomoo-newsletter-popup h2 {
+      font-size: 3.2rem;
+    }
+
+    .goomoo-newsletter-popup p {
+      font-size: 1.8rem;
+    }
+
+    .goomoo-newsletter-popup__form input {
+      height: 5.6rem;
+      font-size: 1.8rem;
+    }
+
+    .goomoo-newsletter-popup__form button {
+      height: 5.2rem;
+      font-size: 1.8rem;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const popup = document.querySelector('[data-goomoo-newsletter-popup]');
+    if (!popup || popup.dataset.bound === 'true') return;
+    popup.dataset.bound = 'true';
+
+    const storageKey = 'goomoo-newsletter-popup-dismissed';
+    const delay = Number(popup.dataset.popupDelay || 900);
+    const openPopup = () => {
+      if (window.localStorage.getItem(storageKey) === 'true') return;
+      popup.hidden = false;
+      document.documentElement.classList.add('goomoo-newsletter-popup-open');
+      const email = popup.querySelector('input[type="email"]');
+      if (email) window.setTimeout(() => email.focus(), 80);
+    };
+
+    const closePopup = () => {
+      popup.hidden = true;
+      document.documentElement.classList.remove('goomoo-newsletter-popup-open');
+      window.localStorage.setItem(storageKey, 'true');
+    };
+
+    window.setTimeout(openPopup, delay);
+    popup.querySelectorAll('[data-goomoo-popup-close]').forEach((button) => {
+      button.addEventListener('click', closePopup);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !popup.hidden) closePopup();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "GooMoo home footer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Step into GooMoo Play"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "GooMoo crew for tiny perks, cute surprises & exclusive drops!"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Subscribe now"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "contact@goomooplay.com"
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Address",
+      "default": "Room H 11, 1F, Kaiser Estate Phase 2, No. 51 Man Yue Street, Hung Hom, Hong Kong"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_popup",
+      "label": "Enable newsletter popup",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "popup_delay",
+      "label": "Popup delay",
+      "min": 0,
+      "max": 5000,
+      "step": 250,
+      "unit": "ms",
+      "default": 1000
+    },
+    {
+      "type": "image_picker",
+      "id": "popup_image",
+      "label": "Popup image"
+    },
+    {
+      "type": "text",
+      "id": "popup_heading",
+      "label": "Popup heading",
+      "default": "Join the GooMoo Family!"
+    },
+    {
+      "type": "textarea",
+      "id": "popup_text",
+      "label": "Popup text",
+      "default": "Sign up to receive 5% off your first order and exclusive access to our best offers."
+    },
+    {
+      "type": "text",
+      "id": "popup_button_label",
+      "label": "Popup button label",
+      "default": "SIGN ME UP!"
+    },
+    {
+      "type": "text",
+      "id": "popup_decline_label",
+      "label": "Popup decline label",
+      "default": "NO, THANKS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "GooMoo home footer"
+    }
+  ]
+}
+{% endschema %}
