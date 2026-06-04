@@ -50,6 +50,14 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "inventory_XreEjL": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -75,38 +83,23 @@
             "custom_liquid": "<div class=\"product-payment-icons\">\n  <span class=\"product-payment-icons__label\">We accept:</span>\n  <div class=\"product-payment-icons__list\">\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#1a1f71\" stroke=\"#fff\" stroke-width=\"1\"/><text x=\"17\" y=\"15\" text-anchor=\"middle\" font-size=\"8\" fill=\"#fff\" font-family=\"sans-serif\">VISA</text></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#eb001b\" stroke=\"#fff\" stroke-width=\"1\"/><circle cx=\"13\" cy=\"11\" r=\"3.5\" fill=\"#f79e1b\"/><circle cx=\"21\" cy=\"11\" r=\"3.5\" fill=\"#eb001b\"/></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#16366f\" stroke=\"#fff\" stroke-width=\"1\"/><circle cx=\"12\" cy=\"11\" r=\"3\" fill=\"#fff\"/><circle cx=\"18\" cy=\"11\" r=\"3\" fill=\"#fff\"/></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#000\" stroke=\"#fff\" stroke-width=\"1\"/><text x=\"17\" y=\"15\" text-anchor=\"middle\" font-size=\"7\" fill=\"#fff\" font-family=\"sans-serif\">Apple Pay</text></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#fff\" stroke=\"#ddd\" stroke-width=\"1\"/><text x=\"17\" y=\"15\" text-anchor=\"middle\" font-size=\"7\" fill=\"#333\" font-family=\"sans-serif\">Google Pay</text></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#5a31f4\" stroke=\"#fff\" stroke-width=\"1\"/><text x=\"17\" y=\"15\" text-anchor=\"middle\" font-size=\"7\" fill=\"#fff\" font-family=\"sans-serif\">Shop Pay</text></svg>\n  </div>\n</div>\n\n<style>\n  .product-payment-icons {\n    margin-top: 12px;\n    display: flex;\n    flex-direction: column;\n    gap: 8px;\n  }\n  .product-payment-icons__label {\n    font-size: 12px;\n    color: rgb(var(--color-foreground), 0.55);\n  }\n  .product-payment-icons__list {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n</style>"
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "product_feature_button": {
           "type": "custom_liquid",
           "settings": {
             "custom_liquid": "<a href=\"{{ product.url }}?view=product-feature\" class=\"button button--primary product-feature-button\">📋 View Full Product Details</a>\n<style>\n  .product-feature-button {\n    display: flex;\n    justify-content: center;\n    margin-top: 16px;\n    margin-bottom: 0;\n    width: 100%;\n  }\n</style>"
           }
         },
-        "collapsible_tab_shipping": {
-          "type": "collapsible_tab",
+        "icon_with_text_6L8Yej": {
+          "type": "icon-with-text",
           "settings": {
-            "heading": "Shipping & Return",
-            "icon": "truck",
-            "content": "<p>We ship worldwide via reliable carriers including DHL, FedEx, and USPS. Orders are processed within 1-3 business days.</p><p>You can return any item within 30 days of purchase in its original condition and packaging. Contact us if you have any issues with your order.</p><p><a href=\"/pages/shipping-policy\">View full shipping & return policy →</a></p>"
-          }
-        },
-        "collapsible_tab_faq": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Frequently Asked Questions",
-            "icon": "question_mark",
-            "content": "<p><strong>Q: Are these figures authentic?</strong></p><p>A: Yes, all our products are 100% authentic and sourced directly from authorized manufacturers.</p><p><strong>Q: What size are the dolls and clothes?</strong></p><p>A: Most of our pocket art figures range from 5-15cm. Doll clothes are primarily designed for OB11 (11cm) dolls. Check individual product descriptions for exact measurements.</p><p><strong>Q: Can I change or cancel my order?</strong></p><p>A: You can modify or cancel your order within 2 hours of placing it. After that, please contact us as soon as possible.</p><p><strong>Q: Do you ship to my country?</strong></p><p>A: We ship worldwide. Shipping costs and delivery times vary by location. Check our <a href=\"/pages/shipping-policy\">shipping policy</a> for details.</p><p><strong>Q: What if my package is lost?</strong></p><p>A: We offer free replacement or full refund for lost packages. Contact our customer service team.</p>"
-          }
-        },
-        "collapsible_tab_about": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "About GooMooPlay",
-            "icon": "box",
-            "content": "<p>GooMooPlay curates pocket-sized art figures and doll outfits for collectors and enthusiasts worldwide. We focus on quality, creativity, and collectible value.</p><p>Each product is carefully selected and inspected before shipping to ensure you receive the best quality.</p>"
+            "layout": "horizontal",
+            "icon_1": "question_mark",
+            "heading_1": "Ask a Question(询问) （这里需要插一个邮箱收集）",
+            "icon_2": "eye",
+            "image_2": "shopify://shop_images/ins.png",
+            "heading_2": "分享（share）",
+            "icon_3": "truck",
+            "heading_3": "shipping(运输)"
           }
         },
         "share": {
@@ -124,20 +117,18 @@
         "review_photo_wall",
         "variant_picker",
         "quantity_selector",
+        "inventory_XreEjL",
         "buy_buttons",
         "trust_badges",
         "quick_reply",
         "payment_icons",
-        "description",
         "product_feature_button",
-        "collapsible_tab_shipping",
-        "collapsible_tab_faq",
-        "collapsible_tab_about",
+        "icon_with_text_6L8Yej",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
         "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
@@ -151,6 +142,88 @@
         "padding_bottom": 12
       }
     },
+    "collapsible_content_amiHKB": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_hzRXYW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does it take to process an order?",
+            "icon": "question_mark",
+            "row_content": "<p>We process orders Monday to Friday, 9:00 AM - 5:00 PM (business days only).<br/>· Order processing time: 2-3 business days<br/>· Delivery time: 9-12 business days<br/>· Shipping: Orders are shipped the next business day after processing is completed.<br/>· Orders placed on weekends or public holidays will be processed on the next business day.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_QJ6JBR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy?",
+            "icon": "question_mark",
+            "row_content": "<p>We want you to be 100% satisfied with your purchase.<br/>We have a 30-day return policy, which means you have 30 days after receiving your item to request a return.<br/>For more information, click here</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zXr4ea": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if a product is counterfeit?",
+            "icon": "question_mark",
+            "row_content": "<p>If you receive a counterfeit product, we will provide a full refund.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_UNiDah": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "CanI return a product if it has quality issues?",
+            "icon": "question_mark",
+            "row_content": "<p>For any product with quality issues, such as damage or defects, please contact our after-sales team and provide photos or videos.<br/><br/>Note:For dolls and blind box items, please provide a clear unboxing video, as it is required for us to process the issue.<br/><br/>If a quality issue is confirmed, we will process a return and refund, and cover the return shipping cost.<br/><br/>!!! Please note that slight imperfections may occur due to handmade production and are not considered quality issues. recommend that customers carefully consider this before placing an order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LNwzMC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I know before ordering?",
+            "icon": "question_mark",
+            "row_content": "<p>Please check the product status before purchasing.<br/><br/>• Pre-Order items require a production period of approximately 30–60 days before shipping.<br/>• In Stock items are usually shipped within 10 days after payment.<br/>• For Pre-Order purchases, please provide a valid email address so we can send shipping and tracking updates once your order is on its way.<br/>• Join our Discord and Facebook communities to stay updated on production progress, upcoming releases, and community discussions.<br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rRMpyz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I cancel my order?",
+            "icon": "question_mark",
+            "row_content": "<p>To cancel your order, please contact us. If the order has not been shipped, we can process the cancellation for you. Once the order has been shipped, cancellation is no longer possible. However, after receiving your package, you can contact us to arrange a return or exchange at contact@goomooplay.com</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_hzRXYW",
+        "collapsible_row_QJ6JBR",
+        "collapsible_row_zXr4ea",
+        "collapsible_row_UNiDah",
+        "collapsible_row_LNwzMC",
+        "collapsible_row_rRMpyz"
+      ],
+      "name": "商品详情页FAQ",
+      "settings": {
+        "caption": "",
+        "heading": "<strong>FAQ</strong>",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -159,7 +232,7 @@
         "products_to_show": 4,
         "columns_desktop": 4,
         "columns_mobile": "2",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -168,10 +241,49 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "178055040411874f21": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_81e2226_6rNWFD": {
+          "type": "ai_gen_block_81e2226",
+          "settings": {
+            "max_content_width": 1100,
+            "tab_1_enabled": true,
+            "tab_1_title": "Product Details",
+            "tab_1_content": "<p>Add your product details here. You can include descriptions, specifications, materials, and care instructions.</p>",
+            "tab_2_enabled": true,
+            "tab_2_title": "Product Photos",
+            "tab_2_content": "<p>Add additional product photos, lifestyle images, or detail shots here.</p>",
+            "tab_3_enabled": true,
+            "tab_3_title": "Pre-Order Information",
+            "tab_3_content": "<p>Add pre-order timeline, production schedule, and estimated delivery information here.</p>",
+            "tab_4_enabled": true,
+            "tab_4_title": "Shipping Information",
+            "tab_4_content": "<p>Add shipping methods, delivery times, and shipping costs here.</p>",
+            "tab_5_enabled": true,
+            "tab_5_title": "Return & Refund Policy",
+            "tab_5_content": "<p>Add your return and refund policy details here.</p>",
+            "tab_6_enabled": true,
+            "tab_6_title": "Reviews",
+            "tab_6_content": "<p>Add your review app block or customer testimonials here.</p>",
+            "tab_7_enabled": true,
+            "tab_7_title": "Join Our Community",
+            "tab_7_content": "<p>这个地方接入评论功能，并且加一句话，Be the first to <a>write a review 点击写评论，会跳转</a></p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_81e2226_6rNWFD"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "related-products"
+    "collapsible_content_amiHKB",
+    "related-products",
+    "178055040411874f21"
   ]
 }
