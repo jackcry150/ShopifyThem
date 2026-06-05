@@ -11,6 +11,25 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "goomoo_home_footer_D7g6MQ": {
+      "type": "goomoo-home-footer",
+      "name": "GooMoo home footer",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Step into GooMoo Play",
+        "subheading": "GooMoo crew for tiny perks, cute surprises & exclusive drops!",
+        "email_placeholder": "Enter your email",
+        "button_label": "Subscribe now",
+        "contact_email": "contact@goomooplay.com",
+        "address": "Room H 11, 1F, Kaiser Estate Phase 2, No. 51 Man Yue Street, Hung Hom, Hong Kong",
+        "enable_popup": true,
+        "popup_delay": 1000,
+        "popup_heading": "Join the GooMoo Family!",
+        "popup_text": "Sign up to receive 5% off your first order and exclusive access to our best offers.",
+        "popup_button_label": "SIGN ME UP!",
+        "popup_decline_label": "NO, THANKS"
+      }
+    },
     "footer": {
       "type": "footer",
       "settings": {
@@ -30,6 +49,7 @@
     }
   },
   "order": [
+    "goomoo_home_footer_D7g6MQ",
     "footer"
   ]
 }

@@ -12,11 +12,11 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
+        "text_R9Cq3E": {
           "type": "text",
           "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
+            "text": "加入一个功能，顾客可以选择多个不同类型的产品",
+            "text_style": "body"
           }
         },
         "sku": {
@@ -29,41 +29,16 @@
           "type": "title",
           "settings": {}
         },
+        "text_TWrGj9": {
+          "type": "text",
+          "settings": {
+            "text": "这里设置一个标签选项，上架人员 在上架链接时，选择预售/现货/限时折扣",
+            "text_style": "body"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
-        },
-        "review_photo_wall": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{%- render 'review-photo-wall', product: product -%}"
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "inventory_XreEjL": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "body",
-            "inventory_threshold": 10,
-            "show_inventory_quantity": true
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
         },
         "trust_badges": {
           "type": "custom_liquid",
@@ -71,22 +46,22 @@
             "custom_liquid": "<div class=\"product-trust-badges\">\n  <div class=\"product-trust-badge\">\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\"><path d=\"M5 8l3 3 7-7\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"2.5\" y=\"4.5\" width=\"15\" height=\"12\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.3\"/></svg>\n    <span>Secure checkout</span>\n  </div>\n  <div class=\"product-trust-badge\">\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\"><rect x=\"1\" y=\"6\" width=\"18\" height=\"10\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.3\"/><path d=\"M3 6V5a7 7 0 1114 0v1\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\"/><circle cx=\"10\" cy=\"11.5\" r=\"2.2\" stroke=\"currentColor\" stroke-width=\"1.3\"/><path d=\"M10 10v3M1 9h1.5M17.5 9H19M4.5 3l1 1M14.5 3l-1 1\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/></svg>\n    <span>Tracked international shipping</span>\n  </div>\n  <div class=\"product-trust-badge\">\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\"><path d=\"M5 10.5l3 3 7-6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"10\" cy=\"10\" r=\"8.5\" stroke=\"currentColor\" stroke-width=\"1.3\"/></svg>\n    <span>Free replacement if fake or damaged</span>\n  </div>\n</div>\n\n<style>\n  .product-trust-badges {\n    margin-top: 16px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    padding: 16px;\n    border: 1px solid rgb(var(--color-foreground), 0.1);\n    border-radius: 8px;\n  }\n  .product-trust-badge {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    font-size: 13px;\n    color: rgb(var(--color-foreground));\n  }\n  .product-trust-badge svg {\n    flex-shrink: 0;\n    color: rgb(var(--color-foreground), 0.6);\n  }\n</style>"
           }
         },
-        "quick_reply": {
-          "type": "custom_liquid",
+        "variant_picker": {
+          "type": "variant_picker",
           "settings": {
-            "custom_liquid": "{%- render 'quick-reply' -%}"
+            "picker_type": "dropdown",
+            "swatch_shape": "square"
           }
         },
-        "payment_icons": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<div class=\"product-payment-icons\">\n  <span class=\"product-payment-icons__label\">We accept:</span>\n  <div class=\"product-payment-icons__list\">\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#1a1f71\" stroke=\"#fff\" stroke-width=\"1\"/><text x=\"17\" y=\"15\" text-anchor=\"middle\" font-size=\"8\" fill=\"#fff\" font-family=\"sans-serif\">VISA</text></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#eb001b\" stroke=\"#fff\" stroke-width=\"1\"/><circle cx=\"13\" cy=\"11\" r=\"3.5\" fill=\"#f79e1b\"/><circle cx=\"21\" cy=\"11\" r=\"3.5\" fill=\"#eb001b\"/></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#16366f\" stroke=\"#fff\" stroke-width=\"1\"/><circle cx=\"12\" cy=\"11\" r=\"3\" fill=\"#fff\"/><circle cx=\"18\" cy=\"11\" r=\"3\" fill=\"#fff\"/></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#000\" stroke=\"#fff\" stroke-width=\"1\"/><text x=\"17\" y=\"15\" text-anchor=\"middle\" font-size=\"7\" fill=\"#fff\" font-family=\"sans-serif\">Apple Pay</text></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#fff\" stroke=\"#ddd\" stroke-width=\"1\"/><text x=\"17\" y=\"15\" text-anchor=\"middle\" font-size=\"7\" fill=\"#333\" font-family=\"sans-serif\">Google Pay</text></svg>\n    <svg class=\"product-payment-icon\" width=\"34\" height=\"22\" viewBox=\"0 0 34 22\"><rect x=\"0.5\" y=\"0.5\" width=\"33\" height=\"21\" rx=\"3.5\" fill=\"#5a31f4\" stroke=\"#fff\" stroke-width=\"1\"/><text x=\"17\" y=\"15\" text-anchor=\"middle\" font-size=\"7\" fill=\"#fff\" font-family=\"sans-serif\">Shop Pay</text></svg>\n  </div>\n</div>\n\n<style>\n  .product-payment-icons {\n    margin-top: 12px;\n    display: flex;\n    flex-direction: column;\n    gap: 8px;\n  }\n  .product-payment-icons__label {\n    font-size: 12px;\n    color: rgb(var(--color-foreground), 0.55);\n  }\n  .product-payment-icons__list {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n</style>"
-          }
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
         },
-        "product_feature_button": {
-          "type": "custom_liquid",
+        "buy_buttons": {
+          "type": "buy_buttons",
           "settings": {
-            "custom_liquid": "<a href=\"{{ product.url }}?view=product-feature\" class=\"button button--primary product-feature-button\">📋 View Full Product Details</a>\n<style>\n  .product-feature-button {\n    display: flex;\n    justify-content: center;\n    margin-top: 16px;\n    margin-bottom: 0;\n    width: 100%;\n  }\n</style>"
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
           }
         },
         "icon_with_text_6L8Yej": {
@@ -102,6 +77,10 @@
             "heading_3": "shipping(运输)"
           }
         },
+        "rating_6QRL6r": {
+          "type": "rating",
+          "settings": {}
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -110,14 +89,17 @@
         }
       },
       "block_order": [
+        "text_R9Cq3E",
         "sku",
         "title",
+        "text_TWrGj9",
         "price",
         "trust_badges",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_6L8Yej",
+        "rating_6QRL6r",
         "share"
       ],
       "settings": {
@@ -142,7 +124,7 @@
         "ai_gen_block_81e2226_6rNWFD": {
           "type": "ai_gen_block_81e2226",
           "settings": {
-            "max_content_width": 1100,
+            "max_content_width": 1000,
             "tab_1_enabled": true,
             "tab_1_title": "Product Details（产品设计）",
             "tab_1_content": "<p><strong>板块作用：这里用于告知用户产品的设计概念</strong></p><p><strong>HASUKI Black Ops — Mountain Warfare Special Operative</strong></p><p>The SA03 \"Sierra Phantom\" brings alpine combat to your 1/12 scale collection. <br/><br/>Clad in cold-weather tactical gear with an L7 jacket, snow camouflage suit, and full mountaineering kit including ice axes, crampons, and climbing ropes, this 17cm action figure is ready for high-altitude missions. The highly articulated body supports dynamic posing — from rappelling stances to precision rifle handling.<br/><br/>Every detail is meticulously reproduced: the SCAR-H battle rifle with removable suppressor and optical sight, the MPU5 radio system for comms realism, and the 375BK combat knife with sheath. With 10 interchangeable hands, you can configure this operator for any tactical scenario.<br/><br/>Whether displayed solo or paired with other Black Ops series figures, the Sierra Phantom delivers museum-grade detail at an accessible price point. A must-have for military 1/12 collectors and HASUKI enthusiasts alike.</p>",
@@ -154,10 +136,10 @@
             "tab_3_content": "<p>这里用于写 预售信息  和库存信息；预售商品上架后，注意添加预售标签；</p><p>Limited-Time Pre-Order</p><p>This product is currently in the pre-order stage.</p><p>Pre-Order Period: XXX – XXX</p><p>Special Pre-Order Price: $ XXX</p><p>Future Retail Price: $ XXX</p><p>Orders placed during the pre-order period will receive the exclusive pre-order pricing. After the pre-order closes, the product will be offered at the regular retail price, subject to stock availability.</p><p>Please make sure to place your order before the pre-order deadline.</p><p>点击这里，加入社区，随时查看产品进度</p><p><strong>Pre-Order Policy （预售协议）</strong><br/><br/>Production will begin after the pre-order period ends. Estimated production and fulfillment times may vary depending on the product.<br/><br/>Orders are considered confirmed once payment has been completed.<br/><br/>Due to the made-to-order nature of pre-order products, cancellations, refunds, or exchanges are not accepted after an order has been placed unless otherwise stated.<br/><br/>Please review all product details carefully before placing your order.<br/><br/>By completing your purchase, you agree to the terms of this pre-order policy.</p><p><strong>In-Stock Item Policy</strong><br/><br/>This item is currently in stock and ready to ship.<br/><br/>Orders are typically processed and dispatched within 10 business days after payment is confirmed.<br/><br/>Although inventory is updated regularly, stock levels may occasionally change due to sales across multiple platforms.<br/><br/>If an item becomes unavailable after an order is placed, we will notify you as soon as possible and issue a full refund.<br/><br/>By placing an order, you acknowledge and accept these terms.<br/></p>",
             "tab_4_enabled": true,
             "tab_4_title": "Shipping Information（运输信息）",
-            "tab_4_content": "",
-            "tab_5_enabled": true,
+            "tab_4_content": "<p>🚚 Shipping with tracking included.<br/>US free shipping over $65. More details here!<br/>We want you to be 100% satisfied with your purchase. We have a 30-day return policy, which means you have 30 days after receiving your item to request a return. More details here!</p>",
+            "tab_5_enabled": false,
             "tab_5_title": "Return & Refund Policy",
-            "tab_5_content": "<p>Add your return and refund policy details here.</p>",
+            "tab_5_content": "",
             "tab_6_enabled": true,
             "tab_6_title": "Reviews",
             "tab_6_content": "<p>这个地方接入评论功能，并且加一句话，Be the first to <a>write a review 点击写评论，会跳转</a></p>",
