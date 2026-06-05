@@ -9,14 +9,222 @@
  */
 {
   "sections": {
-    "feature-main": {
-      "type": "product-feature-page",
+    "featured_product_XrtgHY": {
+      "type": "featured-product",
+      "blocks": {
+        "sku_7bNHzg": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
+        "text_DJCUG8": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_pdjhEa": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "rating_Tawc3H": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price_aGp8d8": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_CqWTJM": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_Fy4Wdg": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_jHb34J": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_PmWFiJ": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "sku_7bNHzg",
+        "text_DJCUG8",
+        "title_pdjhEa",
+        "rating_Tawc3H",
+        "price_aGp8d8",
+        "variant_picker_CqWTJM",
+        "quantity_selector_Fy4Wdg",
+        "buy_buttons_jHb34J",
+        "share_PmWFiJ"
+      ],
+      "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "color_scheme": "scheme-1"
+        "product": "",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blocks_YmC3iK": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_81e2226_RWxK48": {
+          "type": "ai_gen_block_81e2226",
+          "settings": {
+            "max_content_width": 1200,
+            "tab_1_enabled": true,
+            "tab_1_title": "Hero",
+            "tab_1_content": "<p>首图</p>",
+            "tab_2_enabled": true,
+            "tab_2_title": "产品使用",
+            "tab_2_content": "",
+            "tab_3_enabled": true,
+            "tab_3_title": "Compatible Bodies",
+            "tab_3_content": "<p>适配体型</p>",
+            "tab_4_enabled": true,
+            "tab_4_title": "Display Example",
+            "tab_4_content": "<p>平铺展示配件</p>",
+            "tab_5_enabled": true,
+            "tab_5_title": "Photography Example",
+            "tab_5_content": "<p>使用照片举例</p>",
+            "tab_6_enabled": true,
+            "tab_6_title": "Bundle Recommendation",
+            "tab_6_content": "<p>Add your review app block or customer testimonials here.</p>",
+            "tab_7_enabled": true,
+            "tab_7_title": "Community Photos",
+            "tab_7_content": "<p>社区图片展示 瀑布流</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_81e2226_RWxK48"
+      ],
+      "name": "Product tabs",
+      "settings": {}
+    },
+    "collapsible_content_JwHXHC": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_KKBq6z": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "适用于哪些产品？",
+            "icon": "check_mark",
+            "row_content": "<p>Please check the Compatibility section on the product page.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Umfeam": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "是否包含娃娃？",
+            "icon": "check_mark",
+            "row_content": "<p>No.</p><p>Unless otherwise stated, figures and dolls shown in product photos are for display purposes only.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_8kRE6g": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "是否包含娃衣？",
+            "icon": "check_mark",
+            "row_content": "<p>No.</p><p>Only the accessory listed in the product title is included.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zwj7A6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "可以搭配哪些娃体？",
+            "icon": "check_mark",
+            "row_content": "<p><br/>Compatibility information can be found on the product page.<br/><br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_VjkR4n": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "配件可以单独使用吗？",
+            "icon": "check_mark",
+            "row_content": "<p><br/>Some accessories are designed for standalone display, while others require compatible figures or dolls.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_znRUbU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "金属件会氧化吗？",
+            "icon": "check_mark",
+            "row_content": "<p><br/>Minor wear and aging may occur over time depending on usage and storage conditions.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rUC8CH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "配件有锋利部分吗？",
+            "icon": "check_mark",
+            "row_content": "<p><br/>Some miniature accessories may contain small or pointed parts and should be handled with care.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_KKBq6z",
+        "collapsible_row_Umfeam",
+        "collapsible_row_8kRE6g",
+        "collapsible_row_zwj7A6",
+        "collapsible_row_VjkR4n",
+        "collapsible_row_znRUbU",
+        "collapsible_row_rUC8CH"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "caption": "",
+        "heading": "FAQ",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "feature-main"
+    "featured_product_XrtgHY",
+    "blocks_YmC3iK",
+    "collapsible_content_JwHXHC"
   ]
 }
