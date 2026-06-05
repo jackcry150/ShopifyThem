@@ -132,10 +132,46 @@
     "collapsible_content_XYMqT3": {
       "type": "collapsible-content",
       "blocks": {
+        "collapsible_row_7hpVXG": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "适用于哪些尺寸？",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_Uqq4XQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "OB22 和 OB24 都能穿吗？",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_ArCYLX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "买错尺寸可以退货吗？",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_FHRdKU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "有试穿照片吗？",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
         "collapsible_row_mraNTP": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
+            "heading": "不同品牌娃体可以穿吗？",
             "icon": "check_mark",
             "row_content": "",
             "page": ""
@@ -144,7 +180,7 @@
         "collapsible_row_GMwLPw": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
+            "heading": "衣服会染色吗？",
             "icon": "check_mark",
             "row_content": "",
             "page": ""
@@ -153,7 +189,7 @@
         "collapsible_row_GtYkzA": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
+            "heading": "衣服可以手洗吗？",
             "icon": "check_mark",
             "row_content": "",
             "page": ""
@@ -162,18 +198,32 @@
         "collapsible_row_HXjGzw": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
+            "heading": "预售娃衣需要多久制作？",
             "icon": "check_mark",
             "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_kbJTqC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "预售期间可以取消吗？",
+            "icon": "check_mark",
+            "row_content": "<p>Please refer to our Pre-Order Policy.</p>",
             "page": ""
           }
         }
       },
       "block_order": [
+        "collapsible_row_7hpVXG",
+        "collapsible_row_Uqq4XQ",
+        "collapsible_row_ArCYLX",
+        "collapsible_row_FHRdKU",
         "collapsible_row_mraNTP",
         "collapsible_row_GMwLPw",
         "collapsible_row_GtYkzA",
-        "collapsible_row_HXjGzw"
+        "collapsible_row_HXjGzw",
+        "collapsible_row_kbJTqC"
       ],
       "name": "FAQ",
       "settings": {

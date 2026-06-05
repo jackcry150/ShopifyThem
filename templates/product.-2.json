@@ -177,68 +177,88 @@
     "collapsible_content_amiHKB": {
       "type": "collapsible-content",
       "blocks": {
+        "collapsible_row_Tf87EX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "这是正版产品吗？",
+            "icon": "check_mark",
+            "row_content": "<p><br/>Unless otherwise stated, all figures sold by Goomooplay are authentic products sourced through authorized distributors, manufacturers, or approved resale channels.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_xUYeH6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "为什么兵人预售时间这么长？",
+            "icon": "check_mark",
+            "row_content": "<p>Collectible figures require sculpting, prototyping, painting, quality control, and mass production.</p><p>Production timelines are determined by manufacturers and may take several months.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_pjCFnP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "预计到货时间准确吗？",
+            "icon": "check_mark",
+            "row_content": "<p>Estimated delivery dates are provided for reference only.</p><p>Delays are common in the collectible figure industry.</p>",
+            "page": ""
+          }
+        },
         "collapsible_row_hzRXYW": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How long does it take to process an order?",
+            "heading": "厂家延期怎么办？",
             "icon": "question_mark",
-            "row_content": "<p>We process orders Monday to Friday, 9:00 AM - 5:00 PM (business days only).<br/>· Order processing time: 2-3 business days<br/>· Delivery time: 9-12 business days<br/>· Shipping: Orders are shipped the next business day after processing is completed.<br/>· Orders placed on weekends or public holidays will be processed on the next business day.</p>",
+            "row_content": "<p>Production schedules are controlled by manufacturers.</p><p>Manufacturer delays do not qualify for cancellation or refunds once production has begun.</p>",
             "page": ""
           }
         },
         "collapsible_row_QJ6JBR": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What is your return policy?",
+            "heading": "头雕可以单独购买吗？",
             "icon": "question_mark",
-            "row_content": "<p>We want you to be 100% satisfied with your purchase.<br/>We have a 30-day return policy, which means you have 30 days after receiving your item to request a return.<br/>For more information, click here</p>",
+            "row_content": "<p>Please refer to the product description.</p><p>Some head sculpts are sold separately, while others are included only as part of a complete set.</p>",
             "page": ""
           }
         },
         "collapsible_row_zXr4ea": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What if a product is counterfeit?",
+            "heading": "关节松紧度会有差异吗？",
             "icon": "question_mark",
-            "row_content": "<p>If you receive a counterfeit product, we will provide a full refund.</p>",
+            "row_content": "<p><br/>Minor differences in articulation stiffness are normal and are not considered manufacturing defects.</p>",
             "page": ""
           }
         },
         "collapsible_row_UNiDah": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "CanI return a product if it has quality issues?",
+            "heading": "兵人会掉漆吗？",
             "icon": "question_mark",
-            "row_content": "<p>For any product with quality issues, such as damage or defects, please contact our after-sales team and provide photos or videos.<br/><br/>Note:For dolls and blind box items, please provide a clear unboxing video, as it is required for us to process the issue.<br/><br/>If a quality issue is confirmed, we will process a return and refund, and cover the return shipping cost.<br/><br/>!!! Please note that slight imperfections may occur due to handmade production and are not considered quality issues. recommend that customers carefully consider this before placing an order.</p>",
+            "row_content": "<p><br/>Hand-painted collectibles may show slight paint variations due to the production process.<br/></p>",
             "page": ""
           }
         },
         "collapsible_row_LNwzMC": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What should I know before ordering?",
+            "heading": "为什么和官图有色差？",
             "icon": "question_mark",
-            "row_content": "<p>Please check the product status before purchasing.<br/><br/>• Pre-Order items require a production period of approximately 30–60 days before shipping.<br/>• In Stock items are usually shipped within 10 days after payment.<br/>• For Pre-Order purchases, please provide a valid email address so we can send shipping and tracking updates once your order is on its way.<br/>• Join our Discord and Facebook communities to stay updated on production progress, upcoming releases, and community discussions.<br/></p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_rRMpyz": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "How can I cancel my order?",
-            "icon": "question_mark",
-            "row_content": "<p>To cancel your order, please contact us. If the order has not been shipped, we can process the cancellation for you. Once the order has been shipped, cancellation is no longer possible. However, after receiving your package, you can contact us to arrange a return or exchange at contact@goomooplay.com</p>",
+            "row_content": "<p><br/>Product colors may vary slightly due to lighting, screen settings, and manufacturing differences.</p>",
             "page": ""
           }
         }
       },
       "block_order": [
+        "collapsible_row_Tf87EX",
+        "collapsible_row_xUYeH6",
+        "collapsible_row_pjCFnP",
         "collapsible_row_hzRXYW",
         "collapsible_row_QJ6JBR",
         "collapsible_row_zXr4ea",
         "collapsible_row_UNiDah",
-        "collapsible_row_LNwzMC",
-        "collapsible_row_rRMpyz"
+        "collapsible_row_LNwzMC"
       ],
       "name": "商品详情页FAQ",
       "settings": {
