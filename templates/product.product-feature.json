@@ -1,13 +1,200 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "feature-main": {
-      "type": "product-feature-page",
+    "featured_product_TQJJbW": {
+      "type": "featured-product",
+      "blocks": {
+        "sku_hEf3xB": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
+        "text_pVLfW7": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_WehxGm": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "rating_pbCXGk": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price_HKF6mk": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_qMVwez": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_Vw6r6W": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_fFnGUb": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_VJgVDr": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "sku_hEf3xB",
+        "text_pVLfW7",
+        "title_WehxGm",
+        "rating_pbCXGk",
+        "price_HKF6mk",
+        "variant_picker_qMVwez",
+        "quantity_selector_Vw6r6W",
+        "buy_buttons_fFnGUb",
+        "share_VJgVDr"
+      ],
+      "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "color_scheme": "scheme-1"
+        "product": "",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blocks_QDaL6W": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_81e2226_krBycf": {
+          "type": "ai_gen_block_81e2226",
+          "settings": {
+            "max_content_width": 1200,
+            "tab_1_enabled": true,
+            "tab_1_title": "hero",
+            "tab_1_content": "<p>首图</p>",
+            "tab_2_enabled": true,
+            "tab_2_title": "产品展示 场景化穿搭",
+            "tab_2_content": "<p>2个图</p>",
+            "tab_3_enabled": true,
+            "tab_3_title": "平铺",
+            "tab_3_content": "",
+            "tab_4_enabled": true,
+            "tab_4_title": "其他体子适配",
+            "tab_4_content": "<p>服装尺寸</p>",
+            "tab_5_enabled": true,
+            "tab_5_title": "面料细节",
+            "tab_5_content": "",
+            "tab_6_enabled": true,
+            "tab_6_title": "与其他衣服适配",
+            "tab_6_content": "",
+            "tab_7_enabled": true,
+            "tab_7_title": "其他玩家展示",
+            "tab_7_content": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_81e2226_krBycf"
+      ],
+      "name": "Product tabs",
+      "settings": {}
+    },
+    "collapsible_content_XYMqT3": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_mraNTP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_GMwLPw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_GtYkzA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_HXjGzw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_mraNTP",
+        "collapsible_row_GMwLPw",
+        "collapsible_row_GtYkzA",
+        "collapsible_row_HXjGzw"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "caption": "",
+        "heading": "FAQ",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "feature-main"
+    "featured_product_TQJJbW",
+    "blocks_QDaL6W",
+    "collapsible_content_XYMqT3"
   ]
 }

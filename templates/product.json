@@ -77,6 +77,15 @@
             "heading_3": "shipping(运输)"
           }
         },
+        "collapsible_tab_jtm8Qn": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "",
+            "icon": "check_mark",
+            "content": "",
+            "page": ""
+          }
+        },
         "rating_6QRL6r": {
           "type": "rating",
           "settings": {}
@@ -99,6 +108,7 @@
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_6L8Yej",
+        "collapsible_tab_jtm8Qn",
         "rating_6QRL6r",
         "share"
       ],
@@ -126,26 +136,26 @@
           "settings": {
             "max_content_width": 1000,
             "tab_1_enabled": true,
-            "tab_1_title": "Product Details（产品设计）",
+            "tab_1_title": "Story（产品设计）",
             "tab_1_content": "<p><strong>板块作用：这里用于告知用户产品的设计概念</strong></p><p><strong>HASUKI Black Ops — Mountain Warfare Special Operative</strong></p><p>The SA03 \"Sierra Phantom\" brings alpine combat to your 1/12 scale collection. <br/><br/>Clad in cold-weather tactical gear with an L7 jacket, snow camouflage suit, and full mountaineering kit including ice axes, crampons, and climbing ropes, this 17cm action figure is ready for high-altitude missions. The highly articulated body supports dynamic posing — from rappelling stances to precision rifle handling.<br/><br/>Every detail is meticulously reproduced: the SCAR-H battle rifle with removable suppressor and optical sight, the MPU5 radio system for comms realism, and the 375BK combat knife with sheath. With 10 interchangeable hands, you can configure this operator for any tactical scenario.<br/><br/>Whether displayed solo or paired with other Black Ops series figures, the Sierra Phantom delivers museum-grade detail at an accessible price point. A must-have for military 1/12 collectors and HASUKI enthusiasts alike.</p>",
             "tab_2_enabled": true,
-            "tab_2_title": "Product Gallery（产品细节）",
-            "tab_2_content": "<p>该部分作用：告知产品配件 以及 细节展示；</p><p><br/>功能调整：这里需要可以插入图片，文案需要可以双列<br/></p><h3>Standard Set Includes</h3><ul><li>L7 Cold Weather Jacket & Pants ×1</li><li>Snow Camouflage Suit ×1</li><li>Chest Rig ×1</li><li>Rifle Sling ×1</li><li>Rappelling Harness ×1</li><li>Climbing Rope Sleeves ×2</li><li>Main Climbing Rope ×1</li><li>Morale Patches ×3</li><li>Tactical Backpack ×1</li></ul><h3>Pre-Order Bonus Items</h3><p>Camouflage Backpack Cover ×1</p><p>Head Sculpt ×1</p><p>Next-Generation Articulated Body ×1</p><p>Interchangeable Hands ×10</p><p>Mountaineering Boots ×1 Pair</p><p>MPU5 Tactical Radio System ×1</p><p>375BK Combat Knife with Sheath ×1</p><p>SCAR-H Rifle with Suppressor ×1</p><p>7.62mm Rifle Magazines ×4</p><p>Optical Scope ×1</p><p>AN/PEQ-15 Laser Module ×1</p><p>Vertical Foregrip ×1</p><p>Drop-Leg Holster ×1</p><p>P226 Pistol (Tan) ×1</p><p>Weapon Light ×1</p><p>9mm Pistol Magazines ×3</p><p>O-Rings ×4</p><p>D-Rings ×4</p><p>Pitons ×3</p><p>Small Nuts ×2</p><p>Large Nuts ×2</p><p>Spring-Loaded Camming Devices ×2</p><p>Ascenders ×2</p><p>Ice Axes ×2</p><p>Quickdraws ×2</p><p>Crampons ×2</p><p>Descender ×1<br/></p><p></p>",
+            "tab_2_title": "What's Included(包含什么)",
+            "tab_2_content": "<p>该部分作用：告知产品配件<br/>功能调整：这里需要可以插入图片，文案需要可以双列</p><h3>Standard Set Includes</h3><ul><li>L7 Cold Weather Jacket & Pants ×1</li><li>Snow Camouflage Suit ×1</li><li>Chest Rig ×1</li><li>Rifle Sling ×1</li><li>Rappelling Harness ×1</li><li>Climbing Rope Sleeves ×2</li><li>Main Climbing Rope ×1</li><li>Morale Patches ×3</li><li>Tactical Backpack ×1</li></ul><h3>Pre-Order Bonus Items</h3><p>Camouflage Backpack Cover ×1</p><p>Head Sculpt ×1</p><p>Next-Generation Articulated Body ×1</p><p>Interchangeable Hands ×10</p><p>Mountaineering Boots ×1 Pair</p><p>MPU5 Tactical Radio System ×1</p><p>375BK Combat Knife with Sheath ×1</p><p>SCAR-H Rifle with Suppressor ×1</p><p>7.62mm Rifle Magazines ×4</p><p>Optical Scope ×1</p><p>AN/PEQ-15 Laser Module ×1</p><p>Vertical Foregrip ×1</p><p>Drop-Leg Holster ×1</p><p>P226 Pistol (Tan) ×1</p><p>Weapon Light ×1</p><p>9mm Pistol Magazines ×3</p><p>O-Rings ×4</p><p>D-Rings ×4</p><p>Pitons ×3</p><p>Small Nuts ×2</p><p>Large Nuts ×2</p><p>Spring-Loaded Camming Devices ×2</p><p>Ascenders ×2</p><p>Ice Axes ×2</p><p>Quickdraws ×2</p><p>Crampons ×2</p><p>Descender ×1<br/></p><p></p>",
             "tab_3_enabled": true,
             "tab_3_title": "Pre-Order Information（预定信息说明）",
-            "tab_3_content": "<p>这里用于写 预售信息  和库存信息；预售商品上架后，注意添加预售标签；</p><p>Limited-Time Pre-Order</p><p>This product is currently in the pre-order stage.</p><p>Pre-Order Period: XXX – XXX</p><p>Special Pre-Order Price: $ XXX</p><p>Future Retail Price: $ XXX</p><p>Orders placed during the pre-order period will receive the exclusive pre-order pricing. After the pre-order closes, the product will be offered at the regular retail price, subject to stock availability.</p><p>Please make sure to place your order before the pre-order deadline.</p><p>点击这里，加入社区，随时查看产品进度</p><p><strong>Pre-Order Policy （预售协议）</strong><br/><br/>Production will begin after the pre-order period ends. Estimated production and fulfillment times may vary depending on the product.<br/><br/>Orders are considered confirmed once payment has been completed.<br/><br/>Due to the made-to-order nature of pre-order products, cancellations, refunds, or exchanges are not accepted after an order has been placed unless otherwise stated.<br/><br/>Please review all product details carefully before placing your order.<br/><br/>By completing your purchase, you agree to the terms of this pre-order policy.</p><p><strong>In-Stock Item Policy</strong><br/><br/>This item is currently in stock and ready to ship.<br/><br/>Orders are typically processed and dispatched within 10 business days after payment is confirmed.<br/><br/>Although inventory is updated regularly, stock levels may occasionally change due to sales across multiple platforms.<br/><br/>If an item becomes unavailable after an order is placed, we will notify you as soon as possible and issue a full refund.<br/><br/>By placing an order, you acknowledge and accept these terms.<br/></p>",
+            "tab_3_content": "<p>这里用于写 预售信息  和库存信息；预售商品上架后，注意添加预售标签；</p><p>Limited-Time Pre-Order</p><p>This product is currently in the pre-order stage.</p><p>Pre-Order Period: XXX – XXX</p><p>Special Pre-Order Price: $ XXX</p><p>Future Retail Price: $ XXX</p><p>Orders placed during the pre-order period will receive the exclusive pre-order pricing. After the pre-order closes, the product will be offered at the regular retail price, subject to stock availability.</p><p>Please make sure to place your order before the pre-order deadline.</p>",
             "tab_4_enabled": true,
-            "tab_4_title": "Shipping Information（运输信息）",
-            "tab_4_content": "<p>🚚 Shipping with tracking included.<br/>US free shipping over $65. More details here!<br/>We want you to be 100% satisfied with your purchase. We have a 30-day return policy, which means you have 30 days after receiving your item to request a return. More details here!</p>",
+            "tab_4_title": "Compatibility",
+            "tab_4_content": "<p>Compatible With<br/><br/>✓ 1/12 Scale Figures<br/><br/>Recommended Bodies<br/><br/>✓ Damtoys<br/>✓ VeryCool<br/>✓ Easy&Simple<br/><br/>Not Compatible<br/><br/>✗ 1/6 Scale<br/>✗ OB24</p>",
             "tab_5_enabled": false,
-            "tab_5_title": "Return & Refund Policy",
-            "tab_5_content": "",
+            "tab_5_title": "Try-On Gallery",
+            "tab_5_content": "<p>上传图片</p>",
             "tab_6_enabled": true,
-            "tab_6_title": "Reviews",
-            "tab_6_content": "<p>这个地方接入评论功能，并且加一句话，Be the first to <a>write a review 点击写评论，会跳转</a></p>",
+            "tab_6_title": "Details",
+            "tab_6_content": "<p>这里可以上传图片<br/><br/><br/></p>",
             "tab_7_enabled": true,
-            "tab_7_title": "",
-            "tab_7_content": ""
+            "tab_7_title": "Community Photos",
+            "tab_7_content": "<p>这个地方接入评论功能，并且加一句话，Be the first to <a>write a review 点击写评论，会跳转  </a>呈现模式：瀑布流</p>"
           },
           "blocks": {}
         }
