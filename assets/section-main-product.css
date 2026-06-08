@@ -1669,14 +1669,30 @@ a.product__text {
   }
 
   .product-detail-panel .product-form__quantity + div:has(.product-form) {
-    margin-top: -9.2rem;
+    margin-top: -7.2rem;
     margin-left: 35rem;
   }
 
   .product-detail-panel .product-form__quantity + div:has(.product-form) .product-form__buttons {
     max-width: none;
     display: grid;
-    gap: 1.4rem;
+    gap: 1.2rem;
+  }
+
+  .product-detail-panel .product-form__quantity + div:has(.product-form) .product-form {
+    margin: 0;
+  }
+
+  .product-detail-panel .product-form__quantity + div:has(.product-form) .product-form__submit {
+    min-height: 7.2rem;
+  }
+
+  .product-detail-panel .product-form__quantity + div:has(.product-form) .shopify-payment-button {
+    margin-top: 0;
+  }
+
+  .product-detail-panel .product-action-links {
+    margin-top: -7rem;
   }
 }
 
