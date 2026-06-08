@@ -1456,6 +1456,7 @@ a.product__text {
   border: 0.2rem solid rgba(var(--color-foreground), 0.26);
   border-radius: 0;
   background: rgba(var(--color-background), 0.72);
+  box-sizing: border-box;
 }
 
 .product-detail-panel .quantity__button,
