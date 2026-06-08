@@ -101,7 +101,7 @@
             "tab_1_enabled": true,
             "tab_1_title": "Hero",
             "tab_1_content": "<p>首图</p>",
-            "tab_2_enabled": false,
+            "tab_2_enabled": true,
             "tab_2_title": "产品使用",
             "tab_2_content": "",
             "tab_3_enabled": true,
