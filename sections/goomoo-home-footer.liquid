@@ -4,10 +4,6 @@
   assign popup_id = 'GoomooNewsletterPopup-' | append: section.id
   assign footer_form_id = 'GoomooFooterNewsletter-' | append: section.id
   assign popup_form_id = 'GoomooPopupNewsletter-' | append: section.id
-  assign privacy_policy_url = shop.privacy_policy.url | default: '/policies/privacy-policy'
-  assign shipping_policy_url = shop.shipping_policy.url | default: '/policies/shipping-policy'
-  assign refund_policy_url = shop.refund_policy.url | default: '/policies/refund-policy'
-  assign terms_policy_url = shop.terms_of_service.url | default: '/policies/terms-of-service'
 -%}
 
 <section class="goomoo-home-footer color-{{ section.settings.color_scheme }} gradient">
@@ -45,10 +41,10 @@
     <div class="goomoo-home-footer__column">
       <h3>Company</h3>
       <a href="/search">Search</a>
-      <a href="{{ privacy_policy_url }}">Privacy Policy</a>
-      <a href="{{ shipping_policy_url }}">Shipping Policy</a>
-      <a href="{{ refund_policy_url }}">Refund Policy</a>
-      <a href="{{ terms_policy_url }}">Terms of Service</a>
+      <a href="/pages/privacy-policy">Privacy Policy</a>
+      <a href="/pages/shipping-policy">Shipping Policy</a>
+      <a href="/pages/refund-policy">Refund Policy</a>
+      <a href="/pages/terms-of-service">Terms of Service</a>
       <a href="/pages/contact">Contact Information</a>
     </div>
 
