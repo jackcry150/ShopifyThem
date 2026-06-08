@@ -17,7 +17,7 @@
       "type": "page",
       "name": "t:sections.page.presets.name",
       "settings": {
-        "page": "return-refund-policy",
+        "page": "terms-of-service",
         "heading_size": "h1",
         "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
         "padding_top": 36,
