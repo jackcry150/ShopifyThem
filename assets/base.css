@@ -3607,13 +3607,24 @@ body.shopify-policy,
 .shopify-policy__body,
 .main-page-title,
 .main-page-section,
+.main-page-section--data-sharing-opt-out,
 .main-page-section--shipping-policy,
+.main-page-section--refund-policy,
+.main-page-section--terms-of-service,
 .main-page-section .gradient,
 .shipping-policy,
 .shipping-policy__content {
   background: #fff !important;
 }
 
+body:has(.main-page-section--data-sharing-opt-out),
+body:has(.main-page-section--data-sharing-opt-out) main,
+body:has(.main-page-section--data-sharing-opt-out) .gradient,
+body:has(.main-page-section--data-sharing-opt-out) .color-scheme-1,
+body:has(.main-page-section--data-sharing-opt-out) .color-scheme-2,
+body:has(.main-page-section--data-sharing-opt-out) .color-scheme-3,
+body:has(.main-page-section--data-sharing-opt-out) .color-scheme-4,
+body:has(.main-page-section--data-sharing-opt-out) .color-scheme-5,
 body:has(.main-page-section--shipping-policy),
 body:has(.main-page-section--shipping-policy) main,
 body:has(.main-page-section--shipping-policy) .gradient,
@@ -3621,7 +3632,23 @@ body:has(.main-page-section--shipping-policy) .color-scheme-1,
 body:has(.main-page-section--shipping-policy) .color-scheme-2,
 body:has(.main-page-section--shipping-policy) .color-scheme-3,
 body:has(.main-page-section--shipping-policy) .color-scheme-4,
-body:has(.main-page-section--shipping-policy) .color-scheme-5 {
+body:has(.main-page-section--shipping-policy) .color-scheme-5,
+body:has(.main-page-section--refund-policy),
+body:has(.main-page-section--refund-policy) main,
+body:has(.main-page-section--refund-policy) .gradient,
+body:has(.main-page-section--refund-policy) .color-scheme-1,
+body:has(.main-page-section--refund-policy) .color-scheme-2,
+body:has(.main-page-section--refund-policy) .color-scheme-3,
+body:has(.main-page-section--refund-policy) .color-scheme-4,
+body:has(.main-page-section--refund-policy) .color-scheme-5,
+body:has(.main-page-section--terms-of-service),
+body:has(.main-page-section--terms-of-service) main,
+body:has(.main-page-section--terms-of-service) .gradient,
+body:has(.main-page-section--terms-of-service) .color-scheme-1,
+body:has(.main-page-section--terms-of-service) .color-scheme-2,
+body:has(.main-page-section--terms-of-service) .color-scheme-3,
+body:has(.main-page-section--terms-of-service) .color-scheme-4,
+body:has(.main-page-section--terms-of-service) .color-scheme-5 {
   background: #fff !important;
   --gradient-background: #fff !important;
   --color-background: 255, 255, 255 !important;
@@ -3629,6 +3656,9 @@ body:has(.main-page-section--shipping-policy) .color-scheme-5 {
   color: rgb(31, 31, 31) !important;
 }
 
-body:has(.main-page-section--shipping-policy) a {
+body:has(.main-page-section--data-sharing-opt-out) a,
+body:has(.main-page-section--shipping-policy) a,
+body:has(.main-page-section--refund-policy) a,
+body:has(.main-page-section--terms-of-service) a {
   color: rgb(31, 31, 31) !important;
 }
