@@ -12,9 +12,21 @@
     "main": {
       "type": "main-404",
       "settings": {}
+    },
+    "page_dp3yKA": {
+      "type": "page",
+      "name": "t:sections.page.presets.name",
+      "settings": {
+        "page": "shipping-policy",
+        "heading_size": "h1",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "page_dp3yKA"
   ]
 }
