@@ -3607,8 +3607,21 @@ body.shopify-policy,
 .shopify-policy__body,
 .main-page-title,
 .main-page-section,
+.main-page-section--shipping-policy,
 .main-page-section .gradient,
 .shipping-policy,
 .shipping-policy__content {
   background: #fff !important;
+}
+
+body:has(.main-page-section--shipping-policy),
+body:has(.main-page-section--shipping-policy) main,
+body:has(.main-page-section--shipping-policy) .gradient,
+body:has(.main-page-section--shipping-policy) .color-scheme-1,
+body:has(.main-page-section--shipping-policy) .color-scheme-2,
+body:has(.main-page-section--shipping-policy) .color-scheme-3,
+body:has(.main-page-section--shipping-policy) .color-scheme-4,
+body:has(.main-page-section--shipping-policy) .color-scheme-5 {
+  background: #fff !important;
+  --gradient-background: #fff !important;
 }
