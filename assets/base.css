@@ -3624,4 +3624,11 @@ body:has(.main-page-section--shipping-policy) .color-scheme-4,
 body:has(.main-page-section--shipping-policy) .color-scheme-5 {
   background: #fff !important;
   --gradient-background: #fff !important;
+  --color-background: 255, 255, 255 !important;
+  --color-foreground: 31, 31, 31 !important;
+  color: rgb(31, 31, 31) !important;
+}
+
+body:has(.main-page-section--shipping-policy) a {
+  color: rgb(31, 31, 31) !important;
 }
