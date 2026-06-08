@@ -145,7 +145,7 @@
             "tab_4_enabled": true,
             "tab_4_title": "Pre-Order Information（预定信息说明）",
             "tab_4_content": "<p>Limited-Time Pre-Order</p><p>This product is currently in the pre-order stage.</p><p>Pre-Order Period: XXX – XXX</p><p>Special Pre-Order Price: $ XXX</p><p>Future Retail Price: $ XXX</p><p>Orders placed during the pre-order period will receive the exclusive pre-order pricing. After the pre-order closes, the product will be offered at the regular retail price, subject to stock availability.</p><p>Please make sure to place your order before the pre-order deadline.</p>",
-            "tab_5_enabled": false,
+            "tab_5_enabled": true,
             "tab_5_title": "评论返图",
             "tab_5_content": "<p><br/>这个地方接入评论功能，并且加一句话，Be the first to write a review 点击写评论，会跳转  呈现模式：瀑布流<br/><br/></p>",
             "tab_6_enabled": true,
