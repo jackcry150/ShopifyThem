@@ -3595,3 +3595,20 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* Keep utility pages clean and consistent with policy/search requirements. */
+body.template-search,
+body.template-page,
+body.shopify-policy,
+.template-search,
+.template-search .gradient,
+.shopify-policy__container,
+.shopify-policy__title,
+.shopify-policy__body,
+.main-page-title,
+.main-page-section,
+.main-page-section .gradient,
+.shipping-policy,
+.shipping-policy__content {
+  background: #fff !important;
+}

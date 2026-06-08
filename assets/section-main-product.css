@@ -1356,6 +1356,65 @@ a.product__text {
   letter-spacing: -0.03rem;
 }
 
+.product-detail-panel .product-status-badges {
+  margin: -1rem 0 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.product-detail-panel .product-status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.8rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  background: #fff;
+  color: rgba(var(--color-foreground), 0.72);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.product-detail-panel .product-status-badge--preorder {
+  border-color: rgba(238, 148, 65, 0.45);
+  background: rgba(238, 148, 65, 0.1);
+  color: rgb(190, 94, 24);
+}
+
+.product-detail-panel .product-status-badge--instock {
+  border-color: rgba(57, 143, 86, 0.3);
+  background: rgba(57, 143, 86, 0.08);
+  color: rgb(36, 116, 64);
+}
+
+.product-detail-panel .product-status-badge--discount {
+  border-color: rgba(186, 62, 48, 0.28);
+  background: rgba(186, 62, 48, 0.08);
+  color: rgb(154, 49, 39);
+}
+
+.product-detail-panel .product-preorder-deadline {
+  margin: 0 0 1rem;
+  color: rgb(190, 94, 24);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.product-detail-panel .product-preorder-ended {
+  margin: 1.6rem 0;
+  padding: 1.4rem 1.6rem;
+  border: 0.1rem solid rgba(190, 94, 24, 0.24);
+  border-radius: 0.6rem;
+  background: rgba(238, 148, 65, 0.1);
+  color: rgb(154, 72, 18);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 .product-detail-panel .installment {
   margin-top: 1.6rem;
   font-size: 1.8rem;

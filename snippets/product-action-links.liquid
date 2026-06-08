@@ -70,6 +70,7 @@
       {%- endif -%}
 
       <input type="hidden" name="contact[Product]" value="{{ product.title | escape }}">
+      <input type="hidden" name="contact[SKU]" value="{{ product.selected_or_first_available_variant.sku | escape }}">
       <input type="hidden" name="contact[Product URL]" value="{{ product_share_url }}">
 
       <input

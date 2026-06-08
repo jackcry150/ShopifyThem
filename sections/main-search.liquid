@@ -41,6 +41,46 @@
   .search__button .icon {
     height: 1.8rem;
   }
+
+  .template-search,
+  .template-search .gradient,
+  .template-search__results {
+    background: #fff;
+  }
+
+  .template-search__hot-keywords {
+    margin-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    color: rgba(var(--color-foreground), 0.68);
+    font-size: 1.3rem;
+  }
+
+  .template-search__hot-keywords-label {
+    font-weight: 600;
+    color: rgb(var(--color-foreground));
+  }
+
+  .template-search__hot-keywords a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 3rem;
+    padding: 0.4rem 1.2rem;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    border-radius: 999rem;
+    background: #fff;
+    color: rgba(var(--color-foreground), 0.72);
+    text-decoration: none;
+    transition: border-color var(--duration-short) ease, color var(--duration-short) ease;
+  }
+
+  .template-search__hot-keywords a:hover {
+    border-color: rgba(var(--color-foreground), 0.36);
+    color: rgb(var(--color-foreground));
+  }
 </style>
 
 {%- liquid
@@ -130,6 +170,25 @@
         </main-search>
         {%- if settings.predictive_search_enabled -%}
           </predictive-search>
+        {%- endif -%}
+        {%- if section.settings.show_hot_keywords and section.settings.hot_keywords != blank -%}
+          <div class="template-search__hot-keywords" aria-label="Popular searches">
+            {%- if section.settings.hot_keywords_label != blank -%}
+              <span class="template-search__hot-keywords-label">{{ section.settings.hot_keywords_label }}</span>
+            {%- endif -%}
+            {%- assign hot_keyword_lines = section.settings.hot_keywords | newline_to_br | split: '<br />' -%}
+            {%- for hot_keyword_line in hot_keyword_lines -%}
+              {%- assign hot_keywords = hot_keyword_line | split: ',' -%}
+              {%- for hot_keyword in hot_keywords -%}
+                {%- assign keyword = hot_keyword | strip -%}
+                {%- if keyword != blank -%}
+                  <a href="{{ routes.search_url }}?q={{ keyword | url_encode }}&options%5Bprefix%5D=last">
+                    {{ keyword | escape }}
+                  </a>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
+          </div>
         {%- endif -%}
       </div>
       {%- if search.performed -%}
@@ -364,6 +423,29 @@
         }
       ]
     },    
+    {
+      "type": "header",
+      "content": "Popular search keywords"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hot_keywords",
+      "default": true,
+      "label": "Show popular search keywords"
+    },
+    {
+      "type": "text",
+      "id": "hot_keywords_label",
+      "default": "Popular:",
+      "label": "Keyword label"
+    },
+    {
+      "type": "textarea",
+      "id": "hot_keywords",
+      "default": "Labubu clothes, Doll outfit, 1/12 action figure, Doll accessories",
+      "label": "Keywords",
+      "info": "Separate keywords with commas or new lines. Clicking a keyword opens search results."
+    },
     {
       "type": "header",
       "content": "t:sections.main-search.settings.header__1.content"

@@ -85,6 +85,31 @@
           class="product__info-container product-detail-panel{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          {%- liquid
+            assign preorder_end_at = product.metafields.custom.preorder_end_at.value | default: product.metafields.custom.pre_order_end_at.value
+            assign preorder_ended = false
+            if preorder_end_at != blank
+              assign preorder_end_timestamp = preorder_end_at | date: '%s'
+              assign current_timestamp = 'now' | date: '%s'
+              if preorder_end_timestamp < current_timestamp
+                assign preorder_ended = true
+              endif
+            endif
+
+            assign show_preorder_badge = false
+            assign show_in_stock_badge = false
+            assign show_limited_discount_badge = false
+            for product_tag in product.tags
+              assign normalized_product_tag = product_tag | downcase | strip
+              if normalized_product_tag == 'pre-order' or normalized_product_tag == 'preorder' or normalized_product_tag == 'pre order'
+                assign show_preorder_badge = true
+              elsif normalized_product_tag == 'in stock' or normalized_product_tag == 'in-stock' or normalized_product_tag == 'instock'
+                assign show_in_stock_badge = true
+              elsif normalized_product_tag == 'limited discount' or normalized_product_tag == 'limited-discount' or normalized_product_tag == 'limiteddiscount'
+                assign show_limited_discount_badge = true
+              endif
+            endfor
+          -%}
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
@@ -111,6 +136,19 @@
                     </h2>
                   </a>
                 </div>
+                {%- if show_preorder_badge or show_in_stock_badge or show_limited_discount_badge -%}
+                  <div class="product-status-badges" aria-label="Product status">
+                    {%- if show_preorder_badge -%}
+                      <span class="product-status-badge product-status-badge--preorder">Pre-order</span>
+                    {%- endif -%}
+                    {%- if show_in_stock_badge -%}
+                      <span class="product-status-badge product-status-badge--instock">In Stock</span>
+                    {%- endif -%}
+                    {%- if show_limited_discount_badge -%}
+                      <span class="product-status-badge product-status-badge--discount">Limited Discount</span>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
@@ -484,13 +522,24 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                {%- render 'buy-buttons',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true
-                -%}
+                {%- if preorder_ended -%}
+                  <div class="product-preorder-ended" {{ block.shopify_attributes }}>
+                    Pre-order has ended. Please contact us if you need help with this item.
+                  </div>
+                {%- else -%}
+                  {%- if preorder_end_at != blank and show_preorder_badge -%}
+                    <p class="product-preorder-deadline">
+                      Pre-order ends: {{ preorder_end_at | date: '%b %d, %Y' }}
+                    </p>
+                  {%- endif -%}
+                  {%- render 'buy-buttons',
+                    block: block,
+                    product: product,
+                    product_form_id: product_form_id,
+                    section_id: section.id,
+                    show_pickup_availability: true
+                  -%}
+                {%- endif -%}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
