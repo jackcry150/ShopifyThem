@@ -1500,12 +1500,14 @@ a.product__text {
 
 .product-detail-panel .product-action-links {
   margin: -0.1rem 0 0;
-  padding: 1.4rem 2.2rem 0;
+  padding: 1.4rem 0 0;
   border-top: 0;
   display: flex;
   justify-content: space-between;
   gap: 1.6rem;
+  width: 32.5rem;
   max-width: 32.5rem;
+  box-sizing: border-box;
 }
 
 .product-detail-panel .product-action-links__item {
@@ -1722,6 +1724,8 @@ a.product__text {
   }
 
   .product-detail-panel .product-action-links {
+    width: 100%;
+    max-width: none;
     gap: 1.6rem;
     justify-content: space-between;
   }
