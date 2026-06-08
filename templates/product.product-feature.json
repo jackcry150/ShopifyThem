@@ -198,18 +198,18 @@
         "collapsible_row_HXjGzw": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "预售娃衣需要多久制作？",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "How long does it take to produce pre-order outfits",
+            "icon": "question_mark",
+            "row_content": "<p>Production time varies by product. Most pre-order outfits require approximately 30–60 days for production before shipping. Please refer to the estimated timeline shown on the product page.<br/></p>",
             "page": ""
           }
         },
         "collapsible_row_kbJTqC": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "预售期间可以取消吗？",
-            "icon": "check_mark",
-            "row_content": "<p>Please refer to our Pre-Order Policy.</p>",
+            "heading": "Can I cancel my order during the pre-order period?",
+            "icon": "question_mark",
+            "row_content": "<p>Orders may be canceled during the pre-order period before production begins. Once production has started, cancellations may not be available. Please contact customer service as soon as possible if you need assistance.<br/></p>",
             "page": ""
           }
         }
