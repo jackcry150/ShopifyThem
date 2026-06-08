@@ -1663,17 +1663,25 @@ a.product__text {
 
 @media screen and (min-width: 750px) {
   .product-detail-panel {
+    --product-purchase-column-width: 30.4rem;
     max-width: 78rem;
   }
 
   .product-detail-panel .product-form__quantity {
-    max-width: 32.5rem;
+    width: var(--product-purchase-column-width);
+    max-width: var(--product-purchase-column-width);
     margin: 0;
+  }
+
+  .product-detail-panel .product-form__quantity .price-per-item__container,
+  .product-detail-panel .product-form__quantity .quantity {
+    width: var(--product-purchase-column-width);
+    max-width: var(--product-purchase-column-width);
   }
 
   .product-detail-panel .product-form__quantity + div:has(.product-form) {
     margin-top: -7.2rem;
-    margin-left: 35rem;
+    margin-left: calc(var(--product-purchase-column-width) + 3rem);
   }
 
   .product-detail-panel .product-form__quantity + div:has(.product-form) .product-form__buttons {
@@ -1695,6 +1703,8 @@ a.product__text {
   }
 
   .product-detail-panel .product-action-links {
+    width: var(--product-purchase-column-width);
+    max-width: var(--product-purchase-column-width);
     margin-top: -7rem;
   }
 }
