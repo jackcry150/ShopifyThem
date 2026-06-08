@@ -101,7 +101,7 @@
             "tab_1_enabled": true,
             "tab_1_title": "Hero",
             "tab_1_content": "<p>首图</p>",
-            "tab_2_enabled": true,
+            "tab_2_enabled": false,
             "tab_2_title": "产品使用",
             "tab_2_content": "",
             "tab_3_enabled": true,
@@ -113,7 +113,7 @@
             "tab_5_enabled": true,
             "tab_5_title": "Photography Example",
             "tab_5_content": "<p>使用照片举例</p>",
-            "tab_6_enabled": true,
+            "tab_6_enabled": false,
             "tab_6_title": "Bundle Recommendation",
             "tab_6_content": "<p>Add your review app block or customer testimonials here.</p>",
             "tab_7_enabled": true,
@@ -135,8 +135,8 @@
         "collapsible_row_KKBq6z": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "适用于哪些产品？",
-            "icon": "check_mark",
+            "heading": "What products is this item compatible with?",
+            "icon": "question_mark",
             "row_content": "<p>Please check the Compatibility section on the product page.</p>",
             "page": ""
           }
@@ -144,8 +144,8 @@
         "collapsible_row_Umfeam": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "是否包含娃娃？",
-            "icon": "check_mark",
+            "heading": "Does this product include a doll?",
+            "icon": "question_mark",
             "row_content": "<p>No.</p><p>Unless otherwise stated, figures and dolls shown in product photos are for display purposes only.</p>",
             "page": ""
           }
@@ -153,8 +153,8 @@
         "collapsible_row_8kRE6g": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "是否包含娃衣？",
-            "icon": "check_mark",
+            "heading": "Does this product include doll clothing?",
+            "icon": "question_mark",
             "row_content": "<p>No.</p><p>Only the accessory listed in the product title is included.</p>",
             "page": ""
           }
@@ -162,8 +162,8 @@
         "collapsible_row_zwj7A6": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "可以搭配哪些娃体？",
-            "icon": "check_mark",
+            "heading": "Which doll bodies is this product compatible with?",
+            "icon": "question_mark",
             "row_content": "<p><br/>Compatibility information can be found on the product page.<br/><br/></p>",
             "page": ""
           }
@@ -171,17 +171,17 @@
         "collapsible_row_VjkR4n": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "配件可以单独使用吗？",
-            "icon": "check_mark",
-            "row_content": "<p><br/>Some accessories are designed for standalone display, while others require compatible figures or dolls.</p>",
+            "heading": "Can the accessories be used separately?",
+            "icon": "question_mark",
+            "row_content": "<p>Some accessories are designed for standalone display, while others require compatible figures or dolls.</p>",
             "page": ""
           }
         },
         "collapsible_row_znRUbU": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "金属件会氧化吗？",
-            "icon": "check_mark",
+            "heading": "Will the metal parts oxidize over time?",
+            "icon": "question_mark",
             "row_content": "<p><br/>Minor wear and aging may occur over time depending on usage and storage conditions.</p>",
             "page": ""
           }
@@ -189,8 +189,8 @@
         "collapsible_row_rUC8CH": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "配件有锋利部分吗？",
-            "icon": "check_mark",
+            "heading": "Do any of the accessories have sharp edges or points?",
+            "icon": "question_mark",
             "row_content": "<p><br/>Some miniature accessories may contain small or pointed parts and should be handled with care.</p>",
             "page": ""
           }

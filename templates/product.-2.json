@@ -134,20 +134,20 @@
           "settings": {
             "max_content_width": 1000,
             "tab_1_enabled": true,
-            "tab_1_title": "Character Introduction（产品设计）",
-            "tab_1_content": "<p><strong>板块作用：这里用于告知用户产品的设计概念</strong></p><p><strong>HASUKI Black Ops — Mountain Warfare Special Operative</strong></p><p>The SA03 \"Sierra Phantom\" brings alpine combat to your 1/12 scale collection. <br/><br/>Clad in cold-weather tactical gear with an L7 jacket, snow camouflage suit, and full mountaineering kit including ice axes, crampons, and climbing ropes, this 17cm action figure is ready for high-altitude missions. The highly articulated body supports dynamic posing — from rappelling stances to precision rifle handling.<br/><br/>Every detail is meticulously reproduced: the SCAR-H battle rifle with removable suppressor and optical sight, the MPU5 radio system for comms realism, and the 375BK combat knife with sheath. With 10 interchangeable hands, you can configure this operator for any tactical scenario.<br/><br/>Whether displayed solo or paired with other Black Ops series figures, the Sierra Phantom delivers museum-grade detail at an accessible price point. A must-have for military 1/12 collectors and HASUKI enthusiasts alike.</p>",
+            "tab_1_title": "Character Introduction",
+            "tab_1_content": "<p><strong>HASUKI Black Ops — Mountain Warfare Special Operative</strong></p><p>The SA03 \"Sierra Phantom\" brings alpine combat to your 1/12 scale collection. <br/><br/>Clad in cold-weather tactical gear with an L7 jacket, snow camouflage suit, and full mountaineering kit including ice axes, crampons, and climbing ropes, this 17cm action figure is ready for high-altitude missions. The highly articulated body supports dynamic posing — from rappelling stances to precision rifle handling.<br/><br/>Every detail is meticulously reproduced: the SCAR-H battle rifle with removable suppressor and optical sight, the MPU5 radio system for comms realism, and the 375BK combat knife with sheath. With 10 interchangeable hands, you can configure this operator for any tactical scenario.<br/><br/>Whether displayed solo or paired with other Black Ops series figures, the Sierra Phantom delivers museum-grade detail at an accessible price point. A must-have for military 1/12 collectors and HASUKI enthusiasts alike.</p>",
             "tab_2_enabled": true,
-            "tab_2_title": "What's Included(包含什么)",
-            "tab_2_content": "<p>该部分作用：告知产品配件<br/>功能调整：这里需要可以插入图片，文案需要可以双列</p><h3>Standard Set Includes</h3><ul><li>L7 Cold Weather Jacket & Pants ×1</li><li>Snow Camouflage Suit ×1</li><li>Chest Rig ×1</li><li>Rifle Sling ×1</li><li>Rappelling Harness ×1</li><li>Climbing Rope Sleeves ×2</li><li>Main Climbing Rope ×1</li><li>Morale Patches ×3</li><li>Tactical Backpack ×1</li></ul><h3>Pre-Order Bonus Items</h3><p>Camouflage Backpack Cover ×1</p><p>Head Sculpt ×1</p><p>Next-Generation Articulated Body ×1</p><p>Interchangeable Hands ×10</p><p>Mountaineering Boots ×1 Pair</p><p>MPU5 Tactical Radio System ×1</p><p>375BK Combat Knife with Sheath ×1</p><p>SCAR-H Rifle with Suppressor ×1</p><p>7.62mm Rifle Magazines ×4</p><p>Optical Scope ×1</p><p>AN/PEQ-15 Laser Module ×1</p><p>Vertical Foregrip ×1</p><p>Drop-Leg Holster ×1</p><p>P226 Pistol (Tan) ×1</p><p>Weapon Light ×1</p><p>9mm Pistol Magazines ×3</p><p>O-Rings ×4</p><p>D-Rings ×4</p><p>Pitons ×3</p><p>Small Nuts ×2</p><p>Large Nuts ×2</p><p>Spring-Loaded Camming Devices ×2</p><p>Ascenders ×2</p><p>Ice Axes ×2</p><p>Quickdraws ×2</p><p>Crampons ×2</p><p>Descender ×1<br/></p><p></p>",
+            "tab_2_title": "What's Included",
+            "tab_2_content": "<h3>Standard Set Includes</h3><ul><li>L7 Cold Weather Jacket & Pants ×1</li><li>Snow Camouflage Suit ×1</li><li>Chest Rig ×1</li><li>Rifle Sling ×1</li><li>Rappelling Harness ×1</li><li>Climbing Rope Sleeves ×2</li><li>Main Climbing Rope ×1</li><li>Morale Patches ×3</li><li>Tactical Backpack ×1</li></ul><h3>Pre-Order Bonus Items</h3><p>Camouflage Backpack Cover ×1</p><p>Head Sculpt ×1</p><p>Next-Generation Articulated Body ×1</p><p>Interchangeable Hands ×10</p><p>Mountaineering Boots ×1 Pair</p><p>MPU5 Tactical Radio System ×1</p><p>375BK Combat Knife with Sheath ×1</p><p>SCAR-H Rifle with Suppressor ×1</p><p>7.62mm Rifle Magazines ×4</p><p>Optical Scope ×1</p><p>AN/PEQ-15 Laser Module ×1</p><p>Vertical Foregrip ×1</p><p>Drop-Leg Holster ×1</p><p>P226 Pistol (Tan) ×1</p><p>Weapon Light ×1</p><p>9mm Pistol Magazines ×3</p><p>O-Rings ×4</p><p>D-Rings ×4</p><p>Pitons ×3</p><p>Small Nuts ×2</p><p>Large Nuts ×2</p><p>Spring-Loaded Camming Devices ×2</p><p>Ascenders ×2</p><p>Ice Axes ×2</p><p>Quickdraws ×2</p><p>Crampons ×2</p><p>Descender ×1<br/></p><p></p>",
             "tab_3_enabled": true,
             "tab_3_title": "Details",
             "tab_3_content": "<p>可以上传图片</p>",
             "tab_4_enabled": true,
-            "tab_4_title": "Pre-Order Information（预定信息说明）",
+            "tab_4_title": "Pre-Order Information",
             "tab_4_content": "<p>Limited-Time Pre-Order</p><p>This product is currently in the pre-order stage.</p><p>Pre-Order Period: XXX – XXX</p><p>Special Pre-Order Price: $ XXX</p><p>Future Retail Price: $ XXX</p><p>Orders placed during the pre-order period will receive the exclusive pre-order pricing. After the pre-order closes, the product will be offered at the regular retail price, subject to stock availability.</p><p>Please make sure to place your order before the pre-order deadline.</p>",
-            "tab_5_enabled": false,
+            "tab_5_enabled": true,
             "tab_5_title": "",
-            "tab_5_content": "<p><br/>这个地方接入评论功能，并且加一句话，Be the first to write a review 点击写评论，会跳转  呈现模式：瀑布流<br/><br/></p>",
+            "tab_5_content": "<p>Be the first to write a review 点击写评论<br/><br/></p>",
             "tab_6_enabled": true,
             "tab_6_title": "",
             "tab_6_content": "<p><br/><br/><br/></p>",
@@ -171,7 +171,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Is this an authentic product?",
-            "icon": "check_mark",
+            "icon": "question_mark",
             "row_content": "<p>Unless otherwise stated, all figures sold by Goomooplay are authentic products sourced through authorized distributors, manufacturers, or approved resale channels.</p>",
             "page": ""
           }
@@ -179,8 +179,8 @@
         "collapsible_row_xUYeH6": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "为什么兵人预售时间这么长？",
-            "icon": "check_mark",
+            "heading": "Why are action figure pre-order periods so long?",
+            "icon": "question_mark",
             "row_content": "<p>Collectible figures require sculpting, prototyping, painting, quality control, and mass production.</p><p>Production timelines are determined by manufacturers and may take several months.</p>",
             "page": ""
           }
@@ -188,8 +188,8 @@
         "collapsible_row_pjCFnP": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "预计到货时间准确吗？",
-            "icon": "check_mark",
+            "heading": "Is the estimated arrival date accurate?",
+            "icon": "question_mark",
             "row_content": "<p>Estimated delivery dates are provided for reference only.</p><p>Delays are common in the collectible figure industry.</p>",
             "page": ""
           }
@@ -197,7 +197,7 @@
         "collapsible_row_hzRXYW": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "厂家延期怎么办？",
+            "heading": "What happens if the manufacturer delays the release?",
             "icon": "question_mark",
             "row_content": "<p>Production schedules are controlled by manufacturers.</p><p>Manufacturer delays do not qualify for cancellation or refunds once production has begun.</p>",
             "page": ""
@@ -206,7 +206,7 @@
         "collapsible_row_QJ6JBR": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "头雕可以单独购买吗？",
+            "heading": "Can the head sculpt be purchased separately?",
             "icon": "question_mark",
             "row_content": "<p>Please refer to the product description.</p><p>Some head sculpts are sold separately, while others are included only as part of a complete set.</p>",
             "page": ""
@@ -215,27 +215,27 @@
         "collapsible_row_zXr4ea": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "关节松紧度会有差异吗？",
+            "heading": "Will there be differences in joint tightness?",
             "icon": "question_mark",
-            "row_content": "<p><br/>Minor differences in articulation stiffness are normal and are not considered manufacturing defects.</p>",
+            "row_content": "<p>Minor differences in articulation stiffness are normal and are not considered manufacturing defects.</p>",
             "page": ""
           }
         },
         "collapsible_row_UNiDah": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "兵人会掉漆吗？",
+            "heading": "Can action figures experience paint wear or paint rub?",
             "icon": "question_mark",
-            "row_content": "<p><br/>Hand-painted collectibles may show slight paint variations due to the production process.<br/></p>",
+            "row_content": "<p>Hand-painted collectibles may show slight paint variations due to the production process.<br/></p>",
             "page": ""
           }
         },
         "collapsible_row_LNwzMC": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "为什么和官图有色差？",
+            "heading": "Why may the actual product differ in color from the official photos?",
             "icon": "question_mark",
-            "row_content": "<p><br/>Product colors may vary slightly due to lighting, screen settings, and manufacturing differences.</p>",
+            "row_content": "<p>Product colors may vary slightly due to lighting, screen settings, and manufacturing differences.</p>",
             "page": ""
           }
         }
