@@ -260,15 +260,42 @@
 
     .ai-product-tabs-container-{{ ai_gen_id }} {
       padding: 0 16px;
+      overflow: hidden;
     }
 
     .ai-product-tabs-button-{{ ai_gen_id }} {
+      flex: 0 0 auto;
       padding: 14px 20px;
       font-size: 13px;
     }
 
     .ai-product-tabs-nav-{{ ai_gen_id }} {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
       margin-bottom: 32px;
+      padding-bottom: 1px;
+      scroll-snap-type: x proximity;
+      scrollbar-width: thin;
+      scrollbar-color: #CFCFCF transparent;
+    }
+
+    .ai-product-tabs-nav-{{ ai_gen_id }}::-webkit-scrollbar {
+      display: block;
+      height: 3px;
+    }
+
+    .ai-product-tabs-nav-{{ ai_gen_id }}::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .ai-product-tabs-nav-{{ ai_gen_id }}::-webkit-scrollbar-thumb {
+      background: #CFCFCF;
+      border-radius: 999px;
+    }
+
+    .ai-product-tabs-button-{{ ai_gen_id }} {
+      scroll-snap-align: start;
     }
 
     .ai-product-tabs-panel-content-{{ ai_gen_id }} {
