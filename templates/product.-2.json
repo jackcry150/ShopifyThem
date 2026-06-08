@@ -43,6 +43,10 @@
             "text_style": "body"
           }
         },
+        "rating_6QRL6r": {
+          "type": "rating",
+          "settings": {}
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -84,19 +88,6 @@
             "heading_3": "shipping(运输)"
           }
         },
-        "collapsible_tab_jtm8Qn": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "",
-            "icon": "check_mark",
-            "content": "",
-            "page": ""
-          }
-        },
-        "rating_6QRL6r": {
-          "type": "rating",
-          "settings": {}
-        },
         "share": {
           "type": "share",
           "settings": {
@@ -110,14 +101,13 @@
         "title",
         "text_TWrGj9",
         "text_CLzBqB",
+        "rating_6QRL6r",
         "price",
         "trust_badges",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_6L8Yej",
-        "collapsible_tab_jtm8Qn",
-        "rating_6QRL6r",
         "share"
       ],
       "settings": {
