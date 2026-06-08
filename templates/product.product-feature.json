@@ -77,7 +77,7 @@
       ],
       "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "product": "",
+        "product": "hasuki-1-12-pa010-musketeer-fitchi-pocket-art-anime-doll",
         "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
         "secondary_background": false,
         "media_size": "medium",
@@ -135,8 +135,8 @@
         "collapsible_row_7hpVXG": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "适用于哪些尺寸？",
-            "icon": "check_mark",
+            "heading": "What sizes is this outfit available for?",
+            "icon": "question_mark",
             "row_content": "",
             "page": ""
           }
@@ -144,8 +144,8 @@
         "collapsible_row_Uqq4XQ": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "OB22 和 OB24 都能穿吗？",
-            "icon": "check_mark",
+            "heading": "Will it fit both OB22 and OB24 bodies?",
+            "icon": "question_mark",
             "row_content": "",
             "page": ""
           }
@@ -153,8 +153,8 @@
         "collapsible_row_ArCYLX": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "买错尺寸可以退货吗？",
-            "icon": "check_mark",
+            "heading": "Can I return the item if I order the wrong size?",
+            "icon": "question_mark",
             "row_content": "",
             "page": ""
           }
@@ -162,36 +162,36 @@
         "collapsible_row_FHRdKU": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "有试穿照片吗？",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "Are there any try-on photos available?",
+            "icon": "question_mark",
+            "row_content": "<p>Yes. We provide try-on photos whenever possible. You can find them in the product gallery, description section, or on our social media channels.</p>",
             "page": ""
           }
         },
         "collapsible_row_mraNTP": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "不同品牌娃体可以穿吗？",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "Will it fit doll bodies from other brands?",
+            "icon": "question_mark",
+            "row_content": "<p><br/>Compatibility may vary depending on the body shape, measurements, and proportions of different brands. We recommend comparing your doll's measurements with the size information provided on the product page.</p>",
             "page": ""
           }
         },
         "collapsible_row_GMwLPw": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "衣服会染色吗？",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "Will the fabric stain the doll body?",
+            "icon": "question_mark",
+            "row_content": "<p>Dark-colored fabrics may cause staining if worn for extended periods, especially on light-colored resin or plastic bodies. We recommend avoiding long-term contact and checking the outfit regularly.</p>",
             "page": ""
           }
         },
         "collapsible_row_GtYkzA": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "衣服可以手洗吗？",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "Can the outfit be hand washed?",
+            "icon": "question_mark",
+            "row_content": "<p>Yes. Gentle hand washing with cold water is recommended. Please avoid bleach, strong detergents, and machine washing, as they may damage delicate fabrics or decorative details.</p>",
             "page": ""
           }
         },
