@@ -40,19 +40,6 @@
           "type": "price",
           "settings": {}
         },
-        "shipping_dropdowns": {
-          "type": "shipping_dropdowns",
-          "settings": {
-            "heading": "Shipping",
-            "summary": "Calculated at checkout",
-            "dropdown_1_label": "Conditional shipping",
-            "dropdown_1_content": "<p>Shipping cost may vary by destination, order value, product weight, and available shipping method. The final shipping fee is calculated at checkout.</p>",
-            "dropdown_2_label": "Regional surcharge",
-            "dropdown_2_content": "<p>Some countries, islands, remote areas, or special delivery zones may require an additional regional shipping fee. If your address is affected, the checkout page will show the updated cost.</p>",
-            "link_label": "View shipping policy",
-            "link_url": "shopify://pages/shipping-policy"
-          }
-        },
         "trust_badges": {
           "type": "custom_liquid",
           "settings": {
@@ -116,7 +103,6 @@
         "title",
         "text_TWrGj9",
         "price",
-        "shipping_dropdowns",
         "trust_badges",
         "variant_picker",
         "quantity_selector",

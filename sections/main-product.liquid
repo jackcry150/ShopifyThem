@@ -184,36 +184,37 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
-              {%- when 'shipping_dropdowns' -%}
-                <div class="product-shipping-options" {{ block.shopify_attributes }}>
-                  <div class="product-shipping-options__line">
-                    {%- if block.settings.heading != blank -%}
-                      <span class="product-shipping-options__heading">{{ block.settings.heading }}</span>
-                    {%- endif -%}
-                    {%- if block.settings.summary != blank -%}
-                      <span class="product-shipping-options__summary">{{ block.settings.summary }}</span>
+                {%- if section.settings.show_shipping_dropdowns -%}
+                  <div class="product-shipping-options">
+                    <div class="product-shipping-options__line">
+                      {%- if section.settings.shipping_heading != blank -%}
+                        <span class="product-shipping-options__heading">{{ section.settings.shipping_heading }}</span>
+                      {%- endif -%}
+                      {%- if section.settings.shipping_summary != blank -%}
+                        <span class="product-shipping-options__summary">{{ section.settings.shipping_summary }}</span>
+                      {%- endif -%}
+                    </div>
+                    <div class="product-shipping-options__dropdowns">
+                      <details class="product-shipping-options__details">
+                        <summary>{{ section.settings.shipping_dropdown_1_label }}</summary>
+                        <div class="product-shipping-options__content rte">
+                          {{ section.settings.shipping_dropdown_1_content }}
+                        </div>
+                      </details>
+                      <details class="product-shipping-options__details">
+                        <summary>{{ section.settings.shipping_dropdown_2_label }}</summary>
+                        <div class="product-shipping-options__content rte">
+                          {{ section.settings.shipping_dropdown_2_content }}
+                        </div>
+                      </details>
+                    </div>
+                    {%- if section.settings.shipping_link_label != blank and section.settings.shipping_link_url != blank -%}
+                      <a class="product-shipping-options__link" href="{{ section.settings.shipping_link_url }}">
+                        {{ section.settings.shipping_link_label }}
+                      </a>
                     {%- endif -%}
                   </div>
-                  <div class="product-shipping-options__dropdowns">
-                    <details class="product-shipping-options__details">
-                      <summary>{{ block.settings.dropdown_1_label }}</summary>
-                      <div class="product-shipping-options__content rte">
-                        {{ block.settings.dropdown_1_content }}
-                      </div>
-                    </details>
-                    <details class="product-shipping-options__details">
-                      <summary>{{ block.settings.dropdown_2_label }}</summary>
-                      <div class="product-shipping-options__content rte">
-                        {{ block.settings.dropdown_2_content }}
-                      </div>
-                    </details>
-                  </div>
-                  {%- if block.settings.link_label != blank and block.settings.link_url != blank -%}
-                    <a class="product-shipping-options__link" href="{{ block.settings.link_url }}">
-                      {{ block.settings.link_label }}
-                    </a>
-                  {%- endif -%}
-                </div>
+                {%- endif -%}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -873,60 +874,6 @@
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
       "limit": 1
-    },
-    {
-      "type": "shipping_dropdowns",
-      "name": "Shipping dropdowns",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Shipping"
-        },
-        {
-          "type": "text",
-          "id": "summary",
-          "label": "Summary text",
-          "default": "Calculated at checkout"
-        },
-        {
-          "type": "text",
-          "id": "dropdown_1_label",
-          "label": "First dropdown label",
-          "default": "Conditional shipping"
-        },
-        {
-          "type": "richtext",
-          "id": "dropdown_1_content",
-          "label": "First dropdown content",
-          "default": "<p>Shipping cost may vary by destination, order value, product weight, and available shipping method. The final shipping fee is calculated at checkout.</p>"
-        },
-        {
-          "type": "text",
-          "id": "dropdown_2_label",
-          "label": "Second dropdown label",
-          "default": "Regional surcharge"
-        },
-        {
-          "type": "richtext",
-          "id": "dropdown_2_content",
-          "label": "Second dropdown content",
-          "default": "<p>Some countries, islands, remote areas, or special delivery zones may require an additional regional shipping fee. If your address is affected, the checkout page will show the updated cost.</p>"
-        },
-        {
-          "type": "text",
-          "id": "link_label",
-          "label": "Policy link label",
-          "default": "View shipping policy"
-        },
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Policy link"
-        }
-      ]
     },
     {
       "type": "sku",
@@ -2239,6 +2186,63 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Shipping dropdowns"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_dropdowns",
+      "label": "Show shipping dropdowns below price",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "shipping_heading",
+      "label": "Heading",
+      "default": "Shipping"
+    },
+    {
+      "type": "text",
+      "id": "shipping_summary",
+      "label": "Summary text",
+      "default": "Calculated at checkout"
+    },
+    {
+      "type": "text",
+      "id": "shipping_dropdown_1_label",
+      "label": "First dropdown label",
+      "default": "Conditional shipping"
+    },
+    {
+      "type": "richtext",
+      "id": "shipping_dropdown_1_content",
+      "label": "First dropdown content",
+      "default": "<p>Shipping cost may vary by destination, order value, product weight, and available shipping method. The final shipping fee is calculated at checkout.</p>"
+    },
+    {
+      "type": "text",
+      "id": "shipping_dropdown_2_label",
+      "label": "Second dropdown label",
+      "default": "Regional surcharge"
+    },
+    {
+      "type": "richtext",
+      "id": "shipping_dropdown_2_content",
+      "label": "Second dropdown content",
+      "default": "<p>Some countries, islands, remote areas, or special delivery zones may require an additional regional shipping fee. If your address is affected, the checkout page will show the updated cost.</p>"
+    },
+    {
+      "type": "text",
+      "id": "shipping_link_label",
+      "label": "Policy link label",
+      "default": "View shipping policy"
+    },
+    {
+      "type": "url",
+      "id": "shipping_link_url",
+      "label": "Policy link"
     },
     {
       "type": "header",
