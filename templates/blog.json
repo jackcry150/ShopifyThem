@@ -52,6 +52,7 @@
         "text_zxb3Bp",
         "button_9peaKK"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "height": "adapt",
