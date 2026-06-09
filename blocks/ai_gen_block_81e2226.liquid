@@ -253,6 +253,15 @@
     color: #111111;
   }
 
+  .ai-product-tabs-panel-image-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 32px 0 0;
+    border-radius: 8px;
+  }
+
   @media screen and (max-width: 749px) {
     .ai-product-tabs-{{ ai_gen_id }} {
       padding: 40px 0;
@@ -415,6 +424,16 @@
         >
           <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
             {{ block.settings.tab_1_content }}
+            {% if block.settings.tab_1_image %}
+              <img
+                class="ai-product-tabs-panel-image-{{ ai_gen_id }}"
+                src="{{ block.settings.tab_1_image | image_url: width: 1600 }}"
+                alt="{{ block.settings.tab_1_image.alt | default: block.settings.tab_1_title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.tab_1_image.width }}"
+                height="{{ block.settings.tab_1_image.height }}"
+              >
+            {% endif %}
           </div>
         </div>
       {% endif %}
@@ -428,6 +447,16 @@
         >
           <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
             {{ block.settings.tab_2_content }}
+            {% if block.settings.tab_2_image %}
+              <img
+                class="ai-product-tabs-panel-image-{{ ai_gen_id }}"
+                src="{{ block.settings.tab_2_image | image_url: width: 1600 }}"
+                alt="{{ block.settings.tab_2_image.alt | default: block.settings.tab_2_title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.tab_2_image.width }}"
+                height="{{ block.settings.tab_2_image.height }}"
+              >
+            {% endif %}
           </div>
         </div>
       {% endif %}
@@ -441,6 +470,16 @@
         >
           <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
             {{ block.settings.tab_3_content }}
+            {% if block.settings.tab_3_image %}
+              <img
+                class="ai-product-tabs-panel-image-{{ ai_gen_id }}"
+                src="{{ block.settings.tab_3_image | image_url: width: 1600 }}"
+                alt="{{ block.settings.tab_3_image.alt | default: block.settings.tab_3_title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.tab_3_image.width }}"
+                height="{{ block.settings.tab_3_image.height }}"
+              >
+            {% endif %}
           </div>
         </div>
       {% endif %}
@@ -454,6 +493,16 @@
         >
           <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
             {{ block.settings.tab_4_content }}
+            {% if block.settings.tab_4_image %}
+              <img
+                class="ai-product-tabs-panel-image-{{ ai_gen_id }}"
+                src="{{ block.settings.tab_4_image | image_url: width: 1600 }}"
+                alt="{{ block.settings.tab_4_image.alt | default: block.settings.tab_4_title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.tab_4_image.width }}"
+                height="{{ block.settings.tab_4_image.height }}"
+              >
+            {% endif %}
           </div>
         </div>
       {% endif %}
@@ -467,6 +516,16 @@
         >
           <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
             {{ block.settings.tab_5_content }}
+            {% if block.settings.tab_5_image %}
+              <img
+                class="ai-product-tabs-panel-image-{{ ai_gen_id }}"
+                src="{{ block.settings.tab_5_image | image_url: width: 1600 }}"
+                alt="{{ block.settings.tab_5_image.alt | default: block.settings.tab_5_title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.tab_5_image.width }}"
+                height="{{ block.settings.tab_5_image.height }}"
+              >
+            {% endif %}
           </div>
         </div>
       {% endif %}
@@ -480,6 +539,16 @@
         >
           <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
             {{ block.settings.tab_6_content }}
+            {% if block.settings.tab_6_image %}
+              <img
+                class="ai-product-tabs-panel-image-{{ ai_gen_id }}"
+                src="{{ block.settings.tab_6_image | image_url: width: 1600 }}"
+                alt="{{ block.settings.tab_6_image.alt | default: block.settings.tab_6_title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.tab_6_image.width }}"
+                height="{{ block.settings.tab_6_image.height }}"
+              >
+            {% endif %}
           </div>
         </div>
       {% endif %}
@@ -493,6 +562,16 @@
         >
           <div class="ai-product-tabs-panel-content-{{ ai_gen_id }}">
             {{ block.settings.tab_7_content }}
+            {% if block.settings.tab_7_image %}
+              <img
+                class="ai-product-tabs-panel-image-{{ ai_gen_id }}"
+                src="{{ block.settings.tab_7_image | image_url: width: 1600 }}"
+                alt="{{ block.settings.tab_7_image.alt | default: block.settings.tab_7_title | escape }}"
+                loading="lazy"
+                width="{{ block.settings.tab_7_image.width }}"
+                height="{{ block.settings.tab_7_image.height }}"
+              >
+            {% endif %}
           </div>
         </div>
       {% endif %}
@@ -592,6 +671,11 @@
       "default": "<p>Add your product details here. You can include descriptions, specifications, materials, and care instructions.</p>"
     },
     {
+      "type": "image_picker",
+      "id": "tab_1_image",
+      "label": "Tab image"
+    },
+    {
       "type": "header",
       "content": "Tab 2"
     },
@@ -612,6 +696,11 @@
       "id": "tab_2_content",
       "label": "Tab content",
       "default": "<p>Add additional product photos, lifestyle images, or detail shots here.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "tab_2_image",
+      "label": "Tab image"
     },
     {
       "type": "header",
@@ -636,6 +725,11 @@
       "default": "<p>Add pre-order timeline, production schedule, and estimated delivery information here.</p>"
     },
     {
+      "type": "image_picker",
+      "id": "tab_3_image",
+      "label": "Tab image"
+    },
+    {
       "type": "header",
       "content": "Tab 4"
     },
@@ -656,6 +750,11 @@
       "id": "tab_4_content",
       "label": "Tab content",
       "default": "<p>Add shipping methods, delivery times, and shipping costs here.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "tab_4_image",
+      "label": "Tab image"
     },
     {
       "type": "header",
@@ -680,6 +779,11 @@
       "default": "<p>Add your return and refund policy details here.</p>"
     },
     {
+      "type": "image_picker",
+      "id": "tab_5_image",
+      "label": "Tab image"
+    },
+    {
       "type": "header",
       "content": "Tab 6"
     },
@@ -702,6 +806,11 @@
       "default": "<p>Add your review app block or customer testimonials here.</p>"
     },
     {
+      "type": "image_picker",
+      "id": "tab_6_image",
+      "label": "Tab image"
+    },
+    {
       "type": "header",
       "content": "Tab 7"
     },
@@ -722,6 +831,11 @@
       "id": "tab_7_content",
       "label": "Tab content",
       "default": "<p>Connect with us on social media and join our community.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "tab_7_image",
+      "label": "Tab image"
     }
   ],
   "presets": [

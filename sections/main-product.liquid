@@ -184,6 +184,36 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
+              {%- when 'shipping_dropdowns' -%}
+                <div class="product-shipping-options" {{ block.shopify_attributes }}>
+                  <div class="product-shipping-options__line">
+                    {%- if block.settings.heading != blank -%}
+                      <span class="product-shipping-options__heading">{{ block.settings.heading }}</span>
+                    {%- endif -%}
+                    {%- if block.settings.summary != blank -%}
+                      <span class="product-shipping-options__summary">{{ block.settings.summary }}</span>
+                    {%- endif -%}
+                  </div>
+                  <div class="product-shipping-options__dropdowns">
+                    <details class="product-shipping-options__details">
+                      <summary>{{ block.settings.dropdown_1_label }}</summary>
+                      <div class="product-shipping-options__content rte">
+                        {{ block.settings.dropdown_1_content }}
+                      </div>
+                    </details>
+                    <details class="product-shipping-options__details">
+                      <summary>{{ block.settings.dropdown_2_label }}</summary>
+                      <div class="product-shipping-options__content rte">
+                        {{ block.settings.dropdown_2_content }}
+                      </div>
+                    </details>
+                  </div>
+                  {%- if block.settings.link_label != blank and block.settings.link_url != blank -%}
+                    <a class="product-shipping-options__link" href="{{ block.settings.link_url }}">
+                      {{ block.settings.link_label }}
+                    </a>
+                  {%- endif -%}
+                </div>
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -843,6 +873,60 @@
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
       "limit": 1
+    },
+    {
+      "type": "shipping_dropdowns",
+      "name": "Shipping dropdowns",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Shipping"
+        },
+        {
+          "type": "text",
+          "id": "summary",
+          "label": "Summary text",
+          "default": "Calculated at checkout"
+        },
+        {
+          "type": "text",
+          "id": "dropdown_1_label",
+          "label": "First dropdown label",
+          "default": "Conditional shipping"
+        },
+        {
+          "type": "richtext",
+          "id": "dropdown_1_content",
+          "label": "First dropdown content",
+          "default": "<p>Shipping cost may vary by destination, order value, product weight, and available shipping method. The final shipping fee is calculated at checkout.</p>"
+        },
+        {
+          "type": "text",
+          "id": "dropdown_2_label",
+          "label": "Second dropdown label",
+          "default": "Regional surcharge"
+        },
+        {
+          "type": "richtext",
+          "id": "dropdown_2_content",
+          "label": "Second dropdown content",
+          "default": "<p>Some countries, islands, remote areas, or special delivery zones may require an additional regional shipping fee. If your address is affected, the checkout page will show the updated cost.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Policy link label",
+          "default": "View shipping policy"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Policy link"
+        }
+      ]
     },
     {
       "type": "sku",
