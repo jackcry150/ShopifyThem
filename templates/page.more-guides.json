@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "more_guides_hub": {
+      "type": "more-guides-hub",
+      "blocks": {
+        "topic_doll_outfit": {
+          "type": "topic",
+          "settings": {
+            "title": "Doll Outfit Guides",
+            "text": "Sizing, styling and compatibility notes for collectible dolls."
+          }
+        },
+        "topic_action_figure": {
+          "type": "topic",
+          "settings": {
+            "title": "Action Figure Guides",
+            "text": "Accessory, scale and display ideas for 1/12 action figures."
+          }
+        },
+        "topic_shipping": {
+          "type": "topic",
+          "settings": {
+            "title": "Pre-order & Shipping Notes",
+            "text": "Clear answers about preorder timing, delivery and order expectations."
+          }
+        },
+        "topic_care": {
+          "type": "topic",
+          "settings": {
+            "title": "Collectible Care",
+            "text": "Care, storage and handling advice for outfits and figures."
+          }
+        }
+      },
+      "block_order": [
+        "topic_doll_outfit",
+        "topic_action_figure",
+        "topic_shipping",
+        "topic_care"
+      ],
+      "settings": {
+        "blog_handle": "guides",
+        "eyebrow": "GooMoo Play Guides",
+        "heading": "More Guides",
+        "intro": "<p>Browse practical doll outfit, collectible, pre-order, shipping and care guides. Reviewed GEOFlow articles published in the Guides blog will appear here automatically.</p>",
+        "articles_heading": "Latest Guides",
+        "articles_to_show": 9,
+        "show_images": true,
+        "show_date": true,
+        "padding_top": 56,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "more_guides_hub"
+  ]
+}
