@@ -9,55 +9,86 @@
  */
 {
   "sections": {
-    "featured_product_XrtgHY": {
-      "type": "featured-product",
+    "main": {
+      "type": "main-product",
       "blocks": {
-        "sku_7bNHzg": {
-          "type": "sku",
+        "text_R9Cq3E": {
+          "type": "text",
           "settings": {
+            "text": "",
             "text_style": "body"
           }
         },
-        "text_DJCUG8": {
+        "sku": {
+          "type": "sku",
+          "settings": {
+            "text_style": "subtitle"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "text_TWrGj9": {
           "type": "text",
           "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
+            "text": "",
+            "text_style": "body"
           }
         },
-        "title_pdjhEa": {
-          "type": "title",
+        "text_CLzBqB": {
+          "type": "text",
           "settings": {
-            "heading_size": "h1"
+            "text": "",
+            "text_style": "body"
           }
         },
-        "rating_Tawc3H": {
+        "rating_6QRL6r": {
           "type": "rating",
           "settings": {}
         },
-        "price_aGp8d8": {
+        "price": {
           "type": "price",
           "settings": {}
         },
-        "variant_picker_CqWTJM": {
-          "type": "variant_picker",
+        "trust_badges": {
+          "type": "custom_liquid",
           "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
+            "custom_liquid": "<div class=\"product-trust-badges\">\n  <div class=\"product-trust-badge\">\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\"><path d=\"M5 8l3 3 7-7\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect x=\"2.5\" y=\"4.5\" width=\"15\" height=\"12\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.3\"/></svg>\n    <span>Secure checkout</span>\n  </div>\n  <div class=\"product-trust-badge\">\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\"><rect x=\"1\" y=\"6\" width=\"18\" height=\"10\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"1.3\"/><path d=\"M3 6V5a7 7 0 1114 0v1\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\"/><circle cx=\"10\" cy=\"11.5\" r=\"2.2\" stroke=\"currentColor\" stroke-width=\"1.3\"/><path d=\"M10 10v3M1 9h1.5M17.5 9H19M4.5 3l1 1M14.5 3l-1 1\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\"/></svg>\n    <span>Tracked international shipping</span>\n  </div>\n  <div class=\"product-trust-badge\">\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\"><path d=\"M5 10.5l3 3 7-6\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"10\" cy=\"10\" r=\"8.5\" stroke=\"currentColor\" stroke-width=\"1.3\"/></svg>\n    <span>Free replacement if fake or damaged</span>\n  </div>\n</div>\n\n<style>\n  .product-trust-badges {\n    margin-top: 16px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    padding: 16px;\n    border: 1px solid rgb(var(--color-foreground), 0.1);\n    border-radius: 8px;\n  }\n  .product-trust-badge {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    font-size: 13px;\n    color: rgb(var(--color-foreground));\n  }\n  .product-trust-badge svg {\n    flex-shrink: 0;\n    color: rgb(var(--color-foreground), 0.6);\n  }\n</style>"
           }
         },
-        "quantity_selector_Fy4Wdg": {
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown",
+            "swatch_shape": "square"
+          }
+        },
+        "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
         },
-        "buy_buttons_jHb34J": {
+        "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
         },
-        "share_PmWFiJ": {
+        "icon_with_text_6L8Yej": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "question_mark",
+            "heading_1": "Ask question",
+            "icon_2": "eye",
+            "image_2": "shopify://shop_images/ins.png",
+            "heading_2": "分享（share）",
+            "icon_3": "truck",
+            "heading_3": "shipping(运输)"
+          }
+        },
+        "share": {
           "type": "share",
           "settings": {
             "share_label": "Share"
@@ -65,150 +96,164 @@
         }
       },
       "block_order": [
-        "sku_7bNHzg",
-        "text_DJCUG8",
-        "title_pdjhEa",
-        "rating_Tawc3H",
-        "price_aGp8d8",
-        "variant_picker_CqWTJM",
-        "quantity_selector_Fy4Wdg",
-        "buy_buttons_jHb34J",
-        "share_PmWFiJ"
+        "text_R9Cq3E",
+        "sku",
+        "title",
+        "text_TWrGj9",
+        "text_CLzBqB",
+        "rating_6QRL6r",
+        "price",
+        "trust_badges",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "icon_with_text_6L8Yej",
+        "share"
       ],
-      "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "product": "",
+        "enable_sticky_info": true,
         "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
-        "secondary_background": false,
-        "media_size": "medium",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
-        "hide_variants": false,
+        "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 12
       }
     },
-    "blocks_YmC3iK": {
+    "178055040411874f21": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_81e2226_RWxK48": {
+        "ai_gen_block_81e2226_6rNWFD": {
           "type": "ai_gen_block_81e2226",
           "settings": {
-            "max_content_width": 1200,
+            "max_content_width": 1000,
             "tab_1_enabled": true,
-            "tab_1_title": "Hero",
-            "tab_1_content": "<p>首图</p>",
+            "tab_1_title": "Character Introduction",
+            "tab_1_content": "<p><strong>HASUKI Black Ops — Mountain Warfare Special Operative</strong></p><p>The SA03 \"Sierra Phantom\" brings alpine combat to your 1/12 scale collection. <br/><br/>Clad in cold-weather tactical gear with an L7 jacket, snow camouflage suit, and full mountaineering kit including ice axes, crampons, and climbing ropes, this 17cm action figure is ready for high-altitude missions. The highly articulated body supports dynamic posing — from rappelling stances to precision rifle handling.<br/><br/>Every detail is meticulously reproduced: the SCAR-H battle rifle with removable suppressor and optical sight, the MPU5 radio system for comms realism, and the 375BK combat knife with sheath. With 10 interchangeable hands, you can configure this operator for any tactical scenario.<br/><br/>Whether displayed solo or paired with other Black Ops series figures, the Sierra Phantom delivers museum-grade detail at an accessible price point. A must-have for military 1/12 collectors and HASUKI enthusiasts alike.</p>",
             "tab_2_enabled": true,
-            "tab_2_title": "产品使用",
-            "tab_2_content": "",
+            "tab_2_title": "What's Included",
+            "tab_2_content": "<h3>Standard Set Includes</h3><ul><li>L7 Cold Weather Jacket & Pants ×1</li><li>Snow Camouflage Suit ×1</li><li>Chest Rig ×1</li><li>Rifle Sling ×1</li><li>Rappelling Harness ×1</li><li>Climbing Rope Sleeves ×2</li><li>Main Climbing Rope ×1</li><li>Morale Patches ×3</li><li>Tactical Backpack ×1</li></ul><h3>Pre-Order Bonus Items</h3><p>Camouflage Backpack Cover ×1</p><p>Head Sculpt ×1</p><p>Next-Generation Articulated Body ×1</p><p>Interchangeable Hands ×10</p><p>Mountaineering Boots ×1 Pair</p><p>MPU5 Tactical Radio System ×1</p><p>375BK Combat Knife with Sheath ×1</p><p>SCAR-H Rifle with Suppressor ×1</p><p>7.62mm Rifle Magazines ×4</p><p>Optical Scope ×1</p><p>AN/PEQ-15 Laser Module ×1</p><p>Vertical Foregrip ×1</p><p>Drop-Leg Holster ×1</p><p>P226 Pistol (Tan) ×1</p><p>Weapon Light ×1</p><p>9mm Pistol Magazines ×3</p><p>O-Rings ×4</p><p>D-Rings ×4</p><p>Pitons ×3</p><p>Small Nuts ×2</p><p>Large Nuts ×2</p><p>Spring-Loaded Camming Devices ×2</p><p>Ascenders ×2</p><p>Ice Axes ×2</p><p>Quickdraws ×2</p><p>Crampons ×2</p><p>Descender ×1<br/></p><p></p>",
             "tab_3_enabled": true,
-            "tab_3_title": "Compatible Bodies",
-            "tab_3_content": "<p>适配体型</p>",
+            "tab_3_title": "Details",
+            "tab_3_content": "<p>可以上传图片</p>",
             "tab_4_enabled": true,
-            "tab_4_title": "Display Example",
-            "tab_4_content": "<p>平铺展示配件</p>",
+            "tab_4_title": "Pre-Order Information",
+            "tab_4_content": "<p>Limited-Time Pre-Order</p><p>This product is currently in the pre-order stage.</p><p>Pre-Order Period: XXX – XXX</p><p>Special Pre-Order Price: $ XXX</p><p>Future Retail Price: $ XXX</p><p>Orders placed during the pre-order period will receive the exclusive pre-order pricing. After the pre-order closes, the product will be offered at the regular retail price, subject to stock availability.</p><p>Please make sure to place your order before the pre-order deadline.</p>",
             "tab_5_enabled": true,
-            "tab_5_title": "Photography Example",
-            "tab_5_content": "<p>使用照片举例</p>",
-            "tab_6_enabled": false,
-            "tab_6_title": "Bundle Recommendation",
-            "tab_6_content": "<p>Add your review app block or customer testimonials here.</p>",
-            "tab_7_enabled": true,
-            "tab_7_title": "Community Photos",
-            "tab_7_content": "<p>社区图片展示 瀑布流</p>"
+            "tab_5_title": "",
+            "tab_5_content": "<p>Be the first to write a review 点击写评论<br/><br/></p>",
+            "tab_6_enabled": true,
+            "tab_6_title": "",
+            "tab_6_content": "<p><br/><br/><br/></p>",
+            "tab_7_enabled": false,
+            "tab_7_title": "",
+            "tab_7_content": ""
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_81e2226_RWxK48"
+        "ai_gen_block_81e2226_6rNWFD"
       ],
-      "name": "Product tabs",
+      "name": "商品详情",
       "settings": {}
     },
-    "collapsible_content_JwHXHC": {
+    "collapsible_content_amiHKB": {
       "type": "collapsible-content",
       "blocks": {
-        "collapsible_row_KKBq6z": {
+        "collapsible_row_Tf87EX": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What products is this item compatible with?",
+            "heading": "Is this an authentic product?",
             "icon": "question_mark",
-            "row_content": "<p>Please check the Compatibility section on the product page.</p>",
+            "row_content": "<p>Unless otherwise stated, all figures sold by Goomooplay are authentic products sourced through authorized distributors, manufacturers, or approved resale channels.</p>",
             "page": ""
           }
         },
-        "collapsible_row_Umfeam": {
+        "collapsible_row_xUYeH6": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Does this product include a doll?",
+            "heading": "Why are action figure pre-order periods so long?",
             "icon": "question_mark",
-            "row_content": "<p>No.</p><p>Unless otherwise stated, figures and dolls shown in product photos are for display purposes only.</p>",
+            "row_content": "<p>Collectible figures require sculpting, prototyping, painting, quality control, and mass production.</p><p>Production timelines are determined by manufacturers and may take several months.</p>",
             "page": ""
           }
         },
-        "collapsible_row_8kRE6g": {
+        "collapsible_row_pjCFnP": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Does this product include doll clothing?",
+            "heading": "Is the estimated arrival date accurate?",
             "icon": "question_mark",
-            "row_content": "<p>No.</p><p>Only the accessory listed in the product title is included.</p>",
+            "row_content": "<p>Estimated delivery dates are provided for reference only.</p><p>Delays are common in the collectible figure industry.</p>",
             "page": ""
           }
         },
-        "collapsible_row_zwj7A6": {
+        "collapsible_row_hzRXYW": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Which doll bodies is this product compatible with?",
+            "heading": "What happens if the manufacturer delays the release?",
             "icon": "question_mark",
-            "row_content": "<p><br/>Compatibility information can be found on the product page.<br/><br/></p>",
+            "row_content": "<p>Production schedules are controlled by manufacturers.</p><p>Manufacturer delays do not qualify for cancellation or refunds once production has begun.</p>",
             "page": ""
           }
         },
-        "collapsible_row_VjkR4n": {
+        "collapsible_row_QJ6JBR": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can the accessories be used separately?",
+            "heading": "Can the head sculpt be purchased separately?",
             "icon": "question_mark",
-            "row_content": "<p>Some accessories are designed for standalone display, while others require compatible figures or dolls.</p>",
+            "row_content": "<p>Please refer to the product description.</p><p>Some head sculpts are sold separately, while others are included only as part of a complete set.</p>",
             "page": ""
           }
         },
-        "collapsible_row_znRUbU": {
+        "collapsible_row_zXr4ea": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Will the metal parts oxidize over time?",
+            "heading": "Will there be differences in joint tightness?",
             "icon": "question_mark",
-            "row_content": "<p><br/>Minor wear and aging may occur over time depending on usage and storage conditions.</p>",
+            "row_content": "<p>Minor differences in articulation stiffness are normal and are not considered manufacturing defects.</p>",
             "page": ""
           }
         },
-        "collapsible_row_rUC8CH": {
+        "collapsible_row_UNiDah": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Do any of the accessories have sharp edges or points?",
+            "heading": "Can action figures experience paint wear or paint rub?",
             "icon": "question_mark",
-            "row_content": "<p><br/>Some miniature accessories may contain small or pointed parts and should be handled with care.</p>",
+            "row_content": "<p>Hand-painted collectibles may show slight paint variations due to the production process.<br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LNwzMC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why may the actual product differ in color from the official photos?",
+            "icon": "question_mark",
+            "row_content": "<p>Product colors may vary slightly due to lighting, screen settings, and manufacturing differences.</p>",
             "page": ""
           }
         }
       },
       "block_order": [
-        "collapsible_row_KKBq6z",
-        "collapsible_row_Umfeam",
-        "collapsible_row_8kRE6g",
-        "collapsible_row_zwj7A6",
-        "collapsible_row_VjkR4n",
-        "collapsible_row_znRUbU",
-        "collapsible_row_rUC8CH"
+        "collapsible_row_Tf87EX",
+        "collapsible_row_xUYeH6",
+        "collapsible_row_pjCFnP",
+        "collapsible_row_hzRXYW",
+        "collapsible_row_QJ6JBR",
+        "collapsible_row_zXr4ea",
+        "collapsible_row_UNiDah",
+        "collapsible_row_LNwzMC"
       ],
-      "name": "FAQ",
+      "name": "商品详情页FAQ",
       "settings": {
         "caption": "",
-        "heading": "FAQ",
+        "heading": "<strong>FAQ</strong>",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
@@ -220,11 +265,30 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
     }
   },
   "order": [
-    "featured_product_XrtgHY",
-    "blocks_YmC3iK",
-    "collapsible_content_JwHXHC"
+    "main",
+    "178055040411874f21",
+    "collapsible_content_amiHKB",
+    "related-products"
   ]
 }
