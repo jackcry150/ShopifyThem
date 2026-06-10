@@ -12,35 +12,18 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "text_R9Cq3E": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "text_style": "body"
-          }
+        "title_TpWhpn": {
+          "type": "title",
+          "settings": {}
+        },
+        "description_hWNbiP": {
+          "type": "description",
+          "settings": {}
         },
         "sku": {
           "type": "sku",
           "settings": {
             "text_style": "subtitle"
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "text_TWrGj9": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "text_style": "body"
-          }
-        },
-        "text_CLzBqB": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "text_style": "body"
           }
         },
         "rating_6QRL6r": {
@@ -96,11 +79,9 @@
         }
       },
       "block_order": [
-        "text_R9Cq3E",
+        "title_TpWhpn",
+        "description_hWNbiP",
         "sku",
-        "title",
-        "text_TWrGj9",
-        "text_CLzBqB",
         "rating_6QRL6r",
         "price",
         "trust_badges",
@@ -113,6 +94,15 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "show_shipping_dropdowns": true,
+        "shipping_heading": "Shipping",
+        "shipping_summary": "Calculated at checkout",
+        "shipping_dropdown_1_label": "Conditional shipping",
+        "shipping_dropdown_1_content": "<p>Shipping cost may vary by destination, order value, product weight, and available shipping method. The final shipping fee is calculated at checkout.</p>",
+        "shipping_dropdown_2_label": "Regional surcharge",
+        "shipping_dropdown_2_content": "<p>Some countries, islands, remote areas, or special delivery zones may require an additional regional shipping fee. If your address is affected, the checkout page will show the updated cost.</p>",
+        "shipping_link_label": "View shipping policy",
+        "shipping_link_url": "",
         "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
@@ -134,11 +124,12 @@
           "settings": {
             "max_content_width": 1000,
             "tab_1_enabled": true,
-            "tab_1_title": "Character Introduction",
-            "tab_1_content": "<p><strong>HASUKI Black Ops — Mountain Warfare Special Operative</strong></p><p>The SA03 \"Sierra Phantom\" brings alpine combat to your 1/12 scale collection. <br/><br/>Clad in cold-weather tactical gear with an L7 jacket, snow camouflage suit, and full mountaineering kit including ice axes, crampons, and climbing ropes, this 17cm action figure is ready for high-altitude missions. The highly articulated body supports dynamic posing — from rappelling stances to precision rifle handling.<br/><br/>Every detail is meticulously reproduced: the SCAR-H battle rifle with removable suppressor and optical sight, the MPU5 radio system for comms realism, and the 375BK combat knife with sheath. With 10 interchangeable hands, you can configure this operator for any tactical scenario.<br/><br/>Whether displayed solo or paired with other Black Ops series figures, the Sierra Phantom delivers museum-grade detail at an accessible price point. A must-have for military 1/12 collectors and HASUKI enthusiasts alike.</p>",
+            "tab_1_title": "Included Items",
+            "tab_1_content": "<p>Top × 1;<br/>Belt × 1;<br/>Arm Sleeves × 2; Leg Covers × 2<br/>Pants × 1<br/><em>PS:Doll, motorcycle, weapon props, and other photography accessories shown in the photos are for display purposes only and are not included.</em></p>",
+            "tab_1_image": "shopify://shop_images/IMG_0192.jpg",
             "tab_2_enabled": true,
-            "tab_2_title": "What's Included",
-            "tab_2_content": "<h3>Standard Set Includes</h3><ul><li>L7 Cold Weather Jacket & Pants ×1</li><li>Snow Camouflage Suit ×1</li><li>Chest Rig ×1</li><li>Rifle Sling ×1</li><li>Rappelling Harness ×1</li><li>Climbing Rope Sleeves ×2</li><li>Main Climbing Rope ×1</li><li>Morale Patches ×3</li><li>Tactical Backpack ×1</li></ul><h3>Pre-Order Bonus Items</h3><p>Camouflage Backpack Cover ×1</p><p>Head Sculpt ×1</p><p>Next-Generation Articulated Body ×1</p><p>Interchangeable Hands ×10</p><p>Mountaineering Boots ×1 Pair</p><p>MPU5 Tactical Radio System ×1</p><p>375BK Combat Knife with Sheath ×1</p><p>SCAR-H Rifle with Suppressor ×1</p><p>7.62mm Rifle Magazines ×4</p><p>Optical Scope ×1</p><p>AN/PEQ-15 Laser Module ×1</p><p>Vertical Foregrip ×1</p><p>Drop-Leg Holster ×1</p><p>P226 Pistol (Tan) ×1</p><p>Weapon Light ×1</p><p>9mm Pistol Magazines ×3</p><p>O-Rings ×4</p><p>D-Rings ×4</p><p>Pitons ×3</p><p>Small Nuts ×2</p><p>Large Nuts ×2</p><p>Spring-Loaded Camming Devices ×2</p><p>Ascenders ×2</p><p>Ice Axes ×2</p><p>Quickdraws ×2</p><p>Crampons ×2</p><p>Descender ×1<br/></p><p></p>",
+            "tab_2_title": "",
+            "tab_2_content": "",
             "tab_3_enabled": true,
             "tab_3_title": "Details",
             "tab_3_content": "<p>可以上传图片</p>",
