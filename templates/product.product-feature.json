@@ -120,9 +120,9 @@
       "type": "product-feature",
       "name": "Product Feature",
       "settings": {
-        "heading": "Product Features",
+        "heading": "Design Highlights",
         "heading_size": "h2",
-        "intro_text": "<p>Discover the detailed features and craftsmanship behind this product.</p>",
+        "intro_text": "{{ product.description }}",
         "show_contents": true,
         "contents_title": "What's Included",
         "contents_item_1": "Figure ×1",
@@ -151,45 +151,6 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
-    },
-    "178055040411874f21": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_81e2226_6rNWFD": {
-          "type": "ai_gen_block_81e2226",
-          "settings": {
-            "max_content_width": 1000,
-            "tab_1_enabled": true,
-            "tab_1_title": "Included Items",
-            "tab_1_content": "<p>Top × 1;<br/>Belt × 1;<br/>Arm Sleeves × 2; Leg Covers × 2<br/>Pants × 1<br/><em>PS:Doll, motorcycle, weapon props, and other photography accessories shown in the photos are for display purposes only and are not included.</em></p>",
-            "tab_1_image": "shopify://shop_images/IMG_0192.jpg",
-            "tab_2_enabled": true,
-            "tab_2_title": "",
-            "tab_2_content": "",
-            "tab_3_enabled": true,
-            "tab_3_title": "Details",
-            "tab_3_content": "<p>可以上传图片</p>",
-            "tab_4_enabled": true,
-            "tab_4_title": "Pre-Order Information",
-            "tab_4_content": "<p>Limited-Time Pre-Order</p><p>This product is currently in the pre-order stage.</p><p>Pre-Order Period: XXX – XXX</p><p>Special Pre-Order Price: $ XXX</p><p>Future Retail Price: $ XXX</p><p>Orders placed during the pre-order period will receive the exclusive pre-order pricing. After the pre-order closes, the product will be offered at the regular retail price, subject to stock availability.</p><p>Please make sure to place your order before the pre-order deadline.</p>",
-            "tab_5_enabled": true,
-            "tab_5_title": "",
-            "tab_5_content": "<p>Be the first to write a review 点击写评论<br/><br/></p>",
-            "tab_6_enabled": true,
-            "tab_6_title": "",
-            "tab_6_content": "<p><br/><br/><br/></p>",
-            "tab_7_enabled": false,
-            "tab_7_title": "",
-            "tab_7_content": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_81e2226_6rNWFD"
-      ],
-      "name": "商品详情",
-      "settings": {}
     },
     "collapsible_content_amiHKB": {
       "type": "collapsible-content",
@@ -316,7 +277,6 @@
     "main",
     "product_feature_kqkaGG",
     "custom_liquid_pCBEET",
-    "178055040411874f21",
     "collapsible_content_amiHKB",
     "related-products"
   ]
