@@ -76,6 +76,12 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "custom_liquid_Mwx3cc": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{{ product.metafields.custom.features }}"
+          }
         }
       },
       "block_order": [
@@ -89,7 +95,8 @@
         "quantity_selector",
         "buy_buttons",
         "icon_with_text_6L8Yej",
-        "share"
+        "share",
+        "custom_liquid_Mwx3cc"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -114,6 +121,32 @@
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
+      }
+    },
+    "product_feature_kqkaGG": {
+      "type": "product-feature",
+      "name": "Product Feature",
+      "settings": {
+        "heading": "Product Features",
+        "heading_size": "h2",
+        "intro_text": "<p>Discover the detailed features and craftsmanship behind this product.</p>",
+        "show_contents": true,
+        "contents_title": "What's Included",
+        "contents_item_1": "Figure ×1",
+        "contents_item_2": "Outfit ×1",
+        "contents_item_3": "Accessories",
+        "contents_item_4": "",
+        "contents_item_5": "",
+        "contents_item_6": "",
+        "show_details": true,
+        "details_title": "Craftsmanship & Details",
+        "details_text": "<p>Each figure is crafted with precision and attention to detail, using high-quality materials for a premium finish.</p>",
+        "show_size_chart": true,
+        "size_chart_title": "Size Guide",
+        "size_chart_text": "<p>Refer to the measurements below to ensure the best fit for your collection.</p>",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "178055040411874f21": {
@@ -278,6 +311,7 @@
   },
   "order": [
     "main",
+    "product_feature_kqkaGG",
     "178055040411874f21",
     "collapsible_content_amiHKB",
     "related-products"
