@@ -1,6 +1,7 @@
 {%- liquid
+  assign seo_primary_domain = 'https://goomooplay.com'
   assign og_title = page_title | default: shop.name
-  assign og_url = canonical_url | default: request.origin
+  assign og_url = canonical_url | default: request.origin | replace: 'https://shop.goomooplay.com', seo_primary_domain
   assign og_type = 'website'
   if page_description != blank
     assign og_description = page_description
@@ -17,7 +18,7 @@
   elsif request.page_type == 'article'
     assign og_type = 'article'
   elsif request.page_type == 'password'
-    assign og_url = request.origin
+    assign og_url = request.origin | replace: 'https://shop.goomooplay.com', seo_primary_domain
   endif
 %}
 
