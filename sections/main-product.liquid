@@ -123,18 +123,20 @@
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
+                {%- liquid
+                  assign product_main_title = product.metafields.custom.main_title.value | default: product.title
+                  assign product_subtitle = product.metafields.custom.subtitle.value | default: product.metafields.custom.sub_title.value | default: product.metafields.custom.product_subtitle.value
+                -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
+                  <h1>{{ product_main_title | escape }}</h1>
+                  {%- if product_subtitle != blank -%}
+                    <p class="product__subtitle">{{ product_subtitle | escape }}</p>
+                  {%- endif -%}
                   <button class="product-detail-panel__favorite" type="button" aria-label="Add to wishlist">
                     <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
                       <path d="M20.8 4.6c-2-2-5.2-2-7.2 0L12 6.2l-1.6-1.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2L12 20.6l8.8-8.8c2-2 2-5.2 0-7.2Z" />
                     </svg>
                   </button>
-                  <a href="{{ product.url }}" class="product__title">
-                    <h2 class="h1">
-                      {{ product.title | escape }}
-                    </h2>
-                  </a>
                 </div>
                 {%- if show_preorder_badge or show_in_stock_badge or show_limited_discount_badge -%}
                   <div class="product-status-badges" aria-label="Product status">
