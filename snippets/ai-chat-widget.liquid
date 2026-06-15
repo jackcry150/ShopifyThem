@@ -434,6 +434,29 @@
       }
 
       const normalize = (value) => String(value || '').toLowerCase().trim();
+      const extractEmail = (text) => {
+        const match = String(text || '').match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+        return match ? match[0] : '';
+      };
+
+      const reportChatLead = (question) => {
+        const email = extractEmail(question);
+
+        if (!email || !window.GoomooPlayLeadCRM || typeof window.GoomooPlayLeadCRM.sendLead !== 'function') {
+          return;
+        }
+
+        window.GoomooPlayLeadCRM.sendLead({
+          name: email,
+          email,
+          source_page: window.location.href,
+          source_type: 'chat',
+          product_interest: context && context.page ? context.page.title : document.title,
+          customer_type: 'retail',
+          utm: {},
+          message: question
+        });
+      };
 
       const getVisitorId = () => {
         try {
@@ -508,6 +531,7 @@
         if (!trimmedQuestion) return;
 
         addMessage(trimmedQuestion, 'user');
+        reportChatLead(trimmedQuestion);
         input.value = '';
         setLoading(true);
 

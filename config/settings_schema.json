@@ -1453,6 +1453,28 @@
     ]
   },
   {
+    "name": "GoomooPlay CRM",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "goomooplay_crm_enabled",
+        "label": "Enable CRM lead capture",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "goomooplay_crm_endpoint",
+        "label": "Lead capture endpoint",
+        "default": "https://crm.goomooplay.com/goomooplay/leads/capture"
+      },
+      {
+        "type": "text",
+        "id": "goomooplay_crm_token",
+        "label": "Lead capture token"
+      }
+    ]
+  },
+  {
     "name": "AI chat auto reply",
     "settings": [
       {

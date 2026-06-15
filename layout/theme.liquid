@@ -452,6 +452,16 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    {%- if settings.goomooplay_crm_enabled and settings.goomooplay_crm_endpoint != blank and settings.goomooplay_crm_token != blank -%}
+      <script>
+        window.GoomooPlayLeadCRM = {
+          endpoint: {{ settings.goomooplay_crm_endpoint | json }},
+          token: {{ settings.goomooplay_crm_token | json }},
+          formSelector: '[data-goomooplay-lead-form], #ContactForm, #WholesaleForm, #InfluencerForm, form.newsletter-form'
+        };
+      </script>
+      <script src="{{ 'goomooplay-lead-capture.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
     {%- render 'ai-chat-widget' -%}
   </body>
 </html>
