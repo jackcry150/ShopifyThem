@@ -36,6 +36,13 @@
     <span data-share-label>Share</span>
   </button>
 
+  <a class="product-action-links__item" href="#product-feature-details">
+    <span class="product-action-links__icon" aria-hidden="true">
+      {% render 'icon-accordion', icon: 'check_mark' %}
+    </span>
+    <span>Details</span>
+  </a>
+
   <a class="product-action-links__item" href="{{ shipping_url }}">
     <span class="product-action-links__icon" aria-hidden="true">
       {% render 'icon-accordion', icon: 'truck' %}

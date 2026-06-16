@@ -14,69 +14,160 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="product-feature page-width page-width--narrow section-{{ section.id }}-padding">
+  <div id="product-feature-details" class="product-feature product-feature--reference page-width section-{{ section.id }}-padding">
     <h2 class="product-feature__heading {{ section.settings.heading_size }}">
       {{ section.settings.heading }}
     </h2>
 
-    <div class="product-feature__intro rte">
-      {{ section.settings.intro_text }}
-    </div>
+    {%- if section.settings.intro_text != blank -%}
+      <div class="product-feature__intro rte">
+        {{ section.settings.intro_text }}
+      </div>
+    {%- endif -%}
 
-    {%- if section.settings.show_contents -%}
-      <div class="product-feature__section">
+    {%- unless section.settings.show_contents == false -%}
+      <section class="product-feature__section">
         <h3 class="product-feature__subheading">{{ section.settings.contents_title }}</h3>
         <div class="product-feature__contents">
           {%- for i in (1..6) -%}
             {%- assign item_label = 'contents_item_' | append: i -%}
             {%- assign item_img = 'contents_image_' | append: i -%}
-            {%- if section.settings[item_label] != blank -%}
+            {%- if section.settings[item_label] != blank or section.settings[item_img] != blank -%}
               <div class="product-feature__content-item">
                 {%- if section.settings[item_img] != blank -%}
                   <div class="product-feature__content-image">
-                    {{ section.settings[item_img] | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                    {{ section.settings[item_img] | image_url: width: 360 | image_tag: loading: 'lazy' }}
                   </div>
                 {%- endif -%}
-                <span class="product-feature__content-label">{{ section.settings[item_label] }}</span>
+                {%- if section.settings[item_label] != blank -%}
+                  <span class="product-feature__content-label">{{ section.settings[item_label] }}</span>
+                {%- endif -%}
               </div>
             {%- endif -%}
           {%- endfor -%}
         </div>
-      </div>
+      </section>
     {%- endif -%}
 
-    {%- if section.settings.show_details -%}
-      <div class="product-feature__section">
+    {%- unless section.settings.show_details == false -%}
+      <section class="product-feature__section">
         <h3 class="product-feature__subheading">{{ section.settings.details_title }}</h3>
-        <div class="product-feature__details rte">
-          {{ section.settings.details_text }}
-        </div>
+        {%- if section.settings.details_text != blank -%}
+          <div class="product-feature__details rte">
+            {{ section.settings.details_text }}
+          </div>
+        {%- endif -%}
         <div class="product-feature__gallery">
           {%- for i in (1..6) -%}
             {%- assign img_id = 'detail_image_' | append: i -%}
             {%- if section.settings[img_id] != blank -%}
               <div class="product-feature__gallery-item">
-                {{ section.settings[img_id] | image_url: width: 800 | image_tag: loading: 'lazy' }}
+                {{ section.settings[img_id] | image_url: width: 900 | image_tag: loading: 'lazy' }}
               </div>
             {%- endif -%}
           {%- endfor -%}
         </div>
-      </div>
+      </section>
     {%- endif -%}
 
-    {%- if section.settings.show_size_chart -%}
-      <div class="product-feature__section">
-        <h3 class="product-feature__subheading">{{ section.settings.size_chart_title }}</h3>
-        <div class="product-feature__size-chart rte">
-          {{ section.settings.size_chart_text }}
-        </div>
-        {%- if section.settings.size_chart_image != blank -%}
-          <div class="product-feature__size-image">
-            {{ section.settings.size_chart_image | image_url: width: 800 | image_tag: loading: 'lazy' }}
-          </div>
-        {%- endif -%}
+    <section class="product-feature__section">
+      <h3 class="product-feature__subheading">Design Highlights</h3>
+      <div class="product-feature__highlight-list">
+        {%- for i in (1..3) -%}
+          {%- assign text_id = 'highlight_' | append: i | append: '_text' -%}
+          {%- assign image_id = 'highlight_' | append: i | append: '_image' -%}
+          {%- if section.settings[text_id] != blank or section.settings[image_id] != blank -%}
+            <article class="product-feature__highlight">
+              {%- if section.settings[text_id] != blank -%}
+                <div class="product-feature__highlight-copy rte">
+                  {{ section.settings[text_id] }}
+                </div>
+              {%- endif -%}
+              {%- if section.settings[image_id] != blank -%}
+                <div class="product-feature__highlight-image">
+                  {{ section.settings[image_id] | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+                </div>
+              {%- endif -%}
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
-    {%- endif -%}
+    </section>
+
+    <section class="product-feature__section">
+      <h3 class="product-feature__subheading">Fabric & Materials</h3>
+      <div class="product-feature__spec-grid">
+        <article class="product-feature__spec-card">
+          <h4>Fabric & Materials</h4>
+          <div class="product-feature__spec-copy rte">{{ section.settings.materials_text }}</div>
+          {%- if section.settings.materials_image != blank -%}
+            {{ section.settings.materials_image | image_url: width: 700 | image_tag: loading: 'lazy' }}
+          {%- endif -%}
+        </article>
+        <article class="product-feature__spec-card">
+          <h4>Size Information</h4>
+          <div class="product-feature__spec-copy rte">{{ section.settings.size_chart_text }}</div>
+          {%- if section.settings.size_chart_image != blank -%}
+            {{ section.settings.size_chart_image | image_url: width: 700 | image_tag: loading: 'lazy' }}
+          {%- endif -%}
+        </article>
+        <article class="product-feature__spec-card">
+          <h4>Model Information</h4>
+          <div class="product-feature__spec-copy rte">{{ section.settings.model_text }}</div>
+          {%- if section.settings.model_image != blank -%}
+            {{ section.settings.model_image | image_url: width: 700 | image_tag: loading: 'lazy' }}
+          {%- endif -%}
+        </article>
+      </div>
+    </section>
+
+    <section class="product-feature__section product-feature__two-column">
+      <div>
+        <h3 class="product-feature__subheading">Recommended Body Styling</h3>
+        <div class="rte">{{ section.settings.compatibility_text }}</div>
+      </div>
+      {%- if section.settings.compatibility_image != blank -%}
+        <div class="product-feature__side-media">
+          {{ section.settings.compatibility_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+        </div>
+      {%- endif -%}
+    </section>
+
+    <section class="product-feature__section product-feature__two-column">
+      <div>
+        <h3 class="product-feature__subheading">Closure Method</h3>
+        <div class="rte">{{ section.settings.closure_text }}</div>
+      </div>
+      {%- if section.settings.closure_image != blank -%}
+        <div class="product-feature__side-media">
+          {{ section.settings.closure_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+        </div>
+      {%- endif -%}
+    </section>
+
+    <section class="product-feature__section product-feature__two-column">
+      <div>
+        <h3 class="product-feature__subheading">Product Information</h3>
+        <div class="rte">{{ section.settings.product_info_text }}</div>
+      </div>
+      {%- if section.settings.product_info_image != blank -%}
+        <div class="product-feature__side-media">
+          {{ section.settings.product_info_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+        </div>
+      {%- endif -%}
+    </section>
+
+    <section class="product-feature__section product-feature__two-column">
+      <div>
+        <h3 class="product-feature__subheading">Notice</h3>
+        <div class="rte">{{ section.settings.notice_text }}</div>
+      </div>
+      {%- if section.settings.notice_image != blank -%}
+        <div class="product-feature__side-media">
+          {{ section.settings.notice_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+        </div>
+      {%- endif -%}
+    </section>
   </div>
 </div>
 
@@ -93,7 +184,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Product Features"
+      "default": "Design Concept"
     },
     {
       "type": "select",
@@ -109,24 +200,18 @@
     {
       "type": "richtext",
       "id": "intro_text",
-      "label": "Introduction text",
-      "default": "<p>Discover the detailed features and craftsmanship behind this product.</p>"
+      "label": "Design concept text",
+      "default": "<p>Describe the design concept and product story.</p>"
     },
     {
       "type": "header",
-      "content": "Product Contents"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_contents",
-      "label": "Show product contents",
-      "default": true
+      "content": "Included Items"
     },
     {
       "type": "text",
       "id": "contents_title",
-      "label": "Contents section title",
-      "default": "What's Included"
+      "label": "Included items title",
+      "default": "Included Items"
     },
     {
       "type": "text",
@@ -142,8 +227,7 @@
     {
       "type": "text",
       "id": "contents_item_2",
-      "label": "Content item 2",
-      "default": "Outfit ×1"
+      "label": "Content item 2"
     },
     {
       "type": "image_picker",
@@ -153,8 +237,7 @@
     {
       "type": "text",
       "id": "contents_item_3",
-      "label": "Content item 3",
-      "default": "Accessories"
+      "label": "Content item 3"
     },
     {
       "type": "image_picker",
@@ -172,46 +255,20 @@
       "label": "Content image 4"
     },
     {
-      "type": "text",
-      "id": "contents_item_5",
-      "label": "Content item 5"
-    },
-    {
-      "type": "image_picker",
-      "id": "contents_image_5",
-      "label": "Content image 5"
-    },
-    {
-      "type": "text",
-      "id": "contents_item_6",
-      "label": "Content item 6"
-    },
-    {
-      "type": "image_picker",
-      "id": "contents_image_6",
-      "label": "Content image 6"
-    },
-    {
       "type": "header",
-      "content": "Product Details"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_details",
-      "label": "Show product details",
-      "default": true
+      "content": "Detail Gallery"
     },
     {
       "type": "text",
       "id": "details_title",
       "label": "Details section title",
-      "default": "Craftsmanship & Details"
+      "default": "Detail Gallery"
     },
     {
       "type": "richtext",
       "id": "details_text",
       "label": "Details text",
-      "default": "<p>Each figure is crafted with precision and attention to detail, using high-quality materials for a premium finish.</p>"
+      "default": "<p>Add product detail copy and craftsmanship notes.</p>"
     },
     {
       "type": "image_picker",
@@ -234,41 +291,138 @@
       "label": "Detail image 4"
     },
     {
-      "type": "image_picker",
-      "id": "detail_image_5",
-      "label": "Detail image 5"
+      "type": "header",
+      "content": "Design Highlights"
+    },
+    {
+      "type": "richtext",
+      "id": "highlight_1_text",
+      "label": "Highlight 1 text",
+      "default": "<p>Highlight 1: describe clothing display details.</p>"
     },
     {
       "type": "image_picker",
-      "id": "detail_image_6",
-      "label": "Detail image 6"
+      "id": "highlight_1_image",
+      "label": "Highlight 1 image"
+    },
+    {
+      "type": "richtext",
+      "id": "highlight_2_text",
+      "label": "Highlight 2 text",
+      "default": "<p>Highlight 2: describe styling or matching details.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "highlight_2_image",
+      "label": "Highlight 2 image"
+    },
+    {
+      "type": "richtext",
+      "id": "highlight_3_text",
+      "label": "Highlight 3 text",
+      "default": "<p>Highlight 3: describe craftsmanship details.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "highlight_3_image",
+      "label": "Highlight 3 image"
     },
     {
       "type": "header",
-      "content": "Size Chart"
+      "content": "Fabric, Size, Model"
     },
     {
-      "type": "checkbox",
-      "id": "show_size_chart",
-      "label": "Show size chart",
-      "default": true
+      "type": "richtext",
+      "id": "materials_text",
+      "label": "Materials text",
+      "default": "<p>Main Fabric<br>________________</p><p>Lining<br>________________</p><p>Trim<br>________________</p><p>Metal Parts<br>________________</p><p>Accessories<br>________________</p>"
     },
     {
-      "type": "text",
-      "id": "size_chart_title",
-      "label": "Size chart title",
-      "default": "Size Guide"
+      "type": "image_picker",
+      "id": "materials_image",
+      "label": "Materials image"
     },
     {
       "type": "richtext",
       "id": "size_chart_text",
-      "label": "Size chart text",
-      "default": "<p>Refer to the measurements below to ensure the best fit for your collection.</p>"
+      "label": "Size information text",
+      "default": "<p>Top Length<br>__________</p><p>Shoulder Width<br>__________</p><p>Chest Width<br>__________</p><p>Sleeve Length<br>__________</p><p>Waist Width<br>__________</p><p>Hip Width<br>__________</p>"
     },
     {
       "type": "image_picker",
       "id": "size_chart_image",
-      "label": "Size chart image"
+      "label": "Size information image"
+    },
+    {
+      "type": "richtext",
+      "id": "model_text",
+      "label": "Model information text",
+      "default": "<p>Body<br>________________</p><p>Head<br>________________</p><p>Height<br>________________</p><p>Bust<br>________________</p><p>Waist<br>________________</p><p>Hip<br>________________</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "model_image",
+      "label": "Model information image"
+    },
+    {
+      "type": "header",
+      "content": "Compatibility"
+    },
+    {
+      "type": "richtext",
+      "id": "compatibility_text",
+      "label": "Compatibility text",
+      "default": "<p>Recommended body and styling notes.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "compatibility_image",
+      "label": "Compatibility image"
+    },
+    {
+      "type": "header",
+      "content": "Closure Method"
+    },
+    {
+      "type": "richtext",
+      "id": "closure_text",
+      "label": "Closure text",
+      "default": "<p>Top<br>________________</p><p>Dress<br>________________</p><p>Skirt<br>________________</p><p>Pants<br>________________</p><p>Accessories<br>________________</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "closure_image",
+      "label": "Closure image"
+    },
+    {
+      "type": "header",
+      "content": "Product Information"
+    },
+    {
+      "type": "richtext",
+      "id": "product_info_text",
+      "label": "Product information text",
+      "default": "<p>Category<br>Doll Outfit</p><p>Collection<br>________________</p><p>Style<br>________________</p><p>Scale<br>________________</p><p>Brand<br>GOOMOOPLAY</p><p>Origin<br>________________</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_info_image",
+      "label": "Product information image"
+    },
+    {
+      "type": "header",
+      "content": "Notice"
+    },
+    {
+      "type": "richtext",
+      "id": "notice_text",
+      "label": "Notice text",
+      "default": "<p>Dark-colored fabrics may cause staining after prolonged contact.</p><p>Please avoid storing dolls while wearing dark-colored clothing for long periods.</p><p>Minor variations may occur due to the handmade production process.</p><p>Colors may vary slightly depending on monitor settings.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "notice_image",
+      "label": "Notice image"
     },
     {
       "type": "color_scheme",

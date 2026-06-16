@@ -86,6 +86,9 @@
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
           {%- liquid
+            assign product_share_url = product.selected_variant.url | default: product.url | prepend: request.origin
+            assign product_notify_modal_id = 'ProductNotifyModal-' | append: section.id
+            assign product_notify_form_id = product_notify_modal_id | append: '-Form'
             assign preorder_end_at = product.metafields.custom.preorder_end_at.value | default: product.metafields.custom.pre_order_end_at.value
             assign preorder_ended = false
             if preorder_end_at != blank
@@ -126,16 +129,34 @@
                 {%- liquid
                   assign product_main_title = product.metafields.custom.main_title.value | default: product.title
                   assign product_subtitle = product.metafields.custom.subtitle.value | default: product.metafields.custom.sub_title.value | default: product.metafields.custom.product_subtitle.value
+                  assign product_favorite_count = product.metafields.custom.favorite_count.value | default: product.metafields.custom.saved_count.value
                 -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
+                  <div class="product__title-meta">
+                    {%- if product.vendor != blank -%}
+                      <span class="product__brand">{{ product.vendor | escape }}</span>
+                    {%- endif -%}
+                    {%- if product_favorite_count != blank -%}
+                      <span class="product__favorite-count">{{ product_favorite_count }} saved</span>
+                    {%- endif -%}
+                  </div>
                   <h1>{{ product_main_title | escape }}</h1>
                   {%- if product_subtitle != blank -%}
                     <p class="product__subtitle">{{ product_subtitle | escape }}</p>
                   {%- endif -%}
-                  <button class="product-detail-panel__favorite" type="button" aria-label="Add to wishlist">
+                  <button
+                    class="product-detail-panel__favorite"
+                    type="button"
+                    aria-label="Accept product notifications"
+                    aria-haspopup="dialog"
+                    aria-controls="{{ product_notify_modal_id }}"
+                    data-product-notify-open
+                    data-product-id="{{ product.id }}"
+                  >
                     <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
                       <path d="M20.8 4.6c-2-2-5.2-2-7.2 0L12 6.2l-1.6-1.6c-2-2-5.2-2-7.2 0s-2 5.2 0 7.2L12 20.6l8.8-8.8c2-2 2-5.2 0-7.2Z" />
                     </svg>
+                    <span data-product-notify-label>Accept notifications</span>
                   </button>
                 </div>
                 {%- if show_preorder_badge or show_in_stock_badge or show_limited_discount_badge -%}
@@ -774,6 +795,54 @@
 
     {% render 'product-media-modal', variant_images: variant_images %}
 
+    <div
+      id="{{ product_notify_modal_id }}"
+      class="product-notify-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="{{ product_notify_modal_id }}-Title"
+      hidden
+      data-product-notify-modal
+    >
+      <div class="product-notify-modal__overlay" data-product-notify-close></div>
+      <div class="product-notify-modal__panel">
+        <button class="product-notify-modal__close" type="button" aria-label="Close" data-product-notify-close>
+          &times;
+        </button>
+        <h2 id="{{ product_notify_modal_id }}-Title">Accept Product Notifications</h2>
+        <p class="product-notify-modal__copy">
+          Leave your email and we will send updates for this product, including price changes and promotion notices.
+        </p>
+
+        {%- form 'contact', id: product_notify_form_id, class: 'product-notify-form' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="product-notify-form__status" tabindex="-1" autofocus>
+              You are subscribed. Product updates will be sent to your email.
+            </p>
+          {%- elsif form.errors -%}
+            <div class="product-notify-form__status product-notify-form__status--error">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <input type="hidden" name="contact[Product]" value="{{ product.title | escape }}">
+          <input type="hidden" name="contact[SKU]" value="{{ product.selected_or_first_available_variant.sku | escape }}">
+          <input type="hidden" name="contact[Product URL]" value="{{ product_share_url }}">
+          <input type="hidden" name="contact[Notification request]" value="Product promotion notification">
+
+          <input
+            class="product-notify-form__field"
+            autocomplete="email"
+            type="email"
+            name="contact[email]"
+            placeholder="Your Email*"
+            required
+          >
+          <button class="product-notify-form__submit" type="submit">Notify Me</button>
+        {%- endform -%}
+      </div>
+    </div>
+
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
@@ -822,6 +891,68 @@
 
     <script type="application/ld+json">
       {{ product | structured_data }}
+    </script>
+    <script>
+      (() => {
+        const section = document.getElementById('MainProduct-{{ section.id }}');
+        if (!section || section.dataset.notifyBound === 'true') return;
+        section.dataset.notifyBound = 'true';
+
+        const modal = document.getElementById('{{ product_notify_modal_id }}');
+        const openButton = section.querySelector('[data-product-notify-open]');
+        const label = section.querySelector('[data-product-notify-label]');
+        const form = modal ? modal.querySelector('.product-notify-form') : null;
+        const closeButtons = modal ? modal.querySelectorAll('[data-product-notify-close]') : [];
+        const storageKey = openButton ? `goomooplay-product-notify-${openButton.dataset.productId}` : '';
+
+        const markSubscribed = () => {
+          if (!openButton) return;
+          openButton.classList.add('is-subscribed');
+          openButton.setAttribute('aria-label', 'Product notifications accepted');
+          if (label) label.textContent = 'Saved';
+        };
+
+        try {
+          if (storageKey && window.localStorage.getItem(storageKey) === 'true') markSubscribed();
+        } catch (error) {
+          /* localStorage can be unavailable in private browsing. */
+        }
+
+        const openModal = () => {
+          if (!modal) return;
+          if (openButton && openButton.classList.contains('is-subscribed')) {
+            modal.querySelector('.product-notify-modal__copy').textContent =
+              'You have already asked for updates on this product. We will notify you when promotion information is available.';
+          }
+          modal.hidden = false;
+          document.documentElement.classList.add('product-notify-modal-open');
+          const firstField = modal.querySelector('input[type="email"], button');
+          if (firstField) firstField.focus();
+        };
+
+        const closeModal = () => {
+          if (!modal) return;
+          modal.hidden = true;
+          document.documentElement.classList.remove('product-notify-modal-open');
+          if (openButton) openButton.focus();
+        };
+
+        if (openButton) openButton.addEventListener('click', openModal);
+        closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+        if (form) {
+          form.addEventListener('submit', () => {
+            try {
+              if (storageKey) window.localStorage.setItem(storageKey, 'true');
+            } catch (error) {
+              /* Ignore storage failures; Shopify still receives the contact form. */
+            }
+            markSubscribed();
+          });
+        }
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && modal && !modal.hidden) closeModal();
+        });
+      })();
     </script>
   </div>
 </product-info>
