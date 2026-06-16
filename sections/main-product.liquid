@@ -173,71 +173,77 @@
                   </div>
                 {%- endif -%}
               {%- when 'price' -%}
-                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                  {%- render 'price',
-                    product: product,
-                    use_variant: true,
-                    show_badges: true,
-                    price_class: 'price--large'
-                  -%}
-                </div>
-                {%- if product.quantity_price_breaks_configured? -%}
-                  <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
-                    <span>{{ 'products.product.volume_pricing.note' | t }}</span>
-                  </div>
-                {%- endif -%}
-                {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                  <div class="product__tax caption rte">
-                    {%- if cart.duties_included and cart.taxes_included -%}
-                      {{ 'products.product.duties_and_taxes_included' | t }}
-                    {%- elsif cart.taxes_included -%}
-                      {{ 'products.product.taxes_included' | t }}
-                    {%- elsif cart.duties_included -%}
-                      {{ 'products.product.duties_included' | t }}
-                    {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
-                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
-                <div {{ block.shopify_attributes }}>
-                  {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
-                  {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
-                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                    {{ form | payment_terms }}
-                  {%- endform -%}
-                </div>
-                {%- if section.settings.show_shipping_dropdowns -%}
-                  <div class="product-shipping-options">
-                    <div class="product-shipping-options__line">
-                      {%- if section.settings.shipping_heading != blank -%}
-                        <span class="product-shipping-options__heading">{{ section.settings.shipping_heading }}</span>
-                      {%- endif -%}
-                      {%- if section.settings.shipping_summary != blank -%}
-                        <span class="product-shipping-options__summary">{{ section.settings.shipping_summary }}</span>
-                      {%- endif -%}
+                <div class="product-price-shipping-row">
+                  <div class="product-price-shipping-row__price">
+                    <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                      {%- render 'price',
+                        product: product,
+                        use_variant: true,
+                        show_badges: true,
+                        price_class: 'price--large'
+                      -%}
                     </div>
-                    <div class="product-shipping-options__dropdowns">
-                      <details class="product-shipping-options__details">
-                        <summary>{{ section.settings.shipping_dropdown_1_label }}</summary>
-                        <div class="product-shipping-options__content rte">
-                          {{ section.settings.shipping_dropdown_1_content }}
-                        </div>
-                      </details>
-                      <details class="product-shipping-options__details">
-                        <summary>{{ section.settings.shipping_dropdown_2_label }}</summary>
-                        <div class="product-shipping-options__content rte">
-                          {{ section.settings.shipping_dropdown_2_content }}
-                        </div>
-                      </details>
-                    </div>
-                    {%- if section.settings.shipping_link_label != blank and section.settings.shipping_link_url != blank -%}
-                      <a class="product-shipping-options__link" href="{{ section.settings.shipping_link_url }}">
-                        {{ section.settings.shipping_link_label }}
-                      </a>
+                    {%- if product.quantity_price_breaks_configured? -%}
+                      <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
+                        <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+                      </div>
                     {%- endif -%}
+                    {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+                      <div class="product__tax caption rte">
+                        {%- if cart.duties_included and cart.taxes_included -%}
+                          {{ 'products.product.duties_and_taxes_included' | t }}
+                        {%- elsif cart.taxes_included -%}
+                          {{ 'products.product.taxes_included' | t }}
+                        {%- elsif cart.duties_included -%}
+                          {{ 'products.product.duties_included' | t }}
+                        {%- endif -%}
+                        {%- if shop.shipping_policy.body != blank -%}
+                          {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                    <div {{ block.shopify_attributes }}>
+                      {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+                      {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                        {{ form | payment_terms }}
+                      {%- endform -%}
+                    </div>
                   </div>
-                {%- endif -%}
+                  {%- if section.settings.show_shipping_dropdowns -%}
+                    <div class="product-price-shipping-row__shipping">
+                      <div class="product-shipping-options">
+                        <div class="product-shipping-options__line">
+                          {%- if section.settings.shipping_heading != blank -%}
+                            <span class="product-shipping-options__heading">{{ section.settings.shipping_heading }}</span>
+                          {%- endif -%}
+                          {%- if section.settings.shipping_summary != blank -%}
+                            <span class="product-shipping-options__summary">{{ section.settings.shipping_summary }}</span>
+                          {%- endif -%}
+                        </div>
+                        <div class="product-shipping-options__dropdowns">
+                          <details class="product-shipping-options__details">
+                            <summary>{{ section.settings.shipping_dropdown_1_label }}</summary>
+                            <div class="product-shipping-options__content rte">
+                              {{ section.settings.shipping_dropdown_1_content }}
+                            </div>
+                          </details>
+                          <details class="product-shipping-options__details">
+                            <summary>{{ section.settings.shipping_dropdown_2_label }}</summary>
+                            <div class="product-shipping-options__content rte">
+                              {{ section.settings.shipping_dropdown_2_content }}
+                            </div>
+                          </details>
+                        </div>
+                        {%- if section.settings.shipping_link_label != blank and section.settings.shipping_link_url != blank -%}
+                          <a class="product-shipping-options__link" href="{{ section.settings.shipping_link_url }}">
+                            {{ section.settings.shipping_link_label }}
+                          </a>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  {%- endif -%}
+                </div>
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"

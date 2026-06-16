@@ -1402,6 +1402,32 @@ a.product__text {
   letter-spacing: -0.03rem;
 }
 
+.product-detail-panel .product-price-shipping-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.4rem;
+  margin: 1.4rem 0 2.2rem;
+}
+
+.product-detail-panel .product-price-shipping-row__price {
+  flex: 0 0 auto;
+  min-width: 16rem;
+}
+
+.product-detail-panel .product-price-shipping-row__shipping {
+  flex: 1 1 28rem;
+  min-width: 24rem;
+  padding-top: 0.4rem;
+}
+
+.product-detail-panel .product-price-shipping-row .installment {
+  margin-top: 1rem;
+}
+
+.product-detail-panel .product-price-shipping-row .product-shipping-options {
+  margin: 0;
+}
+
 .product-detail-panel .product-status-badges {
   margin: -1rem 0 1.8rem;
   display: flex;
@@ -2029,6 +2055,22 @@ a.product__text {
     max-width: none;
     gap: 1.6rem;
     justify-content: space-between;
+  }
+
+  .product-detail-panel .product-price-shipping-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+  }
+
+  .product-detail-panel .product-price-shipping-row__price,
+  .product-detail-panel .product-price-shipping-row__shipping {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .product-detail-panel .product-price-shipping-row__shipping {
+    padding-top: 0;
   }
 
   .product-detail-panel .product-shipping-options__dropdowns {
