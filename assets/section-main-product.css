@@ -1680,7 +1680,7 @@ a.product__text {
 .product-detail-panel .product-action-links__dropdown-panel {
   position: absolute;
   right: 0;
-  bottom: calc(100% + 1rem);
+  top: calc(100% + 1rem);
   z-index: 20;
   width: min(34rem, 78vw);
   max-height: 32rem;
