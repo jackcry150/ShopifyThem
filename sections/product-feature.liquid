@@ -47,7 +47,7 @@
           {%- endfor -%}
         </div>
       </section>
-    {%- endif -%}
+    {%- endunless -%}
 
     {%- unless section.settings.show_details == false -%}
       <section class="product-feature__section">
@@ -68,7 +68,7 @@
           {%- endfor -%}
         </div>
       </section>
-    {%- endif -%}
+    {%- endunless -%}
 
     <section class="product-feature__section">
       <h3 class="product-feature__subheading">Design Highlights</h3>
