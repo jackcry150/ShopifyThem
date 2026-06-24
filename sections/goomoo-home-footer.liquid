@@ -225,8 +225,13 @@
 
   .goomoo-home-footer__socials {
     display: flex;
+    position: fixed;
+    left: 1.6rem;
+    top: 50%;
+    z-index: 900;
+    flex-direction: column;
     gap: 1.6rem;
-    flex-wrap: wrap;
+    transform: translateY(-50%);
   }
 
   .goomoo-home-footer__socials a {
@@ -239,6 +244,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .goomoo-home-footer__socials a:hover {
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    transform: translateX(0.3rem);
   }
 
   .goomoo-home-footer__socials svg {
@@ -413,6 +427,21 @@
     .goomoo-home-footer__form button {
       height: 5.4rem;
       font-size: 1.6rem;
+    }
+
+    .goomoo-home-footer__socials {
+      left: 0.8rem;
+      gap: 1rem;
+    }
+
+    .goomoo-home-footer__socials a {
+      width: 5.2rem;
+      height: 5.2rem;
+    }
+
+    .goomoo-home-footer__socials svg {
+      width: 2.2rem;
+      height: 2.2rem;
     }
 
     .goomoo-newsletter-popup h2 {
