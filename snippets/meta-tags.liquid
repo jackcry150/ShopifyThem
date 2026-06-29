@@ -1,6 +1,8 @@
 {%- liquid
   assign seo_primary_domain = 'https://goomooplay.com'
-  assign og_title = page_title | default: shop.name
+  assign seo_more_guides_title = 'GoomooPlay Doll Clothes & Accessories Guides'
+  assign seo_more_guides_description = 'GoomooPlay guides for OB11 and BJD doll clothes, collectible doll accessories, miniature props, international shipping, quality support, and selected custom or wholesale project inquiries.'
+  assign og_title = seo_page_title | default: page_title | default: shop.name
   assign og_url = canonical_url | default: request.origin | replace: 'https://shop.goomooplay.com', seo_primary_domain
   assign og_type = 'website'
   if page_description != blank
@@ -11,6 +13,11 @@
     assign og_description = 'Shop anime doll clothes, themed outfits and collectible accessories at GooMooPlay. Premium doll costumes for BJD, figure and anime doll collectors worldwide.'
   else
     assign og_description = shop.name
+  endif
+
+  if request.page_type == 'blog' and blog.handle == 'more-guides'
+    assign og_title = seo_more_guides_title
+    assign og_description = seo_more_guides_description
   endif
 
   if request.page_type == 'product'

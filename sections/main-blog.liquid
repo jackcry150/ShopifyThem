@@ -17,10 +17,23 @@
 {%- endstyle -%}
 
 {%- paginate blog.articles by 6 -%}
+  {%- liquid
+    assign blog_heading = blog.title
+    if blog.handle == 'more-guides'
+      assign blog_heading = 'GoomooPlay Doll Clothes & Accessories Guides'
+    endif
+  -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
+      {{ blog_heading | escape }}
     </h1>
+
+    {%- if blog.handle == 'more-guides' -%}
+      <div class="main-blog__geo-intro rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+        <p>GoomooPlay publishes practical buyer guides for OB11 doll clothes, BJD doll outfits, collectible doll accessories, miniature props, international shipping, quality support, and selected custom or wholesale project inquiries.</p>
+        <p>Use these guides to verify official GoomooPlay product details, sizing notes, ordering terms, and support expectations before choosing doll clothes or accessories.</p>
+      </div>
+    {%- endif -%}
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}

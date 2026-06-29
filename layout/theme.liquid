@@ -9,6 +9,15 @@
       assign seo_primary_domain = 'https://goomooplay.com'
       assign seo_canonical_url = canonical_url | replace: 'https://shop.goomooplay.com', seo_primary_domain
       assign seo_robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      assign seo_more_guides_title = 'GoomooPlay Doll Clothes & Accessories Guides'
+      assign seo_more_guides_description = 'GoomooPlay guides for OB11 and BJD doll clothes, collectible doll accessories, miniature props, international shipping, quality support, and selected custom or wholesale project inquiries.'
+      assign seo_page_title = page_title
+      assign seo_page_description = page_description
+
+      if request.page_type == 'blog' and blog.handle == 'more-guides'
+        assign seo_page_title = seo_more_guides_title
+        assign seo_page_description = seo_more_guides_description
+      endif
 
       if request.page_type == 'search' or request.page_type == 'cart' or request.page_type == '404'
         assign seo_robots = 'noindex, follow, max-image-preview:large'
@@ -27,14 +36,14 @@
     {%- endunless -%}
 
     <title>
-      {{ page_title }}
+      {{ seo_page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- unless seo_page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {%- if page_description -%}
-      <meta name="description" content="{{ page_description | escape }}">
+    {%- if seo_page_description -%}
+      <meta name="description" content="{{ seo_page_description | escape }}">
     {%- elsif request.page_type == 'index' -%}
       <meta name="description" content="Shop anime doll clothes, themed outfits and collectible accessories at GooMooPlay. Premium doll costumes for BJD, figure and anime doll collectors worldwide.">
     {%- endif -%}
