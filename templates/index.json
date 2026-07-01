@@ -255,7 +255,9 @@
       "blocks": {
         "image_cUedK7": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/23714d83d1faac4a6127afe09e9b41d3.jpg"
+          }
         },
         "image_bUj3aq": {
           "type": "image",
