@@ -102,6 +102,7 @@
         "product_rwYHfJ",
         "product_mHBURt"
       ],
+      "disabled": true,
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "世界杯限定",
@@ -114,20 +115,61 @@
         "padding_bottom": 36
       }
     },
-    "featured_blog_Ucy64e": {
-      "type": "featured-blog",
-      "name": "t:sections.featured-blog.presets.name",
+    "multirow_AerF46": {
+      "type": "multirow",
+      "blocks": {
+        "row_DG6zTx": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/20260525083830.jpg",
+            "caption": "",
+            "heading": "世界杯micoco",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://products/世界杯micoco-米可可"
+          }
+        },
+        "row_C6Wz7e": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/retouch_2026063016274740.jpg",
+            "caption": "Caption",
+            "heading": "2026球衣系列",
+            "text": "",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://products/2026届世界杯限定球衣"
+          }
+        },
+        "row_rqBdpn": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/1_e4880823-759e-46ee-b8ac-dea4f8b3d526.jpg",
+            "caption": "",
+            "heading": "2026年世界杯球袜",
+            "text": "",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://products/世界杯球袜"
+          }
+        }
+      },
+      "block_order": [
+        "row_DG6zTx",
+        "row_C6Wz7e",
+        "row_rqBdpn"
+      ],
+      "name": "t:sections.multirow.presets.name",
       "settings": {
-        "blog": "为世界杯欢呼",
-        "post_limit": 3,
-        "heading": "Blog posts",
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
         "heading_size": "h1",
-        "columns_desktop": 3,
-        "show_view_all": true,
-        "show_image": true,
-        "show_date": true,
-        "show_author": false,
-        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "row_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -137,6 +179,6 @@
     "image_banner_j7FCWp",
     "main",
     "collage_aJC9mz",
-    "featured_blog_Ucy64e"
+    "multirow_AerF46"
   ]
 }
