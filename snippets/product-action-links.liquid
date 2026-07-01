@@ -1,193 +1,73 @@
 {% comment %}
-  Product detail action links used below the buy buttons.
+  Product detail accordions and delivery estimate used below the buy buttons.
 {% endcomment %}
 
 {%- liquid
-  assign product_share_url = product.selected_variant.url | default: product.url | prepend: request.origin
-  assign question_modal_id = 'ProductQuestionModal-' | append: section.id
-  assign question_form_id = question_modal_id | append: '-Form'
-  assign shipping_action_content = product_section.settings.shipping_action_content
-  if shipping_action_content == blank
-    assign shipping_action_content = product_section.settings.shipping_dropdown_1_content | append: product_section.settings.shipping_dropdown_2_content
-  endif
+  assign size_metafield = product.metafields.custom.product_sizes | default: product.metafields.custom.size_information | default: product.metafields.custom.size_chart | default: product.metafields.custom.sizing
+  assign included_metafield = product.metafields.custom.included_items | default: product.metafields.custom.package_includes | default: product.metafields.custom.whats_included | default: product.metafields.custom.product_contents
 -%}
 
-<div class="product-action-links" data-product-action-links>
-  <button
-    class="product-action-links__item"
-    type="button"
-    aria-haspopup="dialog"
-    aria-controls="{{ question_modal_id }}"
-    data-question-modal-open
-  >
-    <span class="product-action-links__icon" aria-hidden="true">
-      {% render 'icon-accordion', icon: 'question_mark' %}
-    </span>
-    <span>Ask question</span>
-  </button>
-
-  <button
-    class="product-action-links__item"
-    type="button"
-    data-product-share-button
-    data-share-title="{{ product.title | escape }}"
-    data-share-url="{{ product_share_url }}"
-  >
-    <span class="product-action-links__icon" aria-hidden="true">
-      {% render 'icon-accordion', icon: 'share' %}
-    </span>
-    <span data-share-label>Share</span>
-  </button>
-
-  <a class="product-action-links__item" href="#product-feature-details">
-    <span class="product-action-links__icon" aria-hidden="true">
-      {% render 'icon-accordion', icon: 'check_mark' %}
-    </span>
-    <span>Details</span>
-  </a>
-
-  <details class="product-action-links__dropdown">
-    <summary class="product-action-links__item">
-      <span class="product-action-links__icon" aria-hidden="true">
-        {% render 'icon-accordion', icon: 'truck' %}
-      </span>
-      <span>Shipping</span>
+<div class="product-action-links product-detail-accordions" data-product-detail-accordions>
+  <details class="product-detail-accordion">
+    <summary class="product-detail-accordion__summary">
+      <span>{{ product_section.settings.product_details_size_title | default: 'PRODUCT SIZES' }}</span>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
     </summary>
-    <div class="product-action-links__dropdown-panel rte">
-      {%- if shipping_action_content != blank -%}
-        {{ shipping_action_content }}
+    <div class="product-detail-accordion__content rte">
+      {%- if size_metafield != blank -%}
+        {{ size_metafield | metafield_tag }}
+      {%- elsif product_section.settings.product_details_size_content != blank -%}
+        {{ product_section.settings.product_details_size_content }}
       {%- else -%}
-        <p>Shipping information can be edited in this product section.</p>
+        <p>Fits 1/6, 1/12, OB11, BJD, or other compatible dolls as described by this product. Please check the product photos and option name before ordering.</p>
+      {%- endif -%}
+    </div>
+  </details>
+
+  <details class="product-detail-accordion">
+    <summary class="product-detail-accordion__summary">
+      <span>{{ product_section.settings.product_details_included_title | default: 'INCLUDED ITEMS' }}</span>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </summary>
+    <div class="product-detail-accordion__content rte">
+      {%- if included_metafield != blank -%}
+        {{ included_metafield | metafield_tag }}
+      {%- elsif product_section.settings.product_details_included_content != blank -%}
+        {{ product_section.settings.product_details_included_content }}
+      {%- else -%}
+        <p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>
       {%- endif -%}
     </div>
   </details>
 </div>
 
-<div
-  id="{{ question_modal_id }}"
-  class="product-question-modal"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="{{ question_modal_id }}-Title"
-  hidden
-  data-question-modal
->
-  <div class="product-question-modal__overlay" data-question-modal-close></div>
-  <div class="product-question-modal__panel">
-    <button class="product-question-modal__close" type="button" aria-label="Close" data-question-modal-close>
-      &times;
-    </button>
-    <h2 id="{{ question_modal_id }}-Title">Ask a Question</h2>
-
-    {%- form 'contact', id: question_form_id, class: 'product-question-form' -%}
-      {%- if form.posted_successfully? -%}
-        <p class="product-question-form__status" tabindex="-1" autofocus>Your question has been sent.</p>
-      {%- elsif form.errors -%}
-        <div class="product-question-form__status product-question-form__status--error">
-          {{ form.errors | default_errors }}
-        </div>
-      {%- endif -%}
-
-      <input type="hidden" name="contact[Product]" value="{{ product.title | escape }}">
-      <input type="hidden" name="contact[SKU]" value="{{ product.selected_or_first_available_variant.sku | escape }}">
-      <input type="hidden" name="contact[Product URL]" value="{{ product_share_url }}">
-
-      <input
-        class="product-question-form__field"
-        autocomplete="name"
-        type="text"
-        name="contact[name]"
-        placeholder="Your Name*"
-        required
-      >
-      <input
-        class="product-question-form__field"
-        autocomplete="tel"
-        type="tel"
-        name="contact[phone]"
-        placeholder="Your Phone Number"
-      >
-      <input
-        class="product-question-form__field"
-        autocomplete="email"
-        type="email"
-        name="contact[email]"
-        placeholder="Your Email*"
-        required
-      >
-      <textarea
-        class="product-question-form__field product-question-form__message"
-        name="contact[body]"
-        placeholder="Your Message*"
-        required
-      ></textarea>
-
-      <p class="product-question-form__required">* Required fields</p>
-      <button class="product-question-form__submit" type="submit">Submit Now</button>
-    {%- endform -%}
+{%- if product_section.settings.show_delivery_timeline -%}
+  <div class="product-delivery-timeline" aria-label="Estimated shipping time">
+    <p class="product-delivery-timeline__heading">
+      {{ product_section.settings.delivery_timeline_heading | default: 'Estimated Shipping time:' }}
+    </p>
+    <ol class="product-delivery-timeline__steps" role="list">
+      <li class="product-delivery-timeline__step">
+        <span class="product-delivery-timeline__icon" aria-hidden="true">
+          {% render 'icon-accordion', icon: 'cart' %}
+        </span>
+        <span class="product-delivery-timeline__title">{{ product_section.settings.delivery_step_1_title | default: 'Confirm' }}</span>
+        <span class="product-delivery-timeline__text">{{ product_section.settings.delivery_step_1_text | default: 'Order confirmation within 48 hours' }}</span>
+      </li>
+      <li class="product-delivery-timeline__step">
+        <span class="product-delivery-timeline__icon" aria-hidden="true">
+          {% render 'icon-accordion', icon: 'truck' %}
+        </span>
+        <span class="product-delivery-timeline__title">{{ product_section.settings.delivery_step_2_title | default: 'Shipping' }}</span>
+        <span class="product-delivery-timeline__text">{{ product_section.settings.delivery_step_2_text | default: '10-15 working days from order confirmation' }}</span>
+      </li>
+      <li class="product-delivery-timeline__step">
+        <span class="product-delivery-timeline__icon" aria-hidden="true">
+          {% render 'icon-accordion', icon: 'box' %}
+        </span>
+        <span class="product-delivery-timeline__title">{{ product_section.settings.delivery_step_3_title | default: 'Delivered' }}</span>
+        <span class="product-delivery-timeline__text">{{ product_section.settings.delivery_step_3_text | default: '15-20 working days from order confirmation' }}</span>
+      </li>
+    </ol>
   </div>
-</div>
-
-<script>
-  (() => {
-    const roots = document.querySelectorAll('[data-product-action-links]');
-    roots.forEach((root) => {
-      if (root.dataset.bound === 'true') return;
-      root.dataset.bound = 'true';
-
-      const modal = root.nextElementSibling;
-      const openButton = root.querySelector('[data-question-modal-open]');
-      const closeButtons = modal ? modal.querySelectorAll('[data-question-modal-close]') : [];
-      const shareButton = root.querySelector('[data-product-share-button]');
-
-      const openModal = () => {
-        if (!modal) return;
-        modal.hidden = false;
-        document.documentElement.classList.add('product-question-modal-open');
-        const firstField = modal.querySelector('input, textarea, button');
-        if (firstField) firstField.focus();
-      };
-
-      const closeModal = () => {
-        if (!modal) return;
-        modal.hidden = true;
-        document.documentElement.classList.remove('product-question-modal-open');
-        if (openButton) openButton.focus();
-      };
-
-      if (openButton) openButton.addEventListener('click', openModal);
-      closeButtons.forEach((button) => button.addEventListener('click', closeModal));
-
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modal && !modal.hidden) closeModal();
-      });
-
-      if (!shareButton) return;
-
-      shareButton.addEventListener('click', async () => {
-        const title = shareButton.dataset.shareTitle || document.title;
-        const url = shareButton.dataset.shareUrl || window.location.href;
-        const label = shareButton.querySelector('[data-share-label]');
-        try {
-          if (navigator.share) {
-            await navigator.share({ title, url });
-          } else if (navigator.clipboard) {
-            await navigator.clipboard.writeText(url);
-            if (label) {
-              label.textContent = 'Copied';
-              window.setTimeout(() => {
-                label.textContent = 'Share';
-              }, 1800);
-            }
-          } else {
-            window.prompt('Copy this link', url);
-          }
-        } catch (error) {
-          if (error && error.name !== 'AbortError') {
-            window.prompt('Copy this link', url);
-          }
-        }
-      });
-    });
-  })();
-</script>
+{%- endif -%}
