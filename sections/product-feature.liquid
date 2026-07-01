@@ -14,20 +14,56 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div id="product-feature-details" class="product-feature product-feature--reference page-width section-{{ section.id }}-padding">
-    <h2 class="product-feature__heading {{ section.settings.heading_size }}">
-      {{ section.settings.heading }}
-    </h2>
+  <product-feature-tabs
+    id="product-feature-details"
+    class="product-feature product-feature--tabs page-width section-{{ section.id }}-padding"
+    data-section-id="{{ section.id }}"
+  >
+    <div class="product-feature__header">
+      <h2 class="product-feature__heading {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
+      </h2>
+    </div>
 
-    {%- if section.settings.intro_text != blank -%}
-      <div class="product-feature__intro rte">
-        {{ section.settings.intro_text }}
-      </div>
-    {%- endif -%}
+    <div class="product-feature__tab-nav" role="tablist" aria-label="Product feature tabs">
+      <button class="product-feature__tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="ProductFeaturePanel-{{ section.id }}-concept" id="ProductFeatureTab-{{ section.id }}-concept" data-tab-target="concept">
+        {{ section.settings.heading | default: 'Design Concept' }}
+      </button>
+      <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-includes" id="ProductFeatureTab-{{ section.id }}-includes" data-tab-target="includes">
+        {{ section.settings.contents_title | default: 'Package Includes' }}
+      </button>
+      <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-details" id="ProductFeatureTab-{{ section.id }}-details" data-tab-target="details">
+        {{ section.settings.details_title | default: 'Detail Gallery' }}
+      </button>
+      <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-highlights" id="ProductFeatureTab-{{ section.id }}-highlights" data-tab-target="highlights">
+        Design Highlights
+      </button>
+      <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-specs" id="ProductFeatureTab-{{ section.id }}-specs" data-tab-target="specs">
+        Fabric & Size
+      </button>
+      <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-styling" id="ProductFeatureTab-{{ section.id }}-styling" data-tab-target="styling">
+        Styling Guide
+      </button>
+      <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-info" id="ProductFeatureTab-{{ section.id }}-info" data-tab-target="info">
+        Product Info
+      </button>
+      <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-notice" id="ProductFeatureTab-{{ section.id }}-notice" data-tab-target="notice">
+        Notice
+      </button>
+    </div>
 
-    {%- unless section.settings.show_contents == false -%}
-      <section class="product-feature__section">
-        <h3 class="product-feature__subheading">{{ section.settings.contents_title }}</h3>
+    <div class="product-feature__tab-content">
+      <section class="product-feature__tab-panel is-active" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-concept" aria-labelledby="ProductFeatureTab-{{ section.id }}-concept" data-tab-panel="concept">
+        <div class="product-feature__panel-inner product-feature__panel-inner--narrow rte">
+          {%- if section.settings.intro_text != blank -%}
+            {{ section.settings.intro_text }}
+          {%- else -%}
+            <p>Add the design concept, product story, and collector-facing introduction here.</p>
+          {%- endif -%}
+        </div>
+      </section>
+
+      <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-includes" aria-labelledby="ProductFeatureTab-{{ section.id }}-includes" data-tab-panel="includes" hidden>
         <div class="product-feature__contents">
           {%- for i in (1..6) -%}
             {%- assign item_label = 'contents_item_' | append: i -%}
@@ -36,7 +72,7 @@
               <div class="product-feature__content-item">
                 {%- if section.settings[item_img] != blank -%}
                   <div class="product-feature__content-image">
-                    {{ section.settings[item_img] | image_url: width: 360 | image_tag: loading: 'lazy' }}
+                    {{ section.settings[item_img] | image_url: width: 520 | image_tag: loading: 'lazy' }}
                   </div>
                 {%- endif -%}
                 {%- if section.settings[item_label] != blank -%}
@@ -47,11 +83,8 @@
           {%- endfor -%}
         </div>
       </section>
-    {%- endunless -%}
 
-    {%- unless section.settings.show_details == false -%}
-      <section class="product-feature__section">
-        <h3 class="product-feature__subheading">{{ section.settings.details_title }}</h3>
+      <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-details" aria-labelledby="ProductFeatureTab-{{ section.id }}-details" data-tab-panel="details" hidden>
         {%- if section.settings.details_text != blank -%}
           <div class="product-feature__details rte">
             {{ section.settings.details_text }}
@@ -62,115 +95,152 @@
             {%- assign img_id = 'detail_image_' | append: i -%}
             {%- if section.settings[img_id] != blank -%}
               <div class="product-feature__gallery-item">
-                {{ section.settings[img_id] | image_url: width: 900 | image_tag: loading: 'lazy' }}
+                {{ section.settings[img_id] | image_url: width: 1200 | image_tag: loading: 'lazy' }}
               </div>
             {%- endif -%}
           {%- endfor -%}
         </div>
       </section>
-    {%- endunless -%}
 
-    <section class="product-feature__section">
-      <h3 class="product-feature__subheading">Design Highlights</h3>
-      <div class="product-feature__highlight-list">
-        {%- for i in (1..3) -%}
-          {%- assign text_id = 'highlight_' | append: i | append: '_text' -%}
-          {%- assign image_id = 'highlight_' | append: i | append: '_image' -%}
-          {%- if section.settings[text_id] != blank or section.settings[image_id] != blank -%}
-            <article class="product-feature__highlight">
-              {%- if section.settings[text_id] != blank -%}
-                <div class="product-feature__highlight-copy rte">
-                  {{ section.settings[text_id] }}
-                </div>
-              {%- endif -%}
-              {%- if section.settings[image_id] != blank -%}
-                <div class="product-feature__highlight-image">
-                  {{ section.settings[image_id] | image_url: width: 1000 | image_tag: loading: 'lazy' }}
-                </div>
-              {%- endif -%}
-            </article>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </section>
-
-    <section class="product-feature__section">
-      <h3 class="product-feature__subheading">Fabric & Materials</h3>
-      <div class="product-feature__spec-grid">
-        <article class="product-feature__spec-card">
-          <h4>Fabric & Materials</h4>
-          <div class="product-feature__spec-copy rte">{{ section.settings.materials_text }}</div>
-          {%- if section.settings.materials_image != blank -%}
-            {{ section.settings.materials_image | image_url: width: 700 | image_tag: loading: 'lazy' }}
-          {%- endif -%}
-        </article>
-        <article class="product-feature__spec-card">
-          <h4>Size Information</h4>
-          <div class="product-feature__spec-copy rte">{{ section.settings.size_chart_text }}</div>
-          {%- if section.settings.size_chart_image != blank -%}
-            {{ section.settings.size_chart_image | image_url: width: 700 | image_tag: loading: 'lazy' }}
-          {%- endif -%}
-        </article>
-        <article class="product-feature__spec-card">
-          <h4>Model Information</h4>
-          <div class="product-feature__spec-copy rte">{{ section.settings.model_text }}</div>
-          {%- if section.settings.model_image != blank -%}
-            {{ section.settings.model_image | image_url: width: 700 | image_tag: loading: 'lazy' }}
-          {%- endif -%}
-        </article>
-      </div>
-    </section>
-
-    <section class="product-feature__section product-feature__two-column">
-      <div>
-        <h3 class="product-feature__subheading">Recommended Body Styling</h3>
-        <div class="rte">{{ section.settings.compatibility_text }}</div>
-      </div>
-      {%- if section.settings.compatibility_image != blank -%}
-        <div class="product-feature__side-media">
-          {{ section.settings.compatibility_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+      <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-highlights" aria-labelledby="ProductFeatureTab-{{ section.id }}-highlights" data-tab-panel="highlights" hidden>
+        <div class="product-feature__highlight-list">
+          {%- for i in (1..3) -%}
+            {%- assign text_id = 'highlight_' | append: i | append: '_text' -%}
+            {%- assign image_id = 'highlight_' | append: i | append: '_image' -%}
+            {%- if section.settings[text_id] != blank or section.settings[image_id] != blank -%}
+              <article class="product-feature__highlight">
+                {%- if section.settings[text_id] != blank -%}
+                  <div class="product-feature__highlight-copy rte">
+                    {{ section.settings[text_id] }}
+                  </div>
+                {%- endif -%}
+                {%- if section.settings[image_id] != blank -%}
+                  <div class="product-feature__highlight-image">
+                    {{ section.settings[image_id] | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+                  </div>
+                {%- endif -%}
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
         </div>
-      {%- endif -%}
-    </section>
+      </section>
 
-    <section class="product-feature__section product-feature__two-column">
-      <div>
-        <h3 class="product-feature__subheading">Closure Method</h3>
-        <div class="rte">{{ section.settings.closure_text }}</div>
-      </div>
-      {%- if section.settings.closure_image != blank -%}
-        <div class="product-feature__side-media">
-          {{ section.settings.closure_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+      <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-specs" aria-labelledby="ProductFeatureTab-{{ section.id }}-specs" data-tab-panel="specs" hidden>
+        <div class="product-feature__spec-grid">
+          <article class="product-feature__spec-card">
+            <h3>Fabric & Materials</h3>
+            <div class="product-feature__spec-copy rte">{{ section.settings.materials_text }}</div>
+            {%- if section.settings.materials_image != blank -%}
+              {{ section.settings.materials_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+            {%- endif -%}
+          </article>
+          <article class="product-feature__spec-card">
+            <h3>Size Information</h3>
+            <div class="product-feature__spec-copy rte">{{ section.settings.size_chart_text }}</div>
+            {%- if section.settings.size_chart_image != blank -%}
+              {{ section.settings.size_chart_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+            {%- endif -%}
+          </article>
+          <article class="product-feature__spec-card">
+            <h3>Model Information</h3>
+            <div class="product-feature__spec-copy rte">{{ section.settings.model_text }}</div>
+            {%- if section.settings.model_image != blank -%}
+              {{ section.settings.model_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+            {%- endif -%}
+          </article>
         </div>
-      {%- endif -%}
-    </section>
+      </section>
 
-    <section class="product-feature__section product-feature__two-column">
-      <div>
-        <h3 class="product-feature__subheading">Product Information</h3>
-        <div class="rte">{{ section.settings.product_info_text }}</div>
-      </div>
-      {%- if section.settings.product_info_image != blank -%}
-        <div class="product-feature__side-media">
-          {{ section.settings.product_info_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+      <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-styling" aria-labelledby="ProductFeatureTab-{{ section.id }}-styling" data-tab-panel="styling" hidden>
+        <div class="product-feature__two-column-list">
+          <article class="product-feature__two-column">
+            <div>
+              <h3 class="product-feature__subheading">Recommended Body Styling</h3>
+              <div class="rte">{{ section.settings.compatibility_text }}</div>
+            </div>
+            {%- if section.settings.compatibility_image != blank -%}
+              <div class="product-feature__side-media">
+                {{ section.settings.compatibility_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+              </div>
+            {%- endif -%}
+          </article>
+          <article class="product-feature__two-column">
+            <div>
+              <h3 class="product-feature__subheading">Closure Method</h3>
+              <div class="rte">{{ section.settings.closure_text }}</div>
+            </div>
+            {%- if section.settings.closure_image != blank -%}
+              <div class="product-feature__side-media">
+                {{ section.settings.closure_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+              </div>
+            {%- endif -%}
+          </article>
         </div>
-      {%- endif -%}
-    </section>
+      </section>
 
-    <section class="product-feature__section product-feature__two-column">
-      <div>
-        <h3 class="product-feature__subheading">Notice</h3>
-        <div class="rte">{{ section.settings.notice_text }}</div>
-      </div>
-      {%- if section.settings.notice_image != blank -%}
-        <div class="product-feature__side-media">
-          {{ section.settings.notice_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+      <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-info" aria-labelledby="ProductFeatureTab-{{ section.id }}-info" data-tab-panel="info" hidden>
+        <div class="product-feature__two-column">
+          <div>
+            <h3 class="product-feature__subheading">Product Information</h3>
+            <div class="rte">{{ section.settings.product_info_text }}</div>
+          </div>
+          {%- if section.settings.product_info_image != blank -%}
+            <div class="product-feature__side-media">
+              {{ section.settings.product_info_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+            </div>
+          {%- endif -%}
         </div>
-      {%- endif -%}
-    </section>
-  </div>
+      </section>
+
+      <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-notice" aria-labelledby="ProductFeatureTab-{{ section.id }}-notice" data-tab-panel="notice" hidden>
+        <div class="product-feature__two-column">
+          <div>
+            <h3 class="product-feature__subheading">Notice</h3>
+            <div class="rte">{{ section.settings.notice_text }}</div>
+          </div>
+          {%- if section.settings.notice_image != blank -%}
+            <div class="product-feature__side-media">
+              {{ section.settings.notice_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+            </div>
+          {%- endif -%}
+        </div>
+      </section>
+    </div>
+  </product-feature-tabs>
 </div>
 
+<script>
+  (() => {
+    if (customElements.get('product-feature-tabs')) return;
+
+    customElements.define(
+      'product-feature-tabs',
+      class ProductFeatureTabs extends HTMLElement {
+        connectedCallback() {
+          this.tabs = Array.from(this.querySelectorAll('[data-tab-target]'));
+          this.panels = Array.from(this.querySelectorAll('[data-tab-panel]'));
+          this.tabs.forEach((tab) => {
+            tab.addEventListener('click', () => this.switchTab(tab.dataset.tabTarget));
+          });
+        }
+
+        switchTab(target) {
+          this.tabs.forEach((tab) => {
+            const isActive = tab.dataset.tabTarget === target;
+            tab.classList.toggle('is-active', isActive);
+            tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+
+          this.panels.forEach((panel) => {
+            const isActive = panel.dataset.tabPanel === target;
+            panel.classList.toggle('is-active', isActive);
+            panel.hidden = !isActive;
+          });
+        }
+      }
+    );
+  })();
+</script>
 {% schema %}
 {
   "name": "Product Feature",
