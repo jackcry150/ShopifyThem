@@ -361,6 +361,14 @@ quick-add-modal .product-form__buttons {
   box-sizing: border-box;
 }
 
+.product-grid .quick-add__submit.button {
+  --color-button: 227, 151, 75;
+  --color-button-text: 255, 255, 255;
+  --alpha-button-background: 1;
+  --buttons-border-opacity: 0;
+  color: rgb(var(--color-button-text));
+}
+
 quick-add-modal .product-media-container.constrain-height {
   --viewport-offset: calc((var(--modal-height-offset) + var(--modal-padding) + var(--popup-border-width)) * 2);
 }
