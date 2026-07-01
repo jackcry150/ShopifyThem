@@ -61,31 +61,21 @@
     "multicolumn_aqMqTk": {
       "type": "multicolumn",
       "blocks": {
-        "column_BKffW9": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/90051d0b2358d31de7bd428b6dfd233a.jpg",
-            "title": "Doll Outfit",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_awWyWC": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/micoco_2bd308c9-d430-4faf-83b9-a7dc85c2f6a0.jpg",
-            "title": "Designer Toys",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
         "column_Eik6LD": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/03.jpg",
             "title": "Action FigureDoll",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BKffW9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/90051d0b2358d31de7bd428b6dfd233a.jpg",
+            "title": "Doll Outfit",
             "text": "",
             "link_label": "",
             "link": ""
@@ -100,13 +90,23 @@
             "link_label": "",
             "link": ""
           }
+        },
+        "column_awWyWC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/micoco_2bd308c9-d430-4faf-83b9-a7dc85c2f6a0.jpg",
+            "title": "Designer Toys",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "column_BKffW9",
-        "column_awWyWC",
         "column_Eik6LD",
-        "column_WkhgbE"
+        "column_BKffW9",
+        "column_WkhgbE",
+        "column_awWyWC"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
