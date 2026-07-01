@@ -226,11 +226,19 @@
     display: flex;
     position: fixed;
     left: 1.6rem;
-    top: 50%;
-    z-index: 900;
+    top: 64%;
+    z-index: 80;
     flex-direction: column;
     gap: 1.6rem;
     transform: translateY(-50%);
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  }
+
+  body:has(#Details-menu-drawer-container[open]) .goomoo-home-footer__socials {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-50%) translateX(-1.2rem);
   }
 
   .goomoo-home-footer__socials a {
@@ -430,6 +438,7 @@
 
     .goomoo-home-footer__socials {
       left: 0.8rem;
+      top: 68%;
       gap: 1rem;
     }
 
