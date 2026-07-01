@@ -63,6 +63,7 @@
     },
     "main": {
       "type": "main-list-collections",
+      "disabled": true,
       "settings": {
         "title": "Collections",
         "sort": "alphabetical",
@@ -70,10 +71,72 @@
         "columns_desktop": 3,
         "columns_mobile": "2"
       }
+    },
+    "collage_aJC9mz": {
+      "type": "collage",
+      "blocks": {
+        "product_MDmXHm": {
+          "type": "product",
+          "settings": {
+            "product": "2026届世界杯限定球衣",
+            "second_image": false
+          }
+        },
+        "product_rwYHfJ": {
+          "type": "product",
+          "settings": {
+            "product": "世界杯球袜",
+            "second_image": false
+          }
+        },
+        "product_mHBURt": {
+          "type": "product",
+          "settings": {
+            "product": "世界杯micoco-米可可",
+            "second_image": false
+          }
+        }
+      },
+      "block_order": [
+        "product_MDmXHm",
+        "product_rwYHfJ",
+        "product_mHBURt"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "世界杯限定",
+        "heading_size": "h1",
+        "desktop_layout": "right",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_Ucy64e": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "为世界杯欢呼",
+        "post_limit": 3,
+        "heading": "Blog posts",
+        "heading_size": "h1",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "image_banner_j7FCWp",
-    "main"
+    "main",
+    "collage_aJC9mz",
+    "featured_blog_Ucy64e"
   ]
 }
