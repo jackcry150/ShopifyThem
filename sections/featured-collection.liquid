@@ -40,8 +40,8 @@
   {%- if section.id contains 'featured_collection_hnCczw' or section.id contains 'featured_collection_j9cGXk' or section.settings.collection.handle == 'new-doll' or section.settings.collection.handle == 'best-sellers' -%}
     #collection-{{ section.id }} .collection__title,
     #collection-{{ section.id }} slider-component {
-      width: min(calc(100% - 4rem), 128rem);
-      max-width: 128rem;
+      width: min(calc(100% - 4rem), 120rem);
+      max-width: 120rem;
       margin-inline: auto;
       padding-inline: 0;
     }
@@ -91,16 +91,6 @@
     #collection-{{ section.id }} .price-item {
       font-weight: 700;
     }
-
-    {%- if section.id contains 'featured_collection_j9cGXk' or section.settings.collection.handle == 'best-sellers' -%}
-      @media screen and (min-width: 990px) {
-        #collection-{{ section.id }} .collection__title,
-        #collection-{{ section.id }} slider-component {
-          transform: translateX(3rem);
-        }
-      }
-    {%- endif -%}
-
     @media screen and (min-width: 990px) {
       #collection-{{ section.id }} .product-grid.grid--4-col-desktop > .grid__item {
         width: 28rem;

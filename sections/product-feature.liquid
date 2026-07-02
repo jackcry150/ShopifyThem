@@ -31,7 +31,8 @@
       </h2>
     </div>
 
-    <div class="product-feature__tab-nav" role="tablist" aria-label="Product feature tabs">
+    <div class="product-feature__tabs-shell">
+      <div class="product-feature__tab-nav" role="tablist" aria-label="Product feature tabs">
       <button class="product-feature__tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="ProductFeaturePanel-{{ section.id }}-concept" id="ProductFeatureTab-{{ section.id }}-concept" data-tab-target="concept">
         {{ section.settings.heading | default: 'Design Concept' }}
       </button>
@@ -130,18 +131,14 @@
       </section>
 
       <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-styling" aria-labelledby="ProductFeatureTab-{{ section.id }}-styling" data-tab-panel="styling" hidden>
-        <div class="product-feature__two-column-list">
-          <article class="product-feature__two-column">
-            <div>
-              <h3 class="product-feature__subheading">Recommended Body Styling</h3>
-              <div class="rte">{{ section.settings.compatibility_text }}</div>
-            </div>
+        <div class="product-feature__styling-grid">
+          <article class="product-feature__styling-card">
+            <h3 class="product-feature__subheading">Recommended Body Styling</h3>
+            <div class="rte">{{ section.settings.compatibility_text }}</div>
           </article>
-          <article class="product-feature__two-column">
-            <div>
-              <h3 class="product-feature__subheading">Closure Method</h3>
-              <div class="rte">{{ section.settings.closure_text }}</div>
-            </div>
+          <article class="product-feature__styling-card">
+            <h3 class="product-feature__subheading">Closure Method</h3>
+            <div class="rte">{{ section.settings.closure_text }}</div>
           </article>
         </div>
       </section>
@@ -175,6 +172,7 @@
           </div>
         </div>
       </section>
+    </div>
     </div>
   </product-feature-tabs>
 </div>
