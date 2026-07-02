@@ -47,9 +47,6 @@
       <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-styling" id="ProductFeatureTab-{{ section.id }}-styling" data-tab-target="styling">
         Styling Guide
       </button>
-      <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-info" id="ProductFeatureTab-{{ section.id }}-info" data-tab-target="info">
-        Product Info
-      </button>
       <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-notice" id="ProductFeatureTab-{{ section.id }}-notice" data-tab-target="notice">
         Notice
       </button>
@@ -77,25 +74,41 @@
         </div>
       </section>
       <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-highlights" aria-labelledby="ProductFeatureTab-{{ section.id }}-highlights" data-tab-panel="highlights" hidden>
-        <div class="product-feature__highlight-list">
-          {%- for i in (1..3) -%}
-            {%- assign text_id = 'highlight_' | append: i | append: '_text' -%}
-            {%- assign image_id = 'highlight_' | append: i | append: '_image' -%}
-            {%- if section.settings[text_id] != blank or section.settings[image_id] != blank -%}
-              <article class="product-feature__highlight">
+        <div class="product-feature__highlight-editor-grid">
+          <div class="product-feature__highlight-copy-panel">
+            <h3 class="product-feature__subheading">Detail Gallery</h3>
+            <div class="rte">
+              {%- assign has_highlight_text = false -%}
+              {%- for i in (1..3) -%}
+                {%- assign text_id = 'highlight_' | append: i | append: '_text' -%}
                 {%- if section.settings[text_id] != blank -%}
-                  <div class="product-feature__highlight-copy rte">
-                    {{ section.settings[text_id] }}
-                  </div>
+                  {%- assign has_highlight_text = true -%}
+                  {{ section.settings[text_id] }}
                 {%- endif -%}
+              {%- endfor -%}
+              {%- unless has_highlight_text -%}
+                <p>Add product detail gallery copy here.</p>
+              {%- endunless -%}
+            </div>
+          </div>
+          <div class="product-feature__highlight-image-panel">
+            <h3 class="product-feature__subheading">Design Highlights</h3>
+            <div class="product-feature__highlight-image-grid">
+              {%- assign has_highlight_image = false -%}
+              {%- for i in (1..3) -%}
+                {%- assign image_id = 'highlight_' | append: i | append: '_image' -%}
                 {%- if section.settings[image_id] != blank -%}
+                  {%- assign has_highlight_image = true -%}
                   <div class="product-feature__highlight-image">
-                    {{ section.settings[image_id] | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+                    {{ section.settings[image_id] | image_url: width: 900 | image_tag: loading: 'lazy' }}
                   </div>
                 {%- endif -%}
-              </article>
-            {%- endif -%}
-          {%- endfor -%}
+              {%- endfor -%}
+              {%- unless has_highlight_image -%}
+                <p>Add up to three design highlight images.</p>
+              {%- endunless -%}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -132,18 +145,9 @@
           </article>
         </div>
       </section>
-
-      <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-info" aria-labelledby="ProductFeatureTab-{{ section.id }}-info" data-tab-panel="info" hidden>
-        <div class="product-feature__two-column">
-          <div>
-            <h3 class="product-feature__subheading">Product Information</h3>
-            <div class="rte">{{ section.settings.product_info_text }}</div>
-          </div>
-        </div>
-      </section>
       <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-notice" aria-labelledby="ProductFeatureTab-{{ section.id }}-notice" data-tab-panel="notice" hidden>
-        <div class="product-feature__two-column product-feature__notice-grid">
-          <div>
+        <div class="product-feature__notice-grid">
+          <div class="product-feature__notice-card">
             <h3 class="product-feature__subheading">Notice</h3>
             <div class="rte">
               {%- if notice_metafield != blank -%}
@@ -153,7 +157,7 @@
               {%- endif -%}
             </div>
           </div>
-          <div>
+          <div class="product-feature__notice-card">
             <h3 class="product-feature__subheading">Order Information</h3>
             <div class="rte">
               {%- if order_metafield != blank -%}
@@ -164,6 +168,10 @@
                 <p>Add preorder, delivery, or ordering notes in the product metafield <strong>order</strong>.</p>
               {%- endif -%}
             </div>
+          </div>
+          <div class="product-feature__notice-card">
+            <h3 class="product-feature__subheading">Product Information</h3>
+            <div class="rte">{{ section.settings.product_info_text }}</div>
           </div>
         </div>
       </section>
@@ -259,35 +267,35 @@
     {
       "type": "richtext",
       "id": "highlight_1_text",
-      "label": "Highlight 1 text",
+      "label": "Detail Gallery text 1",
       "default": "<p>Highlight 1: describe clothing display details.</p>"
     },
     {
       "type": "image_picker",
       "id": "highlight_1_image",
-      "label": "Highlight 1 image"
+      "label": "Design Highlight image 1"
     },
     {
       "type": "richtext",
       "id": "highlight_2_text",
-      "label": "Highlight 2 text",
+      "label": "Detail Gallery text 2",
       "default": "<p>Highlight 2: describe styling or matching details.</p>"
     },
     {
       "type": "image_picker",
       "id": "highlight_2_image",
-      "label": "Highlight 2 image"
+      "label": "Design Highlight image 2"
     },
     {
       "type": "richtext",
       "id": "highlight_3_text",
-      "label": "Highlight 3 text",
+      "label": "Detail Gallery text 3",
       "default": "<p>Highlight 3: describe craftsmanship details.</p>"
     },
     {
       "type": "image_picker",
       "id": "highlight_3_image",
-      "label": "Highlight 3 image"
+      "label": "Design Highlight image 3"
     },
     {
       "type": "header",
