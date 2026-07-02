@@ -362,7 +362,7 @@ quick-add-modal .product-form__buttons {
 }
 
 .product-grid .quick-add__submit.button {
-  --color-button: 227, 151, 75;
+  --color-button: 250, 140, 60;
   --color-button-text: 255, 255, 255;
   --alpha-button-background: 1;
   --buttons-border-opacity: 0;
