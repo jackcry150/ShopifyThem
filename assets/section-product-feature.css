@@ -1,5 +1,6 @@
 .product-feature--tabs {
   max-width: 120rem;
+  margin-inline: auto;
   background: #fff;
 }
 
@@ -18,6 +19,7 @@
 .product-feature__tab-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0;
   margin: 0 0 4.8rem;
   border-bottom: 0.1rem solid #e5e5e5;
@@ -62,6 +64,7 @@
 
 .product-feature__tab-content {
   min-height: 30rem;
+  text-align: center;
 }
 
 .product-feature__tab-panel {
@@ -88,6 +91,7 @@
 .product-feature__panel-inner--narrow,
 .product-feature__details {
   max-width: 90rem;
+  margin-inline: auto;
   color: #333;
   font-size: 1.5rem;
   line-height: 1.8;
@@ -111,6 +115,8 @@
 
 .product-feature__contents {
   display: grid;
+  max-width: 110rem;
+  margin-inline: auto;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 1.6rem;
 }
@@ -143,6 +149,8 @@
 
 .product-feature__gallery {
   display: grid;
+  max-width: 110rem;
+  margin-inline: auto;
   grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
   gap: 1.6rem;
   margin-top: 3.2rem;
@@ -163,6 +171,8 @@
 
 .product-feature__highlight-list {
   display: grid;
+  max-width: 110rem;
+  margin-inline: auto;
   gap: 3.2rem;
 }
 
@@ -187,6 +197,8 @@
 
 .product-feature__spec-grid {
   display: grid;
+  max-width: 110rem;
+  margin-inline: auto;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   align-items: start;
@@ -225,6 +237,8 @@
 
 .product-feature__two-column-list {
   display: grid;
+  max-width: 110rem;
+  margin-inline: auto;
   gap: 4rem;
 }
 
@@ -258,6 +272,7 @@
   }
 
   .product-feature__tab-nav {
+    justify-content: flex-start;
     margin-bottom: 3.2rem;
     padding-bottom: 0.1rem;
     scroll-snap-type: x proximity;
