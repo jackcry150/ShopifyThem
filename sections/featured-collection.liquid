@@ -37,18 +37,18 @@
     }
   }
 
-  {%- if section.id == 'featured_collection_hnCczw' or section.id == 'featured_collection_j9cGXk' -%}
+  {%- if section.id contains 'featured_collection_hnCczw' or section.id contains 'featured_collection_j9cGXk' or section.settings.collection.handle == 'new-doll' or section.settings.collection.handle == 'best-sellers' -%}
     #collection-{{ section.id }} .collection__title,
     #collection-{{ section.id }} slider-component {
-      width: min(calc(100% - 4rem), 96rem);
-      max-width: 96rem;
+      width: min(calc(100% - 4rem), 128rem);
+      max-width: 128rem;
       margin-inline: auto;
       padding-inline: 0;
     }
 
     #collection-{{ section.id }} .product-grid {
       justify-content: center;
-      column-gap: 2.4rem;
+      column-gap: 2.8rem;
       row-gap: 3.2rem;
     }
 
@@ -57,14 +57,14 @@
     }
 
     #collection-{{ section.id }} .product-card-wrapper {
-      max-width: 17.5rem;
+      max-width: 28rem;
       margin-inline: auto;
     }
 
     #collection-{{ section.id }} .product-card-wrapper .card__inner.ratio {
       --ratio-percent: 100% !important;
       width: 100%;
-      max-width: 17.5rem;
+      max-width: 28rem;
       margin-inline: auto;
     }
 
@@ -73,19 +73,19 @@
       object-position: center;
     }
 
-    {%- if section.id == 'featured_collection_j9cGXk' -%}
+    {%- if section.id contains 'featured_collection_j9cGXk' or section.settings.collection.handle == 'best-sellers' -%}
       @media screen and (min-width: 990px) {
         #collection-{{ section.id }} .collection__title,
         #collection-{{ section.id }} slider-component {
-          transform: translateX(4rem);
+          transform: translateX(3rem);
         }
       }
     {%- endif -%}
 
     @media screen and (min-width: 990px) {
       #collection-{{ section.id }} .product-grid.grid--4-col-desktop > .grid__item {
-        width: 17.5rem;
-        max-width: 17.5rem;
+        width: 28rem;
+        max-width: 28rem;
       }
     }
 
