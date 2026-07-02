@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "text_R9Cq3E": {
-          "type": "text",
-          "settings": {
-            "text": "加入一个功能，顾客可以选择多个不同类型的产品",
-            "text_style": "body"
-          }
-        },
         "sku": {
           "type": "sku",
           "settings": {
@@ -28,13 +21,6 @@
         "title": {
           "type": "title",
           "settings": {}
-        },
-        "text_TWrGj9": {
-          "type": "text",
-          "settings": {
-            "text": "这里设置一个标签选项，上架人员 在上架链接时，选择预售/现货/限时折扣",
-            "text_style": "body"
-          }
         },
         "price": {
           "type": "price",
@@ -92,10 +78,8 @@
         }
       },
       "block_order": [
-        "text_R9Cq3E",
         "sku",
         "title",
-        "text_TWrGj9",
         "price",
         "variant_picker",
         "quantity_selector",
@@ -143,6 +127,31 @@
         "padding_bottom": 12
       }
     },
+    "product_feature_URLbNz": {
+      "type": "product-feature",
+      "name": "Product Feature",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "intro_text": "{{ product.metafields.custom.description | metafield_tag }}",
+        "contents_title": "Included Items",
+        "included_items_fallback": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>{{ product.metafields.custom.included_items | metafield_tag }}",
+        "highlight_1_text": "{{ product.metafields.custom.highlights | metafield_tag }}",
+        "highlight_2_text": "",
+        "highlight_3_text": "",
+        "materials_text": "{{ product.metafields.custom.fabric_materials | metafield_tag }}",
+        "size_chart_text": "{{ product.metafields.custom.size_information | metafield_tag }}",
+        "model_text": "{{ product.metafields.custom.model_information | metafield_tag }}",
+        "compatibility_text": "{{ product.metafields.custom.compatibility_guide | metafield_tag }}",
+        "closure_text": "{{ product.metafields.custom.closure_types | metafield_tag }}",
+        "product_info_text": "{{ product.metafields.custom.product_information | metafield_tag }}",
+        "notice_text": "{{ product.metafields.custom.notice | metafield_tag }}",
+        "order_info_text": "<p>{{ product.metafields.custom.order | metafield_tag }}</p>",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "178055040411874f21": {
       "type": "_blocks",
       "blocks": {
@@ -178,6 +187,7 @@
       "block_order": [
         "ai_gen_block_81e2226_6rNWFD"
       ],
+      "disabled": true,
       "name": "商品详情",
       "settings": {}
     },
@@ -305,6 +315,7 @@
         "heading_size": "h2",
         "intro_text": "<p>Describe the design concept and product story.</p>",
         "contents_title": "Included Items",
+        "included_items_fallback": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>",
         "highlight_1_text": "<p>Highlight 1: describe clothing display details.</p>",
         "highlight_2_text": "<p>Highlight 2: describe styling or matching details.</p>",
         "highlight_3_text": "<p>Highlight 3: describe craftsmanship details.</p>",
@@ -315,6 +326,7 @@
         "closure_text": "<p>Top<br/>________________</p><p>Dress<br/>________________</p><p>Skirt<br/>________________</p><p>Pants<br/>________________</p><p>Accessories<br/>________________</p>",
         "product_info_text": "<p>Category<br/>Doll Outfit</p><p>Collection<br/>________________</p><p>Style<br/>________________</p><p>Scale<br/>________________</p><p>Brand<br/>GOOMOOPLAY</p><p>Origin<br/>________________</p>",
         "notice_text": "<p>Dark-colored fabrics may cause staining after prolonged contact.</p><p>Please avoid storing dolls while wearing dark-colored clothing for long periods.</p><p>Minor variations may occur due to the handmade production process.</p><p>Colors may vary slightly depending on monitor settings.</p>",
+        "order_info_text": "<p>Pre-order and delivery information can be added in the product metafield order.</p>",
         "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
         "padding_top": 36,
         "padding_bottom": 36
@@ -323,10 +335,11 @@
   },
   "order": [
     "main",
-    "product_feature_rU36MK",
+    "product_feature_URLbNz",
     "178055040411874f21",
     "collapsible_content_amiHKB",
     "video_jwxBqW",
-    "related-products"
+    "related-products",
+    "product_feature_rU36MK"
   ]
 }
