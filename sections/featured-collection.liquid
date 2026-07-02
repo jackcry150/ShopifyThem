@@ -36,6 +36,27 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {%- if section.id == 'featured_collection_hnCczw' or section.id == 'featured_collection_j9cGXk' -%}
+    #collection-{{ section.id }} .product-card-wrapper .card__inner.ratio {
+      --ratio-percent: 100% !important;
+      width: 88%;
+      max-width: 22rem;
+      margin-inline: auto;
+    }
+
+    #collection-{{ section.id }} .product-card-wrapper .card__media .media > img {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media screen and (max-width: 749px) {
+      #collection-{{ section.id }} .product-card-wrapper .card__inner.ratio {
+        width: 92%;
+        max-width: none;
+      }
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
 {%- liquid
