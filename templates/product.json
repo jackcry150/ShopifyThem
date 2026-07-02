@@ -144,7 +144,7 @@
         "size_chart_text": "{{ product.metafields.custom.size_information | metafield_tag }}",
         "model_text": "{{ product.metafields.custom.model_information | metafield_tag }}",
         "compatibility_text": "{{ product.metafields.custom.compatibility_guide | metafield_tag }}",
-        "closure_text": "{{ product.metafields.custom.closure_types | metafield_tag }}",
+        "closure_text": "{{ product.metafields.custom.closure_method | metafield_tag }}",
         "product_info_text": "{{ product.metafields.custom.product_information | metafield_tag }}",
         "notice_text": "{{ product.metafields.custom.notice | metafield_tag }}",
         "order_info_text": "<p>{{ product.metafields.custom.order | metafield_tag }}</p>",
