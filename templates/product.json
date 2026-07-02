@@ -137,6 +137,7 @@
         "contents_title": "Included Items",
         "included_items_fallback": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>{{ product.metafields.custom.included_items | metafield_tag }}",
         "highlight_1_text": "{{ product.metafields.custom.highlights | metafield_tag }}",
+        "highlight_1_image": "{{ product.metafields.custom.detail_image.value }}",
         "highlight_2_text": "",
         "highlight_3_text": "",
         "materials_text": "{{ product.metafields.custom.fabric_materials | metafield_tag }}",
