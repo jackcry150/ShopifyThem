@@ -73,6 +73,11 @@
       object-position: center;
     }
 
+    #collection-{{ section.id }} .price,
+    #collection-{{ section.id }} .price-item {
+      font-weight: 700;
+    }
+
     {%- if section.id contains 'featured_collection_j9cGXk' or section.settings.collection.handle == 'best-sellers' -%}
       @media screen and (min-width: 990px) {
         #collection-{{ section.id }} .collection__title,
