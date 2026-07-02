@@ -324,18 +324,15 @@
             "image": "shopify://shop_images/25c52ca991d73f9d72359ca4a9b5056b.jpg"
           }
         },
-        "video_djxL8Q": {
-          "type": "video",
-          "settings": {
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description": "Describe the video"
-          }
+        "image_3DznxM": {
+          "type": "image",
+          "settings": {}
         }
       },
       "block_order": [
         "image_cUedK7",
         "image_bUj3aq",
-        "video_djxL8Q"
+        "image_3DznxM"
       ],
       "name": "t:sections.collage.presets.name",
       "settings": {
