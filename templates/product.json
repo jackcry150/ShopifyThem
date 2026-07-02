@@ -108,6 +108,28 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "show_shipping_dropdowns": true,
+        "shipping_heading": "Shipping",
+        "shipping_summary": "Calculated at checkout",
+        "shipping_dropdown_1_label": "Conditional shipping",
+        "shipping_dropdown_1_content": "<p>Shipping cost may vary by destination, order value, product weight, and available shipping method. The final shipping fee is calculated at checkout.</p>",
+        "shipping_dropdown_2_label": "Regional surcharge",
+        "shipping_dropdown_2_content": "<p>Some countries, islands, remote areas, or special delivery zones may require an additional regional shipping fee. If your address is affected, the checkout page will show the updated cost.</p>",
+        "shipping_action_content": "<p>Shipping cost may vary by destination, order value, product weight, and available shipping method. The final shipping fee is calculated at checkout.</p>",
+        "shipping_link_label": "View shipping policy",
+        "shipping_link_url": "",
+        "product_details_size_title": "PRODUCT SIZES",
+        "product_details_size_content": "<p>Fits 1/6, 1/12, OB11, BJD, or other compatible dolls as described by this product. Please check the product photos and option name before ordering.</p>",
+        "product_details_included_title": "INCLUDED ITEMS",
+        "product_details_included_content": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>",
+        "show_delivery_timeline": true,
+        "delivery_timeline_heading": "Estimated Shipping time:",
+        "delivery_step_1_title": "Confirm",
+        "delivery_step_1_text": "Order confirmation within 48 hours",
+        "delivery_step_2_title": "Shipping",
+        "delivery_step_2_text": "10-15 working days from order confirmation",
+        "delivery_step_3_title": "Delivered",
+        "delivery_step_3_text": "15-20 working days from order confirmation",
         "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
@@ -241,6 +263,22 @@
         "padding_bottom": 36
       }
     },
+    "video_jwxBqW": {
+      "type": "video",
+      "disabled": true,
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "Video",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -264,6 +302,7 @@
     "main",
     "178055040411874f21",
     "collapsible_content_amiHKB",
+    "video_jwxBqW",
     "related-products"
   ]
 }
