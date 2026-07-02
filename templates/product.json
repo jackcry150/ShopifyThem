@@ -307,31 +307,6 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "product_feature_rU36MK": {
-      "type": "product-feature",
-      "name": "Product Feature",
-      "settings": {
-        "heading": "Design Concept",
-        "heading_size": "h2",
-        "intro_text": "<p>Describe the design concept and product story.</p>",
-        "contents_title": "Included Items",
-        "included_items_fallback": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>",
-        "highlight_1_text": "<p>Highlight 1: describe clothing display details.</p>",
-        "highlight_2_text": "<p>Highlight 2: describe styling or matching details.</p>",
-        "highlight_3_text": "<p>Highlight 3: describe craftsmanship details.</p>",
-        "materials_text": "<p>Main Fabric<br/>________________</p><p>Lining<br/>________________</p><p>Trim<br/>________________</p><p>Metal Parts<br/>________________</p><p>Accessories<br/>________________</p>",
-        "size_chart_text": "<p>Top Length<br/>__________</p><p>Shoulder Width<br/>__________</p><p>Chest Width<br/>__________</p><p>Sleeve Length<br/>__________</p><p>Waist Width<br/>__________</p><p>Hip Width<br/>__________</p>",
-        "model_text": "<p>Body<br/>________________</p><p>Head<br/>________________</p><p>Height<br/>________________</p><p>Bust<br/>________________</p><p>Waist<br/>________________</p><p>Hip<br/>________________</p>",
-        "compatibility_text": "<p>Recommended body and styling notes.</p>",
-        "closure_text": "<p>Top<br/>________________</p><p>Dress<br/>________________</p><p>Skirt<br/>________________</p><p>Pants<br/>________________</p><p>Accessories<br/>________________</p>",
-        "product_info_text": "<p>Category<br/>Doll Outfit</p><p>Collection<br/>________________</p><p>Style<br/>________________</p><p>Scale<br/>________________</p><p>Brand<br/>GOOMOOPLAY</p><p>Origin<br/>________________</p>",
-        "notice_text": "<p>Dark-colored fabrics may cause staining after prolonged contact.</p><p>Please avoid storing dolls while wearing dark-colored clothing for long periods.</p><p>Minor variations may occur due to the handmade production process.</p><p>Colors may vary slightly depending on monitor settings.</p>",
-        "order_info_text": "<p>Pre-order and delivery information can be added in the product metafield order.</p>",
-        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -340,7 +315,6 @@
     "178055040411874f21",
     "collapsible_content_amiHKB",
     "video_jwxBqW",
-    "related-products",
-    "product_feature_rU36MK"
+    "related-products"
   ]
 }
