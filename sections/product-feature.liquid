@@ -13,6 +13,12 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign included_items_metafield = product.metafields.custom.package_includes | default: product.metafields.custom.included_items | default: product.metafields.custom.whats_included | default: product.metafields.custom.product_contents
+  assign notice_metafield = product.metafields.custom.notice | default: product.metafields.custom.product_notice | default: product.metafields.custom.notes
+  assign order_metafield = product.metafields.custom.order | default: product.metafields.custom.order_information | default: product.metafields.custom.order_info
+-%}
+
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <product-feature-tabs
     id="product-feature-details"
@@ -31,9 +37,6 @@
       </button>
       <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-includes" id="ProductFeatureTab-{{ section.id }}-includes" data-tab-target="includes">
         {{ section.settings.contents_title | default: 'Package Includes' }}
-      </button>
-      <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-details" id="ProductFeatureTab-{{ section.id }}-details" data-tab-target="details">
-        {{ section.settings.details_title | default: 'Detail Gallery' }}
       </button>
       <button class="product-feature__tab-button" type="button" role="tab" aria-selected="false" aria-controls="ProductFeaturePanel-{{ section.id }}-highlights" id="ProductFeatureTab-{{ section.id }}-highlights" data-tab-target="highlights">
         Design Highlights
@@ -62,46 +65,17 @@
           {%- endif -%}
         </div>
       </section>
-
       <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-includes" aria-labelledby="ProductFeatureTab-{{ section.id }}-includes" data-tab-panel="includes" hidden>
-        <div class="product-feature__contents">
-          {%- for i in (1..6) -%}
-            {%- assign item_label = 'contents_item_' | append: i -%}
-            {%- assign item_img = 'contents_image_' | append: i -%}
-            {%- if section.settings[item_label] != blank or section.settings[item_img] != blank -%}
-              <div class="product-feature__content-item">
-                {%- if section.settings[item_img] != blank -%}
-                  <div class="product-feature__content-image">
-                    {{ section.settings[item_img] | image_url: width: 520 | image_tag: loading: 'lazy' }}
-                  </div>
-                {%- endif -%}
-                {%- if section.settings[item_label] != blank -%}
-                  <span class="product-feature__content-label">{{ section.settings[item_label] }}</span>
-                {%- endif -%}
-              </div>
-            {%- endif -%}
-          {%- endfor -%}
+        <div class="product-feature__panel-inner product-feature__panel-inner--narrow rte">
+          {%- if included_items_metafield != blank -%}
+            {{ included_items_metafield | metafield_tag }}
+          {%- elsif section.settings.included_items_fallback != blank -%}
+            {{ section.settings.included_items_fallback }}
+          {%- else -%}
+            <p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>
+          {%- endif -%}
         </div>
       </section>
-
-      <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-details" aria-labelledby="ProductFeatureTab-{{ section.id }}-details" data-tab-panel="details" hidden>
-        {%- if section.settings.details_text != blank -%}
-          <div class="product-feature__details rte">
-            {{ section.settings.details_text }}
-          </div>
-        {%- endif -%}
-        <div class="product-feature__gallery">
-          {%- for i in (1..6) -%}
-            {%- assign img_id = 'detail_image_' | append: i -%}
-            {%- if section.settings[img_id] != blank -%}
-              <div class="product-feature__gallery-item">
-                {{ section.settings[img_id] | image_url: width: 1200 | image_tag: loading: 'lazy' }}
-              </div>
-            {%- endif -%}
-          {%- endfor -%}
-        </div>
-      </section>
-
       <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-highlights" aria-labelledby="ProductFeatureTab-{{ section.id }}-highlights" data-tab-panel="highlights" hidden>
         <div class="product-feature__highlight-list">
           {%- for i in (1..3) -%}
@@ -130,23 +104,14 @@
           <article class="product-feature__spec-card">
             <h3>Fabric & Materials</h3>
             <div class="product-feature__spec-copy rte">{{ section.settings.materials_text }}</div>
-            {%- if section.settings.materials_image != blank -%}
-              {{ section.settings.materials_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
-            {%- endif -%}
           </article>
           <article class="product-feature__spec-card">
             <h3>Size Information</h3>
             <div class="product-feature__spec-copy rte">{{ section.settings.size_chart_text }}</div>
-            {%- if section.settings.size_chart_image != blank -%}
-              {{ section.settings.size_chart_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
-            {%- endif -%}
           </article>
           <article class="product-feature__spec-card">
             <h3>Model Information</h3>
             <div class="product-feature__spec-copy rte">{{ section.settings.model_text }}</div>
-            {%- if section.settings.model_image != blank -%}
-              {{ section.settings.model_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
-            {%- endif -%}
           </article>
         </div>
       </section>
@@ -158,22 +123,12 @@
               <h3 class="product-feature__subheading">Recommended Body Styling</h3>
               <div class="rte">{{ section.settings.compatibility_text }}</div>
             </div>
-            {%- if section.settings.compatibility_image != blank -%}
-              <div class="product-feature__side-media">
-                {{ section.settings.compatibility_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
-              </div>
-            {%- endif -%}
           </article>
           <article class="product-feature__two-column">
             <div>
               <h3 class="product-feature__subheading">Closure Method</h3>
               <div class="rte">{{ section.settings.closure_text }}</div>
             </div>
-            {%- if section.settings.closure_image != blank -%}
-              <div class="product-feature__side-media">
-                {{ section.settings.closure_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
-              </div>
-            {%- endif -%}
           </article>
         </div>
       </section>
@@ -184,25 +139,32 @@
             <h3 class="product-feature__subheading">Product Information</h3>
             <div class="rte">{{ section.settings.product_info_text }}</div>
           </div>
-          {%- if section.settings.product_info_image != blank -%}
-            <div class="product-feature__side-media">
-              {{ section.settings.product_info_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
-            </div>
-          {%- endif -%}
         </div>
       </section>
-
       <section class="product-feature__tab-panel" role="tabpanel" id="ProductFeaturePanel-{{ section.id }}-notice" aria-labelledby="ProductFeatureTab-{{ section.id }}-notice" data-tab-panel="notice" hidden>
-        <div class="product-feature__two-column">
+        <div class="product-feature__two-column product-feature__notice-grid">
           <div>
             <h3 class="product-feature__subheading">Notice</h3>
-            <div class="rte">{{ section.settings.notice_text }}</div>
-          </div>
-          {%- if section.settings.notice_image != blank -%}
-            <div class="product-feature__side-media">
-              {{ section.settings.notice_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+            <div class="rte">
+              {%- if notice_metafield != blank -%}
+                {{ notice_metafield | metafield_tag }}
+              {%- else -%}
+                {{ section.settings.notice_text }}
+              {%- endif -%}
             </div>
-          {%- endif -%}
+          </div>
+          <div>
+            <h3 class="product-feature__subheading">Order Information</h3>
+            <div class="rte">
+              {%- if order_metafield != blank -%}
+                {{ order_metafield | metafield_tag }}
+              {%- elsif section.settings.order_info_text != blank -%}
+                {{ section.settings.order_info_text }}
+              {%- else -%}
+                <p>Add preorder, delivery, or ordering notes in the product metafield <strong>order</strong>.</p>
+              {%- endif -%}
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -284,81 +246,11 @@
       "default": "Included Items"
     },
     {
-      "type": "text",
-      "id": "contents_item_1",
-      "label": "Content item 1",
-      "default": "Figure ×1"
-    },
-    {
-      "type": "image_picker",
-      "id": "contents_image_1",
-      "label": "Content image 1"
-    },
-    {
-      "type": "text",
-      "id": "contents_item_2",
-      "label": "Content item 2"
-    },
-    {
-      "type": "image_picker",
-      "id": "contents_image_2",
-      "label": "Content image 2"
-    },
-    {
-      "type": "text",
-      "id": "contents_item_3",
-      "label": "Content item 3"
-    },
-    {
-      "type": "image_picker",
-      "id": "contents_image_3",
-      "label": "Content image 3"
-    },
-    {
-      "type": "text",
-      "id": "contents_item_4",
-      "label": "Content item 4"
-    },
-    {
-      "type": "image_picker",
-      "id": "contents_image_4",
-      "label": "Content image 4"
-    },
-    {
-      "type": "header",
-      "content": "Detail Gallery"
-    },
-    {
-      "type": "text",
-      "id": "details_title",
-      "label": "Details section title",
-      "default": "Detail Gallery"
-    },
-    {
       "type": "richtext",
-      "id": "details_text",
-      "label": "Details text",
-      "default": "<p>Add product detail copy and craftsmanship notes.</p>"
-    },
-    {
-      "type": "image_picker",
-      "id": "detail_image_1",
-      "label": "Detail image 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "detail_image_2",
-      "label": "Detail image 2"
-    },
-    {
-      "type": "image_picker",
-      "id": "detail_image_3",
-      "label": "Detail image 3"
-    },
-    {
-      "type": "image_picker",
-      "id": "detail_image_4",
-      "label": "Detail image 4"
+      "id": "included_items_fallback",
+      "label": "Included items fallback text",
+      "info": "Used when product metafields custom.package_includes, custom.included_items, custom.whats_included, or custom.product_contents are empty.",
+      "default": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>"
     },
     {
       "type": "header",
@@ -408,31 +300,16 @@
       "default": "<p>Main Fabric<br>________________</p><p>Lining<br>________________</p><p>Trim<br>________________</p><p>Metal Parts<br>________________</p><p>Accessories<br>________________</p>"
     },
     {
-      "type": "image_picker",
-      "id": "materials_image",
-      "label": "Materials image"
-    },
-    {
       "type": "richtext",
       "id": "size_chart_text",
       "label": "Size information text",
       "default": "<p>Top Length<br>__________</p><p>Shoulder Width<br>__________</p><p>Chest Width<br>__________</p><p>Sleeve Length<br>__________</p><p>Waist Width<br>__________</p><p>Hip Width<br>__________</p>"
     },
     {
-      "type": "image_picker",
-      "id": "size_chart_image",
-      "label": "Size information image"
-    },
-    {
       "type": "richtext",
       "id": "model_text",
       "label": "Model information text",
       "default": "<p>Body<br>________________</p><p>Head<br>________________</p><p>Height<br>________________</p><p>Bust<br>________________</p><p>Waist<br>________________</p><p>Hip<br>________________</p>"
-    },
-    {
-      "type": "image_picker",
-      "id": "model_image",
-      "label": "Model information image"
     },
     {
       "type": "header",
@@ -445,11 +322,6 @@
       "default": "<p>Recommended body and styling notes.</p>"
     },
     {
-      "type": "image_picker",
-      "id": "compatibility_image",
-      "label": "Compatibility image"
-    },
-    {
       "type": "header",
       "content": "Closure Method"
     },
@@ -458,11 +330,6 @@
       "id": "closure_text",
       "label": "Closure text",
       "default": "<p>Top<br>________________</p><p>Dress<br>________________</p><p>Skirt<br>________________</p><p>Pants<br>________________</p><p>Accessories<br>________________</p>"
-    },
-    {
-      "type": "image_picker",
-      "id": "closure_image",
-      "label": "Closure image"
     },
     {
       "type": "header",
@@ -475,11 +342,6 @@
       "default": "<p>Category<br>Doll Outfit</p><p>Collection<br>________________</p><p>Style<br>________________</p><p>Scale<br>________________</p><p>Brand<br>GOOMOOPLAY</p><p>Origin<br>________________</p>"
     },
     {
-      "type": "image_picker",
-      "id": "product_info_image",
-      "label": "Product information image"
-    },
-    {
       "type": "header",
       "content": "Notice"
     },
@@ -490,9 +352,11 @@
       "default": "<p>Dark-colored fabrics may cause staining after prolonged contact.</p><p>Please avoid storing dolls while wearing dark-colored clothing for long periods.</p><p>Minor variations may occur due to the handmade production process.</p><p>Colors may vary slightly depending on monitor settings.</p>"
     },
     {
-      "type": "image_picker",
-      "id": "notice_image",
-      "label": "Notice image"
+      "type": "richtext",
+      "id": "order_info_text",
+      "label": "Order information fallback text",
+      "info": "Used when product metafields custom.order, custom.order_information, or custom.order_info are empty.",
+      "default": "<p>Pre-order and delivery information can be added in the product metafield order.</p>"
     },
     {
       "type": "color_scheme",
