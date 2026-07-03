@@ -17,6 +17,7 @@
   assign included_items_metafield = product.metafields.custom.package_includes | default: product.metafields.custom.included_items | default: product.metafields.custom.whats_included | default: product.metafields.custom.product_contents
   assign notice_metafield = product.metafields.custom.notice | default: product.metafields.custom.product_notice | default: product.metafields.custom.notes
   assign order_metafield = product.metafields.custom.order | default: product.metafields.custom.order_information | default: product.metafields.custom.order_info
+  assign model_metafield = product.metafields.custom.model | default: product.metafields.custom.model_information | default: product.metafields.custom.model_info | default: product.metafields.custom.model_size | default: product.metafields.custom.model_sizes
 -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -125,7 +126,29 @@
           </article>
           <article class="product-feature__spec-card">
             <h3>Model Information</h3>
-            <div class="product-feature__spec-copy rte">{{ section.settings.model_text }}</div>
+            <div class="product-feature__spec-copy rte">
+              {%- if model_metafield != blank -%}
+                {%- if model_metafield.type contains 'list.file_reference' -%}
+                  <div class="product-feature__model-media-list">
+                    {%- for model_media in model_metafield.value -%}
+                      {%- if model_media.media_type == 'image' -%}
+                        <div class="product-feature__model-media">
+                          {{ model_media | image_url: width: 900 | image_tag: loading: 'lazy' }}
+                        </div>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                {%- elsif model_metafield.type contains 'file_reference' and model_metafield.value.media_type == 'image' -%}
+                  <div class="product-feature__model-media">
+                    {{ model_metafield.value | image_url: width: 900 | image_tag: loading: 'lazy' }}
+                  </div>
+                {%- else -%}
+                  {{ model_metafield | metafield_tag }}
+                {%- endif -%}
+              {%- else -%}
+                {{ section.settings.model_text }}
+              {%- endif -%}
+            </div>
           </article>
         </div>
       </section>

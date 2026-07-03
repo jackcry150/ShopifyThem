@@ -180,6 +180,19 @@
   height: auto;
 }
 
+.product-feature__model-media-list {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.product-feature__model-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 48rem;
+  object-fit: contain;
+}
+
 .product-feature__two-column .rte {
   color: #333;
   font-size: 1.5rem;
