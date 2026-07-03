@@ -46,7 +46,6 @@
         "text_jDDLep",
         "buttons_GGrVCm"
       ],
-      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/acea5a75924ce0f904f0b502e65ee816.jpg",
@@ -158,7 +157,6 @@
         "row_C6Wz7e",
         "row_rqBdpn"
       ],
-      "disabled": true,
       "name": "t:sections.multirow.presets.name",
       "settings": {
         "image_height": "medium",
@@ -178,6 +176,7 @@
     },
     "featured_collection_q8mQQn": {
       "type": "featured-collection",
+      "disabled": true,
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "",
