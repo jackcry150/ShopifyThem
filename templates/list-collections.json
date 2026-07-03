@@ -46,6 +46,7 @@
         "text_jDDLep",
         "buttons_GGrVCm"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/acea5a75924ce0f904f0b502e65ee816.jpg",
@@ -176,7 +177,6 @@
     },
     "featured_collection_q8mQQn": {
       "type": "featured-collection",
-      "disabled": true,
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "",
