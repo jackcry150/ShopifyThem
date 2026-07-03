@@ -124,9 +124,9 @@
           "settings": {
             "image": "shopify://shop_images/20260525083830.jpg",
             "caption": "",
-            "heading": "世界杯micoco",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "button_label": "SHOP NOW",
+            "heading": "Micoco",
+            "text": "<h3><strong>The Football Babe blind box kicks off your World Cup doll collection.</strong></h3><p>Spain, England, Brazil, Portugal, France, Argentina, plus a hidden Champion edition, each one brings a match-day surprise to your doll lineup.</p>",
+            "button_label": "View Blind Box Dolls",
             "button_link": "shopify://products/世界杯micoco-米可可"
           }
         },
@@ -134,10 +134,10 @@
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/retouch_2026063016274740.jpg",
-            "caption": "Caption",
-            "heading": "2026球衣系列",
-            "text": "",
-            "button_label": "SHOP NOW",
+            "caption": "",
+            "heading": "GooMoo Play Doll Cheer Jersey Custom clothes",
+            "text": "<h3><strong>A jersey is the signature piece of today’s blokecore look.</strong></h3><p>Choose one from a top contender, give your doll its own cheering colors, and create a match-day outfit made just for them.</p>",
+            "button_label": "Choose Jersey",
             "button_link": "shopify://products/2026届世界杯限定球衣"
           }
         },
@@ -146,17 +146,29 @@
           "settings": {
             "image": "shopify://shop_images/1_e4880823-759e-46ee-b8ac-dea4f8b3d526.jpg",
             "caption": "",
-            "heading": "2026年世界杯球袜",
-            "text": "",
-            "button_label": "SHOP NOW",
+            "heading": "GooMoo Play Match Day Doll Cheer Socks Custom",
+            "text": "<h3><strong>Football socks are the finishing detail that completes the blokecore look.</strong></h3><p>Pair them with jerseys, shorts, or pleated skirts to build a full sporty outfit for your doll and bring out the blokecore vibe from head to toe.</p>",
+            "button_label": "View Football Socks",
             "button_link": "shopify://products/世界杯球袜"
+          }
+        },
+        "row_3eYNHM": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/96ae75046facd4b204cd521caf5ce6d0.jpg",
+            "caption": "",
+            "heading": "Blockcore Picks",
+            "text": "<h3><strong>Bottoms are the versatile key to switching up a blokecore look.</strong></h3><p>Pair them with jerseys and football socks to style your doll in street, sporty, sweet-cool, or preppy outfits.</p>",
+            "button_label": "View Bottoms",
+            "button_link": "shopify://collections/blokecore"
           }
         }
       },
       "block_order": [
         "row_DG6zTx",
         "row_C6Wz7e",
-        "row_rqBdpn"
+        "row_rqBdpn",
+        "row_3eYNHM"
       ],
       "name": "t:sections.multirow.presets.name",
       "settings": {
