@@ -125,7 +125,6 @@
     },
     "product_feature_kqkaGG": {
       "type": "product-feature",
-      "disabled": true,
       "name": "Product Feature",
       "settings": {
         "heading": "",
@@ -252,127 +251,6 @@
         "padding_bottom": 36
       }
     },
-    "image_banner_fYQBwd": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_thPHzc": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
-        "text_g9TGrH": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "buttons_ydyyYR": {
-          "type": "buttons",
-          "disabled": true,
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_thPHzc",
-        "text_g9TGrH",
-        "buttons_ydyyYR"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
-    },
-    "multirow_kpgWgM": {
-      "type": "multirow",
-      "blocks": {
-        "row_YcFxU6": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/20260525083830.jpg",
-            "caption": "",
-            "heading": "MiCoCo SOCCER BABY (6+1)",
-            "text": "<p><br/>The Football Babe blind box kicks off your FIFA doll collection.<br/><br/><br/>Spain, England, Brazil, Portugal, France, Argentina, plus a hidden champion edition, each one brings a match-day surprise to your doll lineup.<br/><br/><br/><br/></p>",
-            "button_label": "View Blind Box",
-            "button_link": "shopify://products/世界杯micoco-米可可"
-          }
-        },
-        "row_aDJD3q": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/retouch_2026063016274740.jpg",
-            "caption": "MATCH DAY",
-            "heading": "FIFA  Edition Jerseys",
-            "text": "<p><br/>Jerseys are the signature piece of today’s blokecore style.<br/><br/>Pick one from a top contender, dress your doll in its own cheering colors, and create a match-day look made for the spotlight.<br/><br/><br/></p>",
-            "button_label": "Choose Jersey",
-            "button_link": "shopify://products/2026届世界杯限定球衣"
-          }
-        },
-        "row_nTbexq": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/1_e4880823-759e-46ee-b8ac-dea4f8b3d526.jpg",
-            "caption": "",
-            "heading": "Match-Day Socks",
-            "text": "<p><br/>Football socks are the finishing detail of a blokecore look.<br/><br/><br/>Pair them with jerseys, shorts, or pleated skirts to complete your doll’s sporty fit and bring out the blokecore vibe.<br/><br/><br/></p>",
-            "button_label": "View Football Socks",
-            "button_link": "shopify://products/世界杯球袜"
-          }
-        },
-        "row_qJBRLn": {
-          "type": "row",
-          "settings": {
-            "caption": "",
-            "heading": "Match-Day Bottoms",
-            "text": "<p>Bottoms are the versatile switch for a blokecore look.</p><p>Pair them with jerseys and football socks to style your doll in street, sporty, sweet-cool, or preppy outfits.</p>",
-            "button_label": "View Bottoms",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "row_YcFxU6",
-        "row_aDJD3q",
-        "row_nTbexq",
-        "row_qJBRLn"
-      ],
-      "name": "t:sections.multirow.presets.name",
-      "settings": {
-        "image_height": "medium",
-        "desktop_image_width": "medium",
-        "image_layout": "alternate-left",
-        "heading_size": "h1",
-        "text_style": "body",
-        "button_style": "secondary",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
-        "row_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -396,8 +274,6 @@
     "main",
     "product_feature_kqkaGG",
     "collapsible_content_amiHKB",
-    "image_banner_fYQBwd",
-    "multirow_kpgWgM",
     "related-products"
   ]
 }
