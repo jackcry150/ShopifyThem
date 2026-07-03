@@ -84,6 +84,7 @@
         "icon_with_text_6L8Yej",
         "share"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
@@ -130,14 +131,7 @@
         "heading_size": "h2",
         "intro_text": "{{ product.metafields.custom.description | metafield_tag }}",
         "contents_title": "Composed Items",
-        "contents_item_1": "",
-        "contents_image_1": "{{ product.metafields.custom.detail_image.value }}",
-        "contents_item_2": "",
-        "contents_item_3": "",
-        "contents_item_4": "",
-        "details_title": "Detail Gallery",
-        "details_text": "<p></p><p></p>",
-        "detail_image_3": "{{ product.featured_image }}",
+        "included_items_fallback": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>",
         "highlight_1_text": "<p>Highlight 1: describe clothing display details.</p>{{ product.metafields.custom.highlights | metafield_tag }}",
         "highlight_2_text": "",
         "highlight_3_text": "",
@@ -148,6 +142,7 @@
         "closure_text": "{{ product.metafields.custom.closure_types | metafield_tag }}",
         "product_info_text": "{{ product.metafields.custom.product_information | metafield_tag }}",
         "notice_text": "<ul><li>Dark-colored fabrics may cause staining after prolonged contact.</li><li>Please avoid storing dolls while wearing dark-colored clothing for long periods.</li><li>Minor variations may occur due to the handmade production process.</li><li>Colors may vary slightly depending on monitor settings.</li></ul>",
+        "order_info_text": "<p>Pre-order and delivery information can be added in the product metafield order.</p>",
         "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
         "padding_top": 36,
         "padding_bottom": 36
@@ -239,6 +234,7 @@
         "collapsible_row_UNiDah",
         "collapsible_row_LNwzMC"
       ],
+      "disabled": true,
       "name": "商品详情页FAQ",
       "settings": {
         "caption": "",
@@ -272,12 +268,136 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "image_banner_fYQBwd": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_thPHzc": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_g9TGrH": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_ydyyYR": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_thPHzc",
+        "text_g9TGrH",
+        "buttons_ydyyYR"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "multirow_kpgWgM": {
+      "type": "multirow",
+      "blocks": {
+        "row_YcFxU6": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/20260525083830.jpg",
+            "caption": "",
+            "heading": "MiCoCo SOCCER BABY (6+1)",
+            "text": "<p>Open the blind box and unlock your very own Football Babe.</p><p><br/>Inspired by the FIFA atmosphere, the MICCOCO Football Babe series features multiple characters representing different countries. They can be cheering girls in the stands, or the match-day stars of your doll display cabinet.<br/><br/><br/>The series includes Spain, England, Brazil, Portugal, France, Argentina, plus a hidden champion edition.<br/><br/></p>",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://products/世界杯micoco-米可可"
+          }
+        },
+        "row_aDJD3q": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/retouch_2026063016274740.jpg",
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_nTbexq": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/1_e4880823-759e-46ee-b8ac-dea4f8b3d526.jpg",
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_LihUye": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/IMG_0362-2.jpg",
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_YcFxU6",
+        "row_aDJD3q",
+        "row_nTbexq",
+        "row_LihUye"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "row_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
     "product_feature_kqkaGG",
     "collapsible_content_amiHKB",
-    "related-products"
+    "related-products",
+    "image_banner_fYQBwd",
+    "multirow_kpgWgM"
   ]
 }
