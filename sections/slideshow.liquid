@@ -25,6 +25,69 @@
   {%- endstyle -%}
 {%- endif -%}
 
+
+{%- if section.id contains 'slideshow_QHW4Mh' -%}
+  {%- style -%}
+    #Slider-{{ section.id }} {
+      margin-bottom: 0;
+      background: rgb(var(--color-background));
+    }
+
+    #Slider-{{ section.id }} .slideshow__media img {
+      object-fit: contain;
+      object-position: center;
+    }
+
+    #Slider-{{ section.id }} + .slideshow__controls {
+      position: absolute !important;
+      left: 50%;
+      right: auto !important;
+      bottom: 1.6rem;
+      z-index: 3;
+      width: max-content !important;
+      min-width: 0;
+      max-width: max-content;
+      min-height: 0;
+      transform: translateX(-50%);
+      border: 0 !important;
+      border-radius: 0;
+      background: transparent !important;
+      box-shadow: none;
+      padding: 0;
+      gap: 0;
+    }
+
+    #Slider-{{ section.id }} + .slideshow__controls > .slider-button {
+      display: none !important;
+    }
+
+    #Slider-{{ section.id }} + .slideshow__controls .slider-counter {
+      min-width: auto;
+      margin: 0;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.34);
+      box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.14);
+      padding: 0.4rem 0.8rem;
+    }
+
+    #Slider-{{ section.id }} + .slideshow__controls .slider-counter__link {
+      padding: 0.45rem;
+    }
+
+    #Slider-{{ section.id }} + .slideshow__controls .slider-counter__link--dots .dot {
+      width: 0.9rem;
+      height: 0.9rem;
+      border-color: rgba(255, 255, 255, 0.78);
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    #Slider-{{ section.id }} + .slideshow__controls .slider-counter__link--active.slider-counter__link--dots .dot {
+      background: #ffffff;
+      border-color: #ffffff;
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
 <slideshow-component
   class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
   role="region"
