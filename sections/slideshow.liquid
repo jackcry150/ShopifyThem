@@ -30,12 +30,27 @@
   {%- style -%}
     #Slider-{{ section.id }} {
       margin-bottom: 0;
-      background: rgb(var(--color-background));
+      background: #ffffff !important;
+    }
+
+    #Slider-{{ section.id }} .slideshow__slide,
+    #Slider-{{ section.id }} .slideshow__media,
+    #Slider-{{ section.id }} .media {
+      background: #ffffff !important;
+    }
+
+    #Slider-{{ section.id }} .slideshow__media.placeholder {
+      display: none !important;
+    }
+
+    #Slider-{{ section.id }} .placeholder-svg {
+      display: none !important;
     }
 
     #Slider-{{ section.id }} .slideshow__media img {
       object-fit: contain;
       object-position: center;
+      background: #ffffff;
     }
 
     #Slider-{{ section.id }} .slideshow__text-wrapper,
