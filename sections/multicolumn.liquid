@@ -13,6 +13,11 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  {%- if section.id contains 'multicolumn_aqMqTk' -%}
+    .section-{{ section.id }}-padding .multicolumn__title .title {
+      font-weight: 700;
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
 {%- liquid
