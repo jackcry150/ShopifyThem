@@ -1,0 +1,320 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "sku": {
+          "type": "sku",
+          "settings": {
+            "text_style": "subtitle"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "dropdown",
+            "swatch_shape": "square"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "icon_with_text_6L8Yej": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "question_mark",
+            "heading_1": "Ask question",
+            "icon_2": "eye",
+            "image_2": "shopify://shop_images/ins.png",
+            "heading_2": "分享（share）",
+            "icon_3": "truck",
+            "heading_3": "shipping(运输)"
+          }
+        },
+        "collapsible_tab_jtm8Qn": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "",
+            "icon": "check_mark",
+            "content": "",
+            "page": ""
+          }
+        },
+        "rating_6QRL6r": {
+          "type": "rating",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "sku",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "icon_with_text_6L8Yej",
+        "collapsible_tab_jtm8Qn",
+        "rating_6QRL6r",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "show_shipping_dropdowns": true,
+        "shipping_heading": "Shipping",
+        "shipping_summary": "Calculated at checkout",
+        "shipping_dropdown_1_label": "Conditional shipping",
+        "shipping_dropdown_1_content": "<p>Shipping cost may vary by destination, order value, product weight, and available shipping method. The final shipping fee is calculated at checkout.</p>",
+        "shipping_dropdown_2_label": "Regional surcharge",
+        "shipping_dropdown_2_content": "<p>Some countries, islands, remote areas, or special delivery zones may require an additional regional shipping fee. If your address is affected, the checkout page will show the updated cost.</p>",
+        "shipping_action_content": "<p>Shipping cost may vary by destination, order value, product weight, and available shipping method. The final shipping fee is calculated at checkout.</p>",
+        "shipping_link_label": "View shipping policy",
+        "shipping_link_url": "",
+        "product_details_size_title": "PRODUCT SIZES",
+        "product_details_size_content": "<p>Fits 1/6, 1/12, OB11, BJD, or other compatible dolls as described by this product. Please check the product photos and option name before ordering.</p>",
+        "product_details_included_title": "INCLUDED ITEMS",
+        "product_details_included_content": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>",
+        "show_delivery_timeline": true,
+        "delivery_timeline_heading": "Estimated Shipping time:",
+        "delivery_step_1_title": "Confirm",
+        "delivery_step_1_text": "Order confirmation within 48 hours",
+        "delivery_step_2_title": "Shipping",
+        "delivery_step_2_text": "10-15 working days from order confirmation",
+        "delivery_step_3_title": "Delivered",
+        "delivery_step_3_text": "15-20 working days from order confirmation",
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "product_feature_URLbNz": {
+      "type": "product-feature",
+      "name": "Product Feature",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "intro_text": "{{ product.metafields.custom.description | metafield_tag }}",
+        "contents_title": "Included Items",
+        "included_items_fallback": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>{{ product.metafields.custom.included_items | metafield_tag }}",
+        "highlight_1_text": "{{ product.metafields.custom.highlights | metafield_tag }}",
+        "highlight_1_image": "{{ product.metafields.custom.detail_image.value }}",
+        "highlight_2_text": "",
+        "highlight_3_text": "",
+        "materials_text": "{{ product.metafields.custom.fabric_materials | metafield_tag }}",
+        "size_chart_text": "{{ product.metafields.custom.size_information | metafield_tag }}",
+        "model_text": "",
+        "compatibility_text": "{{ product.metafields.custom.compatibility_guide | metafield_tag }}",
+        "closure_text": "{{ product.metafields.custom.closure_method | metafield_tag }}",
+        "product_info_text": "{{ product.metafields.custom.product_information | metafield_tag }}",
+        "notice_text": "{{ product.metafields.custom.notice | metafield_tag }}",
+        "order_info_text": "<p>{{ product.metafields.custom.order | metafield_tag }}</p>",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "178055040411874f21": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_81e2226_6rNWFD": {
+          "type": "ai_gen_block_81e2226",
+          "settings": {
+            "max_content_width": 1000,
+            "tab_1_enabled": true,
+            "tab_1_title": "Story（产品设计）",
+            "tab_1_content": "<p><strong>板块作用：这里用于告知用户产品的设计概念</strong></p><p><strong>HASUKI Black Ops — Mountain Warfare Special Operative</strong></p><p>The SA03 \"Sierra Phantom\" brings alpine combat to your 1/12 scale collection. <br/><br/>Clad in cold-weather tactical gear with an L7 jacket, snow camouflage suit, and full mountaineering kit including ice axes, crampons, and climbing ropes, this 17cm action figure is ready for high-altitude missions. The highly articulated body supports dynamic posing — from rappelling stances to precision rifle handling.<br/><br/>Every detail is meticulously reproduced: the SCAR-H battle rifle with removable suppressor and optical sight, the MPU5 radio system for comms realism, and the 375BK combat knife with sheath. With 10 interchangeable hands, you can configure this operator for any tactical scenario.<br/><br/>Whether displayed solo or paired with other Black Ops series figures, the Sierra Phantom delivers museum-grade detail at an accessible price point. A must-have for military 1/12 collectors and HASUKI enthusiasts alike.</p>",
+            "tab_2_enabled": true,
+            "tab_2_title": "What's Included(包含什么)",
+            "tab_2_content": "<p>该部分作用：告知产品配件<br/>功能调整：这里需要可以插入图片，文案需要可以双列</p><h3>Standard Set Includes</h3><ul><li>L7 Cold Weather Jacket & Pants ×1</li><li>Snow Camouflage Suit ×1</li><li>Chest Rig ×1</li><li>Rifle Sling ×1</li><li>Rappelling Harness ×1</li><li>Climbing Rope Sleeves ×2</li><li>Main Climbing Rope ×1</li><li>Morale Patches ×3</li><li>Tactical Backpack ×1</li></ul><h3>Pre-Order Bonus Items</h3><p>Camouflage Backpack Cover ×1</p><p>Head Sculpt ×1</p><p>Next-Generation Articulated Body ×1</p><p>Interchangeable Hands ×10</p><p>Mountaineering Boots ×1 Pair</p><p>MPU5 Tactical Radio System ×1</p><p>375BK Combat Knife with Sheath ×1</p><p>SCAR-H Rifle with Suppressor ×1</p><p>7.62mm Rifle Magazines ×4</p><p>Optical Scope ×1</p><p>AN/PEQ-15 Laser Module ×1</p><p>Vertical Foregrip ×1</p><p>Drop-Leg Holster ×1</p><p>P226 Pistol (Tan) ×1</p><p>Weapon Light ×1</p><p>9mm Pistol Magazines ×3</p><p>O-Rings ×4</p><p>D-Rings ×4</p><p>Pitons ×3</p><p>Small Nuts ×2</p><p>Large Nuts ×2</p><p>Spring-Loaded Camming Devices ×2</p><p>Ascenders ×2</p><p>Ice Axes ×2</p><p>Quickdraws ×2</p><p>Crampons ×2</p><p>Descender ×1<br/></p><p></p>",
+            "tab_3_enabled": true,
+            "tab_3_title": "Pre-Order Information（预定信息说明）",
+            "tab_3_content": "<p>这里用于写 预售信息  和库存信息；预售商品上架后，注意添加预售标签；</p><p>Limited-Time Pre-Order</p><p>This product is currently in the pre-order stage.</p><p>Pre-Order Period: XXX – XXX</p><p>Special Pre-Order Price: $ XXX</p><p>Future Retail Price: $ XXX</p><p>Orders placed during the pre-order period will receive the exclusive pre-order pricing. After the pre-order closes, the product will be offered at the regular retail price, subject to stock availability.</p><p>Please make sure to place your order before the pre-order deadline.</p>",
+            "tab_4_enabled": true,
+            "tab_4_title": "Compatibility",
+            "tab_4_content": "<p>Compatible With<br/><br/>✓ 1/12 Scale Figures<br/><br/>Recommended Bodies<br/><br/>✓ Damtoys<br/>✓ VeryCool<br/>✓ Easy&Simple<br/><br/>Not Compatible<br/><br/>✗ 1/6 Scale<br/>✗ OB24</p>",
+            "tab_5_enabled": false,
+            "tab_5_title": "Try-On Gallery",
+            "tab_5_content": "<p>上传图片</p>",
+            "tab_6_enabled": true,
+            "tab_6_title": "Details",
+            "tab_6_content": "<p>这里可以上传图片<br/><br/><br/></p>",
+            "tab_7_enabled": true,
+            "tab_7_title": "Community Photos",
+            "tab_7_content": "<p>这个地方接入评论功能，并且加一句话，Be the first to <a>write a review 点击写评论，会跳转  </a>呈现模式：瀑布流</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_81e2226_6rNWFD"
+      ],
+      "disabled": true,
+      "name": "商品详情",
+      "settings": {}
+    },
+    "collapsible_content_amiHKB": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_hzRXYW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does it take to process an order?",
+            "icon": "question_mark",
+            "row_content": "<p>We process orders Monday to Friday, 9:00 AM - 5:00 PM (business days only).<br/>· Order processing time: 2-3 business days<br/>· Delivery time: 9-12 business days<br/>· Shipping: Orders are shipped the next business day after processing is completed.<br/>· Orders placed on weekends or public holidays will be processed on the next business day.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_QJ6JBR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy?",
+            "icon": "question_mark",
+            "row_content": "<p>We want you to be 100% satisfied with your purchase.<br/>We have a 30-day return policy, which means you have 30 days after receiving your item to request a return.<br/>For more information, click here</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zXr4ea": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if a product is counterfeit?",
+            "icon": "question_mark",
+            "row_content": "<p>If you receive a counterfeit product, we will provide a full refund.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_UNiDah": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "CanI return a product if it has quality issues?",
+            "icon": "question_mark",
+            "row_content": "<p>For any product with quality issues, such as damage or defects, please contact our after-sales team and provide photos or videos.<br/><br/>Note:For dolls and blind box items, please provide a clear unboxing video, as it is required for us to process the issue.<br/><br/>If a quality issue is confirmed, we will process a return and refund, and cover the return shipping cost.<br/><br/>!!! Please note that slight imperfections may occur due to handmade production and are not considered quality issues. recommend that customers carefully consider this before placing an order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LNwzMC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I know before ordering?",
+            "icon": "question_mark",
+            "row_content": "<p>Please check the product status before purchasing.<br/><br/>• Pre-Order items require a production period of approximately 30–60 days before shipping.<br/>• In Stock items are usually shipped within 10 days after payment.<br/>• For Pre-Order purchases, please provide a valid email address so we can send shipping and tracking updates once your order is on its way.<br/>• Join our Discord and Facebook communities to stay updated on production progress, upcoming releases, and community discussions.<br/></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rRMpyz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I cancel my order?",
+            "icon": "question_mark",
+            "row_content": "<p>To cancel your order, please contact us. If the order has not been shipped, we can process the cancellation for you. Once the order has been shipped, cancellation is no longer possible. However, after receiving your package, you can contact us to arrange a return or exchange at contact@goomooplay.com</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_hzRXYW",
+        "collapsible_row_QJ6JBR",
+        "collapsible_row_zXr4ea",
+        "collapsible_row_UNiDah",
+        "collapsible_row_LNwzMC",
+        "collapsible_row_rRMpyz"
+      ],
+      "name": "商品详情页FAQ",
+      "settings": {
+        "caption": "",
+        "heading": "<strong>FAQ</strong>",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_jwxBqW": {
+      "type": "video",
+      "disabled": true,
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "Video",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_feature_URLbNz",
+    "178055040411874f21",
+    "collapsible_content_amiHKB",
+    "video_jwxBqW",
+    "related-products"
+  ]
+}
