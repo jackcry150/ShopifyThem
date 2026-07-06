@@ -16,14 +16,17 @@
   }
 
 
-  {%- if blog.handle == 'more-guides' -%}
-    #shopify-section-{{ section.id }},
-    #shopify-section-{{ section.id }} .main-blog {
-      background: #ffffff;
-      color: #111111;
-    }
+  #shopify-section-{{ section.id }},
+  #shopify-section-{{ section.id }} .main-blog {
+    background: #ffffff;
+    color: #111111;
+  }
 
-    #shopify-section-{{ section.id }} .title--primary,
+  #shopify-section-{{ section.id }} .title--primary {
+    color: #111111;
+  }
+
+  {%- if blog.handle == 'more-guides' -%}
     #shopify-section-{{ section.id }} .main-blog__geo-intro,
     #shopify-section-{{ section.id }} .main-blog__geo-intro p {
       color: #111111;

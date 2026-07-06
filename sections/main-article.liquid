@@ -1,5 +1,21 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+  #shopify-section-{{ section.id }},
+  #shopify-section-{{ section.id }} .article-template,
+  #shopify-section-{{ section.id }} .article-template__comment-wrapper {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  #shopify-section-{{ section.id }} .article-template__title,
+  #shopify-section-{{ section.id }} .article-template__content,
+  #shopify-section-{{ section.id }} .article-template__content * {
+    color: #111111;
+  }
+{%- endstyle -%}
+
+
 <article class="article-template">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
