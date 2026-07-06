@@ -33,7 +33,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/banner.jpg",
-            "image_overlay_opacity": 0,
+            "image_overlay_opacity": 100,
             "heading": "",
             "heading_size": "h2",
             "subheading": "",
