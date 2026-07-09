@@ -1,0 +1,184 @@
+{{ 'product-qa-forum.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="product-qa-forum color-{{ section.settings.color_scheme }} gradient"
+  data-product-qa-forum
+  data-product-id="{{ product.id }}"
+  data-product-handle="{{ product.handle | escape }}"
+  data-product-title="{{ product.title | escape }}"
+  data-product-url="{{ product.url | escape }}"
+  data-list-limit="{{ section.settings.posts_to_show }}"
+  data-empty-text="{{ section.settings.empty_text | escape }}"
+  data-error-text="{{ section.settings.error_text | escape }}"
+  style="--qa-padding-top: {{ section.settings.padding_top }}px; --qa-padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="page-width product-qa-forum__inner">
+    <header class="product-qa-forum__header">
+      <div>
+        <h2 class="product-qa-forum__title">{{ section.settings.heading | escape }}</h2>
+        {% if section.settings.subheading != blank %}
+          <p class="product-qa-forum__subheading">{{ section.settings.subheading | escape }}</p>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="product-qa-forum__table-wrap">
+      <table class="product-qa-forum__table">
+        <thead>
+          <tr>
+            <th class="product-qa-forum__no" scope="col">{{ section.settings.no_label | escape }}</th>
+            <th class="product-qa-forum__product" scope="col">{{ section.settings.product_label | escape }}</th>
+            <th scope="col">{{ section.settings.title_label | escape }}</th>
+            <th class="product-qa-forum__author" scope="col">{{ section.settings.author_label | escape }}</th>
+            <th class="product-qa-forum__date" scope="col">{{ section.settings.date_label | escape }}</th>
+            <th class="product-qa-forum__view" scope="col">{{ section.settings.view_label | escape }}</th>
+          </tr>
+        </thead>
+        <tbody data-product-qa-rows>
+          <tr>
+            <td class="product-qa-forum__empty" colspan="6">{{ section.settings.loading_text | escape }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="product-qa-forum__actions">
+      <a class="product-qa-forum__button" href="#" data-product-qa-ask>
+        {{ section.settings.ask_label | escape }}
+      </a>
+      <a class="product-qa-forum__button product-qa-forum__button--secondary" href="#" data-product-qa-list>
+        {{ section.settings.view_all_label | escape }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'product-qa-forum.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Product Q&A Forum",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Q&A"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Product Q&A"
+    },
+    {
+      "type": "range",
+      "id": "posts_to_show",
+      "label": "Posts to show",
+      "min": 3,
+      "max": 20,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "ask_label",
+      "label": "Ask button label",
+      "default": "Ask question"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all label",
+      "default": "View all"
+    },
+    {
+      "type": "text",
+      "id": "loading_text",
+      "label": "Loading text",
+      "default": "Loading Q&A posts..."
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Empty text",
+      "default": "No posts yet."
+    },
+    {
+      "type": "text",
+      "id": "error_text",
+      "label": "Error text",
+      "default": "Q&A posts are temporarily unavailable."
+    },
+    {
+      "type": "text",
+      "id": "no_label",
+      "label": "No. label",
+      "default": "No."
+    },
+    {
+      "type": "text",
+      "id": "product_label",
+      "label": "Product label",
+      "default": "Product Name"
+    },
+    {
+      "type": "text",
+      "id": "title_label",
+      "label": "Title label",
+      "default": "Title"
+    },
+    {
+      "type": "text",
+      "id": "author_label",
+      "label": "Author label",
+      "default": "Posted by"
+    },
+    {
+      "type": "text",
+      "id": "date_label",
+      "label": "Date label",
+      "default": "Date"
+    },
+    {
+      "type": "text",
+      "id": "view_label",
+      "label": "View label",
+      "default": "View"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Q&A Forum"
+    }
+  ]
+}
+{% endschema %}

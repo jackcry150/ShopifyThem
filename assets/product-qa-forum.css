@@ -1,0 +1,190 @@
+.product-qa-forum {
+  padding-top: var(--qa-padding-top);
+  padding-bottom: var(--qa-padding-bottom);
+}
+
+.product-qa-forum__inner {
+  color: rgb(var(--color-foreground));
+}
+
+.product-qa-forum__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  padding-bottom: 1.4rem;
+}
+
+.product-qa-forum__header::before {
+  content: "";
+  display: block;
+  flex: 0 0 auto;
+  width: 0.6rem;
+  height: 2.2rem;
+  border-radius: 0.3rem;
+  background: rgb(var(--color-foreground));
+}
+
+.product-qa-forum__header > div {
+  flex: 1 1 auto;
+}
+
+.product-qa-forum__title {
+  margin: 0;
+  font-size: clamp(2rem, 2.4vw, 2.8rem);
+  line-height: 1.2;
+}
+
+.product-qa-forum__subheading {
+  margin: 0.4rem 0 0;
+  color: rgba(var(--color-foreground), 0.58);
+  font-size: 1.4rem;
+}
+
+.product-qa-forum__table-wrap {
+  margin-top: 2.8rem;
+  overflow-x: auto;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.16);
+}
+
+.product-qa-forum__table {
+  width: 100%;
+  min-width: 72rem;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.product-qa-forum__table th,
+.product-qa-forum__table td {
+  border-right: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  padding: 1.4rem 1.2rem;
+  vertical-align: middle;
+  font-size: 1.4rem;
+}
+
+.product-qa-forum__table th {
+  text-align: center;
+  font-weight: 700;
+  background: rgba(var(--color-foreground), 0.02);
+}
+
+.product-qa-forum__table tr:last-child td {
+  border-bottom: 0;
+}
+
+.product-qa-forum__table th:last-child,
+.product-qa-forum__table td:last-child {
+  border-right: 0;
+}
+
+.product-qa-forum__no {
+  width: 8rem;
+  text-align: center;
+}
+
+.product-qa-forum__product {
+  width: 18rem;
+}
+
+.product-qa-forum__author {
+  width: 12rem;
+  text-align: center;
+}
+
+.product-qa-forum__date {
+  width: 15rem;
+  text-align: center;
+}
+
+.product-qa-forum__view {
+  width: 8rem;
+  text-align: center;
+}
+
+.product-qa-forum__post-title {
+  font-weight: 700;
+}
+
+.product-qa-forum__post-title a {
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+}
+
+.product-qa-forum__post-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.product-qa-forum__muted {
+  color: rgba(var(--color-foreground), 0.58);
+}
+
+.product-qa-forum__empty {
+  text-align: center;
+  color: rgba(var(--color-foreground), 0.62);
+  padding: 2.4rem 1.2rem;
+}
+
+.product-qa-forum__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.product-qa-forum__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.8rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.35);
+  padding: 0.8rem 1.8rem;
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+  background: rgb(var(--color-background));
+}
+
+.product-qa-forum__button:hover {
+  border-color: rgba(var(--color-foreground), 0.72);
+}
+
+.product-qa-forum__button--secondary {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 749px) {
+  .product-qa-forum__header {
+    align-items: flex-start;
+  }
+
+  .product-qa-forum__table {
+    min-width: 54rem;
+  }
+
+  .product-qa-forum__product,
+  .product-qa-forum__view {
+    display: none;
+  }
+
+  .product-qa-forum__table {
+    min-width: 42rem;
+  }
+
+  .product-qa-forum__table th,
+  .product-qa-forum__table td {
+    padding: 1.2rem 0.8rem;
+    font-size: 1.3rem;
+  }
+
+  .product-qa-forum__actions {
+    justify-content: stretch;
+  }
+
+  .product-qa-forum__button {
+    flex: 1 1 0;
+  }
+}
