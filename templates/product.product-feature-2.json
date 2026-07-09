@@ -259,6 +259,29 @@
         "padding_bottom": 36
       }
     },
+    "product_qa_forum": {
+      "type": "product-qa-forum",
+      "name": "Product Q&A Forum",
+      "settings": {
+        "heading": "Q&A",
+        "subheading": "Product Q&A",
+        "posts_to_show": 8,
+        "ask_label": "Ask question",
+        "view_all_label": "View all",
+        "loading_text": "Loading Q&A posts...",
+        "empty_text": "No posts yet.",
+        "error_text": "Q&A posts are temporarily unavailable.",
+        "no_label": "No.",
+        "product_label": "Product Name",
+        "title_label": "Title",
+        "author_label": "Posted by",
+        "date_label": "Date",
+        "view_label": "View",
+        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -304,6 +327,7 @@
   "order": [
     "main",
     "product_feature_rU36MK",
+    "product_qa_forum",
     "178055040411874f21",
     "collapsible_content_amiHKB",
     "related-products"
