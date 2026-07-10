@@ -1,0 +1,10 @@
+{%- comment -%}
+  Routes only the Tops and Bottoms collection links through the clean doll
+  category template. Other collections keep their configured template.
+{%- endcomment -%}
+{%- assign category_url = link.url -%}
+{%- if link.url contains '/collections/tops' or link.url contains '/collections/bottoms' -%}
+  {%- assign category_base_url = link.url | split: '?' | first -%}
+  {%- assign category_url = category_base_url | append: '?view=doll-category' -%}
+{%- endif -%}
+{{- category_url -}}

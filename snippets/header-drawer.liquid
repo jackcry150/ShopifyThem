@@ -53,9 +53,12 @@
                             {%- for childlink in link.links -%}
                               <li>
                                 {%- if childlink.links == blank -%}
+                                  {%- capture childlink_url -%}
+                                    {%- render 'doll-category-url', link: childlink -%}
+                                  {%- endcapture -%}
                                   <a
                                     id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
-                                    href="{{ childlink.url }}"
+                                    href="{{ childlink_url | strip }}"
                                     class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
                                     {% if childlink.current %}
                                       aria-current="page"
@@ -97,9 +100,12 @@
                                       >
                                         {%- for grandchildlink in childlink.links -%}
                                           <li>
+                                            {%- capture grandchildlink_url -%}
+                                              {%- render 'doll-category-url', link: grandchildlink -%}
+                                            {%- endcapture -%}
                                             <a
                                               id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                              href="{{ grandchildlink.url }}"
+                                              href="{{ grandchildlink_url | strip }}"
                                               class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
                                               {% if grandchildlink.current %}
                                                 aria-current="page"
