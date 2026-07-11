@@ -1,10 +1,12 @@
 {%- comment -%}
-  Routes only the Tops and Bottoms collection links through the clean doll
-  category template. Other collections keep their configured template.
+  The Shopify menu entries are labels only and currently point at /collections.
+  Route those labels to the real singular collection handles.
 {%- endcomment -%}
 {%- assign category_url = link.url -%}
-{%- if link.url contains '/collections/tops' or link.url contains '/collections/bottoms' -%}
-  {%- assign category_base_url = link.url | split: '?' | first -%}
-  {%- assign category_url = category_base_url | append: '?view=doll-category' -%}
+{%- assign category_menu_handle = link.handle | downcase -%}
+{%- if category_menu_handle == 'tops' -%}
+  {%- assign category_url = routes.collections_url | append: '/top?view=doll-category' -%}
+{%- elsif category_menu_handle == 'bottoms' -%}
+  {%- assign category_url = routes.collections_url | append: '/bottom?view=doll-category' -%}
 {%- endif -%}
 {{- category_url -}}

@@ -25,12 +25,14 @@ test('doll category template uses the standard filtered product grid', async () 
   assert.deepEqual(json.order, ['banner', 'product-grid']);
 });
 
-test('doll category URL helper targets only Tops and Bottoms', async () => {
+test('doll category URL helper maps menu labels to the real singular collection handles', async () => {
   const source = await readFile(urlSnippetPath, 'utf8');
 
-  assert.match(source, /\/collections\/tops/);
-  assert.match(source, /\/collections\/bottoms/);
-  assert.match(source, /view=doll-category/);
+  assert.match(source, /link\.handle/);
+  assert.match(source, /\/top\?view=doll-category/);
+  assert.match(source, /\/bottom\?view=doll-category/);
+  assert.doesNotMatch(source, /\/collections\/tops/);
+  assert.doesNotMatch(source, /\/collections\/bottoms/);
 });
 
 for (const snippetPath of navigationSnippets) {
