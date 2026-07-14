@@ -400,15 +400,17 @@
             "image": "shopify://shop_images/25c52ca991d73f9d72359ca4a9b5056b.jpg"
           }
         },
-        "image_3DznxM": {
-          "type": "image",
-          "settings": {}
+        "collection_VMAdAj": {
+          "type": "collection",
+          "settings": {
+            "collection": "blokecore"
+          }
         }
       },
       "block_order": [
         "image_cUedK7",
         "image_bUj3aq",
-        "image_3DznxM"
+        "collection_VMAdAj"
       ],
       "name": "t:sections.collage.presets.name",
       "settings": {
