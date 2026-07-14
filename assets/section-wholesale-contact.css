@@ -1,3 +1,18 @@
+.cooperation-page-template main,
+.cooperation-page-template main .gradient,
+.cooperation-page-template main [class*='color-'] {
+  --color-background: 255, 255, 255;
+  --gradient-background: #ffffff;
+  --color-foreground: 18, 18, 18;
+  --color-button: 250, 140, 60;
+  --color-button-text: 255, 255, 255;
+  --color-secondary-button: 255, 255, 255;
+  --color-secondary-button-text: 18, 18, 18;
+  --color-link: 18, 18, 18;
+  background: #ffffff;
+  color: #121212;
+}
+
 .wholesale__heading {
   margin-bottom: 2rem;
 }
