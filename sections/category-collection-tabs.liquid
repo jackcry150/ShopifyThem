@@ -6,6 +6,13 @@
 {%- liquid
   assign first_block = section.blocks.first
   assign desktop_columns = section.settings.products_to_show | at_most: 4
+  assign first_label = first_block.settings.label
+  if first_label == blank and first_block.settings.collection != blank
+    assign first_label = first_block.settings.collection.title
+  endif
+  if first_label == blank
+    assign first_label = 'Category'
+  endif
 -%}
 
 <category-collection-tabs
@@ -13,103 +20,111 @@
   style="
     --category-tabs-background: {{ section.settings.background_color }};
     --category-tabs-text: {{ section.settings.text_color }};
+    --category-tabs-heading: {{ section.settings.heading_color }};
     --category-tabs-card: {{ section.settings.card_color }};
     --category-tabs-padding-top: {{ section.settings.padding_top }}px;
     --category-tabs-padding-bottom: {{ section.settings.padding_bottom }}px;
     --category-tabs-desktop-columns: {{ desktop_columns }};
   "
 >
-  <div class="category-collection-tabs__inner page-width">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="category-collection-tabs__heading inline-richtext">
-        {{ section.settings.heading }}
-      </h2>
-    {%- endif -%}
+  {%- if section.blocks.size > 0 -%}
+    <div class="category-collection-tabs__navigation">
+      <div class="page-width">
+        <div
+          class="category-collection-tabs__tablist"
+          role="tablist"
+          aria-label="{{ section.settings.heading | default: 'Collections' | strip_html | escape }}"
+        >
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign category_label = block.settings.label
+              if category_label == blank and block.settings.collection != blank
+                assign category_label = block.settings.collection.title
+              endif
+              if category_label == blank
+                assign category_label = 'Category'
+              endif
+            -%}
+            <button
+              id="CategoryTab-{{ section.id }}-{{ block.id }}"
+              class="category-collection-tabs__tab{% if block.id == first_block.id %} is-active{% endif %}"
+              type="button"
+              role="tab"
+              aria-selected="{% if block.id == first_block.id %}true{% else %}false{% endif %}"
+              aria-controls="CategoryPanel-{{ section.id }}-{{ block.id }}"
+              tabindex="{% if block.id == first_block.id %}0{% else %}-1{% endif %}"
+              data-block-id="{{ block.id }}"
+              {{ block.shopify_attributes }}
+            >
+              {{ category_label | escape }}
+            </button>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
 
-    {%- if section.blocks.size > 0 -%}
-      <div
-        class="category-collection-tabs__tablist"
-        role="tablist"
-        aria-label="{{ section.settings.heading | default: 'Collections' | strip_html | escape }}"
-      >
-        {%- for block in section.blocks -%}
-          {%- liquid
-            assign category_label = block.settings.label
-            if category_label == blank and block.settings.collection != blank
-              assign category_label = block.settings.collection.title
-            endif
-            if category_label == blank
-              assign category_label = 'Category'
-            endif
-          -%}
-          <button
-            id="CategoryTab-{{ section.id }}-{{ block.id }}"
-            class="category-collection-tabs__tab{% if block.id == first_block.id %} is-active{% endif %}"
-            type="button"
-            role="tab"
-            aria-selected="{% if block.id == first_block.id %}true{% else %}false{% endif %}"
-            aria-controls="CategoryPanel-{{ section.id }}-{{ block.id }}"
-            tabindex="{% if block.id == first_block.id %}0{% else %}-1{% endif %}"
-            data-block-id="{{ block.id }}"
-            {{ block.shopify_attributes }}
-          >
-            {{ category_label | escape }}
-          </button>
-        {%- endfor -%}
-      </div>
+    <div class="category-collection-tabs__content">
+      <div class="category-collection-tabs__content-inner page-width">
+        <h2 class="category-collection-tabs__active-heading" data-active-heading aria-live="polite">
+          {{ first_label | escape }}
+        </h2>
 
-      <div class="category-collection-tabs__panels">
-        {%- assign skip_card_product_styles = false -%}
-        {%- for block in section.blocks -%}
-          <div
-            id="CategoryPanel-{{ section.id }}-{{ block.id }}"
-            class="category-collection-tabs__panel{% if block.id == first_block.id %} is-active{% endif %}"
-            role="tabpanel"
-            aria-labelledby="CategoryTab-{{ section.id }}-{{ block.id }}"
-            tabindex="0"
-            {% unless block.id == first_block.id %}hidden{% endunless %}
-          >
-            {%- if block.settings.collection != blank and block.settings.collection.products_count > 0 -%}
-              <ul class="category-collection-tabs__products" role="list">
-                {%- for product in block.settings.collection.products limit: section.settings.products_to_show -%}
-                  <li class="category-collection-tabs__product">
-                    {% render 'card-product',
-                      card_product: product,
-                      media_aspect_ratio: section.settings.image_ratio,
-                      show_secondary_image: section.settings.show_secondary_image,
-                      show_vendor: section.settings.show_vendor,
-                      show_rating: section.settings.show_rating,
-                      lazy_load: true,
-                      skip_styles: skip_card_product_styles,
-                      section_id: section.id,
-                      quick_add: 'none'
-                    %}
-                  </li>
-                  {%- assign skip_card_product_styles = true -%}
-                {%- endfor -%}
-              </ul>
-            {%- else -%}
-              <div class="category-collection-tabs__empty">
-                <p>
-                  {%- if request.design_mode and block.settings.collection == blank -%}
-                    Select a collection for this category in the theme editor.
-                  {%- else -%}
-                    New products for this category are coming soon.
-                  {%- endif -%}
-                </p>
-              </div>
-            {%- endif -%}
-          </div>
-        {%- endfor -%}
+        <div class="category-collection-tabs__panels">
+          {%- assign skip_card_product_styles = false -%}
+          {%- for block in section.blocks -%}
+            <div
+              id="CategoryPanel-{{ section.id }}-{{ block.id }}"
+              class="category-collection-tabs__panel{% if block.id == first_block.id %} is-active{% endif %}"
+              role="tabpanel"
+              aria-labelledby="CategoryTab-{{ section.id }}-{{ block.id }}"
+              tabindex="0"
+              {% unless block.id == first_block.id %}hidden{% endunless %}
+            >
+              {%- if block.settings.collection != blank and block.settings.collection.all_products_count > 0 -%}
+                <ul class="category-collection-tabs__products" role="list">
+                  {%- for product in block.settings.collection.products limit: section.settings.products_to_show -%}
+                    <li class="category-collection-tabs__product">
+                      {% render 'card-product',
+                        card_product: product,
+                        media_aspect_ratio: section.settings.image_ratio,
+                        show_secondary_image: section.settings.show_secondary_image,
+                        show_vendor: section.settings.show_vendor,
+                        show_rating: section.settings.show_rating,
+                        lazy_load: true,
+                        skip_styles: skip_card_product_styles,
+                        section_id: section.id,
+                        quick_add: 'none'
+                      %}
+                    </li>
+                    {%- assign skip_card_product_styles = true -%}
+                  {%- endfor -%}
+                </ul>
+              {%- else -%}
+                <div class="category-collection-tabs__empty">
+                  <p>
+                    {%- if request.design_mode and block.settings.collection == blank -%}
+                      Select a collection for this category in the theme editor.
+                    {%- else -%}
+                      New products for this category are coming soon.
+                    {%- endif -%}
+                  </p>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
       </div>
-    {%- elsif request.design_mode -%}
-      <div class="category-collection-tabs__empty">
-        <p>Add a category block and choose a collection to build this section.</p>
+    </div>
+  {%- elsif request.design_mode -%}
+    <div class="category-collection-tabs__navigation">
+      <div class="page-width">
+        <div class="category-collection-tabs__empty">
+          <p>Add a category block and choose a collection to build this section.</p>
+        </div>
       </div>
-    {%- endif -%}
-  </div>
+    </div>
+  {%- endif -%}
 </category-collection-tabs>
-
 {% schema %}
 {
   "name": "Category collection tabs",
@@ -171,7 +186,7 @@
     {
       "type": "color",
       "id": "background_color",
-      "default": "#FA8C3C",
+      "default": "#D95700",
       "label": "Background"
     },
     {
@@ -179,6 +194,12 @@
       "id": "text_color",
       "default": "#111111",
       "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#FFFFFF",
+      "label": "Active category heading"
     },
     {
       "type": "color",

@@ -5,6 +5,7 @@ class CategoryCollectionTabs extends HTMLElement {
 
     this.tabs = Array.from(this.querySelectorAll('[role="tab"]'));
     this.panels = Array.from(this.querySelectorAll('[role="tabpanel"]'));
+    this.activeHeading = this.querySelector('[data-active-heading]');
 
     if (!this.tabs.length) return;
 
@@ -20,17 +21,14 @@ class CategoryCollectionTabs extends HTMLElement {
 
     if (window.Shopify && window.Shopify.designMode) {
       this.addEventListener('shopify:block:select', (event) => {
-        const tab = this.querySelector(`[role="tab"][data-block-id="${event.detail.blockId}"]`);
+        const tab = this.querySelector('[role="tab"][data-block-id="' + event.detail.blockId + '"]');
         if (tab) this.activateTab(tab, { focus: true });
       });
     }
   }
 
   activateTab(tab, options = {}) {
-    if (!tab || tab.getAttribute('aria-selected') === 'true') {
-      if (options.focus) tab?.focus({ preventScroll: true });
-      return;
-    }
+    if (!tab) return;
 
     const targetPanelId = tab.getAttribute('aria-controls');
 
@@ -47,20 +45,25 @@ class CategoryCollectionTabs extends HTMLElement {
       panel.classList.toggle('is-active', isActive);
     });
 
+    if (this.activeHeading) {
+      this.activeHeading.textContent = tab.textContent.trim();
+    }
+
     if (options.focus) tab.focus({ preventScroll: true });
   }
 
   handleKeydown(event, currentTab) {
     const currentIndex = this.tabs.indexOf(currentTab);
+    const handledKeys = ['ArrowRight', 'ArrowLeft', 'Home', 'End'];
+
+    if (!handledKeys.includes(event.key)) return;
+
     let targetIndex = currentIndex;
 
     if (event.key === 'ArrowRight') targetIndex = (currentIndex + 1) % this.tabs.length;
     if (event.key === 'ArrowLeft') targetIndex = (currentIndex - 1 + this.tabs.length) % this.tabs.length;
     if (event.key === 'Home') targetIndex = 0;
     if (event.key === 'End') targetIndex = this.tabs.length - 1;
-
-    if (targetIndex === currentIndex && !['Home', 'End'].includes(event.key)) return;
-    if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
 
     event.preventDefault();
     this.activateTab(this.tabs[targetIndex], { focus: true });

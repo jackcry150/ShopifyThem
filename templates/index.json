@@ -188,8 +188,9 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "background_color": "#FA8C3C",
+        "background_color": "#D95700",
         "text_color": "#111111",
+        "heading_color": "#FFFFFF",
         "card_color": "#FFFFFF",
         "padding_top": 64,
         "padding_bottom": 64
