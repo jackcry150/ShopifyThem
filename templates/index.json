@@ -135,82 +135,64 @@
       }
     },
     "multicolumn_aqMqTk": {
-      "type": "multicolumn",
+      "type": "category-collection-tabs",
       "blocks": {
-        "column_Eik6LD": {
-          "type": "column",
+        "category_Eik6LD": {
+          "type": "category",
           "settings": {
-            "image": "shopify://shop_images/03.jpg",
-            "title": "Action FigureDoll",
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/action-figure"
+            "label": "Action Figures",
+            "collection": "action-figure"
           }
         },
-        "column_Ar6ncq": {
-          "type": "column",
+        "category_Ar6ncq": {
+          "type": "category",
           "settings": {
-            "image": "shopify://shop_images/0_7a92f94f-ffd6-4020-aaf4-a93160dd1f8f.jpg",
-            "title": "Column",
-            "text": "",
-            "link_label": "",
-            "link": ""
+            "label": "Column",
+            "collection": ""
           }
         },
-        "column_BKffW9": {
-          "type": "column",
+        "category_BKffW9": {
+          "type": "category",
           "settings": {
-            "image": "shopify://shop_images/90051d0b2358d31de7bd428b6dfd233a.jpg",
-            "title": "Doll Outfit",
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/doll-outfit"
+            "label": "Doll Outfits",
+            "collection": "doll-outfit"
           }
         },
-        "column_WkhgbE": {
-          "type": "column",
+        "category_WkhgbE": {
+          "type": "category",
           "settings": {
-            "image": "shopify://shop_images/3_31caee14-4b5c-478c-8409-d203303fc997.jpg",
-            "title": "Doll Accesorries",
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/doll-accesorries"
+            "label": "Doll Accessories",
+            "collection": "doll-accesorries"
           }
         },
-        "column_awWyWC": {
-          "type": "column",
+        "category_awWyWC": {
+          "type": "category",
           "settings": {
-            "image": "shopify://shop_images/micoco_2bd308c9-d430-4faf-83b9-a7dc85c2f6a0.jpg",
-            "title": "Designer Toys",
-            "text": "",
-            "link_label": "",
-            "link": ""
+            "label": "Designer Toys",
+            "collection": ""
           }
         }
       },
       "block_order": [
-        "column_Eik6LD",
-        "column_Ar6ncq",
-        "column_BKffW9",
-        "column_WkhgbE",
-        "column_awWyWC"
+        "category_Eik6LD",
+        "category_Ar6ncq",
+        "category_BKffW9",
+        "category_WkhgbE",
+        "category_awWyWC"
       ],
-      "name": "t:sections.multicolumn.presets.name",
+      "name": "Collection Hub",
       "settings": {
-        "title": "Collection Hub",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "portrait",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 40
+        "heading": "Collection Hub",
+        "products_to_show": 4,
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "background_color": "#FA8C3C",
+        "text_color": "#111111",
+        "card_color": "#FFFFFF",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "featured_collection_hnCczw": {
