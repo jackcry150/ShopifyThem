@@ -147,6 +147,16 @@
             "link": "shopify://collections/action-figure"
           }
         },
+        "column_Ar6ncq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/0_7a92f94f-ffd6-4020-aaf4-a93160dd1f8f.jpg",
+            "title": "Column",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
         "column_BKffW9": {
           "type": "column",
           "settings": {
@@ -180,6 +190,7 @@
       },
       "block_order": [
         "column_Eik6LD",
+        "column_Ar6ncq",
         "column_BKffW9",
         "column_WkhgbE",
         "column_awWyWC"
@@ -189,7 +200,7 @@
         "title": "Collection Hub",
         "heading_size": "h0",
         "image_width": "full",
-        "image_ratio": "circle",
+        "image_ratio": "portrait",
         "button_label": "",
         "button_link": "",
         "columns_desktop": 3,
