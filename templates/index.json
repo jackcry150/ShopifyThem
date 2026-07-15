@@ -15,7 +15,7 @@
         "slide_HejDQ6": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner.jpg",
+            "image": "shopify://shop_images/20260715160346_554_90.jpg",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h2",
@@ -33,7 +33,7 @@
         "slide_9qQ4ep": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/b388a979f6a9e9677701d46119e28b22_9378ed1a-05cf-41c0-90a8-170d74206682.jpg",
+            "image": "shopify://shop_images/20260715160347_555_90.jpg",
             "image_overlay_opacity": 0,
             "heading": "Image slide",
             "heading_size": "h1",
@@ -51,7 +51,7 @@
         "slide_FcEdxj": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner_1d11481f-9dbe-4e7b-97fc-d3498d520dc6.jpg",
+            "image": "shopify://shop_images/20260715160354_556_90.jpg",
             "image_overlay_opacity": 0,
             "heading": "Image slide",
             "heading_size": "h1",
@@ -188,7 +188,7 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "background_color": "#FF8D02",
+        "background_color": "#ff8d02",
         "text_color": "#111111",
         "heading_color": "#ffffff",
         "card_color": "#ffffff",
