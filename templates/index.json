@@ -396,6 +396,7 @@
         },
         "image_bUj3aq": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/25c52ca991d73f9d72359ca4a9b5056b.jpg"
           }
