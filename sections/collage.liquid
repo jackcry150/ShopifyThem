@@ -15,6 +15,12 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+
+    {%- if section.settings.desktop_width != 'full' %}
+      .section-{{ section.id }}-padding .collage {
+        max-width: {% if section.settings.desktop_width == 'compact' %}100rem{% else %}120rem{% endif %};
+      }
+    {%- endif %}
   }
 {%- endstyle -%}
 
@@ -262,6 +268,26 @@
       "type": "header",
       "content": "t:sections.collage.settings.header_layout.content"
     },       
+    {
+      "type": "select",
+      "id": "desktop_width",
+      "options": [
+        {
+          "value": "full",
+          "label": "Full"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "compact",
+          "label": "Compact"
+        }
+      ],
+      "default": "full",
+      "label": "Desktop collage width"
+    },
     {
       "type": "select",
       "id": "desktop_layout",

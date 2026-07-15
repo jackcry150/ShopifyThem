@@ -144,7 +144,7 @@
             "title": "Action FigureDoll",
             "text": "",
             "link_label": "",
-            "link": ""
+            "link": "shopify://collections/action-figure"
           }
         },
         "column_BKffW9": {
@@ -154,7 +154,7 @@
             "title": "Doll Outfit",
             "text": "",
             "link_label": "",
-            "link": ""
+            "link": "shopify://collections/doll-outfit"
           }
         },
         "column_WkhgbE": {
@@ -164,7 +164,7 @@
             "title": "Doll Accesorries",
             "text": "",
             "link_label": "",
-            "link": ""
+            "link": "shopify://collections/doll-accesorries"
           }
         },
         "column_awWyWC": {
@@ -416,13 +416,14 @@
       "name": "t:sections.collage.presets.name",
       "settings": {
         "heading": "Community",
-        "heading_size": "h1",
+        "heading_size": "h0",
+        "desktop_width": "medium",
         "desktop_layout": "right",
         "mobile_layout": "collage",
         "card_styles": "none",
         "color_scheme": "scheme-b14ab96c-ace1-408e-b98c-25093c3c1add",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     }
   },

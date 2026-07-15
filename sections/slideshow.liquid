@@ -2,6 +2,30 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+  .slideshow__image-link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+  }
+
+  .slideshow__image-link:focus-visible {
+    outline: 0.3rem solid rgb(var(--color-foreground));
+    outline-offset: -0.5rem;
+  }
+
+  .slideshow__text-wrapper {
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .slideshow__text-wrapper a,
+  .slideshow__text-wrapper button {
+    pointer-events: auto;
+  }
+{%- endstyle -%}
+
 {%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
   {%- style -%}
     @media screen and (max-width: 749px) {
@@ -242,6 +266,13 @@
             {%- endif -%}
           {%- endif -%}
         </div>
+        {%- if block.settings.link != blank -%}
+          <a
+            class="slideshow__image-link"
+            href="{{ block.settings.link }}"
+            aria-label="{{ block.settings.heading | default: block.settings.button_label | default: block.settings.image.alt | default: 'View collection' | strip_html | escape }}"
+          ></a>
+        {%- endif -%}
         <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
           <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
             {%- if block.settings.heading != blank -%}
@@ -547,7 +578,8 @@
         {
           "type": "url",
           "id": "link",
-          "label": "t:sections.slideshow.blocks.slide.settings.link.label"
+          "label": "t:sections.slideshow.blocks.slide.settings.link.label",
+          "info": "The entire slide image and its button use this link."
         },
         {
           "type": "checkbox",
