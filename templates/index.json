@@ -188,12 +188,12 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "background_color": "#D95700",
+        "background_color": "#FF8D02",
         "text_color": "#111111",
-        "heading_color": "#FFFFFF",
-        "card_color": "#FFFFFF",
-        "padding_top": 64,
-        "padding_bottom": 64
+        "heading_color": "#ffffff",
+        "card_color": "#ffffff",
+        "padding_top": 28,
+        "padding_bottom": 76
       }
     },
     "featured_collection_hnCczw": {
