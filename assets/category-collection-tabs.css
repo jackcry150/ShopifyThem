@@ -25,7 +25,10 @@
 
 .category-collection-tabs__tab {
   position: relative;
+  display: inline-flex;
   flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
   min-height: 4.4rem;
   padding: 1.2rem 2rem;
   border: 0.1rem solid var(--category-tabs-text);
@@ -36,6 +39,7 @@
   font: inherit;
   font-weight: 700;
   line-height: 1.2;
+  text-decoration: none;
   scroll-snap-align: start;
   transition:
     background-color 180ms var(--tabs-ease),

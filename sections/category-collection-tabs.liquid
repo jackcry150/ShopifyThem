@@ -45,19 +45,35 @@
                 assign category_label = 'Category'
               endif
             -%}
-            <button
-              id="CategoryTab-{{ section.id }}-{{ block.id }}"
-              class="category-collection-tabs__tab{% if block.id == first_block.id %} is-active{% endif %}"
-              type="button"
-              role="tab"
-              aria-selected="{% if block.id == first_block.id %}true{% else %}false{% endif %}"
-              aria-controls="CategoryPanel-{{ section.id }}-{{ block.id }}"
-              tabindex="{% if block.id == first_block.id %}0{% else %}-1{% endif %}"
-              data-block-id="{{ block.id }}"
-              {{ block.shopify_attributes }}
-            >
-              {{ category_label | escape }}
-            </button>
+            {%- if block.settings.collection != blank -%}
+              <a
+                id="CategoryTab-{{ section.id }}-{{ block.id }}"
+                class="category-collection-tabs__tab{% if block.id == first_block.id %} is-active{% endif %}"
+                href="{{ block.settings.collection.url }}"
+                role="tab"
+                aria-selected="{% if block.id == first_block.id %}true{% else %}false{% endif %}"
+                aria-controls="CategoryPanel-{{ section.id }}-{{ block.id }}"
+                tabindex="{% if block.id == first_block.id %}0{% else %}-1{% endif %}"
+                data-block-id="{{ block.id }}"
+                {{ block.shopify_attributes }}
+              >
+                {{ category_label | escape }}
+              </a>
+            {%- else -%}
+              <button
+                id="CategoryTab-{{ section.id }}-{{ block.id }}"
+                class="category-collection-tabs__tab{% if block.id == first_block.id %} is-active{% endif %}"
+                type="button"
+                role="tab"
+                aria-selected="{% if block.id == first_block.id %}true{% else %}false{% endif %}"
+                aria-controls="CategoryPanel-{{ section.id }}-{{ block.id }}"
+                tabindex="{% if block.id == first_block.id %}0{% else %}-1{% endif %}"
+                data-block-id="{{ block.id }}"
+                {{ block.shopify_attributes }}
+              >
+                {{ category_label | escape }}
+              </button>
+            {%- endif -%}
           {%- endfor -%}
         </div>
       </div>
@@ -246,7 +262,8 @@
         {
           "type": "collection",
           "id": "collection",
-          "label": "Collection"
+          "label": "Collection",
+          "info": "Hover previews products. Clicking opens this collection."
         }
       ]
     }

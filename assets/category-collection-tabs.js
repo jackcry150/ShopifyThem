@@ -10,7 +10,13 @@ class CategoryCollectionTabs extends HTMLElement {
     if (!this.tabs.length) return;
 
     this.tabs.forEach((tab) => {
-      tab.addEventListener('click', () => this.activateTab(tab));
+      tab.addEventListener('click', (event) => {
+        this.activateTab(tab);
+
+        if (window.Shopify && window.Shopify.designMode) {
+          event.preventDefault();
+        }
+      });
       tab.addEventListener('focus', () => this.activateTab(tab));
       tab.addEventListener('keydown', (event) => this.handleKeydown(event, tab));
 
