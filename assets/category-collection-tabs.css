@@ -126,9 +126,12 @@
   color: rgb(var(--color-foreground));
 }
 
-.category-collection-tabs__product .card__inner,
-.category-collection-tabs__product .card__content {
+.category-collection-tabs__product .card__inner {
   background: var(--category-tabs-card);
+}
+
+.category-collection-tabs__product .card__inner > .card__content {
+  background: transparent;
 }
 
 .category-collection-tabs__product .card__heading,
