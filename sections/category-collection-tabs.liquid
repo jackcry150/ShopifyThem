@@ -6,6 +6,9 @@
 {%- liquid
   assign first_block = section.blocks.first
   assign desktop_columns = section.settings.products_to_show | at_most: 4
+  assign preorder_tag = section.settings.preorder_tag | default: 'Pre-order' | strip
+  assign normalized_preorder_tag = preorder_tag | downcase
+  assign preorder_badge_label = section.settings.preorder_badge_label | default: 'Pre-order' | strip
   assign first_label = first_block.settings.label
   if first_label == blank and first_block.settings.collection != blank
     assign first_label = first_block.settings.collection.title
@@ -96,32 +99,58 @@
               tabindex="0"
               {% unless block.id == first_block.id %}hidden{% endunless %}
             >
-              {%- if block.settings.collection != blank and block.settings.collection.all_products_count > 0 -%}
-                <ul class="category-collection-tabs__products" role="list">
-                  {%- for product in block.settings.collection.products limit: section.settings.products_to_show -%}
-                    <li class="category-collection-tabs__product">
-                      {% render 'card-product',
-                        card_product: product,
-                        media_aspect_ratio: section.settings.image_ratio,
-                        show_secondary_image: section.settings.show_secondary_image,
-                        show_vendor: section.settings.show_vendor,
-                        show_rating: section.settings.show_rating,
-                        lazy_load: true,
-                        skip_styles: skip_card_product_styles,
-                        section_id: section.id,
-                        quick_add: 'none'
-                      %}
-                    </li>
-                    {%- assign skip_card_product_styles = true -%}
+              {%- capture preorder_product_cards -%}
+                {%- assign preorder_products_shown = 0 -%}
+                {%- if block.settings.collection != blank -%}
+                  {%- for product in block.settings.collection.products -%}
+                    {%- if preorder_products_shown >= section.settings.products_to_show -%}
+                      {%- break -%}
+                    {%- endif -%}
+                    {%- assign product_is_preorder = false -%}
+                    {%- for product_tag in product.tags -%}
+                      {%- assign normalized_product_tag = product_tag | strip | downcase -%}
+                      {%- if normalized_product_tag == normalized_preorder_tag -%}
+                        {%- assign product_is_preorder = true -%}
+                        {%- break -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+                    {%- if product_is_preorder -%}
+                      <li class="category-collection-tabs__product">
+                        <span class="category-collection-tabs__preorder-badge">
+                          {{ preorder_badge_label | escape }}
+                        </span>
+                        {% render 'card-product',
+                          card_product: product,
+                          media_aspect_ratio: section.settings.image_ratio,
+                          show_secondary_image: section.settings.show_secondary_image,
+                          show_vendor: section.settings.show_vendor,
+                          show_rating: section.settings.show_rating,
+                          lazy_load: true,
+                          skip_styles: skip_card_product_styles,
+                          section_id: section.id,
+                          quick_add: 'none'
+                        %}
+                      </li>
+                      {%- assign preorder_products_shown = preorder_products_shown | plus: 1 -%}
+                      {%- assign skip_card_product_styles = true -%}
+                    {%- endif -%}
                   {%- endfor -%}
+                {%- endif -%}
+              {%- endcapture -%}
+
+              {%- if preorder_products_shown > 0 -%}
+                <ul class="category-collection-tabs__products" role="list">
+                  {{ preorder_product_cards }}
                 </ul>
               {%- else -%}
                 <div class="category-collection-tabs__empty">
                   <p>
                     {%- if request.design_mode and block.settings.collection == blank -%}
                       Select a collection for this category in the theme editor.
+                    {%- elsif request.design_mode -%}
+                      Add the “{{ preorder_tag | escape }}” product tag to products in this collection.
                     {%- else -%}
-                      New products for this category are coming soon.
+                      New pre-order products for this category are coming soon.
                     {%- endif -%}
                   </p>
                 </div>
@@ -194,6 +223,23 @@
       "id": "show_rating",
       "default": false,
       "label": "Show product rating"
+    },
+    {
+      "type": "header",
+      "content": "Pre-order filter"
+    },
+    {
+      "type": "text",
+      "id": "preorder_tag",
+      "default": "Pre-order",
+      "label": "Product tag",
+      "info": "Only products with this Shopify product tag appear in this section. Matching is not case-sensitive."
+    },
+    {
+      "type": "text",
+      "id": "preorder_badge_label",
+      "default": "Pre-order",
+      "label": "Card badge text"
     },
     {
       "type": "header",

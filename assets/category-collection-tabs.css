@@ -124,10 +124,31 @@
 }
 
 .category-collection-tabs__product {
+  position: relative;
   min-width: 0;
   padding: clamp(0.8rem, 1.2vw, 1.2rem);
   background: var(--category-tabs-card);
   color: var(--category-tabs-text);
+}
+
+.category-collection-tabs__preorder-badge {
+  position: absolute;
+  z-index: 2;
+  top: clamp(1.6rem, 2vw, 2rem);
+  left: clamp(1.6rem, 2vw, 2rem);
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.8rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  pointer-events: none;
 }
 
 .category-collection-tabs__product .card__inner {
