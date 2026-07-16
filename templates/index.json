@@ -188,7 +188,7 @@
           "type": "category",
           "settings": {
             "label": "Plush Toy",
-            "collection": ""
+            "collection": "plush-toy"
           }
         }
       },
