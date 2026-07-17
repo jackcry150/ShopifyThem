@@ -302,14 +302,17 @@
                   </div>
                 {%- endif -%}
               {%- when 'sku' -%}
+                {%- liquid
+                  assign current_variant_sku = product.selected_or_first_available_variant.sku | strip
+                -%}
                 <p
-                  class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
+                  class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if current_variant_sku == blank %} hidden{% endif %}"
                   id="Sku-{{ section.id }}"
                   role="status"
                   {{ block.shopify_attributes }}
                 >
                   <span class="product__sku-label">{{ 'products.product.sku' | t }}:</span>
-                  {{- product.selected_or_first_available_variant.sku -}}
+                  <span class="product__sku-value">{{ current_variant_sku }}</span>
                 </p>
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
@@ -2390,36 +2393,7 @@
       "id": "shipping_link_url",
       "label": "Policy link"
     },
-    {
-      "type": "header",
-      "content": "Product detail accordions"
-    },
-    {
-      "type": "text",
-      "id": "product_details_size_title",
-      "label": "Size accordion title",
-      "default": "PRODUCT SIZES"
-    },
-    {
-      "type": "liquid",
-      "id": "product_details_size_content",
-      "label": "Default size content",
-      "info": "Used when product metafields custom.product_sizes, custom.size_information, custom.size_chart, or custom.sizing are empty.",
-      "default": "<p>Fits 1/6, 1/12, OB11, BJD, or other compatible dolls as described by this product. Please check the product photos and option name before ordering.</p>"
-    },
-    {
-      "type": "text",
-      "id": "product_details_included_title",
-      "label": "Included items accordion title",
-      "default": "INCLUDED ITEMS"
-    },
-    {
-      "type": "liquid",
-      "id": "product_details_included_content",
-      "label": "Default included items content",
-      "info": "Used when product metafields custom.included_items, custom.package_includes, custom.whats_included, or custom.product_contents are empty.",
-      "default": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>"
-    },
+
     {
       "type": "header",
       "content": "Delivery timeline"

@@ -1,45 +1,6 @@
 {% comment %}
-  Product detail accordions and delivery estimate used below the buy buttons.
+  Delivery estimate displayed below the buy buttons.
 {% endcomment %}
-
-{%- liquid
-  assign size_metafield = product.metafields.custom.product_sizes | default: product.metafields.custom.size_information | default: product.metafields.custom.size_chart | default: product.metafields.custom.sizing
-  assign included_metafield = product.metafields.custom.included_items | default: product.metafields.custom.package_includes | default: product.metafields.custom.whats_included | default: product.metafields.custom.product_contents
--%}
-
-<div class="product-action-links product-detail-accordions" data-product-detail-accordions>
-  <details class="product-detail-accordion">
-    <summary class="product-detail-accordion__summary">
-      <span>{{ product_section.settings.product_details_size_title | default: 'PRODUCT SIZES' }}</span>
-      {{- 'icon-caret.svg' | inline_asset_content -}}
-    </summary>
-    <div class="product-detail-accordion__content rte">
-      {%- if size_metafield != blank -%}
-        {{ size_metafield | metafield_tag }}
-      {%- elsif product_section.settings.product_details_size_content != blank -%}
-        {{ product_section.settings.product_details_size_content }}
-      {%- else -%}
-        <p>Fits 1/6, 1/12, OB11, BJD, or other compatible dolls as described by this product. Please check the product photos and option name before ordering.</p>
-      {%- endif -%}
-    </div>
-  </details>
-
-  <details class="product-detail-accordion">
-    <summary class="product-detail-accordion__summary">
-      <span>{{ product_section.settings.product_details_included_title | default: 'INCLUDED ITEMS' }}</span>
-      {{- 'icon-caret.svg' | inline_asset_content -}}
-    </summary>
-    <div class="product-detail-accordion__content rte">
-      {%- if included_metafield != blank -%}
-        {{ included_metafield | metafield_tag }}
-      {%- elsif product_section.settings.product_details_included_content != blank -%}
-        {{ product_section.settings.product_details_included_content }}
-      {%- else -%}
-        <p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>
-      {%- endif -%}
-    </div>
-  </details>
-</div>
 
 {%- if product_section.settings.show_delivery_timeline -%}
   <div class="product-delivery-timeline" aria-label="Estimated shipping time">
