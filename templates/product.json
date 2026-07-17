@@ -59,6 +59,7 @@
         },
         "collapsible_tab_jtm8Qn": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "",
             "icon": "check_mark",
@@ -135,7 +136,7 @@
         "heading_size": "h2",
         "intro_text": "{{ product.metafields.custom.description | metafield_tag }}",
         "contents_title": "Included Items",
-        "included_items_fallback": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>{{ product.metafields.custom.included_items | metafield_tag }}",
+        "included_items_fallback": "<p>Includes the items shown for the selected product option. Doll body, display stand, background props, or extra accessories are not included unless clearly listed.</p>{{ product.metafields.custom.included_items | metafield_tag }}{{ product.metafields.custom.iinclude | metafield_tag }}",
         "highlight_1_text": "{{ product.metafields.custom.highlights | metafield_tag }}",
         "highlight_1_image": "{{ product.metafields.custom.detail_image.value }}",
         "highlight_2_text": "",
