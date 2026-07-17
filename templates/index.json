@@ -173,8 +173,8 @@
         "category_BKffW9": {
           "type": "category",
           "settings": {
-            "label": "Doll Outfits",
-            "collection": "doll-outfit"
+            "label": "Doll Clothes",
+            "collection": "doll-clothes"
           }
         },
         "category_WkhgbE": {
@@ -207,6 +207,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "preorder_tag": "Pre-order",
+        "preorder_badge_label": "Pre-order",
         "background_color": "#ff8d02",
         "text_color": "#111111",
         "heading_color": "#ffffff",
