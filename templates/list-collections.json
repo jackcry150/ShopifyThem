@@ -46,10 +46,9 @@
         "text_jDDLep",
         "buttons_GGrVCm"
       ],
-      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/acea5a75924ce0f904f0b502e65ee816.jpg",
+        "image": "shopify://shop_images/20260715170250_557_90.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
@@ -108,6 +107,7 @@
       "settings": {
         "heading": "世界杯限定",
         "heading_size": "h1",
+        "desktop_width": "full",
         "desktop_layout": "right",
         "mobile_layout": "column",
         "card_styles": "product-card-wrapper",
