@@ -8,6 +8,7 @@
   assign desktop_columns = section.settings.products_to_show | at_most: 4
   assign preorder_tag = section.settings.preorder_tag | default: 'Pre-order' | strip
   assign normalized_preorder_tag = preorder_tag | downcase
+  assign compact_preorder_tag = normalized_preorder_tag | replace: '-', '' | replace: '_', '' | replace: ' ', ''
   assign preorder_badge_label = section.settings.preorder_badge_label | default: 'Pre-order' | strip
   assign first_label = first_block.settings.label
   if first_label == blank and first_block.settings.collection != blank
@@ -109,7 +110,8 @@
                     {%- assign product_is_preorder = false -%}
                     {%- for product_tag in product.tags -%}
                       {%- assign normalized_product_tag = product_tag | strip | downcase -%}
-                      {%- if normalized_product_tag == normalized_preorder_tag -%}
+                      {%- assign compact_product_tag = normalized_product_tag | replace: '-', '' | replace: '_', '' | replace: ' ', '' -%}
+                      {%- if compact_product_tag == compact_preorder_tag or compact_product_tag == 'preorder' -%}
                         {%- assign product_is_preorder = true -%}
                         {%- break -%}
                       {%- endif -%}
